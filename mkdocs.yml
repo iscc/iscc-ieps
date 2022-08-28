@@ -1,0 +1,74 @@
+site_name: ISCC Enhancement Proposals
+site_description: 'International Standard Content Code - Enhancement Proposals (IEPs).'
+site_author: 'Titusz Pan'
+site_url: 'https://ieps.iscc.codes'
+docs_dir: ieps
+
+# Repository
+repo_name: 'iscc/iscc-ieps'
+repo_url: 'https://github.com/iscc/iscc-ieps'
+edit_uri: 'edit/main/ieps/'
+
+extra_css:
+  - stylesheets/extra.css
+
+extra:
+  analytics:
+    provider: custom
+
+theme:
+  name: material
+  custom_dir: ieps/overrides
+  logo: images/iscc-logo-icon-white.svg
+  favicon: images/iscc-logo-icon-black.svg
+  language: en
+  font:
+    text: Readex Pro
+    code: JetBrains Mono
+  palette:
+    - scheme: slate
+      toggle:
+        icon: material/toggle-switch
+        name: Switch to light mode
+    - scheme: default
+      toggle:
+        icon: material/toggle-switch-off-outline
+        name: Switch to dark mode
+
+plugins:
+  - search
+
+
+markdown_extensions:
+  - abbr
+  - pymdownx.snippets:
+      base_path: ["docs/includes"]
+      auto_append: ["abbreviations.md"]
+  - tables
+  - meta
+  - admonition
+  - pymdownx.details
+  - attr_list
+  - md_in_html
+  - footnotes
+  - toc:
+      permalink: "#"
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.superfences
+  - pymdownx.critic
+  - pymdownx.caret
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.tilde
+  - pymdownx.magiclink
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+
+nav:
+  - Overview: index.md
+  - IEP-0000: iep-0000.md

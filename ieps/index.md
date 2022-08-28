@@ -16,4 +16,4 @@ the historical record of the feature proposal.
 
 | ID                           | Title                      | Type    | Status |
 | ---------------------------- | -------------------------- | ------- | ------ |
-| [IEP-0000](ieps/iep-0000.md) | IEP Purpose and Guidelines | Process | Draft  |
+| [IEP-0000](iep-0000) | IEP Purpose and Guidelines | Process | Draft  |

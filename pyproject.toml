@@ -1,0 +1,35 @@
+[tool.poetry]
+name = "iscc-ieps"
+version = "0.1.0"
+description = "IEPs - ISCC Enhancement Proposals"
+authors = ["Titusz Pan <tp@iscc.foundation>"]
+license = "Apache-2.0"
+readme = "README.md"
+homepage = "https://ieps.iscc.codes"
+repository = "https://github.com/iscc/iscc-ieps"
+keywords=["iscc", "identifier", "media", "content", "hash", "blockchain", "similarity"]
+packages = [
+    { include = "ieps" },
+]
+
+[tool.poetry.dependencies]
+python = ">=3.8,<3.11"
+
+
+[tool.poetry.dev-dependencies]
+black = "*"
+mkdocs-material = "*"
+poethepoet = "*"
+mdformat-gfm = "*"
+mdformat-tables = "*"
+
+[tool.poe.tasks]
+format-code = { cmd = "poetry run black .", help = "Code style formating with black" }
+format-md = { cmd = "mdformat --wrap 100 .", help = "Code style formating with black" }
+build-ieps = { script = "tools.build_ieps:main", help = "Copy README.md to /ieps" }
+normalize-line-endings = { cmd = "poetry run python -m tools.lf", help = "Convert line endings to lf" }
+all = ["format-code", "format-md", "build-ieps", "normalize-line-endings"]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
