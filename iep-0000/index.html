@@ -1,0 +1,831 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="International Standard Content Code - Enhancement Proposals (IEPs).">
+      
+      
+        <meta name="author" content="Titusz Pan">
+      
+      
+        <link rel="canonical" href="https://ieps.iscc.codes/iep-0000/">
+      
+      <link rel="icon" href="../images/iscc-logo-icon-black.svg">
+      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.4.2">
+    
+    
+      
+        <title>IEP-0000 - ISCC Enhancement Proposals</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.69437709.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.cbb835fc.min.css">
+        
+      
+      
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Readex+Pro:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Readex Pro";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  <script defer data-domain="ieps.iscc.codes" src="https://stats.iscc.codes/js/plausible.js"></script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="" data-md-color-accent="">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#iep-0-iep-purpose-and-guidelines" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="ISCC Enhancement Proposals" class="md-header__button md-logo" aria-label="ISCC Enhancement Proposals" data-md-component="logo">
+      
+  <img src="../images/iscc-logo-icon-white.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            ISCC Enhancement Proposals
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              IEP-0000
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
+            </label>
+          
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/iscc/iscc-ieps" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    iscc/iscc-ieps
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="ISCC Enhancement Proposals" class="md-nav__button md-logo" aria-label="ISCC Enhancement Proposals" data-md-component="logo">
+      
+  <img src="../images/iscc-logo-icon-white.svg" alt="logo">
+
+    </a>
+    ISCC Enhancement Proposals
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/iscc/iscc-ieps" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    iscc/iscc-ieps
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          IEP-0000
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        IEP-0000
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-an-iep" class="md-nav__link">
+    What is an IEP?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#iep-audience" class="md-nav__link">
+    IEP Audience
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#iep-workflow" class="md-nav__link">
+    IEP workflow
+  </a>
+  
+    <nav class="md-nav" aria-label="IEP workflow">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#transferring-iep-ownership" class="md-nav__link">
+    Transferring IEP ownership
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#iep-editors" class="md-nav__link">
+    IEP Editors
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#iep-editor-responsibilities" class="md-nav__link">
+    IEP Editor Responsibilities
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#iep-format-and-structure" class="md-nav__link">
+    IEP format and structure
+  </a>
+  
+    <nav class="md-nav" aria-label="IEP format and structure">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#iep-header-preamble" class="md-nav__link">
+    IEP header preamble
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#iep-types" class="md-nav__link">
+    IEP Types
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#iep-status" class="md-nav__link">
+    IEP status
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#history" class="md-nav__link">
+    History
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#copyright" class="md-nav__link">
+    Copyright
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-an-iep" class="md-nav__link">
+    What is an IEP?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#iep-audience" class="md-nav__link">
+    IEP Audience
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#iep-workflow" class="md-nav__link">
+    IEP workflow
+  </a>
+  
+    <nav class="md-nav" aria-label="IEP workflow">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#transferring-iep-ownership" class="md-nav__link">
+    Transferring IEP ownership
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#iep-editors" class="md-nav__link">
+    IEP Editors
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#iep-editor-responsibilities" class="md-nav__link">
+    IEP Editor Responsibilities
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#iep-format-and-structure" class="md-nav__link">
+    IEP format and structure
+  </a>
+  
+    <nav class="md-nav" aria-label="IEP format and structure">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#iep-header-preamble" class="md-nav__link">
+    IEP header preamble
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#iep-types" class="md-nav__link">
+    IEP Types
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#iep-status" class="md-nav__link">
+    IEP status
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#history" class="md-nav__link">
+    History
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#copyright" class="md-nav__link">
+    Copyright
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+  <a href="https://github.com/iscc/iscc-ieps/edit/main/ieps/iep-0000.md" title="Edit this page" class="md-content__button md-icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
+  </a>
+
+
+
+<h1 id="iep-0-iep-purpose-and-guidelines">IEP-0: IEP Purpose and Guidelines<a class="headerlink" href="#iep-0-iep-purpose-and-guidelines" title="Permanent link">#</a></h1>
+<table>
+<thead>
+<tr>
+<th>IEP:</th>
+<th>0000</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Title:</td>
+<td>IEP Purpose and Guidelines</td>
+</tr>
+<tr>
+<td>Author:</td>
+<td>Titusz Pan <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#116;&#112;&#64;&#105;&#115;&#99;&#99;&#46;&#102;&#111;&#117;&#110;&#100;&#97;&#116;&#105;&#111;&#110;">&#116;&#112;&#64;&#105;&#115;&#99;&#99;&#46;&#102;&#111;&#117;&#110;&#100;&#97;&#116;&#105;&#111;&#110;</a></td>
+</tr>
+<tr>
+<td>Comments:</td>
+<td><a href="https://github.com/iscc/iscc-ieps/issues/2">https://github.com/iscc/iscc-ieps/issues/2</a></td>
+</tr>
+<tr>
+<td>Status:</td>
+<td>Draft</td>
+</tr>
+<tr>
+<td>Type:</td>
+<td>Process</td>
+</tr>
+<tr>
+<td>Created:</td>
+<td>2022-08-28</td>
+</tr>
+</tbody>
+</table>
+<h2 id="what-is-an-iep">What is an IEP?<a class="headerlink" href="#what-is-an-iep" title="Permanent link">#</a></h2>
+<p>An ISCC Enhancement Proposal (IEP) is a design document providing information to the ISCC community,
+or describing a new feature for the ISCC or its processes or environment. An IEP should provide a
+concise technical specification of a feature and a rationale for the feature. IEPs have no special
+status except that accorded by the community.</p>
+<p>IEPs are a mechanism for proposing new features, for collecting community input on an issue, and for
+documenting design decisions. The IEP author is responsible for building consensus within the
+community and documenting dissenting opinions.</p>
+<p>Because the IEPs are maintained as text files in a versioned repository, their revision history is
+the historical record of the feature proposal.</p>
+<h2 id="iep-audience">IEP Audience<a class="headerlink" href="#iep-audience" title="Permanent link">#</a></h2>
+<p>The typical primary audience for IEPs are the developers of ISCC implementations.</p>
+<p>However, other parts of the ISCC community may also choose to use the process (particularly for
+Informational IEPs) to document expected API conventions and to manage complex design coordination
+problems that require collaboration across multiple projects.</p>
+<h2 id="iep-workflow">IEP workflow<a class="headerlink" href="#iep-workflow" title="Permanent link">#</a></h2>
+<p>The IEP process begins with a new idea for the ISCC. Each potential IEP must have a champion -
+someone who writes the IEP using the style and format described below, shepherds the discussions in
+the appropriate forums, and attempts to build community consensus around the idea.</p>
+<p>Small enhancements or patches to a particular piece of software often don't require coordination
+between multiple projects or implementations; these don't need an IEP and should be injected into
+the relevant project-specific development workflow with a patch submission to the applicable issue
+tracker.</p>
+<p>After investigating past work, the best way to proceed is by
+<a href="https://github.com/iscc/iscc-ieps/issues/new">opening issue</a> for discussion about the new idea.
+Following a discussion, the proposal should be submitted to the
+<a href="https://github.com/iscc/iscc-ieps">IEPs git repository</a> as a pull request. This draft must be
+written in IEP style as described below, and named with an alias such as
+"iep-johndoe-new-semantic-id" until an editor has assigned it an IEP number (authors MUST NOT
+self-assign IEP numbers).</p>
+<p>When the IEP draft is complete, an IEP editor will assign the IEP a number, label it as Core,
+Informational, or Process, and merge the pull request to the IEPs git repository. The IEP editors
+will not unreasonably reject an IEP. Reasons for rejecting IEPs include duplication of effort,
+disregard for formatting rules, being too unfocused or too broad, being technically unsound, not
+providing proper motivation or addressing backwards compatibility. For an IEP to be accepted it must
+meet certain minimum criteria. It must be a clear and complete description of the proposed
+enhancement. The enhancement must represent a net improvement. The proposed implementation, if
+applicable, must be solid and must not complicate the protocol unduly.</p>
+<p>The IEP author may update the draft as necessary in the git repository. Updates to drafts should
+also be submitted by the author as pull requests.</p>
+<h3 id="transferring-iep-ownership">Transferring IEP ownership<a class="headerlink" href="#transferring-iep-ownership" title="Permanent link">#</a></h3>
+<p>It occasionally becomes necessary to transfer ownership of IEPs to a new champion. A good reason to
+transfer ownership is because the original author no longer has the time or interest in updating it
+or following through with the IEP process, or is unreachable or not responding to email.</p>
+<p>If you are interested in assuming ownership of an IEP, send a message asking to take over, addressed
+to both the original author and the IEP editors. If the original author doesn't respond to email in
+a timely manner, the IEP editors will make a unilateral decision.</p>
+<h3 id="iep-editors">IEP Editors<a class="headerlink" href="#iep-editors" title="Permanent link">#</a></h3>
+<p>The current IEP editors are:</p>
+<ul>
+<li>Titusz Pan <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#116;&#112;&#64;&#105;&#115;&#99;&#99;&#46;&#102;&#111;&#117;&#110;&#100;&#97;&#116;&#105;&#111;&#110;">&#116;&#112;&#64;&#105;&#115;&#99;&#99;&#46;&#102;&#111;&#117;&#110;&#100;&#97;&#116;&#105;&#111;&#110;</a></li>
+</ul>
+<h3 id="iep-editor-responsibilities">IEP Editor Responsibilities<a class="headerlink" href="#iep-editor-responsibilities" title="Permanent link">#</a></h3>
+<p>The IEP editors subscribe to the IEP issue tracker. Correspondence outside the issue tracker should
+be sent (or CC'd) to the IEP editors.</p>
+<p>For each new IEP that comes in an editor does the following:</p>
+<ul>
+<li>
+<p>Read the IEP to check if it is ready: sound and complete. The ideas must make technical sense.</p>
+</li>
+<li>
+<p>The title should accurately describe the content.</p>
+</li>
+<li>
+<p>Motivation and backward compatibility (when applicable) must be addressed.</p>
+</li>
+<li>
+<p>Licensing terms must be acceptable for IEPs.</p>
+</li>
+<li>
+<p>If the IEP isn't ready, the editor will send it back to the author for revision, with specific
+  instructions.</p>
+</li>
+<li>
+<p>Once the IEP is ready for the repository it should be submitted as a "pull request" to the IEPs
+  git repository where it may get further feedback.</p>
+</li>
+</ul>
+<p>The IEP editor will:</p>
+<ul>
+<li>Assign an IEP number in the pull request.</li>
+<li>Merge the pull request when it is ready.</li>
+<li>List the IEP in README.md.</li>
+</ul>
+<p>The IEP editors are intended to fulfill administrative and editorial responsibilities. The IEP
+editors monitor IEP changes, and update IEP headers as appropriate.</p>
+<h2 id="iep-format-and-structure">IEP format and structure<a class="headerlink" href="#iep-format-and-structure" title="Permanent link">#</a></h2>
+<p>IEPs should be written in Markdown format.</p>
+<p>Each IEP should have the following parts:</p>
+<ul>
+<li>Preamble - Headers containing metadata about the IEP (see below).</li>
+<li>Abstract - A short (~200 word) description of the issue being addressed.</li>
+<li>Motivation - A motivation section is critical for IEPs that want to change pre-existing
+  specifications. It should clearly explain why the existing specification is inadequate to address
+  the problem that the IEP solves. This section may be omitted if the motivation is evident.</li>
+<li>Specification - The specification should describe the syntax and semantics of any new feature. The
+  specification should be detailed enough to allow competing, interoperable implementations.</li>
+<li>Rationale - The rationale fleshes out the specification by describing what motivated the design
+  and why particular design decisions were made. It should describe alternate designs that were
+  considered and related work. The rationale should provide evidence of consensus within the
+  community and discuss important objections or concerns raised during discussion around the IEP.</li>
+<li>Backwards compatibility - All IEPs that introduce backwards incompatibilities must include a
+  section describing these incompatibilities and their severity. The IEP must explain how the author
+  proposes to deal with these incompatibilities.</li>
+<li>Reference implementation - A reference implementation must be completed before a <strong>Core</strong> IEP is
+  given status <strong>Stable</strong>, but it need not be completed before the IEP is accepted. The stable
+  implementation must include test code and documentation.</li>
+<li>Copyright Waiver - All IEPs must be in the public domain. The copyright waiver MUST link to the
+  license file and use the following wording:
+  <code>Copyright and related rights waived via [CC0](/LICENSE).</code></li>
+</ul>
+<h3 id="iep-header-preamble">IEP header preamble<a class="headerlink" href="#iep-header-preamble" title="Permanent link">#</a></h3>
+<p>Each IEP must begin with a header preamble. The headers must appear in the following order. Headers
+marked with "*" are optional and are described below. All other headers are required.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>  IEP: &lt;IEP number, or &quot;?&quot; before being assigned&gt;
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>  Title: &lt;IEP title; maximum 44 characters&gt;
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>  Author: &lt;list of authors&#39; names and email addresses&gt;
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>  Comments: &lt;link to issue page for comments&gt;
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>  Status: &lt;Draft | Deferred | Withdrawn | Proposed | Rejected | Stable | Obsolete&gt;
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>  Type: &lt;Core | Informational | Process&gt;
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>  Created: &lt;date created on, in ISO 8601 (yyyy-mm-dd) format&gt;
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>  License: &lt;abbreviation for approved license(s)&gt;
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>* Replaces: &lt;IEP number&gt;
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>* Superseded-By: &lt;IEP number&gt;
+</code></pre></div>
+<p>The Author header lists the names and email addresses of all the authors/owners of the IEP. The
+format of the Author header value must be</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Random J. User &lt;address@dom.ain&gt;
+</code></pre></div>
+<p>If there are multiple authors, each should be on a separate line.</p>
+<p>The Type header specifies the type of IEP: Core, Informational, or Process.</p>
+<p>The Created header records the date that the IEP was assigned a number. Dates should be in
+yyyy-mm-dd format, e.g. 2001-08-14.</p>
+<p>IEPs may have a Superseded-By header indicating that an IEP has been rendered obsolete by a later
+document; the value is the number of the IEP that replaces the current document. The newer IEP must
+have a Replaces header containing the number of the IEP that it rendered obsolete.</p>
+<h2 id="iep-types">IEP Types<a class="headerlink" href="#iep-types" title="Permanent link">#</a></h2>
+<p>There are three kinds of IEPs:</p>
+<ul>
+<li>A <strong>Core</strong> IEP describes any change that affects most or all ISCC implementations, such as a
+  change to the algorithms for creating ISCCs, or any change or addition that affects the
+  interoperability of applications using the ISCC. Core IEPs consist of two parts, a design document
+  and a reference implementation.</li>
+<li>An <strong>Informational</strong> IEP describes an ISCC design issue, or provides general guidelines or
+  information to the ISCC community, but does not propose a new feature. Informational IEPs do not
+  necessarily represent a ISCC community consensus or recommendation, so users and implementors are
+  free to ignore Informational IEPs or follow their advice.</li>
+<li>A <strong>Process</strong> IEP describes a process surrounding ISCC, or proposes a change to (or an event in) a
+  process. Process IEPs are like Core IEPs but apply to areas other than the ISCC algorithms itself.
+  Examples include procedures, guidelines, changes to the decision-making process, and changes to
+  the tools or environment used in ISCC development.</li>
+</ul>
+<h2 id="iep-status">IEP status<a class="headerlink" href="#iep-status" title="Permanent link">#</a></h2>
+<p>The typical paths of the status of IEPs are as follows:</p>
+<pre class="mermaid"><code>flowchart LR
+    B[Draft]
+    B --&gt; C[Poposed]
+    B &lt;--&gt; D[Deferred]
+    B &lt;--&gt; E[Withdrawn]
+    C --&gt; F[Stable]
+    C --&gt; G[Rejected]
+    F --&gt; H[Obsolete]
+</code></pre>
+<p>Champions of an IEP may decide on their own to change the status between Draft, Deferred, or
+Withdrawn. An IEP editor may also change the status to Deferred when no progress is being made on
+the IEP.</p>
+<p>An IEP may only change status from Draft to Proposed, when the author deems it is complete, has a
+working implementation (where applicable), and has community plans to progress it to the Stable
+status.</p>
+<p>IEPs should be changed from Draft or Proposed status, to Rejected status, upon request by any
+person, if they have not made progress in three years. Such an IEP may be changed to Draft status if
+the champion provides revisions that meaningfully address public criticism of the proposal, or to
+Proposed status if it meets the criteria required as described in the previous paragraph.</p>
+<p>An IEP may change status from <strong>Draft</strong> to <strong>Stable</strong> when it achieves rough consensus on the issue
+tracker and sufficient real-world adoption. Such a proposal is said to have rough consensus if it
+has been open to discussion on the issue tracker for at least one month, and no person maintains any
+unaddressed substantiated objections to it. Addressed or obstructive objections may be
+ignored/overruled by general agreement that they have been sufficiently addressed, but clear
+reasoning must be given in such circumstances.</p>
+<p>Software authors are encouraged to publish summaries of what IEPs their software supports to aid in
+verification of status changes.</p>
+<p>Should an IEP become actually and unambiguously adopted despite not meeting the criteria outlined
+here, it should still be updated to Stable status.</p>
+<p>When a Stable IEP is no longer relevant, its status may be changed to Obsolete. This change must
+also be objectively verifiable and/or discussed.</p>
+<h2 id="history">History<a class="headerlink" href="#history" title="Permanent link">#</a></h2>
+<p>This document was derived heavily from Bitcoin’s BIP-0002 which in turn was derived from Python’s
+PEP-0001. In many places text was simply copied and modified. The original authors of BIP-0002 and
+PEP-0001 are not responsible for its use in the ISCC Enhancement Proposals, and should not be
+bothered with technical questions specific to ISCC or the IEPs. Please direct all comments to the
+IEP editors.</p>
+<h2 id="copyright">Copyright<a class="headerlink" href="#copyright" title="Permanent link">#</a></h2>
+<p>Copyright and related rights waived via
+<a href="https://creativecommons.org/publicdomain/zero/1.0/legalcode">CC0</a>.</p>
+
+
+  
+
+
+
+              
+            </article>
+            
+          </div>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      
+        
+        <a href=".." class="md-footer__link md-footer__link--prev" aria-label="Previous: Overview" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Overview
+            </div>
+          </div>
+        </a>
+      
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.ecf98df9.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.9c69f0bc.min.js"></script>
+      
+    
+  </body>
+</html>
