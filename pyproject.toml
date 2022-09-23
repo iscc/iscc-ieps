@@ -26,13 +26,15 @@ mdformat-toc = "^0.3.0"
 mdformat_footnote = "^0.1.1"
 mdformat_frontmatter = "^0.4.1"
 mdformat_deflist = "^0.1.2"
+mkdocs-git-revision-date-localized-plugin = "^1.1.0"
+mkdocs-add-number-plugin = "^1.2.2"
 
 [tool.poe.tasks]
 format-code = { cmd = "poetry run black .", help = "Code style formating with black" }
 format-md = { cmd = "mdformat --wrap 100 --end-of-line lf .", help = "Markdown formating with mdformat" }
 build-ieps = { script = "tools.build_ieps:main", help = "Copy README.md to /ieps" }
 normalize-line-endings = { cmd = "poetry run python -m tools.lf", help = "Convert line endings to lf" }
-all = ["format-code", "format-md", "build-ieps", "normalize-line-endings"]
+all = ["format-code", "build-ieps", "normalize-line-endings"]
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]

@@ -37,12 +37,23 @@ theme:
 
 plugins:
   - search
-
+  - add-number:
+      strict_mode: False
+      order: 2
+      excludes:
+        - index.md
+  - git-revision-date-localized:
+      type: iso_date
+      locale: en
+      enable_creation_date: true
+      enabled: true
+      exclude:
+        - index.md
 
 markdown_extensions:
   - abbr
   - pymdownx.snippets:
-      base_path: ["docs/includes"]
+      base_path: ["ieps/includes"]
       auto_append: ["abbreviations.md"]
   - tables
   - meta
@@ -53,6 +64,7 @@ markdown_extensions:
   - footnotes
   - toc:
       permalink: "#"
+      toc_depth: 3
   - pymdownx.highlight:
       anchor_linenums: true
   - pymdownx.inlinehilite
@@ -72,3 +84,4 @@ markdown_extensions:
 nav:
   - Overview: index.md
   - IEP-0000: iep-0000.md
+  - IEP-0001: iep-0001.md
