@@ -1,0 +1,1255 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="International Standard Content Code - Enhancement Proposals (IEPs).">
+      
+      
+        <meta name="author" content="Titusz Pan">
+      
+      
+        <link rel="canonical" href="https://ieps.iscc.codes/iep-0001/">
+      
+      <link rel="icon" href="../images/iscc-logo-icon-black.svg">
+      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.5.3">
+    
+    
+      
+        <title>IEP-0001 - ISCC Enhancement Proposals</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.7a952b86.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.cbb835fc.min.css">
+        
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Readex+Pro:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Readex Pro";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  <script defer data-domain="ieps.iscc.codes" src="https://stats.iscc.codes/js/plausible.js"></script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="" data-md-color-accent="">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#iscc-structure-and-format" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="ISCC Enhancement Proposals" class="md-header__button md-logo" aria-label="ISCC Enhancement Proposals" data-md-component="logo">
+      
+  <img src="../images/iscc-logo-icon-white.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            ISCC Enhancement Proposals
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              IEP-0001
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
+            </label>
+          
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/iscc/iscc-ieps" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    iscc/iscc-ieps
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="ISCC Enhancement Proposals" class="md-nav__button md-logo" aria-label="ISCC Enhancement Proposals" data-md-component="logo">
+      
+  <img src="../images/iscc-logo-icon-white.svg" alt="logo">
+
+    </a>
+    ISCC Enhancement Proposals
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/iscc/iscc-ieps" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    iscc/iscc-ieps
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../iep-0000/" class="md-nav__link">
+        IEP-0000
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          IEP-0001
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        IEP-0001
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-abstract" class="md-nav__link">
+    1. Abstract
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-motivation" class="md-nav__link">
+    2. Motivation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-general-structure-of-iscc" class="md-nav__link">
+    3. General structure of ISCC
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-iscc-header" class="md-nav__link">
+    4. ISCC-HEADER
+  </a>
+  
+    <nav class="md-nav" aria-label="4. ISCC-HEADER">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-maintypes" class="md-nav__link">
+    4.1 MainTypes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-subtypes" class="md-nav__link">
+    4.2 SubTypes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-version" class="md-nav__link">
+    4.3 Version
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#44-length" class="md-nav__link">
+    4.4 Length
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-iscc-body" class="md-nav__link">
+    5. ISCC-BODY
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-encoding-of-iscc" class="md-nav__link">
+    6. Encoding of ISCC
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Encoding of ISCC">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-canonical-form" class="md-nav__link">
+    6.1 Canonical form
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62-uri-encoding" class="md-nav__link">
+    6.2 URI encoding
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#63-multiformats-encoding" class="md-nav__link">
+    6.3 Multiformats encoding
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#64-readable-encoding" class="md-nav__link">
+    6.4 Readable encoding
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-reference-implementation" class="md-nav__link">
+    7. Reference implementation
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-abstract" class="md-nav__link">
+    1. Abstract
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-motivation" class="md-nav__link">
+    2. Motivation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-general-structure-of-iscc" class="md-nav__link">
+    3. General structure of ISCC
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-iscc-header" class="md-nav__link">
+    4. ISCC-HEADER
+  </a>
+  
+    <nav class="md-nav" aria-label="4. ISCC-HEADER">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-maintypes" class="md-nav__link">
+    4.1 MainTypes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-subtypes" class="md-nav__link">
+    4.2 SubTypes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-version" class="md-nav__link">
+    4.3 Version
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#44-length" class="md-nav__link">
+    4.4 Length
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-iscc-body" class="md-nav__link">
+    5. ISCC-BODY
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-encoding-of-iscc" class="md-nav__link">
+    6. Encoding of ISCC
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Encoding of ISCC">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-canonical-form" class="md-nav__link">
+    6.1 Canonical form
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62-uri-encoding" class="md-nav__link">
+    6.2 URI encoding
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#63-multiformats-encoding" class="md-nav__link">
+    6.3 Multiformats encoding
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#64-readable-encoding" class="md-nav__link">
+    6.4 Readable encoding
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-reference-implementation" class="md-nav__link">
+    7. Reference implementation
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  <a href="https://github.com/iscc/iscc-ieps/edit/main/ieps/iep-0001.md" title="Edit this page" class="md-content__button md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
+  </a>
+
+
+<h1 id="iscc-structure-and-format">ISCC Structure and Format<a class="headerlink" href="#iscc-structure-and-format" title="Permanent link">#</a></h1>
+<table>
+<thead>
+<tr>
+<th>IEP:</th>
+<th>0001</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Title:</td>
+<td>ISCC Structure and Format</td>
+</tr>
+<tr>
+<td>Author:</td>
+<td>Titusz Pan <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#116;&#112;&#64;&#105;&#115;&#99;&#99;&#46;&#102;&#111;&#117;&#110;&#100;&#97;&#116;&#105;&#111;&#110;">&#116;&#112;&#64;&#105;&#115;&#99;&#99;&#46;&#102;&#111;&#117;&#110;&#100;&#97;&#116;&#105;&#111;&#110;</a></td>
+</tr>
+<tr>
+<td>Comments:</td>
+<td><a href="https://github.com/iscc/iscc-ieps/issues/3">https://github.com/iscc/iscc-ieps/issues/3</a></td>
+</tr>
+<tr>
+<td>Status:</td>
+<td>Draft</td>
+</tr>
+<tr>
+<td>Type:</td>
+<td>Core</td>
+</tr>
+<tr>
+<td>License:</td>
+<td>CC-BY-4.0</td>
+</tr>
+<tr>
+<td>Created:</td>
+<td><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2022-09-23</span></td>
+</tr>
+<tr>
+<td>Updated:</td>
+<td><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2022-09-23</span></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This document is a <strong>DRAFT</strong> contributed as input to 
+<a href="https://www.iso.org/committee/48836.html"><abbr title="International Organization for Standardization">ISO</abbr> TC 46/SC 9/WG 18</a>. The final version is 
+developed at the International Organization for Standardization as
+<a href="https://www.iso.org/standard/77899.html"><abbr title="International Organization for Standardization">ISO</abbr>/AWI 24138</a></p>
+</div>
+<h2 id="1-abstract">1. Abstract<a class="headerlink" href="#1-abstract" title="Permanent link">#</a></h2>
+<p>This document describes the coding scheme for the International Standard Content Code (ISCC).</p>
+<h2 id="2-motivation">2. Motivation<a class="headerlink" href="#2-motivation" title="Permanent link">#</a></h2>
+<p>The ISCC is a similarity preserving identifier for all kinds of digital content.
+As such the ISCC requires a universal coding scheme to meet a broad set of use cases and support
+different media types. Thecoding scheme for all ISCCs should be:</p>
+<ol>
+<li>
+<p>compact</p>
+</li>
+<li>
+<p>interoperable</p>
+</li>
+<li>modular</li>
+<li>extensible</li>
+<li>self-describing</li>
+</ol>
+<h2 id="3-general-structure-of-iscc">3. General structure of ISCC<a class="headerlink" href="#3-general-structure-of-iscc" title="Permanent link">#</a></h2>
+<ol>
+<li>An ISCC shall be composed of an ISCC-HEADER and an ISCC-BODY.</li>
+<li>The ISCC-HEADER shall describe the MainType, SubType, Version, and Length of its ISCC-BODY.</li>
+<li>An ISCC-UNIT shall be an ISCC based on one specific algorithm.</li>
+<li>An ISCC-CODE shall be an ISCC composed of two or more different ISCC-UNITs.</li>
+</ol>
+<figure>
+<p><img alt="Figure 1 - General Structure of an ISCC" src="../images/iscc-eip0001-figure-1.svg" width="1000px" />
+  </p>
+<figcaption>Figure 1 - General Structure of an ISCC</figcaption>
+</figure>
+<h2 id="4-iscc-header">4. ISCC-HEADER<a class="headerlink" href="#4-iscc-header" title="Permanent link">#</a></h2>
+<p>The ISCC-HEADER is a variable sized bitstream composed of an ordered sequence of the 4 header-fields
+MainType, SubType, Version, Length.</p>
+<p>Each header-field is a bitstream with a length between 4 and 16 bits and encodes an integer value
+between 0 and 4679 with the following encoding scheme:</p>
+<ol>
+<li>
+<p>The total bit-length of a header-field shall be determined by its prefix-bits.</p>
+</li>
+<li>
+<p>The prefix-bits shall be followed by data-bits.</p>
+</li>
+<li>The data-bits shall be interpreted as unsigned integer values plus the maximum value of the
+  preceding range.</li>
+<li>If the total length of all header-fields in number of bits is not divisible by 8, the header shall
+  be padded with 4 zero bits (0000) on the right side.</li>
+</ol>
+<p style="text-align:center; font-size:smaller"><strong>Table 1 – Variable length ISCC-HEADER field encoding</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Prefix bits</strong></th>
+<th><strong>Number of nibbles</strong></th>
+<th><strong>Number of data bits</strong></th>
+<th><strong>Integer range</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>1</td>
+<td>3</td>
+<td>0-7</td>
+</tr>
+<tr>
+<td>10</td>
+<td>2</td>
+<td>6</td>
+<td>8-71</td>
+</tr>
+<tr>
+<td>110</td>
+<td>3</td>
+<td>9</td>
+<td>72-583</td>
+</tr>
+<tr>
+<td>1110</td>
+<td>4</td>
+<td>12</td>
+<td>584-4679</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition example">
+<p class="admonition-title">Header-field examples</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>0 = 0000
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>1 = 0001
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>…
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>7 = 0111
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>8 = 1000 0000
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>9 = 1000 0001
+</code></pre></div>
+</div>
+<p>The interpretation of the integer value of a header-field shall be context dependent:</p>
+<ol>
+<li>
+<p>For the MainType and SubType fields it shall be an identifier for the designated type.</p>
+</li>
+<li>
+<p>For the Version field it shall be the literal version number.</p>
+</li>
+<li>For the Length field of ISCC-UNITs it shall be a number used as a multiplier to calculate the bit
+  length of the ISCC-BODY.</li>
+<li>For the Length field of ISCC-CODEs it shall be a bit-pattern encoding the combination of
+  ISCC-UNITs and the bit-length of the ISCC-BODY.</li>
+</ol>
+<h3 id="41-maintypes">4.1 MainTypes<a class="headerlink" href="#41-maintypes" title="Permanent link">#</a></h3>
+<p>The MainType header-field shall signify the type of the ISCC.</p>
+<p>Backward incompatible updates to an algorithm associated with a MainType shall be indicated by
+incrementing the version field of the ISCC-HEADER of the respective MainType.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The first edition of the standard specifies initial algorithms (version 0) for all reserved
+MainTypes except for the SEMANTIC type which is not currently defined.</p>
+</div>
+<p style="text-align:center; font-size:smaller"><strong>Table 2 – Reserved ISCC MainTypes</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>ID</strong></th>
+<th><strong>Symbol</strong></th>
+<th><strong>Bits</strong></th>
+<th><strong>Definition</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>META</td>
+<td>0000</td>
+<td>An ISCC-UNIT that matches on metadata similarity</td>
+</tr>
+<tr>
+<td>1</td>
+<td>SEMANTIC</td>
+<td>0001</td>
+<td>An ISCC-UNIT that matches on semantic content similarity</td>
+</tr>
+<tr>
+<td>2</td>
+<td>CONTENT</td>
+<td>0010</td>
+<td>An ISCC-UNIT that matches on perceptual content similarity</td>
+</tr>
+<tr>
+<td>3</td>
+<td>DATA</td>
+<td>0011</td>
+<td>An ISCC-UNIT that matches on data similarity</td>
+</tr>
+<tr>
+<td>4</td>
+<td>INSTANCE</td>
+<td>0100</td>
+<td>An ISCC-UNIT that matches on data identity</td>
+</tr>
+<tr>
+<td>5</td>
+<td>ISCC</td>
+<td>0101</td>
+<td>An ISCC-CODE composed of two or more headerless ISCC-UNITs for multi-modal matching</td>
+</tr>
+</tbody>
+</table>
+<h3 id="42-subtypes">4.2 SubTypes<a class="headerlink" href="#42-subtypes" title="Permanent link">#</a></h3>
+<p>The MainTypes META, DATA, and INSTANCE shall have a single default SubType NONE encoded with the
+bits 0000.</p>
+<p>The MainTypes SEMANTIC, CONTENT, and ISCC shall have SubTypes that signify the perceptual mode.</p>
+<p style="text-align:center; font-size:smaller"><strong>Table 3 – Reserved SubTypes for MainTypes ISCC, SEMANTIC, and CONTENT</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>ID</strong></th>
+<th><strong>Symbol</strong></th>
+<th><strong>Bits</strong></th>
+<th><strong>Definition</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>TEXT</td>
+<td>0000</td>
+<td>Match on text similarity</td>
+</tr>
+<tr>
+<td>1</td>
+<td>IMAGE</td>
+<td>0001</td>
+<td>Match on image similarity</td>
+</tr>
+<tr>
+<td>2</td>
+<td>AUDIO</td>
+<td>0010</td>
+<td>Match on audio similarity</td>
+</tr>
+<tr>
+<td>3</td>
+<td>VIDEO</td>
+<td>0011</td>
+<td>Match on video similarity</td>
+</tr>
+<tr>
+<td>4</td>
+<td>MIXED</td>
+<td>0100</td>
+<td>Match on multi-modal similarity</td>
+</tr>
+</tbody>
+</table>
+<p style="text-align:center; font-size:smaller"><strong>Table 4 – Additional Reserved SubTypes for the MainType ISCC</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>ID</strong></th>
+<th><strong>Symbol</strong></th>
+<th><strong>Bits</strong></th>
+<th><strong>Definition</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>5</td>
+<td>SUM</td>
+<td>0101</td>
+<td>Composite of ISCC-UNITs including only Data- and Instance-Code</td>
+</tr>
+<tr>
+<td>6</td>
+<td>NONE</td>
+<td>0110</td>
+<td>Composite ISCC-UNITs including Meta-, Data- and Instance-Code</td>
+</tr>
+</tbody>
+</table>
+<h3 id="43-version">4.3 Version<a class="headerlink" href="#43-version" title="Permanent link">#</a></h3>
+<p>All ISCC-HEADERs shall have a version header-field of 0000 for the first edition of the standard.</p>
+<p style="text-align:center; font-size:smaller"><strong>Table 5 – Reserved ISCC Versions</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>ID</strong></th>
+<th><strong>Symbol</strong></th>
+<th><strong>Bits</strong></th>
+<th><strong>Definition</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>V0</td>
+<td>0000</td>
+<td>Initial version of ISCC-UNITs and ISCC-CODE</td>
+</tr>
+</tbody>
+</table>
+<h3 id="44-length">4.4 Length<a class="headerlink" href="#44-length" title="Permanent link">#</a></h3>
+<p>The encoding of the Length header-field shall be specific to the MainType.</p>
+<h4 id="441-length-of-iscc-units">4.4.1 Length of ISCC-UNITs<a class="headerlink" href="#441-length-of-iscc-units" title="Permanent link">#</a></h4>
+<p>For ISCC-UNITs of the MainTypes META, SEMANTIC, CONTENT, DATA, and INSTANCE the length value shall
+be encoded as the number of 32-bit blocks of the ISCC-BODY in addition to the minimum length of 32
+bits.</p>
+<p style="text-align:center; font-size:smaller"><strong>Table 6 – Reserved length field values (multiples of 32 bit)</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>ID</strong></th>
+<th><strong>Symbol</strong></th>
+<th><strong>Bits</strong></th>
+<th><strong>Definition</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>L32</td>
+<td>0000</td>
+<td>Length of body is 32 bits (minimum length)</td>
+</tr>
+<tr>
+<td>1</td>
+<td>L64</td>
+<td>0001</td>
+<td>Length of body is 64 bits (default length)</td>
+</tr>
+<tr>
+<td>2</td>
+<td>L96</td>
+<td>0010</td>
+<td>Length of body is 96 bits</td>
+</tr>
+<tr>
+<td>3</td>
+<td>L128</td>
+<td>0011</td>
+<td>Length of body is 128 bits</td>
+</tr>
+<tr>
+<td>4</td>
+<td>L160</td>
+<td>0100</td>
+<td>Length of body is 160 bits</td>
+</tr>
+<tr>
+<td>5</td>
+<td>L192</td>
+<td>0101</td>
+<td>Length of body is 192 bits</td>
+</tr>
+<tr>
+<td>6</td>
+<td>L224</td>
+<td>0110</td>
+<td>Length of body is 224 bits</td>
+</tr>
+<tr>
+<td>7</td>
+<td>L256</td>
+<td>0111</td>
+<td>Length of body is 256 bits</td>
+</tr>
+</tbody>
+</table>
+<h4 id="442-length-of-iscc-codes">4.4.2 Length of ISCC-CODEs<a class="headerlink" href="#442-length-of-iscc-codes" title="Permanent link">#</a></h4>
+<ol>
+<li>
+<p>For ISCC-CODEs the length value shall designate the composition of ISCC-UNITs.</p>
+</li>
+<li>
+<p>The Data-Code and Instance-Code shall be mandatory 64-bit components of an ISCC-CODE.</p>
+</li>
+<li>
+<p>The first data-bit shall designate the presence of a 64-bit Meta-Code.</p>
+</li>
+<li>
+<p>The second data-bit shall designate the presence of a 64-bit Semantic-Code.</p>
+</li>
+<li>
+<p>The third data-bit shall designate the presence of a 64-bit Content-Code.</p>
+</li>
+<li>
+<p>The length of an ISCC-CODE shall be calculated as the number of active data-bits times 64 plus
+   128 bits of mandatory data.</p>
+</li>
+</ol>
+<p style="text-align:center; font-size:smaller"><strong>Table 7 – Reserved length field values (for MainType ISCC)</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>ID</strong></th>
+<th><strong>Symbol</strong></th>
+<th><strong>Bits</strong></th>
+<th><strong>Definition</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>SUM</td>
+<td>0000</td>
+<td>No optional ISCC-UNITs. Length of body is 128 bits.</td>
+</tr>
+<tr>
+<td>1</td>
+<td>CDI</td>
+<td>0001</td>
+<td>Includes Content-Code. Length of body is 192 bits</td>
+</tr>
+<tr>
+<td>2</td>
+<td>SDI</td>
+<td>0010</td>
+<td>Includes Semantic-Code. Length of body is 192 bits</td>
+</tr>
+<tr>
+<td>3</td>
+<td>SCDI</td>
+<td>0011</td>
+<td>Includes Semantic- and Content-Code. Length of body is 256 bits</td>
+</tr>
+<tr>
+<td>4</td>
+<td>MDI</td>
+<td>0100</td>
+<td>Includes Meta-Code. Length of body is 192 bits</td>
+</tr>
+<tr>
+<td>5</td>
+<td>MCDI</td>
+<td>0101</td>
+<td>Includes Meta-Code and Content-Code. Length of body is 256 bits</td>
+</tr>
+<tr>
+<td>6</td>
+<td>MSDI</td>
+<td>0110</td>
+<td>Includes Meta-Code and Semantic-Code. Length of body is 256 bits</td>
+</tr>
+<tr>
+<td>7</td>
+<td>MSCDI</td>
+<td>0111</td>
+<td>Includes Meta-, Semantic-, and Content-Code. Length is 320 bits</td>
+</tr>
+</tbody>
+</table>
+<h2 id="5-iscc-body">5. ISCC-BODY<a class="headerlink" href="#5-iscc-body" title="Permanent link">#</a></h2>
+<ol>
+<li>The preceding MainType, SubType, and Version fields shall qualify the semantics of an ISCC-BODY.</li>
+<li>The Length field shall determine the number of bits of an ISCC-BODY.</li>
+</ol>
+<h2 id="6-encoding-of-iscc">6. Encoding of ISCC<a class="headerlink" href="#6-encoding-of-iscc" title="Permanent link">#</a></h2>
+<h3 id="61-canonical-form">6.1 Canonical form<a class="headerlink" href="#61-canonical-form" title="Permanent link">#</a></h3>
+<p>The printable canonical form of an ISCC shall be its RFC 4648 Base32 encoded representation without
+padding and prefixed with “ISCC:”.</p>
+<div class="admonition example">
+<p class="admonition-title">Canonical ISCC-CODE example</p>
+<p>ISCC:KEC43HJLPUSHVAZT66YLPUWNVACWYPIV533TRQMWF2IUQYSP5LA4CTY</p>
+</div>
+<h3 id="62-uri-encoding">6.2 URI encoding<a class="headerlink" href="#62-uri-encoding" title="Permanent link">#</a></h3>
+<ol>
+<li>An ISCC shall be encodable as a Uniform Resource Identifier (URI) according to RFC 3986.</li>
+<li>The URI representation shall have the format <code>&lt;scheme&gt;:&lt;path&gt;</code>.</li>
+<li>The URI scheme shall be the string “iscc”.</li>
+<li>The URI path shall be the lower-cased base32 representation of an ISCC without padding.</li>
+</ol>
+<div class="admonition example">
+<p class="admonition-title">URI encoded ISCC-CODE example</p>
+<p>iscc:kec43hjlpushvazt66ylpuwnvacwypiv533trqmwf2iuqysp5la4cty</p>
+</div>
+<h3 id="63-multiformats-encoding">6.3 Multiformats encoding<a class="headerlink" href="#63-multiformats-encoding" title="Permanent link">#</a></h3>
+<ol>
+<li>The ISCC shall be encodable as
+   a <a href="https://datatracker.ietf.org/doc/html/draft-multiformats-multibase-06">multibase</a> string.</li>
+<li>The <a href="https://github.com/multiformats/multicodec/blob/master/table.csv">multicodec</a> identifier of
+   an ISCC shall be <code>0xcc01</code>.</li>
+<li>A <a href="https://multiformats.io/">Multiformat</a> representation of an ISCC shall be prefixed with a
+   Multibase code.</li>
+<li>The encoding scheme shall be <code>&lt;multibase&gt;&lt;multicodec&gt;&lt;iscc-header&gt;&lt;iscc-body&gt;</code>.</li>
+</ol>
+<p>ISCC shall support the following multibase encodings:</p>
+<p style="text-align:center; font-size:smaller"><strong>Table 8 – Supported multibase encodings</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Encoding</strong></th>
+<th><strong>Code</strong></th>
+<th><strong>Definition</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>base16</td>
+<td>f</td>
+<td>hexadecimal</td>
+</tr>
+<tr>
+<td>base32</td>
+<td>b</td>
+<td>RFC4648 case-insensitive - no padding</td>
+</tr>
+<tr>
+<td>base32hex</td>
+<td>v</td>
+<td>Match on audio similarity</td>
+</tr>
+<tr>
+<td>base58btc</td>
+<td>z</td>
+<td>base58 bitcoin</td>
+</tr>
+<tr>
+<td>base64url</td>
+<td>u</td>
+<td>RFC4648 no padding</td>
+</tr>
+</tbody>
+</table>
+<p style="text-align:center; font-size:smaller"><strong>Table 9 – Examples of ISCCs in multiformats encoding</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Encoding</strong></th>
+<th><strong>Example</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MF base16</td>
+<td>fcc015105cd9d2b7d247a8333f7b0b7d2cda8056c3d15eef738c1962e9148624feac1c14f</td>
+</tr>
+<tr>
+<td>MF base32</td>
+<td>bzqavcbontuvx2jd2qmz7pmfx2lg2qblmhuk655zyyglc5ekimjh6vqobj4</td>
+</tr>
+<tr>
+<td>MF base32hex</td>
+<td>vpg0l21edjklnq93qgcpvfc5nqb6qg1bc7kauttpoo6b2t4a8c97ulge19s</td>
+</tr>
+<tr>
+<td>MF base58btc</td>
+<td>z2Yr3BMx3Rj56fyYkNvfa19PCk4SjspQhpVWoLSGg9yXr4vUGsx</td>
+</tr>
+<tr>
+<td>MF base64url</td>
+<td>uzAFRBc2dK30keoMz97C30s2oBWw9Fe73OMGWLpFIYk_qwcFP</td>
+</tr>
+</tbody>
+</table>
+<h3 id="64-readable-encoding">6.4 Readable encoding<a class="headerlink" href="#64-readable-encoding" title="Permanent link">#</a></h3>
+<ol>
+<li>The ISCC shall be encodable in human-readable representation.</li>
+<li>The readable representation shall encode the header-fields with their symbols and the ISCC-BODY
+   in base16 lower-case.</li>
+<li>The header-fields and the ISCC-BODY shall be separated with hyphens.</li>
+</ol>
+<div class="admonition example">
+<p class="admonition-title">Example of human-readable ISCC-CODE</p>
+<p>ISCC-IMAGE-V0-MCDI-cd9d2b7d247a8333f7b0b7d2cda8056c3d15eef738c1962e9148624feac1c14f</p>
+</div>
+<h2 id="7-reference-implementation">7. Reference implementation<a class="headerlink" href="#7-reference-implementation" title="Permanent link">#</a></h2>
+<p>The reference implementation of this coding scheme is published in the
+<a href="https://github.com/iscc/iscc-core/">iscc-core</a> python package in the
+<a href="https://github.com/iscc/iscc-core/blob/main/iscc_core/codec.py">codec.py</a> module.</p>
+
+  <hr>
+<div class="md-source-file">
+  <small>
+    
+      Last update:
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2022-09-23</span>
+      
+        <br>
+        Created:
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2022-09-23</span>
+      
+    
+  </small>
+</div>
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      
+        
+        <a href="../iep-0000/" class="md-footer__link md-footer__link--prev" aria-label="Previous: IEP-0000" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              IEP-0000
+            </div>
+          </div>
+        </a>
+      
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.5bf1dace.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.37e9125f.min.js"></script>
+      
+    
+  </body>
+</html>

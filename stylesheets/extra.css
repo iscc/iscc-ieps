@@ -22,7 +22,8 @@
 
 
 .md-typeset {
-    font-weight: 200;
+  font-weight: 200;
+  font-size: .7rem;
 }
 
 .md-typeset__table {
@@ -40,4 +41,8 @@ th {
 /* dark mode alternating table bg colors */
 [data-md-color-scheme="slate"] th {
     background-color: #0054b2
+}
+
+ol {
+  list-style-type: upper-alpha;
 }
