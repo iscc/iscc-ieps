@@ -634,7 +634,7 @@
 </tr>
 <tr>
 <td>Updated:</td>
-<td><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2022-09-23</span></td>
+<td><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2022-09-24</span></td>
 </tr>
 </tbody>
 </table>
@@ -650,14 +650,10 @@ developed at the International Organization for Standardization as
 <h2 id="2-motivation">2. Motivation<a class="headerlink" href="#2-motivation" title="Permanent link">#</a></h2>
 <p>The ISCC is a similarity preserving identifier for all kinds of digital content.
 As such the ISCC requires a universal coding scheme to meet a broad set of use cases and support
-different media types. Thecoding scheme for all ISCCs should be:</p>
+different media types. The coding scheme for all ISCCs should be:</p>
 <ol>
-<li>
-<p>compact</p>
-</li>
-<li>
-<p>interoperable</p>
-</li>
+<li>compact</li>
+<li>interoperable</li>
 <li>modular</li>
 <li>extensible</li>
 <li>self-describing</li>
@@ -680,16 +676,12 @@ MainType, SubType, Version, Length.</p>
 <p>Each header-field is a bitstream with a length between 4 and 16 bits and encodes an integer value
 between 0 and 4679 with the following encoding scheme:</p>
 <ol>
-<li>
-<p>The total bit-length of a header-field shall be determined by its prefix-bits.</p>
-</li>
-<li>
-<p>The prefix-bits shall be followed by data-bits.</p>
-</li>
+<li>The total bit-length of a header-field shall be determined by its prefix-bits.</li>
+<li>The prefix-bits shall be followed by data-bits.</li>
 <li>The data-bits shall be interpreted as unsigned integer values plus the maximum value of the
-  preceding range.</li>
-<li>If the total length of all header-fields in number of bits is not divisible by 8, the header shall
-  be padded with 4 zero bits (0000) on the right side.</li>
+   preceding range.</li>
+<li>If the total length of all header-fields in number of bits is not divisible by 8, the header
+   shall be padded with 4 zero bits (0000) on the right side.</li>
 </ol>
 <p style="text-align:center; font-size:smaller"><strong>Table 1 – Variable length ISCC-HEADER field encoding</strong></p>
 <table>
@@ -740,16 +732,10 @@ between 0 and 4679 with the following encoding scheme:</p>
 </div>
 <p>The interpretation of the integer value of a header-field shall be context dependent:</p>
 <ol>
-<li>
-<p>For the MainType and SubType fields it shall be an identifier for the designated type.</p>
-</li>
-<li>
-<p>For the Version field it shall be the literal version number.</p>
-</li>
-<li>For the Length field of ISCC-UNITs it shall be a number used as a multiplier to calculate the bit
-  length of the ISCC-BODY.</li>
-<li>For the Length field of ISCC-CODEs it shall be a bit-pattern encoding the combination of
-  ISCC-UNITs and the bit-length of the ISCC-BODY.</li>
+<li>For the MainType and SubType fields it shall be an identifier for the designated type.</li>
+<li>For the Version field it shall be the literal version number.</li>
+<li>For the Length field of ISCC-UNITs it shall be a number used as a multiplier to calculate the bit length of the ISCC-BODY.</li>
+<li>For the Length field of ISCC-CODEs it shall be a bit-pattern encoding the combination of ISCC-UNITs and the bit-length of the ISCC-BODY.</li>
 </ol>
 <h3 id="41-maintypes">4.1 MainTypes<a class="headerlink" href="#41-maintypes" title="Permanent link">#</a></h3>
 <p>The MainType header-field shall signify the type of the ISCC.</p>
@@ -1176,7 +1162,7 @@ padding and prefixed with “ISCC:”.</p>
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2022-09-23</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2022-09-24</span>
       
         <br>
         Created:
