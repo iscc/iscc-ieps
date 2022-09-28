@@ -83,5 +83,19 @@ markdown_extensions:
 
 nav:
   - Overview: index.md
-  - IEP-0000: iep-0000.md
-  - IEP-0001: iep-0001.md
+  - IEP-0000 - IEP Purpose: iep-0000.md
+  - IEP-0001 - ISCC Structure: iep-0001.md
+  - IEP-0002 - Meta-Code: iep-0002.md
+  - IEP-0003 - Text-Code: iep-0003.md
+  - IEP-0004 - Image-Code: iep-0004.md
+  - IEP-0005 - Audio-Code: iep-0005.md
+  - IEP-0006 - Video-Code: iep-0006.md
+  - IEP-0007 - Mixed-Code: iep-0007.md
+  - IEP-0008 - Data-Code: iep-0008.md
+  - IEP-0009 - Instance-Code: iep-0009.md
+  - IEP-0010 - ISCC-CODE: iep-0010.md
+  - IEP-0011 - ISCC-ID: iep-0011.md
+  - IEP-0012 - Metadata: iep-0012.md
+  - IEP-0013 - Registry: iep-0013.md
+  - IEP-0014 - EVM Registries: iep-0014.md
+  - IEP-0015 - DID Method: iep-0015.md
