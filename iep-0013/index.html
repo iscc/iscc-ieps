@@ -463,9 +463,82 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          IEP-0013 - Registry
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         IEP-0013 - Registry
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-status-of-this-document" class="md-nav__link">
+    1. Status of This Document
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-introduction" class="md-nav__link">
+    2. Introduction
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-protocol-overview" class="md-nav__link">
+    3. Protocol Overview
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-declaration-protocol" class="md-nav__link">
+    4. Declaration Protocol
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-minting-protocol" class="md-nav__link">
+    5. Minting Protocol
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-resolution-protocol" class="md-nav__link">
+    6. Resolution Protocol
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-reference-implementation" class="md-nav__link">
+    7. Reference Implementation
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -521,6 +594,63 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-status-of-this-document" class="md-nav__link">
+    1. Status of This Document
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-introduction" class="md-nav__link">
+    2. Introduction
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-protocol-overview" class="md-nav__link">
+    3. Protocol Overview
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-declaration-protocol" class="md-nav__link">
+    4. Declaration Protocol
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-minting-protocol" class="md-nav__link">
+    5. Minting Protocol
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-resolution-protocol" class="md-nav__link">
+    6. Resolution Protocol
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-reference-implementation" class="md-nav__link">
+    7. Reference Implementation
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -562,7 +692,7 @@
 </tr>
 <tr>
 <td>Status:</td>
-<td>TBD</td>
+<td>DRAFT</td>
 </tr>
 <tr>
 <td>Type:</td>
@@ -578,17 +708,93 @@
 </tr>
 <tr>
 <td>Updated:</td>
-<td><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2022-09-28</span></td>
+<td><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2022-09-29</span></td>
 </tr>
 </tbody>
 </table>
+<h2 id="1-status-of-this-document">1. Status of This Document<a class="headerlink" href="#1-status-of-this-document" title="Permanent link">#</a></h2>
+<p>This document is a draft of a potential specification. It has no official standing of any kind and
+does not represent the support or consensus of any standards organization.</p>
+<h2 id="2-introduction">2. Introduction<a class="headerlink" href="#2-introduction" title="Permanent link">#</a></h2>
+<p>The purpose of a decentralized content registry is to connect Actors to Digital Content in a
+permissionless decentralized environment and provide a global and verifiable data space for content
+identification and matching.</p>
+<p>Actors authenticate themselves with their blockchain accounts which they use to sign ISCC-CODE
+declarations (ledger transactions). Digital Content is identified by ISCC-CODEs. The ISCC-ID is 
+derived from an ISCC-CODE, a blockchain account and the history of previous declarations. ISCC-IDs 
+are  globally unique, persistent, authenticated, and resolve to at least exactly one ISCC-CODE and 
+a blockchain account. The ISCC-IDs are not required to be generated or stored on the participating 
+ledgers. ISCC-IDs are the result of processing the history of transactions according to the Minting 
+Protocol.</p>
+<h2 id="3-protocol-overview">3. Protocol Overview<a class="headerlink" href="#3-protocol-overview" title="Permanent link">#</a></h2>
+<p>The protocol to declare an ISCC-CODE and trigger the minting of an ISCC-ID is divided into 3 parts,
+the Declaration Protocol, the Minting Protocol and the Resolution Protocol. </p>
+<ol>
+<li>The declaration protocol defines how an ISCC-CODE has to be written to a ledger to become a valid input for the off-chain minting protocol. </li>
+<li>The minting protocol defines how a legers history has to be parsed to mint a valid ISCC-ID</li>
+<li>The resolution protocol defines how an ISCC resolver answers queries about ISCC-CODEs and ISCC-ID.</li>
+</ol>
+<h2 id="4-declaration-protocol">4. Declaration Protocol<a class="headerlink" href="#4-declaration-protocol" title="Permanent link">#</a></h2>
+<p>To participate in the ISCC declaration protocol, a ledger MUST establish exactly one globally
+unique Ledger-ID (Variable Length Integer) that will be used as a prefix for ISCC-IDs that are
+minted from its ISCC declarations. </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>An ISCC-ID comes into existence only after an ISCC declaration has been confirmed on a ledger that participates in the protocol. </p>
+</div>
+<p>The following minimal information (Declaration-Set) MUST be provided and made publicly available
+for a valid ISCC declaration:</p>
+<ol>
+<li>An ISCC-CODE (a valid sequence of ISCC-UNITs)</li>
+<li>A blockchain account (actors identifier) of the declaring party </li>
+<li>A valid signature of the declaring party (transaction signature)</li>
+</ol>
+<p>We define the party that signs the ISCC declaration as the DECLARER. </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The DECLARER is merely the controller of the ISCC-ID minted from the declaration. The declarer
+is not required to be the creator or a rights-holder of the declared digital content.</p>
+</div>
+<p>An ISCC declaration MAY additionally include:</p>
+<ol>
+<li>A link to external metadata as defined by <a href="/iep-0012">IEP-0012 - ISCC Metadata</a></li>
+<li>A processing instruction for the minting protocol </li>
+</ol>
+<p>The on-chain link to ISCC metadata SHOULD point to a public and integrity preserving resource (e.g. IPFS CID or a 
+hashlink URI). Permissioned, confidential or mutable data SHOULD be referenced from ISCC metadata
+via URI.</p>
+<p>A ledger that wants to accept ISCC declarations and trigger the minting of valid ISCC-IDs MUST
+fulfill the following minimum requirements:</p>
+<ol>
+<li>The ledger must provide an immutable, complete, time-ordered, append-only sequence of transactions.</li>
+<li>The legers transaction format must allow for embedding and signing the data required for an ISCC declarations.</li>
+<li>The Declaration-Set MUST be publicly readable (permisionless).</li>
+<li>ISCC declarations on the ledger MAY be write-permissioned.</li>
+</ol>
+<p>A participating ledger or framework MUST provide documentaation of its implementation of the declaration protocol.</p>
+<ol>
+<li>The documentation MUST specify how ISCC declarations can be parsed to decode the Declaration-Set</li>
+<li>The documentation MUST provide sufficient information to the public such that third parties can independently verify transactions signatures and implement the Minting Protocol</li>
+<li>The documentation MUST define how a public observer can distinguish between a transaction that declares an ISCC-CODE and other unrelated transactions.</li>
+</ol>
+<h2 id="5-minting-protocol">5. Minting Protocol<a class="headerlink" href="#5-minting-protocol" title="Permanent link">#</a></h2>
+<p>TBD</p>
+<h2 id="6-resolution-protocol">6. Resolution Protocol<a class="headerlink" href="#6-resolution-protocol" title="Permanent link">#</a></h2>
+<p>TBD</p>
+<h2 id="7-reference-implementation">7. Reference Implementation<a class="headerlink" href="#7-reference-implementation" title="Permanent link">#</a></h2>
+<ul>
+<li>ISCC-ID construction: <a href="https://github.com/iscc/iscc-core/blob/main/iscc_core/iscc_id.py">https://github.com/iscc/iscc-core/blob/main/iscc_core/iscc_id.py</a></li>
+<li>EVM registry: <a href="https://github.com/iscc/iscc-evm">https://github.com/iscc/iscc-evm</a></li>
+<li>EVM observer: <a href="https://github.com/iscc/iscc-observer-evm">https://github.com/iscc/iscc-observer-evm</a></li>
+<li>ISCC-ID resolver: <a href="https://github.com/iscc/iscc-registry">https://github.com/iscc/iscc-registry</a></li>
+</ul>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2022-09-28</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2022-09-29</span>
       
         <br>
         Created:
