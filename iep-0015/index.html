@@ -905,6 +905,9 @@ defined by the follwing <a href="https://www.rfc-editor.org/info/std68">ABNF</a>
 <li>The authenticity of the response can be verified through the referenced on-chain metadata.</li>
 </ol>
 <h2 id="6-security-privacy-consideration">6. Security &amp; Privacy Consideration<a class="headerlink" href="#6-security-privacy-consideration" title="Permanent link">#</a></h2>
+<p>Implementers should be aware that ISCC-CODEs are not cryptographic hashes but descriptors or 
+similarity preserving (soft) hashes. As such they leak information about the structure of the
+identified content. This is by design and necessary to support similarity matching with ISCC-CODEs.</p>
 <p>An ISCC DID document need not contain a proof property. All operations are authenticated with the 
 signature of the transaction payload sent to the network of the originating ledger. 
 This signature is generated using a key specified in the corresponding DID Document.</p>
