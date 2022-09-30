@@ -37,6 +37,7 @@ theme:
 
 plugins:
   - search
+  - glightbox
   - add-number:
       strict_mode: False
       order: 2

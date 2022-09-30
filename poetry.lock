@@ -487,6 +487,17 @@ GitPython = "*"
 mkdocs = ">=1.0"
 
 [[package]]
+name = "mkdocs-glightbox"
+version = "0.2.1"
+description = "MkDocs plugin supports image lightbox with GLightbox."
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+beautifulsoup4 = ">=4.11.1"
+
+[[package]]
 name = "mkdocs-material"
 version = "8.5.3"
 description = "Documentation that simply works"
@@ -783,7 +794,7 @@ testing = ["func-timeout", "jaraco.itertools", "pytest (>=6)", "pytest-black (>=
 [metadata]
 lock-version = "1.1"
 python-versions = ">=3.8,<3.11"
-content-hash = "b9a44cd8a61ac8b7498162b8cd5d5a2d26dcf397aa66a1ff39dccf97aadbe400"
+content-hash = "21c2d3035c6db978e941d64fec4978335cd025139742f2d6e978c6c032928fe1"
 
 [metadata.files]
 Babel = [
@@ -1058,6 +1069,9 @@ mkdocs-add-number-plugin = [
 mkdocs-git-revision-date-localized-plugin = [
     {file = "mkdocs-git-revision-date-localized-plugin-1.1.0.tar.gz", hash = "sha256:38517e2084229da1a1b9460e846c2748d238c2d79efd405d1b9174a87bd81d79"},
     {file = "mkdocs_git_revision_date_localized_plugin-1.1.0-py3-none-any.whl", hash = "sha256:4ba0e49abea3e9f6ee26e2623ff7283873da657471c61f1d0cfbb986f403316d"},
+]
+mkdocs-glightbox = [
+    {file = "mkdocs-glightbox-0.2.1.tar.gz", hash = "sha256:464e6cbd793486d7dc731ef27629c6f68808d8b522b7aa5e8b56d59d206c2730"},
 ]
 mkdocs-material = [
     {file = "mkdocs_material-8.5.3-py3-none-any.whl", hash = "sha256:d194c38041d1e83560221022b3f85eec4604b35e44f5c3a488c24b88542074ed"},

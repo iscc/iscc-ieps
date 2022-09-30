@@ -28,6 +28,7 @@ mdformat_frontmatter = "^0.4.1"
 mdformat_deflist = "^0.1.2"
 mkdocs-git-revision-date-localized-plugin = "^1.1.0"
 mkdocs-add-number-plugin = "^1.2.2"
+mkdocs-glightbox = "^0.2.1"
 
 [tool.poe.tasks]
 format-code = { cmd = "poetry run black .", help = "Code style formating with black" }
