@@ -1,768 +1,416 @@
 
-<!doctype html>
-<html lang="en" class="no-js">
-  <head>
-    
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width,initial-scale=1">
-      
-        <meta name="description" content="International Standard Content Code - Enhancement Proposals (IEPs).">
-      
-      
-        <meta name="author" content="Titusz Pan">
-      
-      
-        <link rel="canonical" href="https://ieps.iscc.codes/iep-0015/">
-      
-      <link rel="icon" href="../images/iscc-logo-icon-black.svg">
-      <meta name="generator" content="mkdocs-1.4.0, mkdocs-material-8.5.3">
-    
-    
-      
-        <title>IEP-0015 - DID Method - ISCC Enhancement Proposals</title>
-      
-    
-    
-      <link rel="stylesheet" href="../assets/stylesheets/main.7a952b86.min.css">
-      
-        
-        <link rel="stylesheet" href="../assets/stylesheets/palette.cbb835fc.min.css">
-        
-      
-      
+<!DOCTYPE html>
 
-    
-    
-    
-      
-        
-        
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Readex+Pro:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Readex Pro";--md-code-font:"JetBrains Mono"}</style>
-      
-    
-    
-      <link rel="stylesheet" href="../stylesheets/extra.css">
-    
-    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
-    
-      
-  
-
-
-  <script defer data-domain="ieps.iscc.codes" src="https://stats.iscc.codes/js/plausible.js"></script>
-  
-    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
-  
-
-    
-    
-    
-  </head>
-  
-  
-    
-    
-      
-    
-    
-    
-    
-    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="" data-md-color-accent="">
-  
-    
-    
-      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
-    
-    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
-    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
-    <label class="md-overlay" for="__drawer"></label>
-    <div data-md-component="skip">
-      
-        
-        <a href="#iscc-did-method" class="md-skip">
+<html class="no-js" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="International Standard Content Code - Enhancement Proposals (IEPs)." name="description"/>
+<meta content="Titusz Pan" name="author"/>
+<link href="https://ieps.iscc.codes/iep-0015/" rel="canonical"/>
+<link href="../images/iscc-logo-icon-black.svg" rel="icon"/>
+<meta content="mkdocs-1.4.0, mkdocs-material-8.5.3" name="generator"/>
+<title>IEP-0015 - DID Method - ISCC Enhancement Proposals</title>
+<link href="../assets/stylesheets/main.7a952b86.min.css" rel="stylesheet"/>
+<link href="../assets/stylesheets/palette.cbb835fc.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Readex+Pro:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font:"Readex Pro";--md-code-font:"JetBrains Mono"}</style>
+<link href="../stylesheets/extra.css" rel="stylesheet"/>
+<script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+<script data-domain="ieps.iscc.codes" defer="" src="https://stats.iscc.codes/js/plausible.js"></script>
+<script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+<link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>html.glightbox-open { overflow: initial; height: 100%; }</style><script src="../assets/javascripts/glightbox.min.js"></script></head>
+<body data-md-color-accent="" data-md-color-primary="" data-md-color-scheme="slate" dir="ltr">
+<script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#iscc-did-method">
           Skip to content
         </a>
-      
-    </div>
-    <div data-md-component="announce">
-      
-    </div>
-    
-    
-      
-
+</div>
+<div data-md-component="announce">
+</div>
 <header class="md-header" data-md-component="header">
-  <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href=".." title="ISCC Enhancement Proposals" class="md-header__button md-logo" aria-label="ISCC Enhancement Proposals" data-md-component="logo">
-      
-  <img src="../images/iscc-logo-icon-white.svg" alt="logo">
-
-    </a>
-    <label class="md-header__button md-icon" for="__drawer">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
-    </label>
-    <div class="md-header__title" data-md-component="header-title">
-      <div class="md-header__ellipsis">
-        <div class="md-header__topic">
-          <span class="md-ellipsis">
+<nav aria-label="Header" class="md-header__inner md-grid">
+<a aria-label="ISCC Enhancement Proposals" class="md-header__button md-logo" data-md-component="logo" href=".." title="ISCC Enhancement Proposals">
+<img alt="logo" src="../images/iscc-logo-icon-white.svg"/>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
             ISCC Enhancement Proposals
           </span>
-        </div>
-        <div class="md-header__topic" data-md-component="header-topic">
-          <span class="md-ellipsis">
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
             
               IEP-0015 - DID Method
             
           </span>
-        </div>
-      </div>
-    </div>
-    
-      <form class="md-header__option" data-md-component="palette">
-        
-          
-          
-          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
-          
-            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_2" hidden>
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
-            </label>
-          
-        
-          
-          
-          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_2">
-          
-            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
-            </label>
-          
-        
-      </form>
-    
-    
-    
-      <label class="md-header__button md-icon" for="__search">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
-      </label>
-      <div class="md-search" data-md-component="search" role="dialog">
-  <label class="md-search__overlay" for="__search"></label>
-  <div class="md-search__inner" role="search">
-    <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
-      <label class="md-search__icon md-icon" for="__search">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
-      </label>
-      <nav class="md-search__options" aria-label="Search">
-        
-        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
-        </button>
-      </nav>
-      
-    </form>
-    <div class="md-search__output">
-      <div class="md-search__scrollwrap" data-md-scrollfix>
-        <div class="md-search-result" data-md-component="search-result">
-          <div class="md-search-result__meta">
+</div>
+</div>
+</div>
+<form class="md-header__option" data-md-component="palette">
+<input aria-label="Switch to light mode" class="md-option" data-md-color-accent="" data-md-color-media="" data-md-color-primary="" data-md-color-scheme="slate" id="__palette_1" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_2" hidden="" title="Switch to light mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"></path></svg>
+</label>
+<input aria-label="Switch to dark mode" class="md-option" data-md-color-accent="" data-md-color-media="" data-md-color-primary="" data-md-color-scheme="default" id="__palette_2" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_1" hidden="" title="Switch to dark mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"></path></svg>
+</label>
+</form>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Search" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Search" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+</label>
+<nav aria-label="Search" class="md-search__options">
+<button aria-label="Clear" class="md-search__icon md-icon" tabindex="-1" title="Clear" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"></path></svg>
+</button>
+</nav>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
             Initializing search
           </div>
-          <ol class="md-search-result__list"></ol>
-        </div>
-      </div>
-    </div>
-  </div>
+<ol class="md-search-result__list"></ol>
 </div>
-    
-    
-      <div class="md-header__source">
-        <a href="https://github.com/iscc/iscc-ieps" title="Go to repository" class="md-source" data-md-component="source">
-  <div class="md-source__icon md-icon">
-    
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
-  </div>
-  <div class="md-source__repository">
+</div>
+</div>
+</div>
+</div>
+<div class="md-header__source">
+<a class="md-source" data-md-component="source" href="https://github.com/iscc/iscc-ieps" title="Go to repository">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"></path></svg>
+</div>
+<div class="md-source__repository">
     iscc/iscc-ieps
   </div>
 </a>
-      </div>
-    
-  </nav>
-  
+</div>
+</nav>
 </header>
-    
-    <div class="md-container" data-md-component="container">
-      
-      
-        
-          
-        
-      
-      <main class="md-main" data-md-component="main">
-        <div class="md-main__inner md-grid">
-          
-            
-              
-              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
-                <div class="md-sidebar__scrollwrap">
-                  <div class="md-sidebar__inner">
-                    
-
-
-<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
-  <label class="md-nav__title" for="__drawer">
-    <a href=".." title="ISCC Enhancement Proposals" class="md-nav__button md-logo" aria-label="ISCC Enhancement Proposals" data-md-component="logo">
-      
-  <img src="../images/iscc-logo-icon-white.svg" alt="logo">
-
-    </a>
+<div class="md-container" data-md-component="container">
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="ISCC Enhancement Proposals" class="md-nav__button md-logo" data-md-component="logo" href=".." title="ISCC Enhancement Proposals">
+<img alt="logo" src="../images/iscc-logo-icon-white.svg"/>
+</a>
     ISCC Enhancement Proposals
   </label>
-  
-    <div class="md-nav__source">
-      <a href="https://github.com/iscc/iscc-ieps" title="Go to repository" class="md-source" data-md-component="source">
-  <div class="md-source__icon md-icon">
-    
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
-  </div>
-  <div class="md-source__repository">
+<div class="md-nav__source">
+<a class="md-source" data-md-component="source" href="https://github.com/iscc/iscc-ieps" title="Go to repository">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"></path></svg>
+</div>
+<div class="md-source__repository">
     iscc/iscc-ieps
   </div>
 </a>
-    </div>
-  
-  <ul class="md-nav__list" data-md-scrollfix>
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
-      <a href=".." class="md-nav__link">
+</div>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="..">
         Overview
       </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../iep-0000/" class="md-nav__link">
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../iep-0000/">
         IEP-0000 - IEP Purpose
       </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../iep-0001/" class="md-nav__link">
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../iep-0001/">
         IEP-0001 - ISCC Structure
       </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../iep-0002/" class="md-nav__link">
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../iep-0002/">
         IEP-0002 - Meta-Code
       </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../iep-0003/" class="md-nav__link">
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../iep-0003/">
         IEP-0003 - Text-Code
       </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../iep-0004/" class="md-nav__link">
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../iep-0004/">
         IEP-0004 - Image-Code
       </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../iep-0005/" class="md-nav__link">
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../iep-0005/">
         IEP-0005 - Audio-Code
       </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../iep-0006/" class="md-nav__link">
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../iep-0006/">
         IEP-0006 - Video-Code
       </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../iep-0007/" class="md-nav__link">
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../iep-0007/">
         IEP-0007 - Mixed-Code
       </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../iep-0008/" class="md-nav__link">
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../iep-0008/">
         IEP-0008 - Data-Code
       </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../iep-0009/" class="md-nav__link">
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../iep-0009/">
         IEP-0009 - Instance-Code
       </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../iep-0010/" class="md-nav__link">
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../iep-0010/">
         IEP-0010 - ISCC-CODE
       </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../iep-0011/" class="md-nav__link">
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../iep-0011/">
         IEP-0011 - ISCC-ID
       </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../iep-0012/" class="md-nav__link">
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../iep-0012/">
         IEP-0012 - Metadata
       </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../iep-0013/" class="md-nav__link">
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../iep-0013/">
         IEP-0013 - Registry
       </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../iep-0014/" class="md-nav__link">
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../iep-0014/">
         IEP-0014 - EVM Registries
       </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-    
-  
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
+</li>
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
           IEP-0015 - DID Method
           <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
         IEP-0015 - DID Method
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
       Table of contents
     </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#1-status-of-this-document" class="md-nav__link">
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#1-status-of-this-document">
     1. Status of This Document
   </a>
-  
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#2-introduction" class="md-nav__link">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#2-introduction">
     2. Introduction
   </a>
-  
-    <nav class="md-nav" aria-label="2. Introduction">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#21-motivation" class="md-nav__link">
+<nav aria-label="2. Introduction" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#21-motivation">
     2.1 Motivation
   </a>
-  
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#22-the-iscc" class="md-nav__link">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#22-the-iscc">
     2.2 The ISCC
   </a>
-  
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#23-iscc-as-did" class="md-nav__link">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#23-iscc-as-did">
     2.3 ISCC as DID
   </a>
-  
 </li>
-        
-      </ul>
-    </nav>
-  
+</ul>
+</nav>
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#3-method-syntax" class="md-nav__link">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#3-method-syntax">
     3. Method Syntax
   </a>
-  
-    <nav class="md-nav" aria-label="3. Method Syntax">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#31-method-name" class="md-nav__link">
+<nav aria-label="3. Method Syntax" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#31-method-name">
     3.1 Method Name
   </a>
-  
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#32-method-specific-identifier" class="md-nav__link">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#32-method-specific-identifier">
     3.2 Method Specific Identifier
   </a>
-  
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#33-iscc-did-example" class="md-nav__link">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#33-iscc-did-example">
     3.3 ISCC DID Example
   </a>
-  
 </li>
-        
-      </ul>
-    </nav>
-  
+</ul>
+</nav>
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#4-method-operations" class="md-nav__link">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#4-method-operations">
     4. Method Operations
   </a>
-  
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#5-resolving-dids" class="md-nav__link">
-    5. Resolving DIDs
+<li class="md-nav__item">
+<a class="md-nav__link" href="#5-verifiable-data-registry">
+    5. Verifiable Data Registry
   </a>
-  
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#6-security-privacy-consideration" class="md-nav__link">
-    6. Security &amp; Privacy Consideration
+<li class="md-nav__item">
+<a class="md-nav__link" href="#6-resolving-dids">
+    6. Resolving DIDs
   </a>
-  
 </li>
-      
-    </ul>
-  
+<li class="md-nav__item">
+<a class="md-nav__link" href="#7-security-privacy-consideration">
+    7. Security &amp; Privacy Consideration
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#8-reference-implementation">
+    8. Reference Implementation
+  </a>
+</li>
+</ul>
 </nav>
-      
-    </li>
-  
-
-    
-  </ul>
+</li>
+</ul>
 </nav>
-                  </div>
-                </div>
-              </div>
-            
-            
-              
-              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
-                <div class="md-sidebar__scrollwrap">
-                  <div class="md-sidebar__inner">
-                    
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
       Table of contents
     </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#1-status-of-this-document" class="md-nav__link">
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#1-status-of-this-document">
     1. Status of This Document
   </a>
-  
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#2-introduction" class="md-nav__link">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#2-introduction">
     2. Introduction
   </a>
-  
-    <nav class="md-nav" aria-label="2. Introduction">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#21-motivation" class="md-nav__link">
+<nav aria-label="2. Introduction" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#21-motivation">
     2.1 Motivation
   </a>
-  
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#22-the-iscc" class="md-nav__link">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#22-the-iscc">
     2.2 The ISCC
   </a>
-  
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#23-iscc-as-did" class="md-nav__link">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#23-iscc-as-did">
     2.3 ISCC as DID
   </a>
-  
 </li>
-        
-      </ul>
-    </nav>
-  
+</ul>
+</nav>
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#3-method-syntax" class="md-nav__link">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#3-method-syntax">
     3. Method Syntax
   </a>
-  
-    <nav class="md-nav" aria-label="3. Method Syntax">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#31-method-name" class="md-nav__link">
+<nav aria-label="3. Method Syntax" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#31-method-name">
     3.1 Method Name
   </a>
-  
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#32-method-specific-identifier" class="md-nav__link">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#32-method-specific-identifier">
     3.2 Method Specific Identifier
   </a>
-  
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#33-iscc-did-example" class="md-nav__link">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#33-iscc-did-example">
     3.3 ISCC DID Example
   </a>
-  
 </li>
-        
-      </ul>
-    </nav>
-  
+</ul>
+</nav>
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#4-method-operations" class="md-nav__link">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#4-method-operations">
     4. Method Operations
   </a>
-  
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#5-resolving-dids" class="md-nav__link">
-    5. Resolving DIDs
+<li class="md-nav__item">
+<a class="md-nav__link" href="#5-verifiable-data-registry">
+    5. Verifiable Data Registry
   </a>
-  
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#6-security-privacy-consideration" class="md-nav__link">
-    6. Security &amp; Privacy Consideration
+<li class="md-nav__item">
+<a class="md-nav__link" href="#6-resolving-dids">
+    6. Resolving DIDs
   </a>
-  
 </li>
-      
-    </ul>
-  
+<li class="md-nav__item">
+<a class="md-nav__link" href="#7-security-privacy-consideration">
+    7. Security &amp; Privacy Consideration
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#8-reference-implementation">
+    8. Reference Implementation
+  </a>
+</li>
+</ul>
 </nav>
-                  </div>
-                </div>
-              </div>
-            
-          
-          
-            <div class="md-content" data-md-component="content">
-              <article class="md-content__inner md-typeset">
-                
-                  
-
-  <a href="https://github.com/iscc/iscc-ieps/edit/main/ieps/iep-0015.md" title="Edit this page" class="md-content__button md-icon">
-    
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
-  </a>
-
-
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<a class="md-content__button md-icon" href="https://github.com/iscc/iscc-ieps/edit/main/ieps/iep-0015.md" title="Edit this page">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"></path></svg>
+</a>
 <h1 id="iscc-did-method">ISCC DID Method<a class="headerlink" href="#iscc-did-method" title="Permanent link">#</a></h1>
 <table>
 <thead>
@@ -778,7 +426,7 @@
 </tr>
 <tr>
 <td>Author:</td>
-<td>Titusz Pan <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#116;&#112;&#64;&#105;&#115;&#99;&#99;&#46;&#102;&#111;&#117;&#110;&#100;&#97;&#116;&#105;&#111;&#110;">&#116;&#112;&#64;&#105;&#115;&#99;&#99;&#46;&#102;&#111;&#117;&#110;&#100;&#97;&#116;&#105;&#111;&#110;</a></td>
+<td>Titusz Pan <a href="mailto:tp@iscc.foundation">tp@iscc.foundation</a></td>
 </tr>
 <tr>
 <td>Comments:</td>
@@ -802,7 +450,7 @@
 </tr>
 <tr>
 <td>Updated:</td>
-<td><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2022-09-29</span></td>
+<td><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2022-09-30</span></td>
 </tr>
 </tbody>
 </table>
@@ -831,8 +479,8 @@ text, audio, image, and video based content. ISCC-CODEs can be created from medi
 using open source software. Similar content can then be matched by comparing ISCC-CODEs only.</p>
 <div class="admonition example">
 <p class="admonition-title">Example ISCC-CODE</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>ISCC:KECYCPU3OKIUDZ7TYBRK5HZ4JGPTILLAT2IW7TY7EYIJI4QSK5I353I
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>Decoded: ISCC-IMAGE-V0-MCDI-813e9b729141e7f3c062ae9f3c499f342d609e916fcf1f26109472125751beed
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>ISCC:KECYCPU3OKIUDZ7TYBRK5HZ4JGPTILLAT2IW7TY7EYIJI4QSK5I353I
+<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>Decoded: ISCC-IMAGE-V0-MCDI-813e9b729141e7f3c062ae9f3c499f342d609e916fcf1f26109472125751beed
 </code></pre></div>
 </div>
 <p>Users can also register ISCC-CODEs on any supported public blockchain to obtain a short and globaly
@@ -843,8 +491,8 @@ deterministically by observing participating legers and can be reproduced by any
 the public and immutable registration events.</p>
 <div class="admonition example">
 <p class="admonition-title">Example ISCC-ID</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>ISCC:MIAGWPTV4J2Z57CI
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>Decoded: ID-ETHEREUM-V0-64-6b3e75e2759efc48
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a>ISCC:MIAGWPTV4J2Z57CI
+<a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a>Decoded: ID-ETHEREUM-V0-64-6b3e75e2759efc48
 </code></pre></div>
 </div>
 <h3 id="23-iscc-as-did">2.3 ISCC as DID<a class="headerlink" href="#23-iscc-as-did" title="Permanent link">#</a></h3>
@@ -859,7 +507,7 @@ referenced content and its registrant.</p>
 <code>service</code> property can improve trust in otherwise permissionless content registrations. Additionaly
 the use of <a href="https://identity.foundation/decentralized-web-node/spec/">decentralized web nodes</a> allow
 for interoperable discovery and data sovereignity of hosted verifiable credentials.</p>
-<p>At the samme time ISCC would bring open content identification to the <em>Decentalized Identifiers</em> 
+<p>At the same time ISCC would bring open content identification to the <em>Decentalized Identifiers</em> 
 ecosystem.</p>
 <h2 id="3-method-syntax">3. Method Syntax<a class="headerlink" href="#3-method-syntax" title="Permanent link">#</a></h2>
 <h3 id="31-method-name">3.1 Method Name<a class="headerlink" href="#31-method-name" title="Permanent link">#</a></h3>
@@ -873,10 +521,10 @@ ecosystem.</p>
 defined by the follwing <a href="https://www.rfc-editor.org/info/std68">ABNF</a>:</p>
 <div class="admonition example">
 <p class="admonition-title">ISCC DID scheme ABNF</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nc">iscc-did</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="l">&quot;did:iscc:&quot;</span><span class="w"> </span><span class="nc">iscc</span><span class="w"></span>
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="nc">iscc</span><span class="w">     </span><span class="o">=</span><span class="w"> </span><span class="o">10*88</span><span class="p">(</span><span class="nc">numbers</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="nc">letters</span><span class="p">)</span><span class="w"></span>
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="nc">numbers</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="l">%x32-37</span><span class="w">  </span><span class="c1">; 2-7</span><span class="w"></span>
-<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="nc">letters</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="l">%x61-7A</span><span class="w">  </span><span class="c1">; a-z</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="nc">iscc-did</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="l">"did:iscc:"</span><span class="w"> </span><span class="nc">iscc</span><span class="w"></span>
+<a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="nc">iscc</span><span class="w">     </span><span class="o">=</span><span class="w"> </span><span class="o">10*88</span><span class="p">(</span><span class="nc">numbers</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="nc">letters</span><span class="p">)</span><span class="w"></span>
+<a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="nc">numbers</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="l">%x32-37</span><span class="w">  </span><span class="c1">; 2-7</span><span class="w"></span>
+<a href="#__codelineno-2-4" id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="nc">letters</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="l">%x61-7A</span><span class="w">  </span><span class="c1">; a-z</span><span class="w"></span>
 </code></pre></div>
 </div>
 <ol>
@@ -887,7 +535,7 @@ defined by the follwing <a href="https://www.rfc-editor.org/info/std68">ABNF</a>
 <h3 id="33-iscc-did-example">3.3 ISCC DID Example<a class="headerlink" href="#33-iscc-did-example" title="Permanent link">#</a></h3>
 <div class="admonition example">
 <p class="admonition-title">DID representation of an ISCC-ID</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>did:iscc:miagwptv4j2z57ci
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a>did:iscc:miagwptv4j2z57ci
 </code></pre></div>
 </div>
 <h2 id="4-method-operations">4. Method Operations<a class="headerlink" href="#4-method-operations" title="Permanent link">#</a></h2>
@@ -899,98 +547,95 @@ defined by the follwing <a href="https://www.rfc-editor.org/info/std68">ABNF</a>
 <li>The controller MAY set a custom DID Document by embedding or referencing it from <a href="https://schema.iscc.codes">ISCC Metadata</a></li>
 <li>The DID Document MAY be updated or deactivated in accordence with the chain specific implementation of the declaration protocol.</li>
 </ol>
-<h2 id="5-resolving-dids">5. Resolving DIDs<a class="headerlink" href="#5-resolving-dids" title="Permanent link">#</a></h2>
+<h2 id="5-verifiable-data-registry">5. Verifiable Data Registry<a class="headerlink" href="#5-verifiable-data-registry" title="Permanent link">#</a></h2>
+<p>The <a href="https://www.w3.org/TR/did-core/#architecture-overview">verifiable data registry</a> for ISCC 
+declarations is a federation of existing public ledgers that support the declaration protocol. The 
+protocol can be implemented on most public ledgers (even without smart contracts) that provide an 
+orderd, immutable, append-only history of signed transactions. </p>
+<figure>
+<p><a class="glightbox" href="../images/iscc-iep-0015-verifiable-data-registry.png"><img alt="Figure 1 - ISCC Verifiable Data Registry" src="../images/iscc-iep-0015-verifiable-data-registry.png"/></a>
+</p>
+<figcaption>Figure 1 - ISCC Verifiable Data Registry</figcaption>
+</figure>
+<p>DID documents are sourced from on-chain metadata and optionally from immutably or mutably
+referenced off-chain metadata.</p>
+<h2 id="6-resolving-dids">6. Resolving DIDs<a class="headerlink" href="#6-resolving-dids" title="Permanent link">#</a></h2>
 <ol>
 <li>An ISCC DID can be resolved by querying an instantiation of an <a href="https://github.com/iscc/iscc-registry">ISCC content registry</a>.</li>
-<li>The authenticity of the response can be verified through the referenced on-chain metadata.</li>
+<li>The authenticity of the response can be verified through the referenced on-chain transaction.</li>
 </ol>
-<h2 id="6-security-privacy-consideration">6. Security &amp; Privacy Consideration<a class="headerlink" href="#6-security-privacy-consideration" title="Permanent link">#</a></h2>
+<figure>
+<p><a class="glightbox" href="../images/iscc-iep-0015-did-architecture.png"><img alt="Figure 2 - ISCC DID Architecture" src="../images/iscc-iep-0015-did-architecture.png"/></a>
+</p>
+<figcaption>Figure 2 - ISCC DID Architecture</figcaption>
+</figure>
+<h2 id="7-security-privacy-consideration">7. Security &amp; Privacy Consideration<a class="headerlink" href="#7-security-privacy-consideration" title="Permanent link">#</a></h2>
 <p>Implementers should be aware that ISCC-CODEs are not cryptographic hashes but descriptors or 
 similarity preserving (soft) hashes. As such they leak information about the structure of the
 identified content. This is by design and necessary to support similarity matching with ISCC-CODEs.</p>
 <p>An ISCC DID document need not contain a proof property. All operations are authenticated with the 
 signature of the transaction payload sent to the network of the originating ledger. 
 This signature is generated using a key specified in the corresponding DID Document.</p>
-
-  <hr>
+<h2 id="8-reference-implementation">8. Reference Implementation<a class="headerlink" href="#8-reference-implementation" title="Permanent link">#</a></h2>
+<p>An end-to-end reference implementation of the decentralized content registry is manifested by the
+following modules:</p>
+<ul>
+<li>Codec and Algorithms: <a href="https://github.com/iscc/iscc-core">https://github.com/iscc/iscc-core</a></li>
+<li>ISCC Metadata: <a href="https://github.com/iscc/iscc-schema">https://github.com/iscc/iscc-schema</a></li>
+<li>EVM Smart Contracts: <a href="https://github.com/iscc/iscc-evm">https://github.com/iscc/iscc-evm</a></li>
+<li>EVM Chain Observer: <a href="https://github.com/iscc/iscc-observer-evm">https://github.com/iscc/iscc-observer-evm</a></li>
+<li>ISCC Content Registry: <a href="https://github.com/iscc/iscc-registry">https://github.com/iscc/iscc-registry</a></li>
+<li>Public Instantiation: <a href="https://iscc.id">https://iscc.id</a></li>
+</ul>
+<hr/>
 <div class="md-source-file">
-  <small>
+<small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2022-09-29</span>
-      
-        <br>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2022-09-30</span>
+<br/>
         Created:
         <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2022-09-28</span>
-      
-    
-  </small>
+</small>
 </div>
-
-
-  
-
-
-
-
-                
-              </article>
-            </div>
-          
-          
-        </div>
-        
-      </main>
-      
-        <footer class="md-footer">
-  
-    
-    <nav class="md-footer__inner md-grid" aria-label="Footer" >
-      
-        
-        <a href="../iep-0014/" class="md-footer__link md-footer__link--prev" aria-label="Previous: IEP-0014 - EVM Registries" rel="prev">
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
-          </div>
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
+</article>
+</div>
+</div>
+</main>
+<footer class="md-footer">
+<nav aria-label="Footer" class="md-footer__inner md-grid">
+<a aria-label="Previous: IEP-0014 - EVM Registries" class="md-footer__link md-footer__link--prev" href="../iep-0014/" rel="prev">
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+</div>
+<div class="md-footer__title">
+<div class="md-ellipsis">
+<span class="md-footer__direction">
                 Previous
               </span>
               IEP-0014 - EVM Registries
             </div>
-          </div>
-        </a>
-      
-      
-    </nav>
-  
-  <div class="md-footer-meta md-typeset">
-    <div class="md-footer-meta__inner md-grid">
-      <div class="md-copyright">
+</div>
+</a>
+</nav>
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-copyright">
   
   
     Made with
-    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+    <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
       Material for MkDocs
     </a>
-  
 </div>
-      
-    </div>
-  </div>
+</div>
+</div>
 </footer>
-      
-    </div>
-    <div class="md-dialog" data-md-component="dialog">
-      <div class="md-dialog__inner md-typeset"></div>
-    </div>
-    
-    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.5bf1dace.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
-    
-    
-      <script src="../assets/javascripts/bundle.37e9125f.min.js"></script>
-      
-    
-  </body>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.5bf1dace.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+<script src="../assets/javascripts/bundle.37e9125f.min.js"></script>
+<script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "width": "100%", "height": "auto", "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom"});})</script></body>
 </html>
