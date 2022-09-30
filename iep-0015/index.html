@@ -292,18 +292,23 @@
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#6-resolving-dids">
-    6. Resolving DIDs
+<a class="md-nav__link" href="#6-did-document">
+    6. DID Document
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#7-security-privacy-consideration">
-    7. Security &amp; Privacy Consideration
+<a class="md-nav__link" href="#7-resolving-dids">
+    7. Resolving DIDs
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#8-reference-implementation">
-    8. Reference Implementation
+<a class="md-nav__link" href="#8-security-privacy-consideration">
+    8. Security &amp; Privacy Consideration
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#9-reference-implementation">
+    9. Reference Implementation
   </a>
 </li>
 </ul>
@@ -387,18 +392,23 @@
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#6-resolving-dids">
-    6. Resolving DIDs
+<a class="md-nav__link" href="#6-did-document">
+    6. DID Document
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#7-security-privacy-consideration">
-    7. Security &amp; Privacy Consideration
+<a class="md-nav__link" href="#7-resolving-dids">
+    7. Resolving DIDs
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#8-reference-implementation">
-    8. Reference Implementation
+<a class="md-nav__link" href="#8-security-privacy-consideration">
+    8. Security &amp; Privacy Consideration
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#9-reference-implementation">
+    9. Reference Implementation
   </a>
 </li>
 </ul>
@@ -557,9 +567,44 @@ orderd, immutable, append-only history of signed transactions. </p>
 </p>
 <figcaption>Figure 1 - ISCC Verifiable Data Registry</figcaption>
 </figure>
+<h2 id="6-did-document">6. DID Document<a class="headerlink" href="#6-did-document" title="Permanent link">#</a></h2>
 <p>DID documents are sourced from on-chain metadata and optionally from immutably or mutably
-referenced off-chain metadata.</p>
-<h2 id="6-resolving-dids">6. Resolving DIDs<a class="headerlink" href="#6-resolving-dids" title="Permanent link">#</a></h2>
+referenced off-chain metadata. </p>
+<p>All information required to construct a basic valid DID document from an ISCC declaration is
+available on-chain and can be dynamically transformed and presented as DID document by a DID 
+driver implementation.</p>
+<div class="admonition example">
+<p class="admonition-title">Minimal ISCC DID Document example</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="p">{</span><span class="w"></span>
+<a href="#__codelineno-4-2" id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="w">  </span><span class="nt">"@context"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<a href="#__codelineno-4-3" id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="w">    </span><span class="s2">"https://www.w3.org/ns/did/v1"</span><span class="p">,</span><span class="w"></span>
+<a href="#__codelineno-4-4" id="__codelineno-4-4" name="__codelineno-4-4"></a><span class="w">    </span><span class="p">{</span><span class="w"></span>
+<a href="#__codelineno-4-5" id="__codelineno-4-5" name="__codelineno-4-5"></a><span class="w">      </span><span class="nt">"EcdsaSecp256k1RecoveryMethod2020"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://identity.foundation/EcdsaSecp256k1RecoverySignature2020#EcdsaSecp256k1RecoveryMethod2020"</span><span class="p">,</span><span class="w"></span>
+<a href="#__codelineno-4-6" id="__codelineno-4-6" name="__codelineno-4-6"></a><span class="w">      </span><span class="nt">"blockchainAccountId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://w3id.org/security#blockchainAccountId"</span><span class="w"></span>
+<a href="#__codelineno-4-7" id="__codelineno-4-7" name="__codelineno-4-7"></a><span class="w">    </span><span class="p">}</span><span class="w"></span>
+<a href="#__codelineno-4-8" id="__codelineno-4-8" name="__codelineno-4-8"></a><span class="w">  </span><span class="p">],</span><span class="w"></span>
+<a href="#__codelineno-4-9" id="__codelineno-4-9" name="__codelineno-4-9"></a><span class="w">  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"did:iscc:miagwptv4j2z57ci"</span><span class="p">,</span><span class="w"></span>
+<a href="#__codelineno-4-10" id="__codelineno-4-10" name="__codelineno-4-10"></a><span class="w">  </span><span class="nt">"verificationMethod"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<a href="#__codelineno-4-11" id="__codelineno-4-11" name="__codelineno-4-11"></a><span class="w">    </span><span class="p">{</span><span class="w"></span>
+<a href="#__codelineno-4-12" id="__codelineno-4-12" name="__codelineno-4-12"></a><span class="w">      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"did:pkh:eip155:1:0x901ee44e3bddf4bc1c08a2ed229498512f8bcfdc#blockchainAccountId"</span><span class="p">,</span><span class="w"></span>
+<a href="#__codelineno-4-13" id="__codelineno-4-13" name="__codelineno-4-13"></a><span class="w">      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EcdsaSecp256k1RecoveryMethod2020"</span><span class="p">,</span><span class="w"></span>
+<a href="#__codelineno-4-14" id="__codelineno-4-14" name="__codelineno-4-14"></a><span class="w">      </span><span class="nt">"controller"</span><span class="p">:</span><span class="w"> </span><span class="s2">"did:pkh:eip155:1:0x901ee44e3bddf4bc1c08a2ed229498512f8bcfdc"</span><span class="p">,</span><span class="w"></span>
+<a href="#__codelineno-4-15" id="__codelineno-4-15" name="__codelineno-4-15"></a><span class="w">      </span><span class="nt">"blockchainAccountId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"eip155:1:0x901ee44e3bddf4bc1c08a2ed229498512f8bcfdc"</span><span class="w"></span>
+<a href="#__codelineno-4-16" id="__codelineno-4-16" name="__codelineno-4-16"></a><span class="w">    </span><span class="p">}</span><span class="w"></span>
+<a href="#__codelineno-4-17" id="__codelineno-4-17" name="__codelineno-4-17"></a><span class="w">  </span><span class="p">],</span><span class="w"></span>
+<a href="#__codelineno-4-18" id="__codelineno-4-18" name="__codelineno-4-18"></a><span class="w">  </span><span class="nt">"authentication"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<a href="#__codelineno-4-19" id="__codelineno-4-19" name="__codelineno-4-19"></a><span class="w">    </span><span class="s2">"did:pkh:eip155:1:0x901ee44e3bddf4bc1c08a2ed229498512f8bcfdc#blockchainAccountId"</span><span class="w"></span>
+<a href="#__codelineno-4-20" id="__codelineno-4-20" name="__codelineno-4-20"></a><span class="w">  </span><span class="p">],</span><span class="w"></span>
+<a href="#__codelineno-4-21" id="__codelineno-4-21" name="__codelineno-4-21"></a><span class="w">  </span><span class="nt">"assertionMethod"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<a href="#__codelineno-4-22" id="__codelineno-4-22" name="__codelineno-4-22"></a><span class="w">    </span><span class="s2">"did:pkh:eip155:1:0x901ee44e3bddf4bc1c08a2ed229498512f8bcfdc#blockchainAccountId"</span><span class="w"></span>
+<a href="#__codelineno-4-23" id="__codelineno-4-23" name="__codelineno-4-23"></a><span class="w">  </span><span class="p">]</span><span class="w"></span>
+<a href="#__codelineno-4-24" id="__codelineno-4-24" name="__codelineno-4-24"></a><span class="p">}</span><span class="w"></span>
+</code></pre></div>
+</div>
+<p>Additional/Optional DID document data MAY be added off-chain in mutable or immutable modes and
+retrived and incjected by the DID driver in realtime to compose an extended DID document that
+includes other properties.</p>
+<h2 id="7-resolving-dids">7. Resolving DIDs<a class="headerlink" href="#7-resolving-dids" title="Permanent link">#</a></h2>
 <ol>
 <li>An ISCC DID can be resolved by querying an instantiation of an <a href="https://github.com/iscc/iscc-registry">ISCC content registry</a>.</li>
 <li>The authenticity of the response can be verified through the referenced on-chain transaction.</li>
@@ -569,14 +614,14 @@ referenced off-chain metadata.</p>
 </p>
 <figcaption>Figure 2 - ISCC DID Architecture</figcaption>
 </figure>
-<h2 id="7-security-privacy-consideration">7. Security &amp; Privacy Consideration<a class="headerlink" href="#7-security-privacy-consideration" title="Permanent link">#</a></h2>
+<h2 id="8-security-privacy-consideration">8. Security &amp; Privacy Consideration<a class="headerlink" href="#8-security-privacy-consideration" title="Permanent link">#</a></h2>
 <p>Implementers should be aware that ISCC-CODEs are not cryptographic hashes but descriptors or 
 similarity preserving (soft) hashes. As such they leak information about the structure of the
 identified content. This is by design and necessary to support similarity matching with ISCC-CODEs.</p>
 <p>An ISCC DID document need not contain a proof property. All operations are authenticated with the 
 signature of the transaction payload sent to the network of the originating ledger. 
 This signature is generated using a key specified in the corresponding DID Document.</p>
-<h2 id="8-reference-implementation">8. Reference Implementation<a class="headerlink" href="#8-reference-implementation" title="Permanent link">#</a></h2>
+<h2 id="9-reference-implementation">9. Reference Implementation<a class="headerlink" href="#9-reference-implementation" title="Permanent link">#</a></h2>
 <p>An end-to-end reference implementation of the decentralized content registry is manifested by the
 following modules:</p>
 <ul>
