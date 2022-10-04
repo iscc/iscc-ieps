@@ -9,9 +9,9 @@
 <meta content="Titusz Pan" name="author"/>
 <link href="https://ieps.iscc.codes/iep-0015/" rel="canonical"/>
 <link href="../images/iscc-logo-icon-black.svg" rel="icon"/>
-<meta content="mkdocs-1.4.0, mkdocs-material-8.5.3" name="generator"/>
+<meta content="mkdocs-1.4.0, mkdocs-material-8.5.6" name="generator"/>
 <title>IEP-0015 - DID Method - ISCC Enhancement Proposals</title>
-<link href="../assets/stylesheets/main.7a952b86.min.css" rel="stylesheet"/>
+<link href="../assets/stylesheets/main.20d9efc8.min.css" rel="stylesheet"/>
 <link href="../assets/stylesheets/palette.cbb835fc.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Readex+Pro:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
@@ -460,7 +460,7 @@
 </tr>
 <tr>
 <td>Updated:</td>
-<td><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2022-09-30</span></td>
+<td><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2022-10-04</span></td>
 </tr>
 </tbody>
 </table>
@@ -550,18 +550,18 @@ defined by the follwing <a href="https://www.rfc-editor.org/info/std68">ABNF</a>
 </div>
 <h2 id="4-method-operations">4. Method Operations<a class="headerlink" href="#4-method-operations" title="Permanent link">#</a></h2>
 <ol>
-<li>All operations are authorized by signed transactions of the controler.</li>
+<li>All operations are authorized by signed transactions of the controller.</li>
 <li>An ISCC-DID is created by publicly declaring an ISCC-CODE in accordance with the <a href="/iep-0013">cross-chain declaration protocol</a>.</li>
-<li>The initial controler of the DID document is the <a href="https://github.com/w3c-ccg/did-pkh/blob/main/did-pkh-method-draft.md">did:pkh</a> representation of the blockchain account that signed the declaration transaction.</li>
+<li>The initial controller of the DID document is the <a href="https://github.com/w3c-ccg/did-pkh/blob/main/did-pkh-method-draft.md">did:pkh</a> representation of the blockchain account that signed the declaration transaction.</li>
 <li>A basic DID document is automatically and deterministicaly derived from on-chain metadata.</li>
 <li>The controller MAY set a custom DID Document by embedding or referencing it from <a href="https://schema.iscc.codes">ISCC Metadata</a></li>
 <li>The DID Document MAY be updated or deactivated in accordence with the chain specific implementation of the declaration protocol.</li>
 </ol>
 <h2 id="5-verifiable-data-registry">5. Verifiable Data Registry<a class="headerlink" href="#5-verifiable-data-registry" title="Permanent link">#</a></h2>
-<p>The <a href="https://www.w3.org/TR/did-core/#architecture-overview">verifiable data registry</a> for ISCC 
-declarations is a federation of existing public ledgers that support the declaration protocol. The 
-protocol can be implemented on most public ledgers (even without smart contracts) that provide an 
-orderd, immutable, append-only history of signed transactions. </p>
+<p>The <a href="https://www.w3.org/TR/did-core/#architecture-overview">verifiable data registry</a> or
+"target system" for ISCC declarations is a federation of existing public ledgers that support the 
+declaration protocol. The protocol can be implemented on most public ledgers (even without smart 
+contracts) that provide an orderd, immutable, append-only history of signed transactions. </p>
 <figure>
 <p><a class="glightbox" href="../images/iscc-iep-0015-verifiable-data-registry.png"><img alt="Figure 1 - ISCC Verifiable Data Registry" src="../images/iscc-iep-0015-verifiable-data-registry.png"/></a>
 </p>
@@ -570,41 +570,45 @@ orderd, immutable, append-only history of signed transactions. </p>
 <h2 id="6-did-document">6. DID Document<a class="headerlink" href="#6-did-document" title="Permanent link">#</a></h2>
 <p>DID documents are sourced from on-chain metadata and optionally from immutably or mutably
 referenced off-chain metadata. </p>
-<p>All information required to construct a basic valid DID document from an ISCC declaration is
+<p>All information required to construct a minimal valid DID document from an ISCC declaration is
 available on-chain and can be dynamically transformed and presented as DID document by a DID 
 driver implementation.</p>
 <div class="admonition example">
 <p class="admonition-title">Minimal ISCC DID Document example</p>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="p">{</span><span class="w"></span>
-<a href="#__codelineno-4-2" id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="w">  </span><span class="nt">"@context"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
-<a href="#__codelineno-4-3" id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="w">    </span><span class="s2">"https://www.w3.org/ns/did/v1"</span><span class="p">,</span><span class="w"></span>
-<a href="#__codelineno-4-4" id="__codelineno-4-4" name="__codelineno-4-4"></a><span class="w">    </span><span class="p">{</span><span class="w"></span>
-<a href="#__codelineno-4-5" id="__codelineno-4-5" name="__codelineno-4-5"></a><span class="w">      </span><span class="nt">"EcdsaSecp256k1RecoveryMethod2020"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://identity.foundation/EcdsaSecp256k1RecoverySignature2020#EcdsaSecp256k1RecoveryMethod2020"</span><span class="p">,</span><span class="w"></span>
-<a href="#__codelineno-4-6" id="__codelineno-4-6" name="__codelineno-4-6"></a><span class="w">      </span><span class="nt">"blockchainAccountId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://w3id.org/security#blockchainAccountId"</span><span class="w"></span>
-<a href="#__codelineno-4-7" id="__codelineno-4-7" name="__codelineno-4-7"></a><span class="w">    </span><span class="p">}</span><span class="w"></span>
-<a href="#__codelineno-4-8" id="__codelineno-4-8" name="__codelineno-4-8"></a><span class="w">  </span><span class="p">],</span><span class="w"></span>
-<a href="#__codelineno-4-9" id="__codelineno-4-9" name="__codelineno-4-9"></a><span class="w">  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"did:iscc:miagwptv4j2z57ci"</span><span class="p">,</span><span class="w"></span>
-<a href="#__codelineno-4-10" id="__codelineno-4-10" name="__codelineno-4-10"></a><span class="w">  </span><span class="nt">"alsoKnownAs"</span><span class="p">:</span><span class="w"> </span><span class="s2">"iscc:kecycpu3okiudz7tybrk5hz4jgptillat2iw7ty7eyiji4qsk5i353i"</span><span class="p">,</span><span class="w"></span>
-<a href="#__codelineno-4-11" id="__codelineno-4-11" name="__codelineno-4-11"></a><span class="w">  </span><span class="nt">"verificationMethod"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
-<a href="#__codelineno-4-12" id="__codelineno-4-12" name="__codelineno-4-12"></a><span class="w">    </span><span class="p">{</span><span class="w"></span>
-<a href="#__codelineno-4-13" id="__codelineno-4-13" name="__codelineno-4-13"></a><span class="w">      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"did:pkh:eip155:1:0x901ee44e3bddf4bc1c08a2ed229498512f8bcfdc#blockchainAccountId"</span><span class="p">,</span><span class="w"></span>
-<a href="#__codelineno-4-14" id="__codelineno-4-14" name="__codelineno-4-14"></a><span class="w">      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EcdsaSecp256k1RecoveryMethod2020"</span><span class="p">,</span><span class="w"></span>
-<a href="#__codelineno-4-15" id="__codelineno-4-15" name="__codelineno-4-15"></a><span class="w">      </span><span class="nt">"controller"</span><span class="p">:</span><span class="w"> </span><span class="s2">"did:pkh:eip155:1:0x901ee44e3bddf4bc1c08a2ed229498512f8bcfdc"</span><span class="p">,</span><span class="w"></span>
-<a href="#__codelineno-4-16" id="__codelineno-4-16" name="__codelineno-4-16"></a><span class="w">      </span><span class="nt">"blockchainAccountId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"eip155:1:0x901ee44e3bddf4bc1c08a2ed229498512f8bcfdc"</span><span class="w"></span>
-<a href="#__codelineno-4-17" id="__codelineno-4-17" name="__codelineno-4-17"></a><span class="w">    </span><span class="p">}</span><span class="w"></span>
-<a href="#__codelineno-4-18" id="__codelineno-4-18" name="__codelineno-4-18"></a><span class="w">  </span><span class="p">],</span><span class="w"></span>
-<a href="#__codelineno-4-19" id="__codelineno-4-19" name="__codelineno-4-19"></a><span class="w">  </span><span class="nt">"authentication"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
-<a href="#__codelineno-4-20" id="__codelineno-4-20" name="__codelineno-4-20"></a><span class="w">    </span><span class="s2">"did:pkh:eip155:1:0x901ee44e3bddf4bc1c08a2ed229498512f8bcfdc#blockchainAccountId"</span><span class="w"></span>
-<a href="#__codelineno-4-21" id="__codelineno-4-21" name="__codelineno-4-21"></a><span class="w">  </span><span class="p">],</span><span class="w"></span>
-<a href="#__codelineno-4-22" id="__codelineno-4-22" name="__codelineno-4-22"></a><span class="w">  </span><span class="nt">"assertionMethod"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
-<a href="#__codelineno-4-23" id="__codelineno-4-23" name="__codelineno-4-23"></a><span class="w">    </span><span class="s2">"did:pkh:eip155:1:0x901ee44e3bddf4bc1c08a2ed229498512f8bcfdc#blockchainAccountId"</span><span class="w"></span>
-<a href="#__codelineno-4-24" id="__codelineno-4-24" name="__codelineno-4-24"></a><span class="w">  </span><span class="p">]</span><span class="w"></span>
-<a href="#__codelineno-4-25" id="__codelineno-4-25" name="__codelineno-4-25"></a><span class="p">}</span><span class="w"></span>
+<a href="#__codelineno-4-2" id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="w">  </span><span class="nt">"@context"</span><span class="p">:</span><span class="w"> </span><span class="nt">"https://www.w3id.org/ns/did/v1"</span><span class="w"></span>
+<a href="#__codelineno-4-3" id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="w">  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"did:iscc:miagwptv4j2z57ci"</span><span class="p">,</span><span class="w"></span>
+<a href="#__codelineno-4-4" id="__codelineno-4-4" name="__codelineno-4-4"></a><span class="w">  </span><span class="nt">"controller"</span><span class="p">:</span><span class="w"> </span><span class="s2">"did:pkh:eip155:1:0x901ee44e3bddf4bc1c08a2ed229498512f8bcfdc"</span><span class="p">,</span><span class="w"></span>
+<a href="#__codelineno-4-5" id="__codelineno-4-5" name="__codelineno-4-5"></a><span class="w">  </span><span class="nt">"alsoKnownAs"</span><span class="p">:</span><span class="w"> </span><span class="s2">"iscc:kecycpu3okiudz7tybrk5hz4jgptillat2iw7ty7eyiji4qsk5i353i"</span><span class="p">,</span><span class="w"></span>
+<a href="#__codelineno-4-6" id="__codelineno-4-6" name="__codelineno-4-6"></a><span class="w">  </span><span class="nt">"service"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w"></span>
+<a href="#__codelineno-4-7" id="__codelineno-4-7" name="__codelineno-4-7"></a><span class="w">    </span><span class="nt">"id"</span><span class="p">:</span><span class="s2">"did:iscc:miagwptv4j2z57ci#iscc-metadata"</span><span class="p">,</span><span class="w"></span>
+<a href="#__codelineno-4-8" id="__codelineno-4-8" name="__codelineno-4-8"></a><span class="w">    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IsccMetadata"</span><span class="p">,</span><span class="w"> </span>
+<a href="#__codelineno-4-9" id="__codelineno-4-9" name="__codelineno-4-9"></a><span class="w">    </span><span class="nt">"serviceEndpoint"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ipfs://bafybeiccys7kilr3rynlhoelrdn6ragpbfoti73h4e3oszbgd5inthicja/iscc-metadata/43.json"</span><span class="w"></span>
+<a href="#__codelineno-4-10" id="__codelineno-4-10" name="__codelineno-4-10"></a><span class="w">  </span><span class="p">}]</span><span class="w"></span>
+<a href="#__codelineno-4-11" id="__codelineno-4-11" name="__codelineno-4-11"></a><span class="p">}</span><span class="w"></span>
 </code></pre></div>
 </div>
+<ol>
+<li>The DID subject (<code>id</code>-property) MUST be the ISCC-ID in DID representation.</li>
+<li>The DID controller (<code>controller</code>-property) MUST be constructed deterministically by converting
+  the blockchain account that signed the declaration transaction to a <a href="https://github.com/w3c-ccg/did-pkh/blob/main/did-pkh-method-draft.md"><code>did:pkh</code></a>.</li>
+<li>The <code>alsoKnownAs</code>-property MUST be set to the ISCC-CODE registered by the transaction.</li>
+<li>If the original ISCC declaration includes a link to off-chain metadata the DID document MUST
+  include the reference via an entry into the <code>service</code>-property with type "IsccMetadata". The 
+  referenced <code>serviceEndpoint</code> SHOULD return a document of type <a href="http://purl.org/iscc/context">http://purl.org/iscc/context</a>.</li>
+</ol>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Properties like <code>verificationMethod</code>, <code>authentication</code>, <code>assertionMethod</code> etc. are left out 
+intentionally, as their autoritative values are managed by the DID document associated with
+the <code>controler</code> that can be resolved separately.</p>
+</div>
+<div class="admonition error">
+<p class="admonition-title">To be defined</p>
 <p>Additional/Optional DID document data MAY be added off-chain in mutable or immutable modes and
 retrived and incjected by the DID driver in realtime to compose an extended DID document that
-includes other properties.</p>
+includes other properties like <code>service</code>.</p>
+</div>
 <h2 id="7-resolving-dids">7. Resolving DIDs<a class="headerlink" href="#7-resolving-dids" title="Permanent link">#</a></h2>
 <ol>
 <li>An ISCC DID can be resolved by querying an instantiation of an <a href="https://github.com/iscc/iscc-registry">ISCC content registry</a>.</li>
@@ -630,15 +634,15 @@ following modules:</p>
 <li>ISCC Metadata: <a href="https://github.com/iscc/iscc-schema">https://github.com/iscc/iscc-schema</a></li>
 <li>EVM Smart Contracts: <a href="https://github.com/iscc/iscc-evm">https://github.com/iscc/iscc-evm</a></li>
 <li>EVM Chain Observer: <a href="https://github.com/iscc/iscc-observer-evm">https://github.com/iscc/iscc-observer-evm</a></li>
-<li>ISCC Content Registry: <a href="https://github.com/iscc/iscc-registry">https://github.com/iscc/iscc-registry</a></li>
-<li>Public Instantiation: <a href="https://iscc.id">https://iscc.id</a></li>
+<li>ISCC Content Registry: <a href="https://github.com/iscc/iscc-registry">https://github.com/iscc/iscc-registry</a> / <a href="https://iscc.id">https://iscc.id</a></li>
+<li>ISCC DID driver: <a href="https://github.com/iscc/iscc-did-driver">https://github.com/iscc/iscc-did-driver</a></li>
 </ul>
 <hr/>
 <div class="md-source-file">
 <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2022-09-30</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2022-10-04</span>
 <br/>
         Created:
         <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2022-09-28</span>
@@ -682,6 +686,6 @@ following modules:</p>
 <div class="md-dialog__inner md-typeset"></div>
 </div>
 <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.5bf1dace.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
-<script src="../assets/javascripts/bundle.37e9125f.min.js"></script>
+<script src="../assets/javascripts/bundle.078830c0.min.js"></script>
 <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "width": "100%", "height": "auto", "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom"});})</script></body>
 </html>
