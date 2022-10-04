@@ -321,13 +321,18 @@
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#7-security-privacy-consideration">
-    7. Security &amp; Privacy Consideration
+<a class="md-nav__link" href="#7-security-considerations">
+    7. Security Considerations
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#8-reference-implementation">
-    8. Reference Implementation
+<a class="md-nav__link" href="#8-privacy-considerations">
+    8. Privacy Considerations
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#9-reference-implementation">
+    9. Reference Implementation
   </a>
 </li>
 </ul>
@@ -440,13 +445,18 @@
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#7-security-privacy-consideration">
-    7. Security &amp; Privacy Consideration
+<a class="md-nav__link" href="#7-security-considerations">
+    7. Security Considerations
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#8-reference-implementation">
-    8. Reference Implementation
+<a class="md-nav__link" href="#8-privacy-considerations">
+    8. Privacy Considerations
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#9-reference-implementation">
+    9. Reference Implementation
   </a>
 </li>
 </ul>
@@ -673,14 +683,20 @@ includes other properties like <code>service</code>.</p>
 </p>
 <figcaption>Figure 2 - ISCC DID Architecture</figcaption>
 </figure>
-<h2 id="7-security-privacy-consideration">7. Security &amp; Privacy Consideration<a class="headerlink" href="#7-security-privacy-consideration" title="Permanent link">#</a></h2>
+<h2 id="7-security-considerations">7. Security Considerations<a class="headerlink" href="#7-security-considerations" title="Permanent link">#</a></h2>
 <p>Implementers should be aware that ISCC-CODEs are not cryptographic hashes but descriptors or 
 similarity preserving (soft) hashes. As such they leak information about the structure of the
 identified content. This is by design and necessary to support similarity matching with ISCC-CODEs.</p>
 <p>An ISCC DID document does not need to contain a proof property. All operations are authenticated
 with the signature of the transaction payload sent to the network of the originating ledger. 
 This signature is generated using a key specified in the corresponding DID Document.</p>
-<h2 id="8-reference-implementation">8. Reference Implementation<a class="headerlink" href="#8-reference-implementation" title="Permanent link">#</a></h2>
+<h2 id="8-privacy-considerations">8. Privacy Considerations<a class="headerlink" href="#8-privacy-considerations" title="Permanent link">#</a></h2>
+<p>ISCC declarations do not publish any personal data on-chain. Declarers may optionally reference
+off-chain metadata related to their content registration. Such metadata may contain personal data
+such as creator and rightsholder information. The assumption is that creators have an interest in
+proper attribution. Applications that implement ISCC declarations are advised to inform users about
+any privacy related matters specific to their application.</p>
+<h2 id="9-reference-implementation">9. Reference Implementation<a class="headerlink" href="#9-reference-implementation" title="Permanent link">#</a></h2>
 <p>An end-to-end reference implementation of the decentralized content registry is manifested by the
 following modules:</p>
 <ul>
