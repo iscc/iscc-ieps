@@ -18,7 +18,7 @@ the historical record of the feature proposal.
 |------------------------------|-------------------------------------|---------|--------|
 | [IEP-0000](iep-0000) | IEP Purpose and Guidelines          | Process | Draft  |
 | [IEP-0001](iep-0001) | ISCC Structure and Format           | Core    | Draft  |
-| [IEP-0002](iep-0002) | ISCC-UNIT Meta-Code                 | Core    | TBD    |
+| [IEP-0002](iep-0002) | ISCC-UNIT Meta-Code                 | Core    | Draft  |
 | [IEP-0003](iep-0003) | ISCC-UNIT Condent-Code Text         | Core    | TBD    |
 | [IEP-0004](iep-0004) | ISCC-UNIT Condent-Code Image        | Core    | TBD    |
 | [IEP-0005](iep-0005) | ISCC-UNIT Condent-Code Audio        | Core    | TBD    |
@@ -28,7 +28,7 @@ the historical record of the feature proposal.
 | [IEP-0009](iep-0009) | ISCC-UNIT Instance-Code             | Core    | TBD    |
 | [IEP-0010](iep-0010) | ISCC-CODE                           | Core    | TBD    |
 | [IEP-0011](iep-0011) | ISCC-ID                             | Core    | TBD    |
-| [IEP-0012](iep-0012) | ISCC Metadata                       | Core    | TBD    |
+| [IEP-0012](iep-0012) | ISCC Metadata          | Core    | TBD    |
 | [IEP-0013](iep-0013) | ISCC Decentralized Content Registry | Core    | Draft  |
 | [IEP-0014](iep-0014) | EVM Based ISCC Registries           | Core    | TBD    |
 | [IEP-0015](iep-0015) | ISCC DID Method                     | Core    | Draft  |
