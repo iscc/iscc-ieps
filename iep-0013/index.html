@@ -8,18 +8,19 @@
 <meta content="International Standard Content Code - Enhancement Proposals (IEPs)." name="description"/>
 <meta content="Titusz Pan" name="author"/>
 <link href="https://ieps.iscc.codes/iep-0013/" rel="canonical"/>
+<link href="../iep-0012/" rel="prev"/>
+<link href="../iep-0014/" rel="next"/>
 <link href="../images/iscc-logo-icon-black.svg" rel="icon"/>
-<meta content="mkdocs-1.4.0, mkdocs-material-8.5.6" name="generator"/>
+<meta content="mkdocs-1.5.3, mkdocs-material-9.5.3" name="generator"/>
 <title>IEP-0013 - Registry - ISCC Enhancement Proposals</title>
-<link href="../assets/stylesheets/main.20d9efc8.min.css" rel="stylesheet"/>
-<link href="../assets/stylesheets/palette.cbb835fc.min.css" rel="stylesheet"/>
+<link href="../assets/stylesheets/main.50c56a3b.min.css" rel="stylesheet"/>
+<link href="../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
 <link href="../stylesheets/extra.css" rel="stylesheet"/>
 <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 <script data-domain="ieps.iscc.codes" defer="" src="https://stats.iscc.codes/js/plausible.js"></script>
 <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
 <link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>html.glightbox-open { overflow: initial; height: 100%; }</style><script src="../assets/javascripts/glightbox.min.js"></script></head>
-<body data-md-color-accent="" data-md-color-primary="" data-md-color-scheme="slate" dir="ltr">
-<script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+<body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="slate" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
@@ -30,7 +31,7 @@
 </div>
 <div data-md-component="announce">
 </div>
-<header class="md-header" data-md-component="header">
+<header class="md-header md-header--shadow" data-md-component="header">
 <nav aria-label="Header" class="md-header__inner md-grid">
 <a aria-label="ISCC Enhancement Proposals" class="md-header__button md-logo" data-md-component="logo" href=".." title="ISCC Enhancement Proposals">
 <img alt="logo" src="../images/iscc-logo-icon-white.svg"/>
@@ -55,15 +56,16 @@
 </div>
 </div>
 <form class="md-header__option" data-md-component="palette">
-<input aria-label="Switch to light mode" class="md-option" data-md-color-accent="" data-md-color-media="" data-md-color-primary="" data-md-color-scheme="slate" id="__palette_1" name="__palette" type="radio"/>
-<label class="md-header__button md-icon" for="__palette_2" hidden="" title="Switch to light mode">
+<input aria-label="Switch to light mode" class="md-option" data-md-color-accent="indigo" data-md-color-media="" data-md-color-primary="indigo" data-md-color-scheme="slate" id="__palette_0" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_1" hidden="" title="Switch to light mode">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"></path></svg>
 </label>
-<input aria-label="Switch to dark mode" class="md-option" data-md-color-accent="" data-md-color-media="" data-md-color-primary="" data-md-color-scheme="default" id="__palette_2" name="__palette" type="radio"/>
-<label class="md-header__button md-icon" for="__palette_1" hidden="" title="Switch to dark mode">
+<input aria-label="Switch to dark mode" class="md-option" data-md-color-accent="indigo" data-md-color-media="" data-md-color-primary="indigo" data-md-color-scheme="default" id="__palette_1" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_0" hidden="" title="Switch to dark mode">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"></path></svg>
 </label>
 </form>
+<script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
 <label class="md-header__button md-icon" for="__search">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
 </label>
@@ -88,7 +90,7 @@
 <div class="md-search-result__meta">
             Initializing search
           </div>
-<ol class="md-search-result__list"></ol>
+<ol class="md-search-result__list" role="presentation"></ol>
 </div>
 </div>
 </div>
@@ -97,7 +99,7 @@
 <div class="md-header__source">
 <a class="md-source" data-md-component="source" href="https://github.com/iscc/iscc-ieps" title="Go to repository">
 <div class="md-source__icon md-icon">
-<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"></path></svg>
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"></path></svg>
 </div>
 <div class="md-source__repository">
     iscc/iscc-ieps
@@ -122,7 +124,7 @@
 <div class="md-nav__source">
 <a class="md-source" data-md-component="source" href="https://github.com/iscc/iscc-ieps" title="Go to repository">
 <div class="md-source__icon md-icon">
-<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"></path></svg>
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"></path></svg>
 </div>
 <div class="md-source__repository">
     iscc/iscc-ieps
@@ -132,83 +134,115 @@
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
 <a class="md-nav__link" href="..">
-        Overview
-      </a>
+<span class="md-ellipsis">
+    Overview
+  </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../iep-0000/">
-        IEP-0000 - IEP Purpose
-      </a>
+<span class="md-ellipsis">
+    IEP-0000 - IEP Purpose
+  </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../iep-0001/">
-        IEP-0001 - ISCC Structure
-      </a>
+<span class="md-ellipsis">
+    IEP-0001 - ISCC Structure
+  </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../iep-0002/">
-        IEP-0002 - Meta-Code
-      </a>
+<span class="md-ellipsis">
+    IEP-0002 - Meta-Code
+  </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../iep-0003/">
-        IEP-0003 - Text-Code
-      </a>
+<span class="md-ellipsis">
+    IEP-0003 - Text-Code
+  </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../iep-0004/">
-        IEP-0004 - Image-Code
-      </a>
+<span class="md-ellipsis">
+    IEP-0004 - Image-Code
+  </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../iep-0005/">
-        IEP-0005 - Audio-Code
-      </a>
+<span class="md-ellipsis">
+    IEP-0005 - Audio-Code
+  </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../iep-0006/">
-        IEP-0006 - Video-Code
-      </a>
+<span class="md-ellipsis">
+    IEP-0006 - Video-Code
+  </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../iep-0007/">
-        IEP-0007 - Mixed-Code
-      </a>
+<span class="md-ellipsis">
+    IEP-0007 - Mixed-Code
+  </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../iep-0008/">
-        IEP-0008 - Data-Code
-      </a>
+<span class="md-ellipsis">
+    IEP-0008 - Data-Code
+  </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../iep-0009/">
-        IEP-0009 - Instance-Code
-      </a>
+<span class="md-ellipsis">
+    IEP-0009 - Instance-Code
+  </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../iep-0010/">
-        IEP-0010 - ISCC-CODE
-      </a>
+<span class="md-ellipsis">
+    IEP-0010 - ISCC-CODE
+  </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../iep-0011/">
-        IEP-0011 - ISCC-ID
-      </a>
+<span class="md-ellipsis">
+    IEP-0011 - ISCC-ID
+  </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../iep-0012/">
-        IEP-0012 - Metadata
-      </a>
+<span class="md-ellipsis">
+    IEP-0012 - Metadata
+  </span>
+</a>
 </li>
 <li class="md-nav__item md-nav__item--active">
-<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
 <label class="md-nav__link md-nav__link--active" for="__toc">
-          IEP-0013 - Registry
-          <span class="md-nav__icon md-icon"></span>
+<span class="md-ellipsis">
+    IEP-0013 - Registry
+  </span>
+<span class="md-nav__icon md-icon"></span>
 </label>
 <a class="md-nav__link md-nav__link--active" href="./">
-        IEP-0013 - Registry
-      </a>
+<span class="md-ellipsis">
+    IEP-0013 - Registry
+  </span>
+</a>
 <nav aria-label="Table of contents" class="md-nav md-nav--secondary">
 <label class="md-nav__title" for="__toc">
 <span class="md-nav__icon md-icon"></span>
@@ -217,51 +251,69 @@
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#1-status-of-this-document">
-    1. Status of This Document
-  </a>
+<span class="md-ellipsis">
+      1. Status of This Document
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#2-introduction">
-    2. Introduction
-  </a>
+<span class="md-ellipsis">
+      2. Introduction
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#3-protocol-overview">
-    3. Protocol Overview
-  </a>
+<span class="md-ellipsis">
+      3. Protocol Overview
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#4-declaration-protocol">
-    4. Declaration Protocol
-  </a>
+<span class="md-ellipsis">
+      4. Declaration Protocol
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#5-minting-protocol">
-    5. Minting Protocol
-  </a>
+<span class="md-ellipsis">
+      5. Minting Protocol
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#6-resolution-protocol">
-    6. Resolution Protocol
-  </a>
+<span class="md-ellipsis">
+      6. Resolution Protocol
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#7-reference-implementation">
-    7. Reference Implementation
-  </a>
+<span class="md-ellipsis">
+      7. Reference Implementation
+    </span>
+</a>
 </li>
 </ul>
 </nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../iep-0014/">
-        IEP-0014 - EVM Registries
-      </a>
+<span class="md-ellipsis">
+    IEP-0014 - EVM Registries
+  </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../iep-0015/">
-        IEP-0015 - DID Method
-      </a>
+<span class="md-ellipsis">
+    IEP-0015 - DID Method
+  </span>
+</a>
 </li>
 </ul>
 </nav>
@@ -279,38 +331,52 @@
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#1-status-of-this-document">
-    1. Status of This Document
-  </a>
+<span class="md-ellipsis">
+      1. Status of This Document
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#2-introduction">
-    2. Introduction
-  </a>
+<span class="md-ellipsis">
+      2. Introduction
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#3-protocol-overview">
-    3. Protocol Overview
-  </a>
+<span class="md-ellipsis">
+      3. Protocol Overview
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#4-declaration-protocol">
-    4. Declaration Protocol
-  </a>
+<span class="md-ellipsis">
+      4. Declaration Protocol
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#5-minting-protocol">
-    5. Minting Protocol
-  </a>
+<span class="md-ellipsis">
+      5. Minting Protocol
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#6-resolution-protocol">
-    6. Resolution Protocol
-  </a>
+<span class="md-ellipsis">
+      6. Resolution Protocol
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#7-reference-implementation">
-    7. Reference Implementation
-  </a>
+<span class="md-ellipsis">
+      7. Reference Implementation
+    </span>
+</a>
 </li>
 </ul>
 </nav>
@@ -319,10 +385,7 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<a class="md-content__button md-icon" href="https://github.com/iscc/iscc-ieps/edit/main/ieps/iep-0013.md" title="Edit this page">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"></path></svg>
-</a>
-<h1 id="iscc-decentralized-content-registry">ISCC Decentralized Content Registry<a class="headerlink" href="#iscc-decentralized-content-registry" title="Permanent link">#</a></h1>
+<h1 id="iscc-decentralized-content-registry"><abbr title="International Standard Content Code">ISCC</abbr> Decentralized Content Registry<a class="headerlink" href="#iscc-decentralized-content-registry" title="Permanent link">#</a></h1>
 <table>
 <thead>
 <tr>
@@ -333,7 +396,7 @@
 <tbody>
 <tr>
 <td>Title:</td>
-<td>ISCC Decentralized Content Registry</td>
+<td><abbr title="International Standard Content Code">ISCC</abbr> Decentralized Content Registry</td>
 </tr>
 <tr>
 <td>Author:</td>
@@ -369,66 +432,66 @@
 <p>This document is a draft of a potential specification. It has no official standing of any kind and
 does not represent the support or consensus of any standards organization.</p>
 <h2 id="2-introduction">2. Introduction<a class="headerlink" href="#2-introduction" title="Permanent link">#</a></h2>
-<p>The purpose of a decentralized content registry is to connect Actors to Digital Content in a
-permissionless decentralized environment and provide a global and verifiable data space for content
+<p>The purpose of a decentralized <abbr title="information organized to provide value to a user">content</abbr> registry is to connect Actors to Digital Content in a
+permissionless decentralized environment and provide a global and verifiable <abbr title="ordered sequence of bits">data</abbr> space for <abbr title="information organized to provide value to a user">content</abbr>
 identification and matching.</p>
-<p>Actors authenticate themselves with their blockchain accounts which they use to sign ISCC-CODE
-declarations (ledger transactions). Digital Content is identified by ISCC-CODEs. The ISCC-ID is 
-derived from an ISCC-CODE, a blockchain account and the history of previous declarations. ISCC-IDs 
-are  globally unique, persistent, authenticated, and resolve to at least exactly one ISCC-CODE and 
-a blockchain account. The ISCC-IDs are not required to be generated or stored on the participating 
-ledgers. ISCC-IDs are the result of processing the history of transactions according to the Minting 
+<p>Actors authenticate themselves with their blockchain accounts which they use to sign <abbr title="International Standard Content Code">ISCC</abbr>-CODE
+declarations (ledger transactions). Digital Content is identified by <abbr title="International Standard Content Code">ISCC</abbr>-CODEs. The <abbr title="International Standard Content Code">ISCC</abbr>-ID is 
+derived from an <abbr title="International Standard Content Code">ISCC</abbr>-CODE, a blockchain account and the history of previous declarations. <abbr title="International Standard Content Code">ISCC</abbr>-IDs 
+are  globally unique, persistent, authenticated, and resolve to at least exactly one <abbr title="International Standard Content Code">ISCC</abbr>-CODE and 
+a blockchain account. The <abbr title="International Standard Content Code">ISCC</abbr>-IDs are not required to be generated or stored on the participating 
+ledgers. <abbr title="International Standard Content Code">ISCC</abbr>-IDs are the result of processing the history of transactions according to the Minting 
 Protocol.</p>
 <h2 id="3-protocol-overview">3. Protocol Overview<a class="headerlink" href="#3-protocol-overview" title="Permanent link">#</a></h2>
-<p>The protocol to declare an ISCC-CODE and trigger the minting of an ISCC-ID is divided into 3 parts,
+<p>The protocol to declare an <abbr title="International Standard Content Code">ISCC</abbr>-CODE and trigger the minting of an <abbr title="International Standard Content Code">ISCC</abbr>-ID is divided into 3 parts,
 the Declaration Protocol, the Minting Protocol and the Resolution Protocol. </p>
 <ol>
-<li>The declaration protocol defines how an ISCC-CODE has to be written to a ledger to become a valid input for the off-chain minting protocol. </li>
-<li>The minting protocol defines how a legers history has to be parsed to mint a valid ISCC-ID</li>
-<li>The resolution protocol defines how an ISCC resolver answers queries about ISCC-CODEs and ISCC-ID.</li>
+<li>The declaration protocol defines how an <abbr title="International Standard Content Code">ISCC</abbr>-CODE has to be written to a ledger to become a valid input for the off-chain minting protocol. </li>
+<li>The minting protocol defines how a legers history has to be parsed to mint a valid <abbr title="International Standard Content Code">ISCC</abbr>-ID</li>
+<li>The resolution protocol defines how an <abbr title="International Standard Content Code">ISCC</abbr> resolver answers queries about <abbr title="International Standard Content Code">ISCC</abbr>-CODEs and <abbr title="International Standard Content Code">ISCC</abbr>-ID.</li>
 </ol>
 <h2 id="4-declaration-protocol">4. Declaration Protocol<a class="headerlink" href="#4-declaration-protocol" title="Permanent link">#</a></h2>
-<p>To participate in the ISCC declaration protocol, a ledger MUST establish exactly one globally
-unique Ledger-ID (Variable Length Integer) that will be used as a prefix for ISCC-IDs that are
-minted from its ISCC declarations. </p>
+<p>To participate in the <abbr title="International Standard Content Code">ISCC</abbr> declaration protocol, a ledger MUST establish exactly one globally
+unique Ledger-ID (Variable Length Integer) that will be used as a prefix for <abbr title="International Standard Content Code">ISCC</abbr>-IDs that are
+minted from its <abbr title="International Standard Content Code">ISCC</abbr> declarations. </p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>An ISCC-ID comes into existence only after an ISCC declaration has been confirmed on a ledger that participates in the protocol. </p>
+<p>An <abbr title="International Standard Content Code">ISCC</abbr>-ID comes into existence only after an <abbr title="International Standard Content Code">ISCC</abbr> declaration has been confirmed on a ledger that participates in the protocol. </p>
 </div>
 <p>The following minimal information (Declaration-Set) MUST be provided and made publicly available
-for a valid ISCC declaration:</p>
+for a valid <abbr title="International Standard Content Code">ISCC</abbr> declaration:</p>
 <ol>
-<li>An ISCC-CODE (a valid sequence of ISCC-UNITs)</li>
-<li>A blockchain account (actors identifier) of the declaring party </li>
+<li>An <abbr title="International Standard Content Code">ISCC</abbr>-CODE (a valid sequence of <abbr title="International Standard Content Code">ISCC</abbr>-UNITs)</li>
+<li>A blockchain account (actors <abbr title="sequence of characters that uniquely denotes a referent">identifier</abbr>) of the declaring party </li>
 <li>A valid signature of the declaring party (transaction signature)</li>
 </ol>
-<p>We define the party that signs the ISCC declaration as the DECLARER. </p>
+<p>We define the party that signs the <abbr title="International Standard Content Code">ISCC</abbr> declaration as the DECLARER. </p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The DECLARER is merely the controller of the ISCC-ID minted from the declaration. The declarer
-is not required to be the creator or a rights-holder of the declared digital content.</p>
+<p>The DECLARER is merely the controller of the <abbr title="International Standard Content Code">ISCC</abbr>-ID minted from the declaration. The declarer
+is not required to be the creator or a rights-holder of the declared <abbr title="manifestation of content in form of data structured according to a set of rules">digital content</abbr>.</p>
 </div>
-<p>An ISCC declaration MAY additionally include:</p>
+<p>An <abbr title="International Standard Content Code">ISCC</abbr> declaration MAY additionally include:</p>
 <ol>
-<li>A link to external metadata as defined by <a href="/iep-0012">IEP-0012 - ISCC Metadata</a></li>
+<li>A link to external <abbr title="data that defines and describes other data">metadata</abbr> as defined by <a href="/iep-0012">IEP-0012 - <abbr title="International Standard Content Code">ISCC</abbr> Metadata</a></li>
 <li>A processing instruction for the minting protocol </li>
 </ol>
-<p>The on-chain link to ISCC metadata SHOULD point to a public and integrity preserving resource (e.g. IPFS CID or a 
-hashlink URI). Permissioned, confidential or mutable data SHOULD be referenced from ISCC metadata
+<p>The on-chain link to <abbr title="International Standard Content Code">ISCC</abbr> <abbr title="data that defines and describes other data">metadata</abbr> SHOULD point to a public and integrity preserving resource (e.g. IPFS CID or a 
+hashlink URI). Permissioned, confidential or mutable <abbr title="ordered sequence of bits">data</abbr> SHOULD be referenced from <abbr title="International Standard Content Code">ISCC</abbr> <abbr title="data that defines and describes other data">metadata</abbr>
 via URI.</p>
-<p>A ledger that wants to accept ISCC declarations and trigger the minting of valid ISCC-IDs MUST
+<p>A ledger that wants to accept <abbr title="International Standard Content Code">ISCC</abbr> declarations and trigger the minting of valid <abbr title="International Standard Content Code">ISCC</abbr>-IDs MUST
 fulfill the following minimum requirements:</p>
 <ol>
 <li>The ledger must provide an immutable, complete, time-ordered, append-only sequence of transactions.</li>
-<li>The legers transaction format must allow for embedding and signing the data required for an ISCC declarations.</li>
+<li>The legers transaction format must allow for embedding and signing the <abbr title="ordered sequence of bits">data</abbr> required for an <abbr title="International Standard Content Code">ISCC</abbr> declarations.</li>
 <li>The Declaration-Set MUST be publicly readable (permisionless).</li>
-<li>ISCC declarations on the ledger MAY be write-permissioned.</li>
+<li><abbr title="International Standard Content Code">ISCC</abbr> declarations on the ledger MAY be write-permissioned.</li>
 </ol>
 <p>A participating ledger or framework MUST provide documentaation of its implementation of the declaration protocol.</p>
 <ol>
-<li>The documentation MUST specify how ISCC declarations can be parsed to decode the Declaration-Set</li>
+<li>The documentation MUST specify how <abbr title="International Standard Content Code">ISCC</abbr> declarations can be parsed to decode the Declaration-Set</li>
 <li>The documentation MUST provide sufficient information to the public such that third parties can independently verify transactions signatures and implement the Minting Protocol</li>
-<li>The documentation MUST define how a public observer can distinguish between a transaction that declares an ISCC-CODE and other unrelated transactions.</li>
+<li>The documentation MUST define how a public observer can distinguish between a transaction that declares an <abbr title="International Standard Content Code">ISCC</abbr>-CODE and other unrelated transactions.</li>
 </ol>
 <h2 id="5-minting-protocol">5. Minting Protocol<a class="headerlink" href="#5-minting-protocol" title="Permanent link">#</a></h2>
 <p>TBD</p>
@@ -436,55 +499,31 @@ fulfill the following minimum requirements:</p>
 <p>TBD</p>
 <h2 id="7-reference-implementation">7. Reference Implementation<a class="headerlink" href="#7-reference-implementation" title="Permanent link">#</a></h2>
 <ul>
-<li>ISCC-ID construction: <a href="https://github.com/iscc/iscc-core/blob/main/iscc_core/iscc_id.py">https://github.com/iscc/iscc-core/blob/main/iscc_core/iscc_id.py</a></li>
+<li><abbr title="International Standard Content Code">ISCC</abbr>-ID construction: <a href="https://github.com/iscc/iscc-core/blob/main/iscc_core/iscc_id.py">https://github.com/iscc/iscc-core/blob/main/iscc_core/iscc_id.py</a></li>
 <li>EVM registry: <a href="https://github.com/iscc/iscc-evm">https://github.com/iscc/iscc-evm</a></li>
 <li>EVM observer: <a href="https://github.com/iscc/iscc-observer-evm">https://github.com/iscc/iscc-observer-evm</a></li>
-<li>ISCC-ID resolver: <a href="https://github.com/iscc/iscc-registry">https://github.com/iscc/iscc-registry</a></li>
+<li><abbr title="International Standard Content Code">ISCC</abbr>-ID resolver: <a href="https://github.com/iscc/iscc-registry">https://github.com/iscc/iscc-registry</a></li>
 </ul>
-<hr/>
-<div class="md-source-file">
-<small>
-    
-      Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2022-09-29</span>
-<br/>
-        Created:
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2022-09-28</span>
-</small>
-</div>
+<aside class="md-source-file">
+<span class="md-source-file__fact">
+<span class="md-icon" title="Last update">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"></path></svg>
+</span>
+<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2022-09-29</span>
+</span>
+<span class="md-source-file__fact">
+<span class="md-icon" title="Created">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3h-2Z"></path></svg>
+</span>
+<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2022-09-28</span>
+</span>
+</aside>
 </article>
 </div>
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
 </div>
 </main>
 <footer class="md-footer">
-<nav aria-label="Footer" class="md-footer__inner md-grid">
-<a aria-label="Previous: IEP-0012 - Metadata" class="md-footer__link md-footer__link--prev" href="../iep-0012/" rel="prev">
-<div class="md-footer__button md-icon">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
-</div>
-<div class="md-footer__title">
-<div class="md-ellipsis">
-<span class="md-footer__direction">
-                Previous
-              </span>
-              IEP-0012 - Metadata
-            </div>
-</div>
-</a>
-<a aria-label="Next: IEP-0014 - EVM Registries" class="md-footer__link md-footer__link--next" href="../iep-0014/" rel="next">
-<div class="md-footer__title">
-<div class="md-ellipsis">
-<span class="md-footer__direction">
-                Next
-              </span>
-              IEP-0014 - EVM Registries
-            </div>
-</div>
-<div class="md-footer__button md-icon">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"></path></svg>
-</div>
-</a>
-</nav>
 <div class="md-footer-meta md-typeset">
 <div class="md-footer-meta__inner md-grid">
 <div class="md-copyright">
@@ -502,7 +541,7 @@ fulfill the following minimum requirements:</p>
 <div class="md-dialog" data-md-component="dialog">
 <div class="md-dialog__inner md-typeset"></div>
 </div>
-<script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.5bf1dace.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
-<script src="../assets/javascripts/bundle.078830c0.min.js"></script>
+<script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+<script src="../assets/javascripts/bundle.d7c377c4.min.js"></script>
 <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "width": "100%", "height": "auto", "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom"});})</script></body>
 </html>
