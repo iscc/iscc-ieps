@@ -19,7 +19,7 @@ the historical record of the feature proposal.
 | [IEP-0000](ieps/iep-0000.md) | IEP Purpose and Guidelines          | Process | Draft  |
 | [IEP-0001](ieps/iep-0001.md) | ISCC Structure and Format           | Core    | Draft  |
 | [IEP-0002](ieps/iep-0002.md) | ISCC-UNIT Meta-Code                 | Core    | Draft  |
-| [IEP-0003](ieps/iep-0003.md) | ISCC-UNIT Condent-Code Text         | Core    | TBD    |
+| [IEP-0003](ieps/iep-0003.md) | ISCC-UNIT Condent-Code Text         | Core    | Draft  |
 | [IEP-0004](ieps/iep-0004.md) | ISCC-UNIT Condent-Code Image        | Core    | TBD    |
 | [IEP-0005](ieps/iep-0005.md) | ISCC-UNIT Condent-Code Audio        | Core    | TBD    |
 | [IEP-0006](ieps/iep-0006.md) | ISCC-UNIT Condent-Code Video        | Core    | TBD    |
