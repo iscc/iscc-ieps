@@ -162,11 +162,74 @@
 </li>
 <li class="md-nav__item md-nav__item--active">
 <input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+<span class="md-ellipsis">
+    IEP-0003 - Text-Code
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
 <a class="md-nav__link md-nav__link--active" href="./">
 <span class="md-ellipsis">
     IEP-0003 - Text-Code
   </span>
 </a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#1-general">
+<span class="md-ellipsis">
+      1. General
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#2-format">
+<span class="md-ellipsis">
+      2. Format
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#3-inputs">
+<span class="md-ellipsis">
+      3. Inputs
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#4-outputs">
+<span class="md-ellipsis">
+      4. Outputs
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#5-processing">
+<span class="md-ellipsis">
+      5. Processing
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#6-conformance">
+<span class="md-ellipsis">
+      6. Conformance
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#7-reference-implementation">
+<span class="md-ellipsis">
+      7. Reference Implementation
+    </span>
+</a>
+</li>
+</ul>
+</nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../iep-0004/">
@@ -261,6 +324,61 @@
 <div class="md-sidebar__scrollwrap">
 <div class="md-sidebar__inner">
 <nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#1-general">
+<span class="md-ellipsis">
+      1. General
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#2-format">
+<span class="md-ellipsis">
+      2. Format
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#3-inputs">
+<span class="md-ellipsis">
+      3. Inputs
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#4-outputs">
+<span class="md-ellipsis">
+      4. Outputs
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#5-processing">
+<span class="md-ellipsis">
+      5. Processing
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#6-conformance">
+<span class="md-ellipsis">
+      6. Conformance
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#7-reference-implementation">
+<span class="md-ellipsis">
+      7. Reference Implementation
+    </span>
+</a>
+</li>
+</ul>
 </nav>
 </div>
 </div>
@@ -290,7 +408,7 @@
 </tr>
 <tr>
 <td>Status:</td>
-<td>TBD</td>
+<td>DRAFT</td>
 </tr>
 <tr>
 <td>Type:</td>
@@ -306,7 +424,7 @@
 </tr>
 <tr>
 <td>Updated:</td>
-<td><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-12-28</span></td>
+<td><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-12-29</span></td>
 </tr>
 </tbody>
 </table>
@@ -317,12 +435,74 @@
 developed at the International Organization for Standardization as
 <a href="https://www.iso.org/standard/77899.html"><abbr title="International Organization for Standardization">ISO</abbr>/DIS 24138</a></p>
 </div>
+<h2 id="1-general">1. General<a class="headerlink" href="#1-general" title="Permanent link">#</a></h2>
+<ol>
+<li>The Content-Code Subtype Text (Text-Code) shall be a Content-Code generated from the <abbr title="data with a known text encoding that can be transcoded to Unicode">plain text</abbr> <abbr title="information organized to provide value to a user">content</abbr> extracted from a <abbr title="file or stream encoded in conformance with a specific content format">digital asset</abbr> that contains text.</li>
+<li>The Text-Code shall be robust against text document format conversion and minor edits.</li>
+</ol>
+<h2 id="2-format">2. Format<a class="headerlink" href="#2-format" title="Permanent link">#</a></h2>
+<p>The Text-Code shall have the <abbr title="ordered sequence of bits">data</abbr> format illustrated in Figure 5.</p>
+<figure>
+<p><a class="glightbox" href="../images/iscc-iep-0003-f05-text-code.png"><img alt="Figure 5 - Data format of the Text-Code" src="../images/iscc-iep-0003-f05-text-code.png"/></a>
+</p>
+<figcaption>Figure 5 - Data format of the Text-Code</figcaption>
+</figure>
+<div class="admonition example">
+<p class="admonition-title">EXAMPLE 1: 64-<abbr title="atomic unit of information in a computer system">bit</abbr> Text-Code in its canonical form with text input “Hello World”:</p>
+<p><abbr title="International Standard Content Code">ISCC</abbr>:EAASKDNZNYGUUF5A</p>
+</div>
+<div class="admonition example">
+<p class="admonition-title">EXAMPLE 2 : 256-<abbr title="atomic unit of information in a computer system">bit</abbr> Text-Code in its canonical form with text input “Hello World”:</p>
+<p><abbr title="International Standard Content Code">ISCC</abbr>:EADSKDNZNYGUUF5AMFEJLZ5P66CP5YKCOA3X7F36RWE4CIRCBTUWXYY</p>
+</div>
+<h2 id="3-inputs">3. Inputs<a class="headerlink" href="#3-inputs" title="Permanent link">#</a></h2>
+<ol>
+<li>The input for calculating the Text-Code shall be the <abbr title="data with a known text encoding that can be transcoded to Unicode">plain text</abbr> as extracted from a digital document.</li>
+<li>An <abbr title="International Standard Content Code">ISCC</abbr> implementation may use any text extraction mechanism, including optical character recognition, to extract <abbr title="data with a known text encoding that can be transcoded to Unicode">plain text</abbr> from a digital document.</li>
+<li>Plain text used as input for Text-Code calculation shall not include any processing instructions (SGML, <abbr title="Hyper Text Markup Language">HTML</abbr>, Markdown, and other markup information).</li>
+</ol>
+<h2 id="4-outputs">4. Outputs<a class="headerlink" href="#4-outputs" title="Permanent link">#</a></h2>
+<p>Text-Code processing shall generate the following <abbr title="International Standard Content Code">ISCC</abbr> <abbr title="data that defines and describes other data">metadata</abbr> output elements:</p>
+<ol>
+<li>iscc: the Text-Code in its canonical form (required);</li>
+<li>characters: The number of characters of the source text after pre-processing (optional);</li>
+<li>Additional <abbr title="data that defines and describes other data">metadata</abbr> extracted from the document (optional).</li>
+</ol>
+<h2 id="5-processing">5. Processing<a class="headerlink" href="#5-processing" title="Permanent link">#</a></h2>
+<p>An <abbr title="application that generates ISCCs for digital content">ISCC processor</abbr> shall pre-process Text input as follows:</p>
+<ol>
+<li>Apply NFD Unicode Normalization.</li>
+<li>Remove all whitespace characters from the text.</li>
+<li>Convert text to lower case in accordance with Unicode ‘Case Folding Properties’ (see <a href="https://www.unicode.org/Public/UCD/latest/ucd/CaseFolding.txt">https://www.unicode.org/Public/UCD/latest/ucd/CaseFolding.txt</a>). </li>
+<li>Remove all characters from Unicode categories Mark (M), Punctuation (P) and Other (C).</li>
+<li>Apply NFKC Unicode Normalization.</li>
+</ol>
+<p>An <abbr title="application that generates ISCCs for digital content">ISCC processor</abbr> shall calculate the Text-Code as follows:</p>
+<ol>
+<li>Split the pre-processed text into n-grams of 13 characters by sliding over the text character-wise.</li>
+<li>Create a list of 32-<abbr title="atomic unit of information in a computer system">bit</abbr> unsigned integers by hashing the UTF-8 encoded representation of the n-grams using the XXH32 <abbr title="set of instructions">algorithm</abbr>.</li>
+<li>Apply the Minhash256 <abbr title="set of instructions">algorithm</abbr> to the list of integers to calculate the <abbr title="International Standard Content Code">ISCC</abbr>-BODY of the Text-Code.</li>
+</ol>
+<h2 id="6-conformance">6. Conformance<a class="headerlink" href="#6-conformance" title="Permanent link">#</a></h2>
+<p>The normative behaviour of an <abbr title="application that generates ISCCs for digital content">ISCC processor</abbr> in generating a Text-Code is specified only for UTF-8 
+encoded text input. An implementation of the Text-Code <abbr title="set of instructions">algorithm</abbr> shall be regarded as conforming to 
+the standard as long as it creates the same Text-Code as the reference implementation for the same 
+UTF-8 encoded text input.</p>
+<p>The normative behaviour of an <abbr title="application that generates ISCCs for digital content">ISCC processor</abbr> in generating a Text-Code from other sources is not 
+specified and different codes can be generated depending on the tools used for text extraction from 
+the source. Implementers seeking to guarantee interoperability with each other in these 
+circumstances should select the same tool for text extraction.</p>
+<h2 id="7-reference-implementation">7. Reference Implementation<a class="headerlink" href="#7-reference-implementation" title="Permanent link">#</a></h2>
+<p>For further technical details see source-code in the modules 
+<a href="https://github.com/iscc/iscc-core/blob/main/iscc_core/code_content_text.py">code_content_text.py</a> 
+and <a href="https://github.com/iscc/iscc-core/blob/main/iscc_core/minhash.py">minhash.py</a> of the 
+<a href="https://github.com/iscc/iscc-core">reference implementation</a>.</p>
 <aside class="md-source-file">
 <span class="md-source-file__fact">
 <span class="md-icon" title="Last update">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"></path></svg>
 </span>
-<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-12-28</span>
+<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-12-29</span>
 </span>
 <span class="md-source-file__fact">
 <span class="md-icon" title="Created">
