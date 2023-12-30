@@ -13,7 +13,6 @@ def main():
         text = infile.read()
 
     text = text.replace("](ieps/", "](")
-    text = text.replace(".md)", ")")
 
     with open(DST, "wt", encoding="utf-8", newline="\n") as outf:
         outf.write(text)
