@@ -21,7 +21,7 @@ the historical record of the feature proposal.
 | [IEP-0002](iep-0002.md) | ISCC-UNIT Meta-Code                 | Core    | Draft  |
 | [IEP-0003](iep-0003.md) | ISCC-UNIT Condent-Code Text         | Core    | Draft  |
 | [IEP-0004](iep-0004.md) | ISCC-UNIT Condent-Code Image        | Core    | Draft  |
-| [IEP-0005](iep-0005.md) | ISCC-UNIT Condent-Code Audio        | Core    | TBD    |
+| [IEP-0005](iep-0005.md) | ISCC-UNIT Condent-Code Audio        | Core    | Draft  |
 | [IEP-0006](iep-0006.md) | ISCC-UNIT Condent-Code Video        | Core    | TBD    |
 | [IEP-0007](iep-0007.md) | ISCC-UNIT Condent-Code Mixed        | Core    | TBD    |
 | [IEP-0008](iep-0008.md) | ISCC-UNIT Data-Code                 | Core    | TBD    |
