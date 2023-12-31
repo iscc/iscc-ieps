@@ -176,11 +176,67 @@
 </li>
 <li class="md-nav__item md-nav__item--active">
 <input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+<span class="md-ellipsis">
+    IEP-0005 - Audio-Code
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
 <a class="md-nav__link md-nav__link--active" href="./">
 <span class="md-ellipsis">
     IEP-0005 - Audio-Code
   </span>
 </a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#1-general">
+<span class="md-ellipsis">
+      1. General
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#2-format">
+<span class="md-ellipsis">
+      2. Format
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#3-inputs">
+<span class="md-ellipsis">
+      3. Inputs
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#4-outputs">
+<span class="md-ellipsis">
+      4. Outputs
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#5-processing">
+<span class="md-ellipsis">
+      5. Processing
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#6-conformance">
+<span class="md-ellipsis">
+      6. Conformance
+    </span>
+</a>
+</li>
+</ul>
+</nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../iep-0006/">
@@ -261,6 +317,54 @@
 <div class="md-sidebar__scrollwrap">
 <div class="md-sidebar__inner">
 <nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#1-general">
+<span class="md-ellipsis">
+      1. General
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#2-format">
+<span class="md-ellipsis">
+      2. Format
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#3-inputs">
+<span class="md-ellipsis">
+      3. Inputs
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#4-outputs">
+<span class="md-ellipsis">
+      4. Outputs
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#5-processing">
+<span class="md-ellipsis">
+      5. Processing
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#6-conformance">
+<span class="md-ellipsis">
+      6. Conformance
+    </span>
+</a>
+</li>
+</ul>
 </nav>
 </div>
 </div>
@@ -290,7 +394,7 @@
 </tr>
 <tr>
 <td>Status:</td>
-<td>TBD</td>
+<td>DRAFT</td>
 </tr>
 <tr>
 <td>Type:</td>
@@ -306,7 +410,7 @@
 </tr>
 <tr>
 <td>Updated:</td>
-<td><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-12-28</span></td>
+<td><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-12-31</span></td>
 </tr>
 </tbody>
 </table>
@@ -317,12 +421,61 @@
 developed at the International Organization for Standardization as
 <a href="https://www.iso.org/standard/77899.html"><abbr title="International Organization for Standardization">ISO</abbr>/DIS 24138</a></p>
 </div>
+<h2 id="1-general">1. General<a class="headerlink" href="#1-general" title="Permanent link">#</a></h2>
+<ol>
+<li>The Content-Code Subtype Audio (Audio-Code) shall be a <abbr title="hash that preserves correlations between inputs to the hash algorithm">similarity hash</abbr> of the audio input.</li>
+<li>The Audio-Code shall be robust against audio format conversion, compression, and minor edits.</li>
+</ol>
+<h2 id="2-format">2. Format<a class="headerlink" href="#2-format" title="Permanent link">#</a></h2>
+<p>The Audio-Code shall have the <abbr title="ordered sequence of bits">data</abbr> format illustrated in Figure 7.</p>
+<figure>
+<p><a class="glightbox" href="../images/iscc-iep-0005-f07-audio-code.png"><img alt="Figure 7 - Data format of the Audio-Code" src="../images/iscc-iep-0005-f07-audio-code.png"/></a>
+</p>
+<figcaption>Figure 7 - Data format of the Audio-Code</figcaption>
+</figure>
+<div class="admonition example">
+<p class="admonition-title">EXAMPLE 1: 64-<abbr title="atomic unit of information in a computer system">bit</abbr> Audio-Code in its canonical form:</p>
+<p><abbr title="International Standard Content Code">ISCC</abbr>:EIAWUJFCEZZOJYVD</p>
+</div>
+<div class="admonition example">
+<p class="admonition-title">EXAMPLE 2: 256-<abbr title="atomic unit of information in a computer system">bit</abbr> Audio-Code in its canonical form:</p>
+<p><abbr title="International Standard Content Code">ISCC</abbr>:EIDWUJFCEZZOJYVDHJHIRB3KQSQCM2REUITDUTVAQNRGJIRENCCCULY</p>
+</div>
+<h2 id="3-inputs">3. Inputs<a class="headerlink" href="#3-inputs" title="Permanent link">#</a></h2>
+<p>The input for calculating the Audio-Code shall be the Chromaprint fingerprint (array of 32-<abbr title="atomic unit of information in a computer system">bit</abbr> 
+signed integers) from the original audio <abbr title="ordered sequence of bits">data</abbr>.</p>
+<h2 id="4-outputs">4. Outputs<a class="headerlink" href="#4-outputs" title="Permanent link">#</a></h2>
+<p>Audio-Code processing shall generate the following <abbr title="International Standard Content Code">ISCC</abbr> <abbr title="data that defines and describes other data">metadata</abbr> output elements:</p>
+<ol>
+<li>iscc: the Audio-Code in its canonical form (required).</li>
+<li>duration: duration of audio in seconds (optional).</li>
+<li>Additional <abbr title="data that defines and describes other data">metadata</abbr> extracted from the audio <abbr title="stored data with a known number of bits and a filename">file</abbr> (optional).</li>
+</ol>
+<h2 id="5-processing">5. Processing<a class="headerlink" href="#5-processing" title="Permanent link">#</a></h2>
+<p>An <abbr title="application that generates ISCCs for digital content">ISCC processor</abbr> shall calculate the Audio-Code as follows:</p>
+<ol>
+<li>Calculate a 32-<abbr title="atomic unit of information in a computer system">bit</abbr> <abbr title="hash that preserves correlations between inputs to the hash algorithm">similarity hash</abbr> from the input array.</li>
+<li>Additionally, calculate 32-<abbr title="atomic unit of information in a computer system">bit</abbr> similarity hashes separately for each quarter of values from the input array and concatenate them to the result from step 1 in order to extend the <abbr title="hash that preserves correlations between inputs to the hash algorithm">similarity hash</abbr> up to a total of 160 bits. </li>
+<li>Sort the input array by value in ascending order and calculate similarity hashes separately for each third of the values and concatenate them to the result from step 2 in order to extend the <abbr title="hash that preserves correlations between inputs to the hash algorithm">similarity hash</abbr> of the final <abbr title="International Standard Content Code">ISCC</abbr>-BODY of the Audio-Code up to the maximum of 256 bits.</li>
+</ol>
+<h2 id="6-conformance">6. Conformance<a class="headerlink" href="#6-conformance" title="Permanent link">#</a></h2>
+<p>The normative behaviour of an <abbr title="application that generates ISCCs for digital content">ISCC processor</abbr> in generating an Audio–Code is specified only for the
+Chromaprint input array.  An implementation of the Audio-Code <abbr title="set of instructions">algorithm</abbr> shall be regarded as 
+conforming to the standard if it creates the same Audio-Code as the reference implementation for 
+the same Chromaprint array of 32-<abbr title="atomic unit of information in a computer system">bit</abbr> values.</p>
+<div class="admonition note">
+<p class="admonition-title">NOTE</p>
+<p>For further technical details see source-code in modules 
+<a href="https://github.com/iscc/iscc-core/blob/main/iscc_core/code_content_audio.py">code_content_audio.py</a> 
+and <a href="https://github.com/iscc/iscc-core/blob/main/iscc_core/simhash.py">simhash.py</a> of the 
+<a href="https://github.com/iscc/iscc-core">reference implementation</a>.</p>
+</div>
 <aside class="md-source-file">
 <span class="md-source-file__fact">
 <span class="md-icon" title="Last update">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"></path></svg>
 </span>
-<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-12-28</span>
+<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-12-31</span>
 </span>
 <span class="md-source-file__fact">
 <span class="md-icon" title="Created">
