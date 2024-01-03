@@ -197,11 +197,67 @@
 </li>
 <li class="md-nav__item md-nav__item--active">
 <input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+<span class="md-ellipsis">
+    IEP-0008 - Data-Code
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
 <a class="md-nav__link md-nav__link--active" href="./">
 <span class="md-ellipsis">
     IEP-0008 - Data-Code
   </span>
 </a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#1-general">
+<span class="md-ellipsis">
+      1. General
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#2-format">
+<span class="md-ellipsis">
+      2. Format
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#3-inputs">
+<span class="md-ellipsis">
+      3. Inputs
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#4-outputs">
+<span class="md-ellipsis">
+      4. Outputs
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#5-processing">
+<span class="md-ellipsis">
+      5. Processing
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#6-conformance">
+<span class="md-ellipsis">
+      6. Conformance
+    </span>
+</a>
+</li>
+</ul>
+</nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../iep-0009/">
@@ -261,6 +317,54 @@
 <div class="md-sidebar__scrollwrap">
 <div class="md-sidebar__inner">
 <nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#1-general">
+<span class="md-ellipsis">
+      1. General
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#2-format">
+<span class="md-ellipsis">
+      2. Format
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#3-inputs">
+<span class="md-ellipsis">
+      3. Inputs
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#4-outputs">
+<span class="md-ellipsis">
+      4. Outputs
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#5-processing">
+<span class="md-ellipsis">
+      5. Processing
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#6-conformance">
+<span class="md-ellipsis">
+      6. Conformance
+    </span>
+</a>
+</li>
+</ul>
 </nav>
 </div>
 </div>
@@ -290,7 +394,7 @@
 </tr>
 <tr>
 <td>Status:</td>
-<td>TBD</td>
+<td>DRAFT</td>
 </tr>
 <tr>
 <td>Type:</td>
@@ -306,7 +410,7 @@
 </tr>
 <tr>
 <td>Updated:</td>
-<td><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-12-28</span></td>
+<td><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2024-01-03</span></td>
 </tr>
 </tbody>
 </table>
@@ -317,12 +421,80 @@
 developed at the International Organization for Standardization as
 <a href="https://www.iso.org/standard/77899.html"><abbr title="International Organization for Standardization">ISO</abbr>/DIS 24138</a></p>
 </div>
+<h2 id="1-general">1. General<a class="headerlink" href="#1-general" title="Permanent link">#</a></h2>
+<ol>
+<li>The Data-Code shall be a <abbr title="hash that preserves correlations between inputs to the hash algorithm">similarity hash</abbr> for any kind of <abbr title="ordered sequence of bits">data</abbr> regardless of its <abbr title="two-part identifier specifying the nature of the referenced data">media type</abbr>.</li>
+<li>The Data-Code shall cluster digital assets that have near-identical <abbr title="ordered sequence of bits">data</abbr>.</li>
+<li>Small differences (as a proportion of the whole) in <abbr title="that which is identified">referent</abbr> <abbr title="ordered sequence of bits">data</abbr> shall yield identical Data-Codes.</li>
+<li>More significant differences in <abbr title="that which is identified">referent</abbr> <abbr title="ordered sequence of bits">data</abbr> shall produce similar Data-Codes that can be compared against each other to estimate the <abbr title="ordered sequence of bits">data</abbr>-similarity of the referents.</li>
+<li>The Data-Code shall be resistant to <abbr title="ordered sequence of bits">data</abbr> shifting and reordering sequences of <abbr title="ordered sequence of bits">data</abbr> within <abbr title="that which is identified">referent</abbr> <abbr title="ordered sequence of bits">data</abbr>.</li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">NOTE</p>
+<p>Changes of the Data-Code do not reflect semantic or syntactic changes of the <abbr title="information organized to provide value to a user">content</abbr>.</p>
+</div>
+<h2 id="2-format">2. Format<a class="headerlink" href="#2-format" title="Permanent link">#</a></h2>
+<p>The Data-Code shall have the <abbr title="ordered sequence of bits">data</abbr> format illustrated in Figure 10:</p>
+<figure>
+<p><a class="glightbox" href="../images/iscc-iep-0008-f10-data-code.png"><img alt="Figure 10 - Data format of the Data-Code" src="../images/iscc-iep-0008-f10-data-code.png"/></a>
+</p>
+<figcaption>Figure 10 - Data format of the Data-Code</figcaption>
+</figure>
+<div class="admonition example">
+<p class="admonition-title">EXAMPLE 1: 64-<abbr title="atomic unit of information in a computer system">bit</abbr> Data-Code in its canonical form:</p>
+<p><abbr title="International Standard Content Code">ISCC</abbr>:GAAWAIBQLNWP7X32</p>
+</div>
+<div class="admonition example">
+<p class="admonition-title">EXAMPLE 2: 256-<abbr title="atomic unit of information in a computer system">bit</abbr> Data-Code in its canonical form:</p>
+<p><abbr title="International Standard Content Code">ISCC</abbr>:GADWAIBQLNWP7X32J3INMAMDUJ4QMN67BBQKVTVZIWHXQ7QJIKHYTBY</p>
+</div>
+<h2 id="3-inputs">3. Inputs<a class="headerlink" href="#3-inputs" title="Permanent link">#</a></h2>
+<p>The input for calculating the Data-Code shall be the bytes of a <abbr title="stored data with a known number of bits and a filename">file</abbr>, without reference to their 
+meaning or structure.</p>
+<h2 id="4-outputs">4. Outputs<a class="headerlink" href="#4-outputs" title="Permanent link">#</a></h2>
+<p>Data-Code processing shall generate the following output elements:</p>
+<ul>
+<li>iscc: the Data-Code in its canonical form (required).</li>
+</ul>
+<h2 id="5-processing">5. Processing<a class="headerlink" href="#5-processing" title="Permanent link">#</a></h2>
+<p>An <abbr title="application that generates ISCCs for digital content">ISCC processor</abbr> shall calculate the Data-Code as follows:</p>
+<ol>
+<li>Split the <abbr title="ordered sequence of bits">data</abbr> into variable sized chunks with an average chunk size of 1024 bytes using the <abbr title="information organized to provide value to a user">content</abbr> defined chunking (<abbr title="content defined chunking">CDC</abbr>) <abbr title="set of instructions">algorithm</abbr>.</li>
+<li>Calculate the 32-<abbr title="atomic unit of information in a computer system">bit</abbr> integer <abbr title="result of processing data with a hash algorithm">hash</abbr> of each chunk using the XXH32 <abbr title="set of instructions">algorithm</abbr>.</li>
+<li>Apply the minhash <abbr title="set of instructions">algorithm</abbr> to the array of 32-<abbr title="atomic unit of information in a computer system">bit</abbr> integers to calculate the <abbr title="International Standard Content Code">ISCC</abbr>-BODY of the Data-Code with appropriate length.</li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">NOTE</p>
+<p>For further technical details see source-code in modules 
+<a href="https://github.com/iscc/iscc-core/blob/main/iscc_core/code_data.py">code_data.py</a>
+and <a href="https://github.com/iscc/iscc-core/blob/main/iscc_core/minhash.py">minhash.py</a> of the 
+<a href="https://github.com/iscc/iscc-core">reference implementation</a>.</p>
+</div>
+<h2 id="6-conformance">6. Conformance<a class="headerlink" href="#6-conformance" title="Permanent link">#</a></h2>
+<p>An implementation of the Data-Code <abbr title="set of instructions">algorithm</abbr> shall be regarded as conforming to the standard if it 
+creates the same Data-Code as the reference implementation for the same <abbr title="ordered sequence of bits">data</abbr> input.</p>
+<div class="admonition note">
+<p class="admonition-title">NOTE</p>
+<p>The <abbr title="International Standard Content Code">ISCC</abbr> reference implementation uses the open source XXHASH library <sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup> for XXH32 chunk 
+hashing and appropriate use of this software will generate the same codes as the 
+reference implementation.</p>
+</div>
+<p><strong>Bibliography</strong></p>
+<div class="footnote">
+<hr/>
+<ol>
+<li id="fn:1">
+<p>Collet, Yann. xxHash: Extremely fast <abbr title="deterministic algorithm that produces fixed-length data from an input of arbitrary-length data">hash algorithm</abbr>. 
+Accessed July 2022, available at <a href="https://cyan4973.github.io/xxHash/">https://cyan4973.github.io/xxHash/</a> <a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">↩</a></p>
+</li>
+</ol>
+</div>
 <aside class="md-source-file">
 <span class="md-source-file__fact">
 <span class="md-icon" title="Last update">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"></path></svg>
 </span>
-<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-12-28</span>
+<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2024-01-03</span>
 </span>
 <span class="md-source-file__fact">
 <span class="md-icon" title="Created">
