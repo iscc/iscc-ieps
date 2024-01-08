@@ -225,11 +225,60 @@
 </li>
 <li class="md-nav__item md-nav__item--active">
 <input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+<span class="md-ellipsis">
+    IEP-0012 - Metadata
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
 <a class="md-nav__link md-nav__link--active" href="./">
 <span class="md-ellipsis">
     IEP-0012 - Metadata
   </span>
 </a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#1-general">
+<span class="md-ellipsis">
+      1. General
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#2-seed-metadata">
+<span class="md-ellipsis">
+      2. Seed metadata
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#3-technical-metadata">
+<span class="md-ellipsis">
+      3. Technical metadata
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#4-other-metadata">
+<span class="md-ellipsis">
+      4. Other metadata
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#5-bibliography">
+<span class="md-ellipsis">
+      5. Bibliography
+    </span>
+</a>
+</li>
+</ul>
+</nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../iep-0013/">
@@ -261,6 +310,47 @@
 <div class="md-sidebar__scrollwrap">
 <div class="md-sidebar__inner">
 <nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#1-general">
+<span class="md-ellipsis">
+      1. General
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#2-seed-metadata">
+<span class="md-ellipsis">
+      2. Seed metadata
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#3-technical-metadata">
+<span class="md-ellipsis">
+      3. Technical metadata
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#4-other-metadata">
+<span class="md-ellipsis">
+      4. Other metadata
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#5-bibliography">
+<span class="md-ellipsis">
+      5. Bibliography
+    </span>
+</a>
+</li>
+</ul>
 </nav>
 </div>
 </div>
@@ -290,7 +380,7 @@
 </tr>
 <tr>
 <td>Status:</td>
-<td>TBD</td>
+<td>DRAFT</td>
 </tr>
 <tr>
 <td>Type:</td>
@@ -306,7 +396,7 @@
 </tr>
 <tr>
 <td>Updated:</td>
-<td><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-12-28</span></td>
+<td><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2024-01-08</span></td>
 </tr>
 </tbody>
 </table>
@@ -317,12 +407,190 @@
 developed at the International Organization for Standardization as
 <a href="https://www.iso.org/standard/77899.html"><abbr title="International Organization for Standardization">ISO</abbr>/DIS 24138</a></p>
 </div>
+<h2 id="1-general">1. General<a class="headerlink" href="#1-general" title="Permanent link">#</a></h2>
+<p>In the process of creating an <abbr title="International Standard Content Code">ISCC</abbr>, additional <abbr title="data that defines and describes other data">metadata</abbr> can be generated or added. Such <abbr title="International Standard Content Code">ISCC</abbr>
+<abbr title="data that defines and describes other data">metadata</abbr> shall:</p>
+<ol>
+<li>use the JSON-LD syntax;</li>
+<li>be described by a versioned and machine-readable JSON Schema <sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>;</li>
+</ol>
+<p>If <abbr title="International Standard Content Code">ISCC</abbr> <abbr title="data that defines and describes other data">metadata</abbr> is generated or added, it shall include at least the elements defined in Table 1:</p>
+<table>
+<thead>
+<tr>
+<th>Element</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>@context</code></td>
+<td>The JSON-LD context URI for <abbr title="International Standard Content Code">ISCC</abbr> <abbr title="data that defines and describes other data">metadata</abbr>.<br/>Example: <a href="https://purl.org/iscc/context/iscc.jsonld">https://purl.org/iscc/context/iscc.jsonld</a></td>
+</tr>
+<tr>
+<td><code>@type</code></td>
+<td>The type of <abbr title="manifestation of content in form of data structured according to a set of rules">digital content</abbr> identified by the <abbr title="International Standard Content Code">ISCC</abbr> as specified by the JSON-LD context.<br/>Example classes:<br/> <code>CreativeWork</code>, <code>TextDigitalDocument</code>, <code>ImageObject</code>, <code>AudioObject</code>, <code>VideoObject</code></td>
+</tr>
+<tr>
+<td><code>$shema</code></td>
+<td>The JSON schema URI for <abbr title="International Standard Content Code">ISCC</abbr> <abbr title="data that defines and describes other data">metadata</abbr>.<br/>Example: <a href="http://purl.org/iscc/schema/iscc.json">http://purl.org/iscc/schema/iscc.json</a></td>
+</tr>
+<tr>
+<td><code>iscc</code></td>
+<td><abbr title="International Standard Content Code">ISCC</abbr> of the identified <abbr title="file or stream encoded in conformance with a specific content format">digital asset</abbr> in canonical form.</td>
+</tr>
+</tbody>
+</table>
+<div style="text-align: center; font-weight: bold">
+Table 1 – Minimal set of elements for ISCC metadata
+</div>
+<p>Metadata as outlined in Table 2, 3, and 4 should:</p>
+<ol>
+<li>support automated technical identification, integrity verification and general <abbr title="file or stream encoded in conformance with a specific content format">digital asset</abbr> and
+   <abbr title="data that defines and describes other data">metadata</abbr> management use-cases;</li>
+<li>prioritize technical information which can be measured, extracted, and verified automatically and
+   reliably based on the identified <abbr title="file or stream encoded in conformance with a specific content format">digital asset</abbr> itself;</li>
+<li>be regarded as neither authoritative nor canonical, in the absence of other verifying
+   information;</li>
+<li>be extensible to accommodate different use cases.</li>
+</ol>
+<h2 id="2-seed-metadata">2. Seed <abbr title="data that defines and describes other data">metadata</abbr><a class="headerlink" href="#2-seed-metadata" title="Permanent link">#</a></h2>
+<p>Seed <abbr title="data that defines and describes other data">metadata</abbr> is used as input for generating the Meta-Code and repeated as output after <abbr title="International Standard Content Code">ISCC</abbr>
+processing (see Table 2).</p>
+<table>
+<thead>
+<tr>
+<th>Element</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>name</code></td>
+<td>The title or name  of the intangible creation manifested by the identified <abbr title="file or stream encoded in conformance with a specific content format">digital asset</abbr>.</td>
+</tr>
+<tr>
+<td><code>description</code></td>
+<td>Description of the  <abbr title="manifestation of content in form of data structured according to a set of rules">digital content</abbr> identified by the <abbr title="International Standard Content Code">ISCC</abbr>. Any user presentable text string  indicative of the identity of the <abbr title="that which is identified">referent</abbr> may be used.</td>
+</tr>
+<tr>
+<td><code>meta</code></td>
+<td>Subject, industry, or use-case specific <abbr title="data that defines and describes other data">metadata</abbr>,  encoded as Data-URL.</td>
+</tr>
+</tbody>
+</table>
+<div style="text-align: center; font-weight: bold">
+Table 2 – Seed metadata elements
+</div>
+<h2 id="3-technical-metadata">3. Technical <abbr title="data that defines and describes other data">metadata</abbr><a class="headerlink" href="#3-technical-metadata" title="Permanent link">#</a></h2>
+<p>Technical <abbr title="data that defines and describes other data">metadata</abbr> that can be generated during <abbr title="International Standard Content Code">ISCC</abbr> processing of the various <abbr title="International Standard Content Code">ISCC</abbr>-UNITs is shown
+in Table 3.</p>
+<table>
+<thead>
+<tr>
+<th>Element</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>filename</code></td>
+<td>Filename of the <abbr title="file or stream encoded in conformance with a specific content format">digital asset</abbr> (without directory path).</td>
+</tr>
+<tr>
+<td><code>keywords</code></td>
+<td>Keywords or tags automatically extracted from the <abbr title="information organized to provide value to a user">content</abbr>.</td>
+</tr>
+<tr>
+<td><code>langauge</code></td>
+<td>Language(s) used in the <abbr title="information organized to provide value to a user">content</abbr> (BCP-47) in weighted order.</td>
+</tr>
+<tr>
+<td><code>characters</code></td>
+<td>Number of text characters (code points after Unicode normalization).</td>
+</tr>
+<tr>
+<td><code>filesize</code></td>
+<td>Length of <abbr title="ordered sequence of bits">data</abbr> in bytes.</td>
+</tr>
+<tr>
+<td><code>mediatype</code></td>
+<td>Media type of the  <abbr title="file or stream encoded in conformance with a specific content format">digital asset</abbr>.</td>
+</tr>
+<tr>
+<td><code>thumbnail</code></td>
+<td>URI of an autogenerated user-presentable thumbnail-image that serves as a preview of the <abbr title="manifestation of content in form of data structured according to a set of rules">digital content</abbr>. The URI may be a Data-URL.</td>
+</tr>
+<tr>
+<td><code>duration</code></td>
+<td>Duration of audio or video <abbr title="information organized to provide value to a user">content</abbr> in seconds.</td>
+</tr>
+<tr>
+<td><code>width</code></td>
+<td>Width of visual media in number of pixels.</td>
+</tr>
+<tr>
+<td><code>height</code></td>
+<td>Height of visual media in number of pixels.</td>
+</tr>
+<tr>
+<td><code>fps</code></td>
+<td>Frames per second for video assets.</td>
+</tr>
+<tr>
+<td><code>datahash</code></td>
+<td>Cryptographic multihash of the <abbr title="file or stream encoded in conformance with a specific content format">digital asset</abbr>.</td>
+</tr>
+<tr>
+<td><code>metahash</code></td>
+<td>Cryptographic multihash of the <abbr title="initial metadata used as input to a hash function">seed metadata</abbr>. (The <abbr title="result of processing data with a hash algorithm">hash</abbr> is created from <code>name</code> and <code>description</code> elements or the <code>meta</code> element if supplied. <a href="/iep-0002/#62-meta-hash-processing">(See IEP-0002 - Meta-Hash processing)</a></td>
+</tr>
+<tr>
+<td><code>tophash</code></td>
+<td>Cryptographic multihash of the concatenation of  metahash and datahash. Used as a binding <abbr title="sequence of characters that uniquely denotes a referent">identifier</abbr> of asset <abbr title="ordered sequence of bits">data</abbr> and seed  <abbr title="data that defines and describes other data">metadata</abbr>.</td>
+</tr>
+</tbody>
+</table>
+<div style="text-align: center; font-weight: bold">
+Table 3 – Technical metadata elements
+</div>
+<h2 id="4-other-metadata">4. Other <abbr title="data that defines and describes other data">metadata</abbr><a class="headerlink" href="#4-other-metadata" title="Permanent link">#</a></h2>
+<p>Other <abbr title="data that defines and describes other data">metadata</abbr> that may be extracted from the asset or separately added to the output of <abbr title="International Standard Content Code">ISCC</abbr>
+processing is shown in Table 4.</p>
+<table>
+<thead>
+<tr>
+<th>Element</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>identifier</code></td>
+<td>Other <abbr title="sequence of characters that uniquely denotes a referent">identifier</abbr>(s) such as those defined by <abbr title="International Organization for Standardization">ISO</abbr>/TC  46/SC 9, identifying the entity of which the <abbr title="file or stream encoded in conformance with a specific content format">digital asset</abbr> is a full or  partial manifestation, expressed using the URI syntax defined in RFC 3986.</td>
+</tr>
+</tbody>
+</table>
+<div style="text-align: center; font-weight: bold">
+Table 4 – Other metadata elements
+</div>
+<h2 id="5-bibliography">5. Bibliography<a class="headerlink" href="#5-bibliography" title="Permanent link">#</a></h2>
+<div class="footnote">
+<hr/>
+<ol>
+<li id="fn:1">
+<p>IETF, draft-bhutton-json-schema-01 — <em>JSON Schema: A Media Type for Describing JSON
+Documents</em><br/>
+Available at <a href="https://datatracker.ietf.org/doc/html/draft-bhutton-json-schema-01">https://datatracker.ietf.org/doc/html/draft-bhutton-json-schema-01</a> <a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">↩</a></p>
+</li>
+</ol>
+</div>
 <aside class="md-source-file">
 <span class="md-source-file__fact">
 <span class="md-icon" title="Last update">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"></path></svg>
 </span>
-<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-12-28</span>
+<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2024-01-08</span>
 </span>
 <span class="md-source-file__fact">
 <span class="md-icon" title="Created">

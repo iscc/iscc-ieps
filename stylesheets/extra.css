@@ -65,3 +65,11 @@ th {
 ol {
   list-style-type: upper-alpha;
 }
+
+.footnote ol {
+  list-style-type: decimal;
+}
+
+code {
+    white-space: nowrap;
+}
