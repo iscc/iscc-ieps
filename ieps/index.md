@@ -28,7 +28,7 @@ the historical record of the feature proposal.
 | [IEP-0009](iep-0009.md) | ISCC-UNIT Instance-Code             | Core    | Draft  |
 | [IEP-0010](iep-0010.md) | ISCC-CODE                           | Core    | Draft  |
 | [IEP-0011](iep-0011.md) | ISCC-ID                             | Core    | TBD    |
-| [IEP-0012](iep-0012.md) | ISCC Metadata                       | Core    | TBD    |
+| [IEP-0012](iep-0012.md) | ISCC Metadata                       | Core    | Draft  |
 | [IEP-0013](iep-0013.md) | ISCC Decentralized Content Registry | Core    | Draft  |
 | [IEP-0014](iep-0014.md) | EVM Based ISCC Registries           | Core    | TBD    |
 | [IEP-0015](iep-0015.md) | ISCC DID Method                     | Core    | Draft  |
