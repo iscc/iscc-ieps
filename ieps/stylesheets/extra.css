@@ -70,6 +70,6 @@ ol {
   list-style-type: decimal;
 }
 
-code {
+code:not(pre code) {
     white-space: nowrap;
 }
