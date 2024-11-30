@@ -2,7 +2,7 @@
 name = "iscc-ieps"
 version = "0.1.0"
 description = "IEPs - ISCC Enhancement Proposals"
-authors = ["Titusz Pan <tp@iscc.foundation>"]
+authors = ["Titusz Pan <tp@iscc.io>"]
 license = "Apache-2.0"
 readme = "README.md"
 homepage = "https://ieps.iscc.codes"
@@ -13,22 +13,22 @@ packages = [
 ]
 
 [tool.poetry.dependencies]
-python = ">=3.8,<3.11"
+python = ">=3.9,<=3.13"
 black = "*"
 mkdocs-material = "*"
 poethepoet = "*"
 mdformat-gfm = "*"
 mdformat-tables = "*"
-mdformat-config = "^0.1.3"
-mdformat-black = "^0.1.1"
-mdformat-web = "^0.1.0"
-mdformat-toc = "^0.3.0"
-mdformat_footnote = "^0.1.1"
-mdformat_frontmatter = "^0.4.1"
-mdformat_deflist = "^0.1.2"
-mkdocs-git-revision-date-localized-plugin = "^1.1.0"
-mkdocs-add-number-plugin = "^1.2.2"
-mkdocs-glightbox = "^0.2.1"
+mdformat-config = "*"
+mdformat-black = "*"
+mdformat-web = "*"
+mdformat-toc = "*"
+mdformat_footnote = "*"
+mdformat_frontmatter = "*"
+mdformat_deflist = "*"
+mkdocs-git-revision-date-localized-plugin = "*"
+mkdocs-add-number-plugin = "*"
+mkdocs-glightbox = "*"
 
 [tool.poe.tasks]
 format-code = { cmd = "poetry run black .", help = "Code style formating with black" }
