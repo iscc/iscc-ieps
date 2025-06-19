@@ -15,7 +15,7 @@ the historical record of the feature proposal.
 ## List of IEPs
 
 | ID                           | Title                               | Type    | Status |
-|------------------------------|-------------------------------------|---------|--------|
+| ---------------------------- | ----------------------------------- | ------- | ------ |
 | [IEP-0000](ieps/iep-0000.md) | IEP Purpose and Guidelines          | Process | Draft  |
 | [IEP-0001](ieps/iep-0001.md) | ISCC Structure and Format           | Core    | Draft  |
 | [IEP-0002](ieps/iep-0002.md) | ISCC-UNIT Meta-Code                 | Core    | Draft  |

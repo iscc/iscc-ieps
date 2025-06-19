@@ -1,42 +1,54 @@
-[tool.poetry]
+[project]
 name = "iscc-ieps"
 version = "0.1.0"
 description = "IEPs - ISCC Enhancement Proposals"
-authors = ["Titusz Pan <tp@iscc.io>"]
-license = "Apache-2.0"
+authors = [{ name = "Titusz Pan", email = "tp@iscc.io" }]
+requires-python = ">=3.9,<=3.13"
 readme = "README.md"
-homepage = "https://ieps.iscc.codes"
-repository = "https://github.com/iscc/iscc-ieps"
-keywords=["iscc", "identifier", "media", "content", "hash", "blockchain", "similarity"]
-packages = [
-    { include = "ieps" },
+license = "Apache-2.0"
+keywords = [
+    "iscc",
+    "identifier",
+    "media",
+    "content",
+    "hash",
+    "blockchain",
+    "similarity",
+]
+dependencies = [
+    "black",
+    "mkdocs-material",
+    "poethepoet",
+    "mdformat-gfm",
+    "mdformat-tables",
+    "mdformat-config",
+    "mdformat-black",
+    "mdformat-web",
+    "mdformat-toc",
+    "mdformat_footnote",
+    "mdformat_frontmatter",
+    "mdformat_deflist",
+    "mkdocs-git-revision-date-localized-plugin",
+    "mkdocs-add-number-plugin",
+    "mkdocs-glightbox",
 ]
 
-[tool.poetry.dependencies]
-python = ">=3.9,<=3.13"
-black = "*"
-mkdocs-material = "*"
-poethepoet = "*"
-mdformat-gfm = "*"
-mdformat-tables = "*"
-mdformat-config = "*"
-mdformat-black = "*"
-mdformat-web = "*"
-mdformat-toc = "*"
-mdformat_footnote = "*"
-mdformat_frontmatter = "*"
-mdformat_deflist = "*"
-mkdocs-git-revision-date-localized-plugin = "*"
-mkdocs-add-number-plugin = "*"
-mkdocs-glightbox = "*"
+[project.urls]
+Homepage = "https://ieps.iscc.codes"
+Repository = "https://github.com/iscc/iscc-ieps"
 
 [tool.poe.tasks]
-format-code = { cmd = "poetry run black .", help = "Code style formating with black" }
-format-md = { cmd = "mdformat --wrap 100 --end-of-line lf .", help = "Markdown formating with mdformat" }
-build-ieps = { script = "tools.build_ieps:main", help = "Copy README.md to /ieps" }
-normalize-line-endings = { cmd = "poetry run python -m tools.lf", help = "Convert line endings to lf" }
-all = ["format-code", "build-ieps", "normalize-line-endings"]
+format-code = { cmd = "uv run black .", help = "Code style formating with black" }
+format-md = { cmd = "uv run mdformat --wrap 100 --end-of-line lf .", help = "Markdown formating with mdformat" }
+build-ieps = { cmd = "uv run python -m tools.build_ieps", help = "Copy README.md to /ieps" }
+all = ["format-code", "build-ieps",]
+
+[tool.hatch.build.targets.sdist]
+include = ["ieps"]
+
+[tool.hatch.build.targets.wheel]
+include = ["ieps"]
 
 [build-system]
-requires = ["poetry-core>=1.0.0"]
-build-backend = "poetry.core.masonry.api"
+requires = ["hatchling"]
+build-backend = "hatchling.build"
