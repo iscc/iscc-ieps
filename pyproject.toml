@@ -27,10 +27,10 @@ dependencies = [
     "mdformat-toc",
     "mdformat_footnote",
     "mdformat_frontmatter",
-    "mdformat_deflist",
     "mkdocs-git-revision-date-localized-plugin",
     "mkdocs-add-number-plugin",
     "mkdocs-glightbox",
+    "mdformat-mkdocs",
 ]
 
 [project.urls]
@@ -39,7 +39,7 @@ Repository = "https://github.com/iscc/iscc-ieps"
 
 [tool.poe.tasks]
 format-code = { cmd = "uv run black .", help = "Code style formating with black" }
-format-md = { cmd = "uv run mdformat --wrap 100 --end-of-line lf .", help = "Markdown formating with mdformat" }
+format-md = { cmd = "uv run mdformat --wrap 100 --end-of-line lf --number .", help = "Markdown formating with mdformat" }
 build-ieps = { cmd = "uv run python -m tools.build_ieps", help = "Copy README.md to /ieps" }
 all = ["format-code", "build-ieps",]
 
