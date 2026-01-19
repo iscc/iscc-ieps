@@ -1,0 +1,2201 @@
+<!DOCTYPE html><html lang="en" class="no-js"><head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="International Standard Content Code - Enhancement Proposals (IEPs).">
+      
+      
+        <meta name="author" content="Titusz Pan">
+      
+      
+        <link rel="canonical" href="https://ieps.iscc.codes/iep-0017/">
+      
+      
+        <link rel="prev" href="../iep-0016/">
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../images/iscc-logo-icon-black.svg">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>IEP-0017 - Treewalk - ISCC Enhancement Proposals</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  <script defer data-domain="ieps.iscc.codes" src="https://stats.iscc.codes/js/plausible.js"></script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+  <link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#treewalk-deterministic-tree-traversal" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="ISCC Enhancement Proposals" class="md-header__button md-logo" aria-label="ISCC Enhancement Proposals" data-md-component="logo">
+      
+  <img src="../images/iscc-logo-icon-white.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            ISCC Enhancement Proposals
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              IEP-0017 - Treewalk
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo" aria-label="Switch to light mode" type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"></path></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo" aria-label="Switch to dark mode" type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"></path></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/iscc/iscc-ieps" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"></path></svg>
+  </div>
+  <div class="md-source__repository">
+    iscc/iscc-ieps
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="ISCC Enhancement Proposals" class="md-nav__button md-logo" aria-label="ISCC Enhancement Proposals" data-md-component="logo">
+      
+  <img src="../images/iscc-logo-icon-white.svg" alt="logo">
+
+    </a>
+    ISCC Enhancement Proposals
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/iscc/iscc-ieps" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"></path></svg>
+  </div>
+  <div class="md-source__repository">
+    iscc/iscc-ieps
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../iep-0000/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    IEP-0000 - IEP Purpose
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../iep-0001/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    IEP-0001 - ISCC Structure
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../iep-0002/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    IEP-0002 - Meta-Code
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../iep-0003/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    IEP-0003 - Text-Code
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../iep-0004/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    IEP-0004 - Image-Code
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../iep-0005/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    IEP-0005 - Audio-Code
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../iep-0006/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    IEP-0006 - Video-Code
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../iep-0007/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    IEP-0007 - Mixed-Code
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../iep-0008/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    IEP-0008 - Data-Code
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../iep-0009/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    IEP-0009 - Instance-Code
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../iep-0010/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    IEP-0010 - ISCC-CODE
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../iep-0011/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    IEP-0011 - ISCC-ID
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../iep-0012/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    IEP-0012 - Metadata
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../iep-0013/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    IEP-0013 - Registry
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../iep-0014/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    IEP-0014 - EVM Registries
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../iep-0015/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    IEP-0015 - DID Method
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../iep-0016/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    IEP-0016 - SubType WIDE
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    IEP-0017 - Treewalk
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    IEP-0017 - Treewalk
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-abstract" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Abstract
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-introduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Introduction
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Introduction">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-motivation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 Motivation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-scope" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 Scope
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-terminology" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Terminology
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-architecture-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Architecture Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-core-algorithm-specification" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Core Algorithm Specification
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Core Algorithm Specification">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-entry-ordering" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 Entry Ordering
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-treewalk-base-algorithm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2 Treewalk-BASE Algorithm
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53-reference-handling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.3 Reference Handling
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-treewalk-ignore-extension" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Treewalk-IGNORE Extension
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Treewalk-IGNORE Extension">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.1 Overview
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62-pattern-processing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.2 Pattern Processing
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#63-example-with-gitignore" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.3 Example with .gitignore
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-treewalk-iscc-extension" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Treewalk-ISCC Extension
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Treewalk-ISCC Extension">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#71-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.1 Overview
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#72-automatic-exclusions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.2 Automatic Exclusions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#73-implementation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.3 Implementation
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-implementation-guidance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Implementation Guidance
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. Implementation Guidance">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#81-storage-system-adaptation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.1 Storage System Adaptation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#82-path-representation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.2 Path Representation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#83-security-considerations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.3 Security Considerations
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-extensibility" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Extensibility
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9. Extensibility">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#91-custom-extensions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.1 Custom Extensions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#92-custom-ignore-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.2 Custom Ignore Files
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-test-vectors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Test Vectors
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="10. Test Vectors">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#101-treewalk-base-tests" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10.1 Treewalk-BASE Tests
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#102-treewalk-ignore-tests" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10.2 Treewalk-IGNORE Tests
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#103-treewalk-iscc-tests" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10.3 Treewalk-ISCC Tests
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-references" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. References
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="11. References">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#111-normative" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11.1 Normative
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#112-informative" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11.2 Informative
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-abstract" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Abstract
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-introduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Introduction
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Introduction">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-motivation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 Motivation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-scope" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 Scope
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-terminology" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Terminology
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-architecture-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Architecture Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-core-algorithm-specification" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Core Algorithm Specification
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Core Algorithm Specification">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-entry-ordering" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 Entry Ordering
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-treewalk-base-algorithm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2 Treewalk-BASE Algorithm
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53-reference-handling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.3 Reference Handling
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-treewalk-ignore-extension" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Treewalk-IGNORE Extension
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Treewalk-IGNORE Extension">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.1 Overview
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62-pattern-processing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.2 Pattern Processing
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#63-example-with-gitignore" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.3 Example with .gitignore
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-treewalk-iscc-extension" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Treewalk-ISCC Extension
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Treewalk-ISCC Extension">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#71-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.1 Overview
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#72-automatic-exclusions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.2 Automatic Exclusions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#73-implementation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.3 Implementation
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-implementation-guidance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Implementation Guidance
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. Implementation Guidance">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#81-storage-system-adaptation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.1 Storage System Adaptation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#82-path-representation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.2 Path Representation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#83-security-considerations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.3 Security Considerations
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-extensibility" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Extensibility
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9. Extensibility">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#91-custom-extensions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.1 Custom Extensions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#92-custom-ignore-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.2 Custom Ignore Files
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-test-vectors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Test Vectors
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="10. Test Vectors">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#101-treewalk-base-tests" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10.1 Treewalk-BASE Tests
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#102-treewalk-ignore-tests" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10.2 Treewalk-IGNORE Tests
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#103-treewalk-iscc-tests" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10.3 Treewalk-ISCC Tests
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-references" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. References
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="11. References">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#111-normative" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11.1 Normative
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#112-informative" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11.2 Informative
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="treewalk-deterministic-tree-traversal">Treewalk - Deterministic Tree Traversal<a class="headerlink" href="#treewalk-deterministic-tree-traversal" title="Permanent link">#</a></h1>
+<table>
+<thead>
+<tr>
+<th>IEP:</th>
+<th>0017</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Title:</td>
+<td>Treewalk - Deterministic Tree Traversal</td>
+</tr>
+<tr>
+<td>Author:</td>
+<td>Titusz Pan <a href="mailto:tp@iscc.io">tp@iscc.io</a></td>
+</tr>
+<tr>
+<td>Comments:</td>
+<td><a href="https://github.com/iscc/iscc-ieps/issues/17">https://github.com/iscc/iscc-ieps/issues/17</a></td>
+</tr>
+<tr>
+<td>Status:</td>
+<td>Draft</td>
+</tr>
+<tr>
+<td>Type:</td>
+<td>Core</td>
+</tr>
+<tr>
+<td>Standard:</td>
+<td>IEP</td>
+</tr>
+<tr>
+<td>License:</td>
+<td>CC-BY-4.0</td>
+</tr>
+<tr>
+<td>Created:</td>
+<td><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="January 19, 2026 10:24:10 UTC">2026-01-19</span></td>
+</tr>
+<tr>
+<td>Updated:</td>
+<td><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="January 19, 2026 10:43:40 UTC">2026-01-19</span></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This document is a <strong>DRAFT</strong> intended as input to
+<a href="https://www.iso.org/committee/48836.html"><abbr title="International Organization for Standardization">ISO</abbr> TC 46/SC 9/WG 18</a> for a future revision of <abbr title="International Organization for Standardization">ISO</abbr> 24138.</p>
+</div>
+<h2 id="1-abstract">1. Abstract<a class="headerlink" href="#1-abstract" title="Permanent link">#</a></h2>
+<p>This specification defines a layered approach to deterministic tree traversal, consisting of a core
+<abbr title="set of instructions">algorithm</abbr> and two standard extensions. The Treewalk-BASE <abbr title="set of instructions">algorithm</abbr> provides consistent ordering for
+hierarchical storage structures. The Treewalk-IGNORE extension adds gitignore-style pattern
+filtering, while Treewalk-<abbr title="International Standard Content Code">ISCC</abbr> provides domain-specific filtering for <abbr title="International Standard Content Code">ISCC</abbr> <abbr title="data that defines and describes other data">metadata</abbr>. Each layer
+builds upon the previous, ensuring consistent cross-platform ordering while enabling progressive
+filtering capabilities. The specification applies to <abbr title="stored data with a known number of bits and a filename">file</abbr> systems, archive formats (ZIP, EPUB,
+DOCX), cloud storage (S3, Azure Blob), and any system with directory-like organization.</p>
+<hr>
+<h2 id="2-introduction">2. Introduction<a class="headerlink" href="#2-introduction" title="Permanent link">#</a></h2>
+<h3 id="21-motivation">2.1 Motivation<a class="headerlink" href="#21-motivation" title="Permanent link">#</a></h3>
+<p>Content-based identifiers and integrity verification systems require deterministic <abbr title="stored data with a known number of bits and a filename">file</abbr> ordering to
+produce consistent results across different environments. Traditional directory traversal methods
+yield entries in <abbr title="stored data with a known number of bits and a filename">file</abbr> system-dependent order, making reproducible hashing impossible. This
+specification solves that problem through a layered approach that separates core traversal logic
+from filtering concerns.</p>
+<h3 id="22-scope">2.2 Scope<a class="headerlink" href="#22-scope" title="Permanent link">#</a></h3>
+<p>This specification defines three algorithms:</p>
+<p><strong>Treewalk-BASE</strong>:</p>
+<ul>
+<li>Deterministic ordering of hierarchical entries</li>
+<li>Ignore <abbr title="stored data with a known number of bits and a filename">file</abbr> prioritization for early filtering opportunities</li>
+<li>Security considerations for reference handling</li>
+</ul>
+<p><strong>Treewalk-IGNORE Extension</strong>:</p>
+<ul>
+<li>Gitignore-style pattern matching</li>
+<li>Cascading ignore rules from root to leaf directories</li>
+<li>Pattern accumulation and inheritance</li>
+</ul>
+<p><strong>Treewalk-<abbr title="International Standard Content Code">ISCC</abbr> Extension</strong>:</p>
+<ul>
+<li><abbr title="International Standard Content Code">ISCC</abbr>-specific pattern matching and filtering</li>
+<li>Built on top of Treewalk-IGNORE functionality</li>
+<li>Domain-specific <abbr title="stored data with a known number of bits and a filename">file</abbr> exclusions</li>
+</ul>
+<p>This specification does NOT cover:</p>
+<ul>
+<li>Content reading or hashing algorithms</li>
+<li>Storage-specific authentication or access control</li>
+<li>Entry <abbr title="data that defines and describes other data">metadata</abbr> beyond names and types</li>
+<li>Implementation details for specific storage systems</li>
+</ul>
+<hr>
+<h2 id="3-terminology">3. Terminology<a class="headerlink" href="#3-terminology" title="Permanent link">#</a></h2>
+<p><strong>Entry</strong> : A named object within a hierarchical storage system (<abbr title="stored data with a known number of bits and a filename">file</abbr>, directory, archive member, S3
+object).</p>
+<p><strong>Container</strong> : An entry that can contain other entries (directory, folder, ZIP archive, S3 prefix).</p>
+<p><strong>Yield/Output</strong> : When an entry is "yielded" or appears in the "output", it means the entry path is
+returned to the caller. Containers are traversed but not yielded — only files within containers
+appear in output.</p>
+<p><strong>NFC Normalization</strong> : Unicode Normalization Form C - a canonical form ensuring consistent
+representation of equivalent Unicode sequences.</p>
+<p><strong>Ignore File</strong> : An entry whose name starts with "." and ends with "ignore" (e.g., .gitignore,
+.isccignore) containing patterns for entries to exclude.</p>
+<p><strong>Reference</strong> : A storage-specific link to another entry (symbolic link, archive member reference,
+S3 redirect).</p>
+<hr>
+<h2 id="4-architecture-overview">4. Architecture Overview<a class="headerlink" href="#4-architecture-overview" title="Permanent link">#</a></h2>
+<p>The Treewalk specification defines a layered architecture where each extension builds upon the
+previous:</p>
+<pre class="mermaid"><code>graph TD
+    A[Treewalk-BASE] --&gt; B[Treewalk-IGNORE]
+    B --&gt; C[Treewalk-ISCC]
+    B --&gt; D[Custom Extensions]
+
+    A -.- E[Deterministic Ordering&lt;br/&gt;Ignore-File Priority&lt;br/&gt;Reference Handling]
+    B -.- F[Pattern Matching&lt;br/&gt;Cascading Rules&lt;br/&gt;Progressive Filtering]
+    C -.- G[ISCC Metadata Filtering&lt;br/&gt;.isccignore Support]
+    D -.- H[Domain-specific Rules]</code></pre>
+<p>Each layer maintains the core guarantees while adding specific functionality:</p>
+<ul>
+<li><strong>Treewalk-BASE</strong>: Provides deterministic ordering across all platforms</li>
+<li><strong>Treewalk-IGNORE</strong>: Adds configurable filtering with pattern inheritance</li>
+<li><strong>Treewalk-<abbr title="International Standard Content Code">ISCC</abbr></strong>: Implements <abbr title="International Standard Content Code">ISCC</abbr>-specific requirements</li>
+<li><strong>Custom Extensions</strong>: Enable domain-specific adaptations</li>
+</ul>
+<hr>
+<h2 id="5-core-algorithm-specification">5. Core Algorithm Specification<a class="headerlink" href="#5-core-algorithm-specification" title="Permanent link">#</a></h2>
+<h3 id="51-entry-ordering">5.1 Entry Ordering<a class="headerlink" href="#51-entry-ordering" title="Permanent link">#</a></h3>
+<p>An implementation shall sort directory entries as follows:</p>
+<ol>
+<li>Apply Unicode NFC normalization to each entry name.</li>
+<li>Encode the normalized name as UTF-8.</li>
+<li>Sort entries by comparing the resulting <abbr title="sequence of 8 bits">byte</abbr> sequences lexicographically.</li>
+</ol>
+<p>When multiple entries have identical names after NFC normalization, the implementation shall yield
+all such entries sorted by lexicographically comparing their original, pre-normalization UTF-8
+encoded <abbr title="sequence of 8 bits">byte</abbr> sequences as a tie-breaker. This ensures deterministic output even when storage systems
+allow multiple entries with equivalent names.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Some storage systems (e.g., case-insensitive filesystems) may prevent creation of entries with
+names that differ only in case or normalization. In such cases, only the accessible entry will be
+yielded.</p>
+</div>
+<h4 id="511-example">5.1.1 Example<a class="headerlink" href="#511-example" title="Permanent link">#</a></h4>
+<p>Given entries: ["café", "caffe", "Café"]</p>
+<p>After NFC normalization and UTF-8 encoding, the sorted order is:</p>
+<ul>
+<li>"Café" (capital C sorts before lowercase)</li>
+<li>"café"</li>
+<li>"caffe"</li>
+</ul>
+<h4 id="512-deterministic-duplicate-handling">5.1.2 Deterministic Duplicate Handling<a class="headerlink" href="#512-deterministic-duplicate-handling" title="Permanent link">#</a></h4>
+<p>When entries have identical normalized names, all of them are yielded in a deterministic order based
+on their original <abbr title="sequence of 8 bits">byte</abbr> sequences to ensure consistent output across implementations. This approach:</p>
+<ul>
+<li><strong>Preserves information</strong>: No entries are silently dropped</li>
+<li><strong>Maintains determinism</strong>: The same storage state always produces the same output</li>
+<li><strong>Respects storage capabilities</strong>: Systems that prevent duplicates naturally have none to yield</li>
+<li><strong>Enables verification</strong>: Consumers can detect and handle duplicates as needed</li>
+</ul>
+<h3 id="52-treewalk-base-algorithm">5.2 Treewalk-BASE Algorithm<a class="headerlink" href="#52-treewalk-base-algorithm" title="Permanent link">#</a></h3>
+<p>An implementation shall yield entries in depth-first order as follows:</p>
+<ol>
+<li>For each container in the traversal, process entries in three phases:<ol>
+<li>Yield files matching pattern <code>.*ignore</code> (e.g., .gitignore, .npmignore) in sorted order.</li>
+<li>Yield all other files in sorted order.</li>
+<li>Recurse into subdirectories in sorted order.</li>
+</ol>
+</li>
+<li>Containers (directories) themselves shall not appear in the output.</li>
+<li>Only files within containers shall be yielded.</li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This ordering ensures ignore files are discovered and yielded before the regular files they
+might filter, enabling extensions to process filtering rules early.</p>
+</div>
+<p>The base <abbr title="set of instructions">algorithm</abbr> itself shall not process ignore <abbr title="stored data with a known number of bits and a filename">file</abbr> contents or apply filtering. It only ensures
+deterministic ordering with ignore <abbr title="stored data with a known number of bits and a filename">file</abbr> prioritization.</p>
+<p>If an entry cannot be read or accessed during traversal, the implementation shall skip the entry and
+may report a warning.</p>
+<h3 id="53-reference-handling">5.3 Reference Handling<a class="headerlink" href="#53-reference-handling" title="Permanent link">#</a></h3>
+<p>The implementation shall not follow references (symbolic links, redirects) when:</p>
+<ol>
+<li>Determining if an entry is a regular entry or container.</li>
+<li>Recursing into sub-containers.</li>
+</ol>
+<p>References shall not appear in traversal output.</p>
+<hr>
+<h2 id="6-treewalk-ignore-extension">6. Treewalk-IGNORE Extension<a class="headerlink" href="#6-treewalk-ignore-extension" title="Permanent link">#</a></h2>
+<h3 id="61-overview">6.1 Overview<a class="headerlink" href="#61-overview" title="Permanent link">#</a></h3>
+<p>The <strong>Treewalk-IGNORE</strong> extension adds gitignore-style pattern filtering to the base <abbr title="set of instructions">algorithm</abbr>. It
+maintains the same deterministic ordering while progressively filtering entries based on accumulated
+patterns.</p>
+<h3 id="62-pattern-processing">6.2 Pattern Processing<a class="headerlink" href="#62-pattern-processing" title="Permanent link">#</a></h3>
+<p>An implementation using Treewalk-IGNORE shall process patterns as follows:</p>
+<ol>
+<li>Accept specification of which ignore <abbr title="stored data with a known number of bits and a filename">file</abbr> to process (e.g., <code>.gitignore</code> or <code>.npmignore</code>).</li>
+<li>Check for the specified ignore <abbr title="stored data with a known number of bits and a filename">file</abbr> in each directory.</li>
+<li>Parse patterns using gitignore-style syntax.</li>
+<li>Accumulate patterns from root to current directory.</li>
+<li>Apply patterns to filter files and control directory traversal.</li>
+</ol>
+<h4 id="621-directory-filtering">6.2.1 Directory Filtering<a class="headerlink" href="#621-directory-filtering" title="Permanent link">#</a></h4>
+<p>Since directories are not yielded as output entries, directory patterns control traversal. An
+implementation shall apply directory filtering as follows:</p>
+<ol>
+<li>If a directory matches an ignore pattern, the implementation shall not recurse into it.</li>
+<li>This prevents all files within that directory from appearing in the output.</li>
+<li>Directory patterns shall be checked with a trailing "/" to ensure proper matching.</li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>A pattern like <code>temp/</code> prevents traversal into any directory named "temp", effectively
+excluding all files within it from the output.</p>
+</div>
+<h4 id="622-pattern-matching-rules">6.2.2 Pattern Matching Rules<a class="headerlink" href="#622-pattern-matching-rules" title="Permanent link">#</a></h4>
+<p>An implementation shall apply the following pattern matching rules:</p>
+<ol>
+<li>Pattern matching shall be case-sensitive.</li>
+<li>Only one ignore <abbr title="stored data with a known number of bits and a filename">file</abbr> type shall be processed per traversal.</li>
+<li>Later patterns shall have higher precedence than earlier patterns within the same <abbr title="stored data with a known number of bits and a filename">file</abbr>.</li>
+<li>Child directory patterns shall have higher precedence than parent directory patterns.</li>
+<li>Patterns from child directories shall override patterns from parent directories.</li>
+</ol>
+<h3 id="63-example-with-gitignore">6.3 Example with .gitignore<a class="headerlink" href="#63-example-with-gitignore" title="Permanent link">#</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>repo/
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>├── .gitignore (contains: *.log, temp/)
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>├── src/
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>│   ├── main.py
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>│   └── debug.log
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>└── temp/
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>    └── cache.dat
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>Yields only:
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>- repo/.gitignore
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>- repo/src/main.py
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The ignore <abbr title="stored data with a known number of bits and a filename">file</abbr> itself is included in the output (unless excluded by a parent ignore <abbr title="stored data with a known number of bits and a filename">file</abbr>).</p>
+</div>
+<hr>
+<h2 id="7-treewalk-iscc-extension">7. Treewalk-<abbr title="International Standard Content Code">ISCC</abbr> Extension<a class="headerlink" href="#7-treewalk-iscc-extension" title="Permanent link">#</a></h2>
+<h3 id="71-overview">7.1 Overview<a class="headerlink" href="#71-overview" title="Permanent link">#</a></h3>
+<p>The <strong>Treewalk-<abbr title="International Standard Content Code">ISCC</abbr></strong> extension provides <abbr title="International Standard Content Code">ISCC</abbr>-specific filtering on top of Treewalk-IGNORE. It
+automatically filters <abbr title="data that defines and describes other data">metadata</abbr> files while respecting <code>.isccignore</code> patterns.</p>
+<h3 id="72-automatic-exclusions">7.2 Automatic Exclusions<a class="headerlink" href="#72-automatic-exclusions" title="Permanent link">#</a></h3>
+<p>An implementation using Treewalk-<abbr title="International Standard Content Code">ISCC</abbr> shall exclude:</p>
+<ol>
+<li>Files ending with <code>.iscc.json</code> (<abbr title="International Standard Content Code">ISCC</abbr> <abbr title="data that defines and describes other data">metadata</abbr> files).</li>
+<li>Any patterns specified in <code>.isccignore</code> files.</li>
+</ol>
+<h3 id="73-implementation">7.3 Implementation<a class="headerlink" href="#73-implementation" title="Permanent link">#</a></h3>
+<p>An implementation shall apply Treewalk-<abbr title="International Standard Content Code">ISCC</abbr> as follows:</p>
+<ol>
+<li>Apply Treewalk-IGNORE with <code>.isccignore</code> as the ignore <abbr title="stored data with a known number of bits and a filename">file</abbr> name.</li>
+<li>Additionally filter out files ending with <code>.iscc.json</code>.</li>
+</ol>
+<p>This layered approach ensures consistent behavior while adding domain-specific rules.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The automatic exclusion of <code>.iscc.json</code> files cannot be overridden by <code>.isccignore</code> patterns.
+These files are always excluded, even if <code>.isccignore</code> contains patterns that would otherwise
+include them.</p>
+</div>
+<hr>
+<h2 id="8-implementation-guidance">8. Implementation Guidance<a class="headerlink" href="#8-implementation-guidance" title="Permanent link">#</a></h2>
+<h3 id="81-storage-system-adaptation">8.1 Storage System Adaptation<a class="headerlink" href="#81-storage-system-adaptation" title="Permanent link">#</a></h3>
+<h4 id="811-file-systems">8.1.1 File Systems<a class="headerlink" href="#811-file-systems" title="Permanent link">#</a></h4>
+<ul>
+<li>Use native directory listing APIs (e.g., <code>os.scandir()</code>)</li>
+<li>Filter symbolic links during initial scan</li>
+<li>Resolve paths to absolute form before traversal</li>
+<li>On Windows, handle drive roots (e.g., <code>C:\</code>) as valid starting points</li>
+</ul>
+<h4 id="812-archive-formats-zip-epub-docx">8.1.2 Archive Formats (ZIP, EPUB, DOCX)<a class="headerlink" href="#812-archive-formats-zip-epub-docx" title="Permanent link">#</a></h4>
+<ul>
+<li>Treat archive members as entries</li>
+<li>Use "/" as universal path separator</li>
+<li>Process nested archives as sub-containers</li>
+<li>Apply the same NFC normalization to member names</li>
+</ul>
+<h4 id="813-cloud-storage-s3-azure-blob">8.1.3 Cloud Storage (S3, Azure Blob)<a class="headerlink" href="#813-cloud-storage-s3-azure-blob" title="Permanent link">#</a></h4>
+<ul>
+<li>Use prefix-based queries for "directory" listing</li>
+<li>Treat key prefixes ending with "/" as containers</li>
+<li>Batch API calls for efficiency</li>
+<li>Skip zero-<abbr title="sequence of 8 bits">byte</abbr> objects with keys ending in "/" (S3 directory markers)</li>
+</ul>
+<h3 id="82-path-representation">8.2 Path Representation<a class="headerlink" href="#82-path-representation" title="Permanent link">#</a></h3>
+<p>An implementation shall represent paths as follows:</p>
+<ol>
+<li>Use forward slash (/) as universal path separator.</li>
+<li>Calculate relative paths from traversal root.</li>
+<li>Apply NFC normalization before any path operations.</li>
+</ol>
+<h3 id="83-security-considerations">8.3 Security Considerations<a class="headerlink" href="#83-security-considerations" title="Permanent link">#</a></h3>
+<p>An implementation shall apply the following security measures:</p>
+<ol>
+<li>Validate that all paths remain within the traversal root.</li>
+<li>Not follow references to prevent traversal attacks.</li>
+</ol>
+<p>An implementation should apply the following additional security measures:</p>
+<ol>
+<li>Implement depth limits for deeply nested structures (e.g., 256 levels).</li>
+<li>Enforce size limits when processing archives (e.g., 4 GiB per archive).</li>
+</ol>
+<hr>
+<h2 id="9-extensibility">9. Extensibility<a class="headerlink" href="#9-extensibility" title="Permanent link">#</a></h2>
+<h3 id="91-custom-extensions">9.1 Custom Extensions<a class="headerlink" href="#91-custom-extensions" title="Permanent link">#</a></h3>
+<p>Implementations may create additional extensions following the layered pattern:</p>
+<ol>
+<li>Build on top of existing layers (Base → Ignore → Domain-specific).</li>
+<li>Maintain deterministic ordering guarantees.</li>
+<li>Document extension-specific behavior clearly.</li>
+</ol>
+<h3 id="92-custom-ignore-files">9.2 Custom Ignore Files<a class="headerlink" href="#92-custom-ignore-files" title="Permanent link">#</a></h3>
+<p>Treewalk-IGNORE implementations may support different ignore <abbr title="stored data with a known number of bits and a filename">file</abbr> names by allowing the caller to
+specify which ignore <abbr title="stored data with a known number of bits and a filename">file</abbr> to process:</p>
+<ol>
+<li><code>.gitignore</code> — Git-style ignores</li>
+<li><code>.npmignore</code> — NPM-style ignores</li>
+<li><code>.isccignore</code> — <abbr title="International Standard Content Code">ISCC</abbr>-specific ignores</li>
+<li><code>.customignore</code> — Domain-specific ignores</li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Each traversal processes only one type of ignore <abbr title="stored data with a known number of bits and a filename">file</abbr> as specified by the implementation or
+caller.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Git Compatibility</p>
+<p>Git implicitly excludes <code>.git/</code> directories from all operations, even when not specified in
+<code>.gitignore</code>. Treewalk-IGNORE processes all directories unless explicitly ignored. To replicate
+Git's behavior when using <code>.isccignore</code> files, explicitly add <code>.git/</code> to your ignore patterns.
+This design keeps Treewalk generic and avoids hardcoding VCS-specific assumptions.</p>
+</div>
+<hr>
+<h2 id="10-test-vectors">10. Test Vectors<a class="headerlink" href="#10-test-vectors" title="Permanent link">#</a></h2>
+<p>Implementations shall produce identical ordering for these test cases:</p>
+<h3 id="101-treewalk-base-tests">10.1 Treewalk-BASE Tests<a class="headerlink" href="#101-treewalk-base-tests" title="Permanent link">#</a></h3>
+<h4 id="1011-test-case-1-unicode-normalization">10.1.1 Test Case 1: Unicode Normalization<a class="headerlink" href="#1011-test-case-1-unicode-normalization" title="Permanent link">#</a></h4>
+<p><strong>Structure:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Café.txt</span><span class="w">       </span><span class="c1"># NFC form (U+00E9)</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Café.txt</span><span class="w">      </span><span class="c1"># NFD form (U+0065 U+0301)</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">café.txt</span><span class="w">       </span><span class="c1"># NFC form (U+00E9)</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">caffe.txt</span>
+</code></pre></div>
+<p><strong>Expected (Treewalk-BASE):</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">test_dir/Café.txt</span><span class="w">      </span><span class="c1"># NFD form (comes first due to byte ordering)</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">test_dir/Café.txt</span><span class="w">       </span><span class="c1"># NFC form</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">test_dir/caffe.txt</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">test_dir/café.txt</span>
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>On case-insensitive filesystems, only one of "Café.txt" or "café.txt" may be created,
+resulting in fewer entries in the output.</p>
+</div>
+<h4 id="1012-test-case-2-duplicate-normalized-names">10.1.2 Test Case 2: Duplicate Normalized Names<a class="headerlink" href="#1012-test-case-2-duplicate-normalized-names" title="Permanent link">#</a></h4>
+<p><strong>Structure:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># These normalize to the same NFC form</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">é.txt</span><span class="w">        </span><span class="c1"># U+00E9 (precomposed)</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">é.txt</span><span class="w">       </span><span class="c1"># U+0065 U+0301 (decomposed)</span>
+</code></pre></div>
+<p><strong>Expected (Treewalk-BASE):</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># Both entries yielded if storage allows both, preserving their original forms</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">test_dir/é.txt</span><span class="w">      </span><span class="c1"># NFD form (comes first due to byte ordering)</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">test_dir/é.txt</span><span class="w">       </span><span class="c1"># NFC form</span>
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Storage systems typically prevent creation of both forms, so usually only one entry will exist
+and be yielded. The key guarantee is that whatever entries exist will be yielded deterministically.</p>
+</div>
+<h4 id="1013-test-case-3-ignore-file-priority">10.1.3 Test Case 3: Ignore File Priority<a class="headerlink" href="#1013-test-case-3-ignore-file-priority" title="Permanent link">#</a></h4>
+<p><strong>Structure:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">.gitignore</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">aaa.txt</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">zzz.txt</span>
+</code></pre></div>
+<p><strong>Expected (Treewalk-BASE):</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">test_dir/.gitignore</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">test_dir/aaa.txt</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">test_dir/zzz.txt</span>
+</code></pre></div>
+<h3 id="102-treewalk-ignore-tests">10.2 Treewalk-IGNORE Tests<a class="headerlink" href="#102-treewalk-ignore-tests" title="Permanent link">#</a></h3>
+<h4 id="1021-test-case-4-pattern-filtering">10.2.1 Test Case 4: Pattern Filtering<a class="headerlink" href="#1021-test-case-4-pattern-filtering" title="Permanent link">#</a></h4>
+<p><strong>Structure:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">.gitignore</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="w">    </span><span class="nt">content</span><span class="p">:</span><span class="w"> </span><span class="s">'*.log'</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">app.py</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">debug.log</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">error.log</span>
+</code></pre></div>
+<p><strong>Expected (Treewalk-IGNORE with .gitignore):</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">test_dir/.gitignore</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">test_dir/app.py</span>
+</code></pre></div>
+<h3 id="103-treewalk-iscc-tests">10.3 Treewalk-<abbr title="International Standard Content Code">ISCC</abbr> Tests<a class="headerlink" href="#103-treewalk-iscc-tests" title="Permanent link">#</a></h3>
+<h4 id="1031-test-case-5-iscc-metadata-filtering">10.3.1 Test Case 5: <abbr title="International Standard Content Code">ISCC</abbr> Metadata Filtering<a class="headerlink" href="#1031-test-case-5-iscc-metadata-filtering" title="Permanent link">#</a></h4>
+<p><strong>Structure:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">.isccignore</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="w">    </span><span class="nt">content</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">temp/</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">data.txt</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">data.txt.iscc.json</span>
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">temp</span>
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="w">    </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dir</span>
+<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">temp/cache.dat</span>
+</code></pre></div>
+<p><strong>Expected (Treewalk-<abbr title="International Standard Content Code">ISCC</abbr>):</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">test_dir/.isccignore</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">test_dir/data.txt</span>
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The <code>temp/</code> pattern prevents traversal into the temp directory, so <code>temp/cache.dat</code> is
+excluded. The <abbr title="stored data with a known number of bits and a filename">file</abbr> <code>data.txt.iscc.json</code> is automatically filtered by the <abbr title="International Standard Content Code">ISCC</abbr> extension.</p>
+</div>
+<hr>
+<h2 id="11-references">11. References<a class="headerlink" href="#11-references" title="Permanent link">#</a></h2>
+<h3 id="111-normative">11.1 Normative<a class="headerlink" href="#111-normative" title="Permanent link">#</a></h3>
+<ul>
+<li>Unicode Standard Annex #15: Unicode Normalization Forms</li>
+<li>RFC 3629: UTF-8, a transformation format of <abbr title="International Organization for Standardization">ISO</abbr> 10646</li>
+</ul>
+<h3 id="112-informative">11.2 Informative<a class="headerlink" href="#112-informative" title="Permanent link">#</a></h3>
+<ul>
+<li>gitignore(5) - Git ignore patterns specification</li>
+<li><abbr title="International Organization for Standardization">ISO</abbr> 24138:2024 - International Standard Content Code</li>
+<li>ZIP File Format Specification</li>
+<li>Amazon S3 API Reference</li>
+</ul>
+
+
+
+
+
+
+
+  
+    
+  
+  
+    
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Last update">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"></path></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="January 19, 2026 10:43:40 UTC">2026-01-19</span>
+  </span>
+
+    
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Created">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"></path></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="January 19, 2026 10:24:10 UTC">2026-01-19</span>
+  </span>
+
+    
+    
+    
+  </aside>
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": [], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>
