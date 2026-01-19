@@ -32,3 +32,4 @@ the historical record of the feature proposal.
 | [IEP-0013](iep-0013.md) | ISCC Decentralized Content Registry | Core    | Draft  |
 | [IEP-0014](iep-0014.md) | EVM Based ISCC Registries           | Core    | TBD    |
 | [IEP-0015](iep-0015.md) | ISCC DID Method                     | Core    | Draft  |
+| [IEP-0016](iep-0016.md) | ISCC SubType WIDE                   | Core    | Draft  |
