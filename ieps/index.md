@@ -33,3 +33,4 @@ the historical record of the feature proposal.
 | [IEP-0014](iep-0014.md) | EVM Based ISCC Registries           | Core    | Draft     | IEP            |
 | [IEP-0015](iep-0015.md) | ISCC DID Method                     | Core    | Draft     | IEP            |
 | [IEP-0016](iep-0016.md) | ISCC SubType WIDE                   | Core    | Draft     | IEP            |
+| [IEP-0017](iep-0017.md) | Treewalk - Deterministic Traversal  | Core    | Draft     | IEP            |
