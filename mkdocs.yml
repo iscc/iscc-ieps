@@ -4,6 +4,10 @@ site_author: 'Titusz Pan'
 site_url: 'https://ieps.iscc.codes'
 docs_dir: ieps
 
+watch:
+  - ieps
+  - mkdocs.yml
+
 # Repository
 repo_name: 'iscc/iscc-ieps'
 repo_url: 'https://github.com/iscc/iscc-ieps'
