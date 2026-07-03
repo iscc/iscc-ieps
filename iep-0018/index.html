@@ -1,0 +1,2099 @@
+<!DOCTYPE html><html lang="en" class="no-js"><head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="International Standard Content Code - Enhancement Proposals (IEPs).">
+      
+      
+        <meta name="author" content="Titusz Pan">
+      
+      
+        <link rel="canonical" href="https://ieps.iscc.codes/iep-0018/">
+      
+      
+        <link rel="prev" href="../iep-0017/">
+      
+      
+        <link rel="next" href="../iep-0019/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../images/iscc-logo-icon-black.svg">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>IEP-0018 - Imagewalk - ISCC Enhancement Proposals</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  <script defer data-domain="ieps.iscc.codes" src="https://stats.iscc.codes/js/plausible.js"></script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+  <link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#imagewalk-deterministic-bioimage-traversal" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="ISCC Enhancement Proposals" class="md-header__button md-logo" aria-label="ISCC Enhancement Proposals" data-md-component="logo">
+      
+  <img src="../images/iscc-logo-icon-white.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            ISCC Enhancement Proposals
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              IEP-0018 - Imagewalk
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo" aria-label="Switch to light mode" type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"></path></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo" aria-label="Switch to dark mode" type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"></path></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/iscc/iscc-ieps" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"></path></svg>
+  </div>
+  <div class="md-source__repository">
+    iscc/iscc-ieps
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="ISCC Enhancement Proposals" class="md-nav__button md-logo" aria-label="ISCC Enhancement Proposals" data-md-component="logo">
+      
+  <img src="../images/iscc-logo-icon-white.svg" alt="logo">
+
+    </a>
+    ISCC Enhancement Proposals
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/iscc/iscc-ieps" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"></path></svg>
+  </div>
+  <div class="md-source__repository">
+    iscc/iscc-ieps
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../iep-0000/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    IEP-0000 - IEP Purpose
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../iep-0001/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    IEP-0001 - ISCC Structure
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../iep-0002/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    IEP-0002 - Meta-Code
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../iep-0003/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    IEP-0003 - Text-Code
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../iep-0004/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    IEP-0004 - Image-Code
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../iep-0005/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    IEP-0005 - Audio-Code
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../iep-0006/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    IEP-0006 - Video-Code
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../iep-0007/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    IEP-0007 - Mixed-Code
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../iep-0008/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    IEP-0008 - Data-Code
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../iep-0009/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    IEP-0009 - Instance-Code
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../iep-0010/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    IEP-0010 - ISCC-CODE
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../iep-0011/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    IEP-0011 - ISCC-ID
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../iep-0012/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    IEP-0012 - Metadata
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../iep-0013/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    IEP-0013 - Discovery Protocol
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../iep-0014/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    IEP-0014 - Transparency Log
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../iep-0015/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    IEP-0015 - DID Method
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../iep-0016/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    IEP-0016 - SubType WIDE
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../iep-0017/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    IEP-0017 - Treewalk
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    IEP-0018 - Imagewalk
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    IEP-0018 - Imagewalk
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-abstract" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Abstract
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-introduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Introduction
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Introduction">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-motivation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 Motivation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-scope" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 Scope
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-terminology" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Terminology
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-algorithm-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Algorithm Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-core-algorithm-specification" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Core Algorithm Specification
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Core Algorithm Specification">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-scene-processing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 Scene Processing
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-dimension-identification" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2 Dimension Identification
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53-plane-traversal-order" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.3 Plane Traversal Order
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#54-canonical-byte-conversion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.4 Canonical Byte Conversion
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#55-hash-processing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.5 Hash Processing
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-data-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Data Types
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-implementation-guidance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Implementation Guidance
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Implementation Guidance">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#71-memory-efficiency" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.1 Memory Efficiency
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#72-performance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.2 Performance
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#73-error-handling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.3 Error Handling
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-extensibility" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Extensibility
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. Extensibility">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#81-custom-hash-algorithms" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.1 Custom Hash Algorithms
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#82-additional-dimensions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.2 Additional Dimensions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#83-metadata-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.3 Metadata Integration
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-test-vectors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Test Vectors
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9. Test Vectors">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#91-canonical-byte-conversion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.1 Canonical Byte Conversion
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#92-traversal-order" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.2 Traversal Order
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#93-multi-scene-output" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.3 Multi-Scene Output
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-conformance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Conformance
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-references" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. References
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="11. References">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#111-normative" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11.1 Normative
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#112-informative" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11.2 Informative
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../iep-0019/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    IEP-0019 - ISCC Signature
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-abstract" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Abstract
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-introduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Introduction
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Introduction">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-motivation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 Motivation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-scope" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 Scope
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-terminology" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Terminology
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-algorithm-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Algorithm Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-core-algorithm-specification" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Core Algorithm Specification
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Core Algorithm Specification">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-scene-processing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 Scene Processing
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-dimension-identification" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2 Dimension Identification
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53-plane-traversal-order" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.3 Plane Traversal Order
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#54-canonical-byte-conversion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.4 Canonical Byte Conversion
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#55-hash-processing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.5 Hash Processing
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-data-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Data Types
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-implementation-guidance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Implementation Guidance
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Implementation Guidance">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#71-memory-efficiency" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.1 Memory Efficiency
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#72-performance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.2 Performance
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#73-error-handling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.3 Error Handling
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-extensibility" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Extensibility
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. Extensibility">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#81-custom-hash-algorithms" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.1 Custom Hash Algorithms
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#82-additional-dimensions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.2 Additional Dimensions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#83-metadata-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.3 Metadata Integration
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-test-vectors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Test Vectors
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9. Test Vectors">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#91-canonical-byte-conversion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.1 Canonical Byte Conversion
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#92-traversal-order" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.2 Traversal Order
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#93-multi-scene-output" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.3 Multi-Scene Output
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-conformance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Conformance
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-references" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. References
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="11. References">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#111-normative" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11.1 Normative
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#112-informative" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11.2 Informative
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="imagewalk-deterministic-bioimage-traversal">Imagewalk - Deterministic Bioimage Traversal<a class="headerlink" href="#imagewalk-deterministic-bioimage-traversal" title="Permanent link">#</a></h1>
+<table>
+<thead>
+<tr>
+<th>IEP:</th>
+<th>0018</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Title:</td>
+<td>Imagewalk - Deterministic Bioimage Traversal</td>
+</tr>
+<tr>
+<td>Author:</td>
+<td>Titusz Pan <a href="mailto:tp@iscc.io">tp@iscc.io</a></td>
+</tr>
+<tr>
+<td>Comments:</td>
+<td><a href="https://github.com/iscc/iscc-ieps/issues/27">https://github.com/iscc/iscc-ieps/issues/27</a></td>
+</tr>
+<tr>
+<td>Status:</td>
+<td>Draft</td>
+</tr>
+<tr>
+<td>Type:</td>
+<td>Core</td>
+</tr>
+<tr>
+<td>Standard:</td>
+<td>IEP</td>
+</tr>
+<tr>
+<td>License:</td>
+<td>CC-BY-4.0</td>
+</tr>
+<tr>
+<td>Created:</td>
+<td><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="July 3, 2026 18:59:34 UTC">2026-07-03</span></td>
+</tr>
+<tr>
+<td>Updated:</td>
+<td><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="July 3, 2026 18:59:34 UTC">2026-07-03</span></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This document is a <strong>DRAFT</strong> intended as input to
+<a href="https://www.iso.org/committee/48836.html"><abbr title="International Organization for Standardization">ISO</abbr> TC 46/SC 9/WG 18</a> for a future revision of <abbr title="International Organization for Standardization">ISO</abbr> 24138.</p>
+</div>
+<h2 id="1-abstract">1. Abstract<a class="headerlink" href="#1-abstract" title="Permanent link">#</a></h2>
+<p>This specification defines a deterministic <abbr title="set of instructions">algorithm</abbr> for traversing multi-dimensional bioimage <abbr title="ordered sequence of bits">data</abbr>
+and converting it to a canonical <abbr title="sequence of 8 bits">byte</abbr> sequence. The <abbr title="set of instructions">algorithm</abbr> ensures that identical pixel <abbr title="ordered sequence of bits">data</abbr>
+produces identical output regardless of source format (OME-TIFF, OME-Zarr, OMERO, CZI, and others)
+or storage platform. It handles the common bioimage dimensions (T, C, Z, Y, X), supports multi-scene
+files, and provides a format-agnostic foundation for <abbr title="information organized to provide value to a user">content</abbr>-based identification of bioimaging
+<abbr title="ordered sequence of bits">data</abbr>.</p>
+<hr>
+<h2 id="2-introduction">2. Introduction<a class="headerlink" href="#2-introduction" title="Permanent link">#</a></h2>
+<h3 id="21-motivation">2.1 Motivation<a class="headerlink" href="#21-motivation" title="Permanent link">#</a></h3>
+<p>Bioimaging <abbr title="ordered sequence of bits">data</abbr> exists in numerous formats with different internal storage layouts and dimension
+orders. Format-specific hashing produces different results for semantically identical pixel <abbr title="ordered sequence of bits">data</abbr>
+stored in different formats. This specification solves that problem by defining a canonical
+traversal and <abbr title="sequence of 8 bits">byte</abbr> representation that is independent of storage format, enabling reproducible
+<abbr title="information organized to provide value to a user">content</abbr>-based identifiers for bioimage <abbr title="ordered sequence of bits">data</abbr>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This specification is compatible with the internal pixel-<abbr title="ordered sequence of bits">data</abbr> canonicalization used by the OMERO
+server (version 5.29.2) to generate hashes at the scene level.</p>
+</div>
+<h3 id="22-scope">2.2 Scope<a class="headerlink" href="#22-scope" title="Permanent link">#</a></h3>
+<p>This specification defines:</p>
+<ul>
+<li>a deterministic plane traversal order for multi-dimensional bioimage <abbr title="ordered sequence of bits">data</abbr>;</li>
+<li>a canonical <abbr title="sequence of 8 bits">byte</abbr> representation for 2D pixel planes;</li>
+<li>the handling of the standard bioimage dimensions (T, C, Z, Y, X);</li>
+<li>the processing of multi-scene files.</li>
+</ul>
+<p>This specification does not cover:</p>
+<ul>
+<li><abbr title="stored data with a known number of bits and a filename">file</abbr> format parsing, decoding, or storage access;</li>
+<li>selection or implementation of a <abbr title="result of processing data with a hash algorithm">hash</abbr> function;</li>
+<li>pixel value transformation, rescaling, or normalization;</li>
+<li><abbr title="data that defines and describes other data">metadata</abbr> extraction, validation, or processing;</li>
+<li>image compression or encoding methods.</li>
+</ul>
+<hr>
+<h2 id="3-terminology">3. Terminology<a class="headerlink" href="#3-terminology" title="Permanent link">#</a></h2>
+<p><strong>Bioimage</strong> : A multi-dimensional pixel array representing microscopy or other bioimaging <abbr title="ordered sequence of bits">data</abbr>.</p>
+<p><strong>Scene</strong> : An independent image within a <abbr title="stored data with a known number of bits and a filename">file</abbr> that may contain more than one image. Each scene has
+its own dimensional structure and is processed independently. Some formats call this a series.</p>
+<p><strong>Plane</strong> : A 2D array of pixels with dimensions Y (height) and X (width) at a fixed combination of
+Z, C, and T coordinates.</p>
+<p><strong>Dimension</strong> : An axis of the multi-dimensional pixel array. The standard bioimage dimensions are:</p>
+<ul>
+<li><strong>T</strong> (Time): the temporal dimension for time-series <abbr title="ordered sequence of bits">data</abbr>;</li>
+<li><strong>C</strong> (Channel): the spectral or fluorescence channel dimension representing a single imaging
+    modality (for example GFP, DAPI, or brightfield);</li>
+<li><strong>Z</strong> (Depth): the Z-stack or focal-plane dimension;</li>
+<li><strong>Y</strong> (Height): the vertical spatial dimension;</li>
+<li><strong>X</strong> (Width): the horizontal spatial dimension.</li>
+</ul>
+<p><strong>Canonical bytes</strong> : The standardized <abbr title="sequence of 8 bits">byte</abbr> representation of a pixel plane that yields
+deterministic, cross-platform reproducible output.</p>
+<p><strong>Row-major order</strong> : The linear ordering in which the rightmost index varies fastest (C-order). For
+a 2D plane (Y, X) the pixels are ordered row 0 (all X), row 1 (all X), and so on.</p>
+<p><strong>Big-endian</strong> : The <abbr title="sequence of 8 bits">byte</abbr> order in which the most significant <abbr title="sequence of 8 bits">byte</abbr> appears first (network <abbr title="sequence of 8 bits">byte</abbr>
+order).</p>
+<hr>
+<h2 id="4-algorithm-overview">4. Algorithm Overview<a class="headerlink" href="#4-algorithm-overview" title="Permanent link">#</a></h2>
+<pre class="mermaid"><code>flowchart LR
+    A[Bioimage] --&gt; B{For each scene}
+    B --&gt; C[Identify dimensions&lt;br/&gt;T, C, Z, Y, X]
+    C --&gt; D{For each plane&lt;br/&gt;Z → C → T}
+    D --&gt; E[Reduce to 2D&lt;br/&gt;Flatten row-major&lt;br/&gt;Encode big-endian&lt;br/&gt;Update hash]
+    E --&gt; D
+    D --&gt;|all planes| F[Finalize scene hash]
+    F --&gt; B
+    B --&gt;|all scenes| G[Return hash list]</code></pre>
+<p>The <abbr title="set of instructions">algorithm</abbr> processes a bioimage deterministically by:</p>
+<ol>
+<li>processing each scene independently;</li>
+<li>traversing the planes of each scene in Z→C→T order;</li>
+<li>converting each plane to canonical bytes;</li>
+<li>producing one <abbr title="result of processing data with a hash algorithm">hash</abbr> per scene.</li>
+</ol>
+<hr>
+<h2 id="5-core-algorithm-specification">5. Core Algorithm Specification<a class="headerlink" href="#5-core-algorithm-specification" title="Permanent link">#</a></h2>
+<h3 id="51-scene-processing">5.1 Scene Processing<a class="headerlink" href="#51-scene-processing" title="Permanent link">#</a></h3>
+<p>For a <abbr title="stored data with a known number of bits and a filename">file</abbr> that contains more than one scene, an implementation shall:</p>
+<ol>
+<li>process each scene independently, initializing a separate <abbr title="result of processing data with a hash algorithm">hash</abbr> for each scene;</li>
+<li>process scenes in ascending scene index order (0, 1, 2, …);</li>
+<li>produce one <abbr title="result of processing data with a hash algorithm">hash</abbr> per scene;</li>
+<li>return the hashes as an ordered list in scene index order.</li>
+</ol>
+<p>A single-scene <abbr title="stored data with a known number of bits and a filename">file</abbr> yields a single-element list. A <abbr title="stored data with a known number of bits and a filename">file</abbr> with no accessible scenes yields an empty
+list.</p>
+<h3 id="52-dimension-identification">5.2 Dimension Identification<a class="headerlink" href="#52-dimension-identification" title="Permanent link">#</a></h3>
+<p>For each scene, an implementation shall:</p>
+<ol>
+<li>identify which of the dimensions T, C, Z, Y, X are present;</li>
+<li>determine the size of each present dimension;</li>
+<li>map each present dimension to its position in the stored <abbr title="ordered sequence of bits">data</abbr>.</li>
+</ol>
+<p>The Y and X dimensions shall be present in every scene. The T, C, and Z dimensions are optional.
+When a dimension is absent, an implementation shall treat its size as 1 and shall skip the
+corresponding traversal loop.</p>
+<h3 id="53-plane-traversal-order">5.3 Plane Traversal Order<a class="headerlink" href="#53-plane-traversal-order" title="Permanent link">#</a></h3>
+<p>An implementation shall traverse the planes of a scene with nested loops in the following order:</p>
+<ol>
+<li>the outermost loop over the Z dimension, from 0 to size_z − 1;</li>
+<li>the middle loop over the C dimension, from 0 to size_c − 1;</li>
+<li>the innermost loop over the T dimension, from 0 to size_t − 1.</li>
+</ol>
+<p>For each coordinate combination (z, c, t), an implementation shall extract the 2D plane spanning the
+full Y and X extent at that combination.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The traversal order is Z→C→T, not the dimension storage order. This order is independent of how the
+source format stores pixel <abbr title="ordered sequence of bits">data</abbr> internally.</p>
+</div>
+<p>For a scene with size_z = 2, size_c = 3, and size_t = 2, the planes are processed in this order:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Plane  1:  z=0, c=0, t=0
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>Plane  2:  z=0, c=0, t=1
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>Plane  3:  z=0, c=1, t=0
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>Plane  4:  z=0, c=1, t=1
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>Plane  5:  z=0, c=2, t=0
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>Plane  6:  z=0, c=2, t=1
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>Plane  7:  z=1, c=0, t=0
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>Plane  8:  z=1, c=0, t=1
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>Plane  9:  z=1, c=1, t=0
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>Plane 10:  z=1, c=1, t=1
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>Plane 11:  z=1, c=2, t=0
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>Plane 12:  z=1, c=2, t=1
+</code></pre></div>
+<p>The total number of planes is size_z × size_c × size_t = 2 × 3 × 2 = 12.</p>
+<h3 id="54-canonical-byte-conversion">5.4 Canonical Byte Conversion<a class="headerlink" href="#54-canonical-byte-conversion" title="Permanent link">#</a></h3>
+<p>For each extracted plane, an implementation shall:</p>
+<ol>
+<li>reduce the plane to exactly two dimensions (Y, X) by removing any singleton T, C, or Z
+    dimensions, preserving the Y and X dimensions even when their size is 1; a plane that does not
+    reduce to two dimensions shall be reported as an error;</li>
+<li>flatten the plane in row-major order, with the Y index varying slowest and the X index varying
+    fastest, producing a sequence of Y × X pixel values;</li>
+<li>encode each pixel value as a big-endian <abbr title="sequence of 8 bits">byte</abbr> sequence according to its <abbr title="ordered sequence of bits">data</abbr> type (see Table 1).</li>
+</ol>
+<div class="admonition example">
+<p class="admonition-title">2×2 uint16 plane</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Plane (row-major):   [[256, 512], [768, 1024]]
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>After flattening:    [256, 512, 768, 1024]
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>Canonical bytes:     0x01 0x00  0x02 0x00  0x03 0x00  0x04 0x00
+</code></pre></div>
+<p>The plane produces 8 bytes (4 pixels × 2 bytes per pixel). Big-endian encoding places the most
+significant <abbr title="sequence of 8 bits">byte</abbr> first: 256 = 0x0100 → 0x01 0x00.</p>
+</div>
+<h3 id="55-hash-processing">5.5 Hash Processing<a class="headerlink" href="#55-hash-processing" title="Permanent link">#</a></h3>
+<p>An implementation shall:</p>
+<ol>
+<li>initialize a <abbr title="result of processing data with a hash algorithm">hash</abbr> for each scene before processing its planes;</li>
+<li>update the <abbr title="result of processing data with a hash algorithm">hash</abbr> with the canonical bytes of each plane in traversal order;</li>
+<li>finalize the <abbr title="result of processing data with a hash algorithm">hash</abbr> after all planes of the scene are processed;</li>
+<li>append the finalized <abbr title="result of processing data with a hash algorithm">hash</abbr> to the output list.</li>
+</ol>
+<p>This specification does not mandate a <abbr title="result of processing data with a hash algorithm">hash</abbr> function. The canonical <abbr title="sequence of 8 bits">byte</abbr> sequence produced by
+Imagewalk can be used with any <abbr title="result of processing data with a hash algorithm">hash</abbr> function or <abbr title="information organized to provide value to a user">content</abbr>-identification scheme.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Reference implementations use <abbr title="International Standard Content Code">ISCC</abbr>-SUM (the combination of <abbr title="ISCC composed of an ISCC-HEADER and an ISCC-BODY generated by a single algorithm">ISCC-UNIT</abbr> Data-Code
+<a href="../iep-0008/">IEP-0008</a> and <abbr title="ISCC composed of an ISCC-HEADER and an ISCC-BODY generated by a single algorithm">ISCC-UNIT</abbr> Instance-Code <a href="../iep-0009/">IEP-0009</a>) for bioimage
+fingerprinting.</p>
+</div>
+<hr>
+<h2 id="6-data-types">6. Data Types<a class="headerlink" href="#6-data-types" title="Permanent link">#</a></h2>
+<p>An implementation shall support the pixel <abbr title="ordered sequence of bits">data</abbr> types listed in Table 1 and shall encode each pixel
+value with the <abbr title="sequence of 8 bits">byte</abbr> width and <abbr title="sequence of 8 bits">byte</abbr> order given for its type.</p>
+<p style="text-align:center; font-size:smaller"><strong>Table 1 – Supported pixel <abbr title="ordered sequence of bits">data</abbr> types</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Data type</strong></th>
+<th><strong>Bytes per pixel</strong></th>
+<th><strong>Encoding</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>uint8</td>
+<td>1</td>
+<td>unsigned integer</td>
+</tr>
+<tr>
+<td>int8</td>
+<td>1</td>
+<td>signed integer, two's complement</td>
+</tr>
+<tr>
+<td>uint16</td>
+<td>2</td>
+<td>big-endian unsigned integer</td>
+</tr>
+<tr>
+<td>int16</td>
+<td>2</td>
+<td>big-endian signed integer, two's complement</td>
+</tr>
+<tr>
+<td>uint32</td>
+<td>4</td>
+<td>big-endian unsigned integer</td>
+</tr>
+<tr>
+<td>int32</td>
+<td>4</td>
+<td>big-endian signed integer, two's complement</td>
+</tr>
+<tr>
+<td>float32</td>
+<td>4</td>
+<td>big-endian IEEE 754 single precision</td>
+</tr>
+<tr>
+<td>float64</td>
+<td>8</td>
+<td>big-endian IEEE 754 double precision</td>
+</tr>
+</tbody>
+</table>
+<p>An implementation may support additional pixel <abbr title="ordered sequence of bits">data</abbr> types (for example uint64, int64, complex64, or
+complex128) and shall document their <abbr title="sequence of 8 bits">byte</abbr>-encoding conventions.</p>
+<p>NOTE: Big-endian encoding ensures cross-platform reproducibility regardless of host <abbr title="sequence of 8 bits">byte</abbr> order.</p>
+<hr>
+<h2 id="7-implementation-guidance">7. Implementation Guidance<a class="headerlink" href="#7-implementation-guidance" title="Permanent link">#</a></h2>
+<h3 id="71-memory-efficiency">7.1 Memory Efficiency<a class="headerlink" href="#71-memory-efficiency" title="Permanent link">#</a></h3>
+<p>An implementation should:</p>
+<ul>
+<li>process planes one at a time without loading an entire scene into memory;</li>
+<li>use a streaming or incremental <abbr title="result of processing data with a hash algorithm">hash</abbr> processor that accepts <abbr title="ordered sequence of bits">data</abbr> in chunks;</li>
+<li>read chunked or tiled plane <abbr title="ordered sequence of bits">data</abbr> tile-by-tile and feed the bytes to the <abbr title="result of processing data with a hash algorithm">hash</abbr> processor
+    incrementally;</li>
+<li>select an appropriate resolution level when a format stores a resolution pyramid.</li>
+</ul>
+<h3 id="72-performance">7.2 Performance<a class="headerlink" href="#72-performance" title="Permanent link">#</a></h3>
+<p>An implementation may use vectorized <abbr title="sequence of 8 bits">byte</abbr>-order conversion, native library routines, or parallel
+processing of independent scenes. When scenes are processed in parallel, an implementation shall
+assemble the output hashes in ascending scene index order.</p>
+<h3 id="73-error-handling">7.3 Error Handling<a class="headerlink" href="#73-error-handling" title="Permanent link">#</a></h3>
+<p>An implementation shall:</p>
+<ul>
+<li>validate that each extracted plane reduces to two dimensions before canonicalization;</li>
+<li>report an error for an unsupported pixel <abbr title="ordered sequence of bits">data</abbr> type;</li>
+<li>skip a missing or inaccessible scene and may report a warning.</li>
+</ul>
+<p>An implementation should validate that dimension sizes are positive integers and should guard
+against dimension sizes large enough to exhaust available resources.</p>
+<hr>
+<h2 id="8-extensibility">8. Extensibility<a class="headerlink" href="#8-extensibility" title="Permanent link">#</a></h2>
+<h3 id="81-custom-hash-algorithms">8.1 Custom Hash Algorithms<a class="headerlink" href="#81-custom-hash-algorithms" title="Permanent link">#</a></h3>
+<p>This specification defines the canonical <abbr title="sequence of 8 bits">byte</abbr> sequence but does not mandate a <abbr title="result of processing data with a hash algorithm">hash</abbr> function. An
+implementation may combine the canonical <abbr title="sequence of 8 bits">byte</abbr> sequence with a cryptographic <abbr title="result of processing data with a hash algorithm">hash</abbr>, a similarity-
+preserving <abbr title="result of processing data with a hash algorithm">hash</abbr>, a <abbr title="information organized to provide value to a user">content</abbr>-defined chunking <abbr title="result of processing data with a hash algorithm">hash</abbr>, or a rolling <abbr title="result of processing data with a hash algorithm">hash</abbr>. The canonical <abbr title="sequence of 8 bits">byte</abbr> sequence
+ensures reproducibility regardless of the chosen <abbr title="result of processing data with a hash algorithm">hash</abbr> function.</p>
+<h3 id="82-additional-dimensions">8.2 Additional Dimensions<a class="headerlink" href="#82-additional-dimensions" title="Permanent link">#</a></h3>
+<p>A future extension may define the handling of dimensions beyond T, C, Z, Y, X. An extension that
+adds a dimension shall define its position in the traversal order, shall preserve deterministic and
+reproducible ordering, and should preserve backward compatibility for standard 5D <abbr title="ordered sequence of bits">data</abbr>.</p>
+<h3 id="83-metadata-integration">8.3 Metadata Integration<a class="headerlink" href="#83-metadata-integration" title="Permanent link">#</a></h3>
+<p>An implementation may incorporate <abbr title="data that defines and describes other data">metadata</abbr> (for example pixel size, channel names, or acquisition
+parameters) into <abbr title="result of processing data with a hash algorithm">hash</abbr> generation. An implementation that includes <abbr title="data that defines and describes other data">metadata</abbr> shall define a canonical
+<abbr title="data that defines and describes other data">metadata</abbr> ordering and encoding, shall process <abbr title="data that defines and describes other data">metadata</abbr> deterministically and independently of
+storage format, and should keep pixel-<abbr title="ordered sequence of bits">data</abbr> hashing and <abbr title="data that defines and describes other data">metadata</abbr> hashing separable.</p>
+<hr>
+<h2 id="9-test-vectors">9. Test Vectors<a class="headerlink" href="#9-test-vectors" title="Permanent link">#</a></h2>
+<p>Conforming implementations shall reproduce the following canonical <abbr title="sequence of 8 bits">byte</abbr> sequences and traversal
+orders.</p>
+<h3 id="91-canonical-byte-conversion">9.1 Canonical Byte Conversion<a class="headerlink" href="#91-canonical-byte-conversion" title="Permanent link">#</a></h3>
+<p><strong>Tiny uint8 plane.</strong> A 2×2 uint8 plane with row-major values <code>[[1, 2], [3, 4]]</code> produces the
+canonical bytes:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>0x01 0x02 0x03 0x04
+</code></pre></div>
+<p><strong>Tiny uint16 plane.</strong> A 2×2 uint16 plane with row-major values <code>[[256, 512], [768, 1024]]</code> produces
+the canonical bytes:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>0x01 0x00  0x02 0x00  0x03 0x00  0x04 0x00
+</code></pre></div>
+<p><strong>Float32 plane.</strong> A 1×2 float32 plane with values <code>[[1.0, 2.0]]</code> produces the canonical bytes (IEEE
+754 single precision, big-endian; 1.0 = 0x3F800000, 2.0 = 0x40000000):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>0x3F 0x80 0x00 0x00  0x40 0x00 0x00 0x00
+</code></pre></div>
+<h3 id="92-traversal-order">9.2 Traversal Order<a class="headerlink" href="#92-traversal-order" title="Permanent link">#</a></h3>
+<p><strong>Multi-dimensional traversal.</strong> A scene with T=2, C=2, Z=2, Y=1, X=1 of type uint8, where every
+pixel has the value 0xFF, is traversed in the plane order (z, c, t): (0,0,0), (0,0,1), (0,1,0),
+(0,1,1), (1,0,0), (1,0,1), (1,1,0), (1,1,1). It produces 8 canonical bytes, one per plane:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>0xFF 0xFF 0xFF 0xFF 0xFF 0xFF 0xFF 0xFF
+</code></pre></div>
+<h3 id="93-multi-scene-output">9.3 Multi-Scene Output<a class="headerlink" href="#93-multi-scene-output" title="Permanent link">#</a></h3>
+<p><strong>Two-scene <abbr title="stored data with a known number of bits and a filename">file</abbr>.</strong> A <abbr title="stored data with a known number of bits and a filename">file</abbr> whose scene 0 is a 1×1 uint8 plane with value 0x01 and whose scene 1 is a
+1×1 uint8 plane with value 0x02 produces a list of exactly two hashes, in scene order: the first
+over the canonical bytes <code>0x01</code>, the second over the canonical bytes <code>0x02</code>.</p>
+<hr>
+<h2 id="10-conformance">10. Conformance<a class="headerlink" href="#10-conformance" title="Permanent link">#</a></h2>
+<p>An implementation conforms to this specification if it satisfies all of the following:</p>
+<ol>
+<li>it produces identical output for identical pixel <abbr title="ordered sequence of bits">data</abbr> across different source formats and
+    platforms;</li>
+<li>it processes scenes in ascending scene index order and returns the hashes in that order;</li>
+<li>it traverses planes in Z→C→T order, from the outermost to the innermost loop;</li>
+<li>it flattens each 2D plane in row-major order, with the Y index varying slowest and the X index
+    varying fastest;</li>
+<li>it encodes multi-<abbr title="sequence of 8 bits">byte</abbr> pixel values in big-endian <abbr title="sequence of 8 bits">byte</abbr> order;</li>
+<li>it correctly handles all pixel <abbr title="ordered sequence of bits">data</abbr> types listed in Table 1;</li>
+<li>it reproduces the canonical <abbr title="sequence of 8 bits">byte</abbr> sequences and traversal orders in the test vectors of this
+    specification.</li>
+</ol>
+<hr>
+<h2 id="11-references">11. References<a class="headerlink" href="#11-references" title="Permanent link">#</a></h2>
+<h3 id="111-normative">11.1 Normative<a class="headerlink" href="#111-normative" title="Permanent link">#</a></h3>
+<ul>
+<li>IEEE 754 - Standard for Floating-Point Arithmetic</li>
+</ul>
+<h3 id="112-informative">11.2 Informative<a class="headerlink" href="#112-informative" title="Permanent link">#</a></h3>
+<ul>
+<li><abbr title="International Organization for Standardization">ISO</abbr> 24138:2024 - International Standard Content Code</li>
+<li><a href="../iep-0008/">IEP-0008</a> - <abbr title="ISCC composed of an ISCC-HEADER and an ISCC-BODY generated by a single algorithm">ISCC-UNIT</abbr> Data-Code</li>
+<li><a href="../iep-0009/">IEP-0009</a> - <abbr title="ISCC composed of an ISCC-HEADER and an ISCC-BODY generated by a single algorithm">ISCC-UNIT</abbr> Instance-Code</li>
+<li>OME-NGFF Specification (OME-Zarr format): <a href="https://ngff.openmicroscopy.org">https://ngff.openmicroscopy.org</a></li>
+<li>OMERO Data Model: <a href="https://www.openmicroscopy.org/omero/">https://www.openmicroscopy.org/omero/</a></li>
+<li>Bio-Formats supported formats: <a href="https://bio-formats.readthedocs.io">https://bio-formats.readthedocs.io</a></li>
+<li>Reference implementation: <a href="https://github.com/iscc/iscc-bio">https://github.com/iscc/iscc-bio</a></li>
+</ul>
+
+
+
+
+
+
+
+  
+    
+  
+  
+    
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Last update">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"></path></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="July 3, 2026 18:59:34 UTC">2026-07-03</span>
+  </span>
+
+    
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Created">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"></path></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="July 3, 2026 18:59:34 UTC">2026-07-03</span>
+  </span>
+
+    
+    
+    
+  </aside>
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": [], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>

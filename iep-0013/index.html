@@ -26,7 +26,7 @@
     
     
       
-        <title>IEP-0013 - Registry - ISCC Enhancement Proposals</title>
+        <title>IEP-0013 - Discovery Protocol - ISCC Enhancement Proposals</title>
       
     
     
@@ -90,7 +90,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#iscc-decentralized-content-registry" class="md-skip">
+        <a href="#iscc-discovery-protocol" class="md-skip">
           Skip to content
         </a>
       
@@ -125,7 +125,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              IEP-0013 - Registry
+              IEP-0013 - Discovery Protocol
             
           </span>
         </div>
@@ -664,7 +664,7 @@
   <span class="md-ellipsis">
     
   
-    IEP-0013 - Registry
+    IEP-0013 - Discovery Protocol
   
 
     
@@ -682,7 +682,7 @@
   <span class="md-ellipsis">
     
   
-    IEP-0013 - Registry
+    IEP-0013 - Discovery Protocol
   
 
     
@@ -708,10 +708,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1-status-of-this-document" class="md-nav__link">
+  <a href="#1-introduction" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. Status of This Document
+        1. Introduction
       
     </span>
   </a>
@@ -719,10 +719,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-introduction" class="md-nav__link">
+  <a href="#2-terminology" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. Introduction
+        2. Terminology
       
     </span>
   </a>
@@ -730,10 +730,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-protocol-overview" class="md-nav__link">
+  <a href="#3-architecture" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. Protocol Overview
+        3. Architecture
       
     </span>
   </a>
@@ -741,10 +741,132 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#4-declaration-protocol" class="md-nav__link">
+  <a href="#4-messages" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4. Declaration Protocol
+        4. Messages
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Messages">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-field-encodings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 Field Encodings
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-isccsignature" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 IsccSignature
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-isccnote" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3 IsccNote
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#44-isccnotedelete" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.4 IsccNoteDelete
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#45-canonicalization-and-signing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.5 Canonicalization and Signing
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-hub-interface" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Hub Interface
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Hub Interface">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-declaration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 Declaration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-receipt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2 Receipt
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53-deletion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.3 Deletion
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-replay-protection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Replay Protection
       
     </span>
   </a>
@@ -752,10 +874,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#5-minting-protocol" class="md-nav__link">
+  <a href="#7-security-considerations" class="md-nav__link">
     <span class="md-ellipsis">
       
-        5. Minting Protocol
+        7. Security Considerations
       
     </span>
   </a>
@@ -763,24 +885,41 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#6-resolution-protocol" class="md-nav__link">
+  <a href="#8-references" class="md-nav__link">
     <span class="md-ellipsis">
       
-        6. Resolution Protocol
+        8. References
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. References">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#81-normative" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.1 Normative
       
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#7-reference-implementation" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#82-informative" class="md-nav__link">
     <span class="md-ellipsis">
       
-        7. Reference Implementation
+        8.2 Informative
       
     </span>
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -806,7 +945,7 @@
   <span class="md-ellipsis">
     
   
-    IEP-0014 - EVM Registries
+    IEP-0014 - Transparency Log
   
 
     
@@ -900,6 +1039,60 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../iep-0018/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    IEP-0018 - Imagewalk
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../iep-0019/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    IEP-0019 - ISCC Signature
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -927,10 +1120,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1-status-of-this-document" class="md-nav__link">
+  <a href="#1-introduction" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. Status of This Document
+        1. Introduction
       
     </span>
   </a>
@@ -938,10 +1131,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-introduction" class="md-nav__link">
+  <a href="#2-terminology" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. Introduction
+        2. Terminology
       
     </span>
   </a>
@@ -949,10 +1142,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-protocol-overview" class="md-nav__link">
+  <a href="#3-architecture" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. Protocol Overview
+        3. Architecture
       
     </span>
   </a>
@@ -960,10 +1153,132 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#4-declaration-protocol" class="md-nav__link">
+  <a href="#4-messages" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4. Declaration Protocol
+        4. Messages
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Messages">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-field-encodings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 Field Encodings
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-isccsignature" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 IsccSignature
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-isccnote" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3 IsccNote
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#44-isccnotedelete" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.4 IsccNoteDelete
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#45-canonicalization-and-signing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.5 Canonicalization and Signing
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-hub-interface" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Hub Interface
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Hub Interface">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-declaration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 Declaration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-receipt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2 Receipt
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53-deletion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.3 Deletion
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-replay-protection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Replay Protection
       
     </span>
   </a>
@@ -971,10 +1286,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#5-minting-protocol" class="md-nav__link">
+  <a href="#7-security-considerations" class="md-nav__link">
     <span class="md-ellipsis">
       
-        5. Minting Protocol
+        7. Security Considerations
       
     </span>
   </a>
@@ -982,24 +1297,41 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#6-resolution-protocol" class="md-nav__link">
+  <a href="#8-references" class="md-nav__link">
     <span class="md-ellipsis">
       
-        6. Resolution Protocol
+        8. References
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. References">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#81-normative" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.1 Normative
       
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#7-reference-implementation" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#82-informative" class="md-nav__link">
     <span class="md-ellipsis">
       
-        7. Reference Implementation
+        8.2 Informative
       
     </span>
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1023,7 +1355,7 @@
   
 
 
-<h1 id="iscc-decentralized-content-registry"><abbr title="International Standard Content Code">ISCC</abbr> Decentralized Content Registry<a class="headerlink" href="#iscc-decentralized-content-registry" title="Permanent link">#</a></h1>
+<h1 id="iscc-discovery-protocol"><abbr title="International Standard Content Code">ISCC</abbr> Discovery Protocol<a class="headerlink" href="#iscc-discovery-protocol" title="Permanent link">#</a></h1>
 <table>
 <thead>
 <tr>
@@ -1034,7 +1366,7 @@
 <tbody>
 <tr>
 <td>Title:</td>
-<td><abbr title="International Standard Content Code">ISCC</abbr> Decentralized Content Registry</td>
+<td><abbr title="International Standard Content Code">ISCC</abbr> Discovery Protocol</td>
 </tr>
 <tr>
 <td>Author:</td>
@@ -1066,93 +1398,386 @@
 </tr>
 <tr>
 <td>Updated:</td>
-<td><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="January 19, 2026 10:18:32 UTC">2026-01-19</span></td>
+<td><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="July 3, 2026 18:59:34 UTC">2026-07-03</span></td>
 </tr>
 </tbody>
 </table>
-<h2 id="1-status-of-this-document">1. Status of This Document<a class="headerlink" href="#1-status-of-this-document" title="Permanent link">#</a></h2>
-<p>This document is a draft of a potential specification. It has no official standing of any kind and
-does not represent the support or consensus of any standards organization.</p>
-<h2 id="2-introduction">2. Introduction<a class="headerlink" href="#2-introduction" title="Permanent link">#</a></h2>
-<p>The purpose of a decentralized <abbr title="information organized to provide value to a user">content</abbr> registry is to connect Actors to Digital Content in a
-permissionless decentralized environment and provide a global and verifiable <abbr title="ordered sequence of bits">data</abbr> space for <abbr title="information organized to provide value to a user">content</abbr>
-identification and matching.</p>
-<p>Actors authenticate themselves with their blockchain accounts which they use to sign <abbr title="International Standard Content Code">ISCC</abbr>-CODE
-declarations (ledger transactions). Digital Content is identified by <abbr title="International Standard Content Code">ISCC</abbr>-CODEs. The <abbr title="International Standard Content Code">ISCC</abbr>-ID is
-derived from an <abbr title="International Standard Content Code">ISCC</abbr>-CODE, a blockchain account and the history of previous declarations. <abbr title="International Standard Content Code">ISCC</abbr>-IDs
-are globally unique, persistent, authenticated, and resolve to at least exactly one <abbr title="International Standard Content Code">ISCC</abbr>-CODE and a
-blockchain account. The <abbr title="International Standard Content Code">ISCC</abbr>-IDs are not required to be generated or stored on the participating
-ledgers. <abbr title="International Standard Content Code">ISCC</abbr>-IDs are the result of processing the history of transactions according to the Minting
-Protocol.</p>
-<h2 id="3-protocol-overview">3. Protocol Overview<a class="headerlink" href="#3-protocol-overview" title="Permanent link">#</a></h2>
-<p>The protocol to declare an <abbr title="International Standard Content Code">ISCC</abbr>-CODE and trigger the minting of an <abbr title="International Standard Content Code">ISCC</abbr>-ID is divided into 3 parts,
-the Declaration Protocol, the Minting Protocol and the Resolution Protocol.</p>
-<ol>
-<li>The declaration protocol defines how an <abbr title="International Standard Content Code">ISCC</abbr>-CODE has to be written to a ledger to become a valid
-    input for the off-chain minting protocol.</li>
-<li>The minting protocol defines how a legers history has to be parsed to mint a valid <abbr title="International Standard Content Code">ISCC</abbr>-ID</li>
-<li>The resolution protocol defines how an <abbr title="International Standard Content Code">ISCC</abbr> resolver answers queries about <abbr title="International Standard Content Code">ISCC</abbr>-CODEs and
-    <abbr title="International Standard Content Code">ISCC</abbr>-ID.</li>
-</ol>
-<h2 id="4-declaration-protocol">4. Declaration Protocol<a class="headerlink" href="#4-declaration-protocol" title="Permanent link">#</a></h2>
-<p>To participate in the <abbr title="International Standard Content Code">ISCC</abbr> declaration protocol, a ledger MUST establish exactly one globally unique
-Ledger-ID (Variable Length Integer) that will be used as a prefix for <abbr title="International Standard Content Code">ISCC</abbr>-IDs that are minted from
-its <abbr title="International Standard Content Code">ISCC</abbr> declarations.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>An <abbr title="International Standard Content Code">ISCC</abbr>-ID comes into existence only after an <abbr title="International Standard Content Code">ISCC</abbr> declaration has been confirmed on a ledger that
-participates in the protocol.</p>
+<p>This document is a <strong>DRAFT</strong> intended as input to
+<a href="https://www.iso.org/committee/48836.html"><abbr title="International Organization for Standardization">ISO</abbr> TC 46/SC 9/WG 18</a> for a future revision of <abbr title="International Organization for Standardization">ISO</abbr> 24138.</p>
 </div>
-<p>The following minimal information (Declaration-Set) MUST be provided and made publicly available for
-a valid <abbr title="International Standard Content Code">ISCC</abbr> declaration:</p>
-<ol>
-<li>An <abbr title="International Standard Content Code">ISCC</abbr>-CODE (a valid sequence of <abbr title="International Standard Content Code">ISCC</abbr>-UNITs)</li>
-<li>A blockchain account (actors <abbr title="sequence of characters that uniquely denotes a referent">identifier</abbr>) of the declaring party</li>
-<li>A valid signature of the declaring party (transaction signature)</li>
-</ol>
-<p>We define the party that signs the <abbr title="International Standard Content Code">ISCC</abbr> declaration as the DECLARER.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>The DECLARER is merely the controller of the <abbr title="International Standard Content Code">ISCC</abbr>-ID minted from the declaration. The declarer is
-not required to be the creator or a rights-holder of the declared <abbr title="manifestation of content in form of data structured according to a set of rules">digital content</abbr>.</p>
-</div>
-<p>An <abbr title="International Standard Content Code">ISCC</abbr> declaration MAY additionally include:</p>
-<ol>
-<li>A link to external <abbr title="data that defines and describes other data">metadata</abbr> as defined by <a href="../iep-0012/">IEP-0012 - <abbr title="International Standard Content Code">ISCC</abbr> Metadata</a></li>
-<li>A processing instruction for the minting protocol</li>
-</ol>
-<p>The on-chain link to <abbr title="International Standard Content Code">ISCC</abbr> <abbr title="data that defines and describes other data">metadata</abbr> SHOULD point to a public and integrity preserving resource (e.g.
-IPFS CID or a hashlink URI). Permissioned, confidential or mutable <abbr title="ordered sequence of bits">data</abbr> SHOULD be referenced from
-<abbr title="International Standard Content Code">ISCC</abbr> <abbr title="data that defines and describes other data">metadata</abbr> via URI.</p>
-<p>A ledger that wants to accept <abbr title="International Standard Content Code">ISCC</abbr> declarations and trigger the minting of valid <abbr title="International Standard Content Code">ISCC</abbr>-IDs MUST
-fulfill the following minimum requirements:</p>
-<ol>
-<li>The ledger must provide an immutable, complete, time-ordered, append-only sequence of
-    transactions.</li>
-<li>The legers transaction format must allow for embedding and signing the <abbr title="ordered sequence of bits">data</abbr> required for an <abbr title="International Standard Content Code">ISCC</abbr>
-    declarations.</li>
-<li>The Declaration-Set MUST be publicly readable (permisionless).</li>
-<li><abbr title="International Standard Content Code">ISCC</abbr> declarations on the ledger MAY be write-permissioned.</li>
-</ol>
-<p>A participating ledger or framework MUST provide documentaation of its implementation of the
-declaration protocol.</p>
-<ol>
-<li>The documentation MUST specify how <abbr title="International Standard Content Code">ISCC</abbr> declarations can be parsed to decode the Declaration-Set</li>
-<li>The documentation MUST provide sufficient information to the public such that third parties can
-    independently verify transactions signatures and implement the Minting Protocol</li>
-<li>The documentation MUST define how a public observer can distinguish between a transaction that
-    declares an <abbr title="International Standard Content Code">ISCC</abbr>-CODE and other unrelated transactions.</li>
-</ol>
-<h2 id="5-minting-protocol">5. Minting Protocol<a class="headerlink" href="#5-minting-protocol" title="Permanent link">#</a></h2>
-<p>TBD</p>
-<h2 id="6-resolution-protocol">6. Resolution Protocol<a class="headerlink" href="#6-resolution-protocol" title="Permanent link">#</a></h2>
-<p>TBD</p>
-<h2 id="7-reference-implementation">7. Reference Implementation<a class="headerlink" href="#7-reference-implementation" title="Permanent link">#</a></h2>
+<h2 id="1-introduction">1. Introduction<a class="headerlink" href="#1-introduction" title="Permanent link">#</a></h2>
+<p>This proposal defines the <abbr title="International Standard Content Code">ISCC</abbr> Discovery Protocol (IDP), an open and federated protocol that
+associates <abbr title="information organized to provide value to a user">content</abbr> identified by <abbr title="International Standard Content Code">ISCC</abbr>-CODEs with declaring parties, <abbr title="data that defines and describes other data">metadata</abbr>, and services.</p>
+<p>An <abbr title="ISCC composed of an ISCC-HEADER followed by an ISCC-BODY that concatenates the bodies of two or more headerless ISCC-UNITs, each generated by a different algorithm">ISCC-CODE</abbr> is derived deterministically from <abbr title="manifestation of content in form of data structured according to a set of rules">digital content</abbr>. Two parties that process the same
+<abbr title="information organized to provide value to a user">content</abbr> independently derive the same <abbr title="ISCC composed of an ISCC-HEADER followed by an ISCC-BODY that concatenates the bodies of two or more headerless ISCC-UNITs, each generated by a different algorithm">ISCC-CODE</abbr>. Identity, rights, and provenance information cannot
+be inferred from the code itself - it has to be declared. The IDP provides the protocol surface for
+such declarations in a way that is:</p>
 <ul>
-<li><abbr title="International Standard Content Code">ISCC</abbr>-ID construction: <a href="https://github.com/iscc/iscc-core/blob/main/iscc_core/iscc_id.py">https://github.com/iscc/iscc-core/blob/main/iscc_core/iscc_id.py</a></li>
-<li>EVM registry: <a href="https://github.com/iscc/iscc-evm">https://github.com/iscc/iscc-evm</a></li>
-<li>EVM observer: <a href="https://github.com/iscc/iscc-observer-evm">https://github.com/iscc/iscc-observer-evm</a></li>
-<li><abbr title="International Standard Content Code">ISCC</abbr>-ID resolver: <a href="https://github.com/iscc/iscc-registry">https://github.com/iscc/iscc-registry</a></li>
+<li>cryptographically attributable to the declarer (Ed25519 signature);</li>
+<li>verifiable independently of any single server (signed receipts and transparency logs);</li>
+<li>replay-protected (hub-bound nonces and hub-issued timestamps).</li>
+</ul>
+<p>This document specifies the protocol framework and the message formats <code>IsccNote</code> and
+<code>IsccNoteDelete</code>. The transparency log is specified in <a href="../iep-0014/">IEP-0014</a>. The <abbr title="owned identifier issued by an ISCC-HUB, globally unique within its realm, whose 64-bit ISCC-BODY combines a 52-bit microsecond timestamp with a 12-bit HUB-ID">ISCC-ID</abbr>
+<abbr title="sequence of characters that uniquely denotes a referent">identifier</abbr> is specified in <a href="../iep-0011/">IEP-0011</a>.</p>
+<hr>
+<h2 id="2-terminology">2. Terminology<a class="headerlink" href="#2-terminology" title="Permanent link">#</a></h2>
+<p><strong>Declarer</strong> : The entity that creates and signs an <code>IsccNote</code>.</p>
+<p><strong><abbr title="independently operated server that runs the ISCC Discovery Protocol, accepting signed declarations, issuing ISCC-IDs, and publishing a transparency log">ISCC-HUB</abbr></strong> : A server that accepts signed declarations, issues <abbr title="International Standard Content Code">ISCC</abbr>-IDs, and maintains a
+transparency log.</p>
+<p><strong>Gateway</strong> : An external service that resolves <abbr title="International Standard Content Code">ISCC</abbr>-IDs to <abbr title="data that defines and describes other data">metadata</abbr> and service descriptors.</p>
+<p><strong>HUB-LIST</strong> : The mapping of HUB-IDs to <abbr title="independently operated server that runs the ISCC Discovery Protocol, accepting signed declarations, issuing ISCC-IDs, and publishing a transparency log">ISCC-HUB</abbr> base URLs, scoped per realm.</p>
+<p><strong>JCS</strong> : JSON Canonicalization Scheme as defined in RFC 8785.</p>
+<p><strong>Multihash</strong> : Self-describing <abbr title="result of processing data with a hash algorithm">hash</abbr> format. In this specification, multihash always denotes BLAKE3
+with prefix <code>1e20</code> followed by 32 digest bytes in lowercase hexadecimal (68 characters total).</p>
+<p><strong>Multibase</strong> : Self-describing base-encoding format. In this specification, multibase strings use
+the <code>z</code> prefix indicating base58-btc encoding.</p>
+<hr>
+<h2 id="3-architecture">3. Architecture<a class="headerlink" href="#3-architecture" title="Permanent link">#</a></h2>
+<p>The IDP is operated by a federation of independent <abbr title="International Standard Content Code">ISCC</abbr>-HUBs. Each <abbr title="independently operated server that runs the ISCC Discovery Protocol, accepting signed declarations, issuing ISCC-IDs, and publishing a transparency log">ISCC-HUB</abbr> is identified by a
+HUB-ID within a realm and listed in the HUB-LIST together with its base URL. An <abbr title="independently operated server that runs the ISCC Discovery Protocol, accepting signed declarations, issuing ISCC-IDs, and publishing a transparency log">ISCC-HUB</abbr> shall
+publish its Ed25519 public key as a verification method in the DID document of its domain, resolved
+via the did:web method. Key rotation and revocation are managed in the DID document in accordance
+with Controlled Identifiers v1.0.</p>
+<p>A declaration proceeds as follows:</p>
+<ol>
+<li>The declarer computes an <abbr title="ISCC composed of an ISCC-HEADER followed by an ISCC-BODY that concatenates the bodies of two or more headerless ISCC-UNITs, each generated by a different algorithm">ISCC-CODE</abbr> and a BLAKE3 <code>datahash</code> for the <abbr title="information organized to provide value to a user">content</abbr>.</li>
+<li>The declarer selects a target <abbr title="independently operated server that runs the ISCC Discovery Protocol, accepting signed declarations, issuing ISCC-IDs, and publishing a transparency log">ISCC-HUB</abbr> from the HUB-LIST and constructs an <code>IsccNote</code> whose
+    <code>nonce</code> is bound to the target HUB-ID.</li>
+<li>The declarer canonicalizes and signs the <code>IsccNote</code> and submits it to the <abbr title="independently operated server that runs the ISCC Discovery Protocol, accepting signed declarations, issuing ISCC-IDs, and publishing a transparency log">ISCC-HUB</abbr>.</li>
+<li>The <abbr title="independently operated server that runs the ISCC Discovery Protocol, accepting signed declarations, issuing ISCC-IDs, and publishing a transparency log">ISCC-HUB</abbr> validates the <code>IsccNote</code>, atomically issues an <abbr title="owned identifier issued by an ISCC-HUB, globally unique within its realm, whose 64-bit ISCC-BODY combines a 52-bit microsecond timestamp with a 12-bit HUB-ID">ISCC-ID</abbr>, and appends the declaration
+    to its transparency log.</li>
+<li>The declarer retrieves a signed <code>IsccReceipt</code> as durable proof of the declaration.</li>
+</ol>
+<p><abbr title="International Standard Content Code">ISCC</abbr>-HUBs do not store descriptive <abbr title="data that defines and describes other data">metadata</abbr>. Metadata is hosted at gateways referenced by the
+declaration; the declaration may commit to <abbr title="data that defines and describes other data">metadata</abbr> only by <abbr title="result of processing data with a hash algorithm">hash</abbr>.</p>
+<hr>
+<h2 id="4-messages">4. Messages<a class="headerlink" href="#4-messages" title="Permanent link">#</a></h2>
+<p>JSON schemas for IDP messages are published under the <code>http://purl.org/iscc/schema/</code> namespace. Each
+message identifies the schema version it conforms to in its <code>$schema</code> field.</p>
+<h3 id="41-field-encodings">4.1 Field Encodings<a class="headerlink" href="#41-field-encodings" title="Permanent link">#</a></h3>
+<p>The following encodings apply to all message fields:</p>
+<table>
+<thead>
+<tr>
+<th><strong>Encoding</strong></th>
+<th><strong>Definition</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>multihash</td>
+<td><code>1e20</code> followed by 64 lowercase hexadecimal characters (BLAKE3, 256-<abbr title="atomic unit of information in a computer system">bit</abbr> digest)</td>
+</tr>
+<tr>
+<td>nonce</td>
+<td>32 lowercase hexadecimal characters (128 bits)</td>
+</tr>
+<tr>
+<td>timestamp</td>
+<td>RFC 3339 UTC timestamp <code>YYYY-MM-DDTHH:MM:SS.sssZ</code> with exactly 3-digit milliseconds</td>
+</tr>
+<tr>
+<td>multibase</td>
+<td><code>z</code> followed by base58-btc encoded bytes</td>
+</tr>
+<tr>
+<td><abbr title="International Standard Content Code">ISCC</abbr> values</td>
+<td>canonical form as specified in <a href="../iep-0001/">IEP-0001</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="42-isccsignature">4.2 IsccSignature<a class="headerlink" href="#42-isccsignature" title="Permanent link">#</a></h3>
+<p>An <code>IsccSignature</code> is an <abbr title="International Standard Content Code">ISCC</abbr> signature object as specified in <a href="../iep-0019/">IEP-0019</a>. Within the
+IDP, <code>pubkey</code> shall be present (signature types SELF_VERIFYING or IDENTITY_BOUND), so that signed
+messages remain verifiable from the transparency log alone.</p>
+<h3 id="43-isccnote">4.3 <abbr title="digitally signed JSON message a declarer submits to an ISCC-HUB to declare an ISCC-CODE">IsccNote</abbr><a class="headerlink" href="#43-isccnote" title="Permanent link">#</a></h3>
+<p>An <code>IsccNote</code> is a signed claim by a declarer that an <abbr title="ISCC composed of an ISCC-HEADER followed by an ISCC-BODY that concatenates the bodies of two or more headerless ISCC-UNITs, each generated by a different algorithm">ISCC-CODE</abbr> applies to the <abbr title="information organized to provide value to a user">content</abbr> identified by
+<code>datahash</code>:</p>
+<table>
+<thead>
+<tr>
+<th><strong>Field</strong></th>
+<th><strong>Presence</strong></th>
+<th><strong>Type</strong></th>
+<th><strong>Definition</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>$schema</code></td>
+<td>mandatory</td>
+<td>URI</td>
+<td>Shall equal the published <abbr title="digitally signed JSON message a declarer submits to an ISCC-HUB to declare an ISCC-CODE">IsccNote</abbr> schema URI</td>
+</tr>
+<tr>
+<td><code>iscc_code</code></td>
+<td>mandatory</td>
+<td><abbr title="ISCC composed of an ISCC-HEADER followed by an ISCC-BODY that concatenates the bodies of two or more headerless ISCC-UNITs, each generated by a different algorithm">ISCC-CODE</abbr></td>
+<td>The composite <abbr title="ISCC composed of an ISCC-HEADER followed by an ISCC-BODY that concatenates the bodies of two or more headerless ISCC-UNITs, each generated by a different algorithm">ISCC-CODE</abbr> being declared</td>
+</tr>
+<tr>
+<td><code>datahash</code></td>
+<td>mandatory</td>
+<td>multihash</td>
+<td>Hash of the <abbr title="information organized to provide value to a user">content</abbr> bytes</td>
+</tr>
+<tr>
+<td><code>nonce</code></td>
+<td>mandatory</td>
+<td>nonce</td>
+<td>Replay-protection value bound to the target hub</td>
+</tr>
+<tr>
+<td><code>signature</code></td>
+<td>mandatory</td>
+<td>IsccSignature</td>
+<td>Declarer signature over the canonical <abbr title="digitally signed JSON message a declarer submits to an ISCC-HUB to declare an ISCC-CODE">IsccNote</abbr></td>
+</tr>
+<tr>
+<td><code>timestamp</code></td>
+<td>optional</td>
+<td>timestamp</td>
+<td>Declarer-supplied UTC timestamp</td>
+</tr>
+<tr>
+<td><code>gateway</code></td>
+<td>optional</td>
+<td>URI</td>
+<td>Service endpoint for <abbr title="data that defines and describes other data">metadata</abbr> resolution</td>
+</tr>
+<tr>
+<td><code>metahash</code></td>
+<td>optional</td>
+<td>multihash</td>
+<td>Hash commitment to associated <abbr title="data that defines and describes other data">metadata</abbr></td>
+</tr>
+<tr>
+<td><code>units</code></td>
+<td>recommended</td>
+<td>array</td>
+<td>1 to 4 <abbr title="International Standard Content Code">ISCC</abbr>-UNITs of the declared <abbr title="ISCC composed of an ISCC-HEADER followed by an ISCC-BODY that concatenates the bodies of two or more headerless ISCC-UNITs, each generated by a different algorithm">ISCC-CODE</abbr></td>
+</tr>
+</tbody>
+</table>
+<p>An <code>IsccNote</code> shall satisfy the following constraints:</p>
+<ol>
+<li><code>$schema</code> shall equal the URI of a published <abbr title="digitally signed JSON message a declarer submits to an ISCC-HUB to declare an ISCC-CODE">IsccNote</abbr> schema.</li>
+<li><code>iscc_code</code> shall be a composite <abbr title="ISCC composed of an ISCC-HEADER followed by an ISCC-BODY that concatenates the bodies of two or more headerless ISCC-UNITs, each generated by a different algorithm">ISCC-CODE</abbr>, not an individual <abbr title="ISCC composed of an ISCC-HEADER and an ISCC-BODY generated by a single algorithm">ISCC-UNIT</abbr>.</li>
+<li><code>units</code>, if present, shall not include the Instance-Code. The provided units together with the
+    Instance-Code derived from <code>datahash</code> shall reconstruct the declared <code>iscc_code</code>.</li>
+<li><code>gateway</code>, if present, shall be an absolute HTTPS URL or an RFC 6570 URI template using only the
+    variables <code>{iscc_id}</code>, <code>{iscc_code}</code>, and <code>{datahash}</code>, without userinfo, query, or fragment
+    components. Template variables expand to lowercase values without the <code>ISCC:</code> prefix.</li>
+<li><code>metahash</code>, if present, shall equal the Meta-Hash of the <abbr title="initial metadata used as input to a hash function">seed metadata</abbr> it commits to, generated
+    according to <a href="../iep-0002/#62-meta-hash-processing">IEP-0002 - Meta-Hash processing</a>.</li>
+<li>Fields not listed above shall not be present.</li>
+</ol>
+<p>An <code>IsccNote</code> should include the <abbr title="International Standard Content Code">ISCC</abbr>-UNITs of the declared <code>iscc_code</code>, each with a length of 256
+bits. Services that match or index declarations across <abbr title="International Standard Content Code">ISCC</abbr>-HUBs may disregard declarations that do
+not include 256-<abbr title="atomic unit of information in a computer system">bit</abbr> <abbr title="International Standard Content Code">ISCC</abbr>-UNITs.</p>
+<p>NOTE 1: A composite <abbr title="ISCC composed of an ISCC-HEADER followed by an ISCC-BODY that concatenates the bodies of two or more headerless ISCC-UNITs, each generated by a different algorithm">ISCC-CODE</abbr> carries only truncated <abbr title="ISCC composed of an ISCC-HEADER and an ISCC-BODY generated by a single algorithm">ISCC-UNIT</abbr> digests. Full-length <abbr title="International Standard Content Code">ISCC</abbr>-UNITs
+substantially reduce false positives in similarity matching at global scale.</p>
+<p>NOTE 2: The metahash commitment cannot be verified by the <abbr title="independently operated server that runs the ISCC Discovery Protocol, accepting signed declarations, issuing ISCC-IDs, and publishing a transparency log">ISCC-HUB</abbr>, which does not receive the
+<abbr title="data that defines and describes other data">metadata</abbr>. Verification is performed by consumers that retrieve the <abbr title="data that defines and describes other data">metadata</abbr>, for example via the
+gateway.</p>
+<div class="admonition example">
+<p class="admonition-title"><abbr title="digitally signed JSON message a declarer submits to an ISCC-HUB to declare an ISCC-CODE">IsccNote</abbr> example (live declaration <abbr title="International Standard Content Code">ISCC</abbr>:MEIGKV5N6NTVF4AB)</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="p">{</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="nt">"$schema"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://purl.org/iscc/schema/iscc-note-0.8.0.json"</span><span class="p">,</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="nt">"iscc_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ISCC:KADT6NPTBFIU53VEUP3BSQ4YHYFYD3C5RT5EQPSTES3V5G2VJ52JAJOPS65J2VAOK5SQ"</span><span class="p">,</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="nt">"datahash"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1e20cf97ba9d540e5765f8e47fb42136fb4ff667e8f20d439bcd7ead098fad095a92"</span><span class="p">,</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="nt">"metahash"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1e20388260ef011e520c6514f29d68039d8b0c5af12f20b3b72a2f2117068483ea64"</span><span class="p">,</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="nt">"nonce"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0010000063727970746f62696f736973"</span><span class="p">,</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="nt">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2026-06-30T16:14:39.067Z"</span><span class="p">,</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">  </span><span class="nt">"gateway"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://titusz.org/iscc/gateway/{iscc_id}.json"</span><span class="p">,</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="nt">"units"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">    </span><span class="s2">"ISCC:AADT6NPTBFIU53VEZGINV746IGBOTLM77N7JXIC7DALQS3N7NWBZEPI"</span><span class="p">,</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">    </span><span class="s2">"ISCC:CAD2H5QZIOMD4C4BV55BM33UVL3TTI47NSYXNYD2KXGCCQLICVGCK6Q"</span><span class="p">,</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">    </span><span class="s2">"ISCC:EAD6YXMM7JED4UZECPWP5SS7T3YVDDJYI4WPQJ7BI3HIZ55KQEZ7N6Q"</span><span class="p">,</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">    </span><span class="s2">"ISCC:GAD3OXU3KVHXJEBFGCDJSCY5R2SRDFDNSTBZ2DBPTRXHLFXMWH3GMEQ"</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="w">  </span><span class="p">],</span>
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="w">  </span><span class="nt">"signature"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="w">    </span><span class="nt">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ISCC-SIG v1.0"</span><span class="p">,</span>
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="w">    </span><span class="nt">"controller"</span><span class="p">:</span><span class="w"> </span><span class="s2">"did:web:titusz.org"</span><span class="p">,</span>
+<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="w">    </span><span class="nt">"keyid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"iscc"</span><span class="p">,</span>
+<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="w">    </span><span class="nt">"pubkey"</span><span class="p">:</span><span class="w"> </span><span class="s2">"z6MkwXToTYfY3rdjWYjD8hvhXWJqsBaghga7QU9PSn3xW9gA"</span><span class="p">,</span>
+<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="w">    </span><span class="nt">"proof"</span><span class="p">:</span><span class="w"> </span><span class="s2">"zYZ1aqJVqBXKKssC1fcwa5gU9TpxC3MUmdt6tyxSyFF1DLfHNTDuyU7HCv8NcJQkqSaFfkf3h66jeZhnvcZrX1qg"</span>
+<a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a><span class="p">}</span>
+</code></pre></div>
+</div>
+<h3 id="44-isccnotedelete">4.4 IsccNoteDelete<a class="headerlink" href="#44-isccnotedelete" title="Permanent link">#</a></h3>
+<p>An <code>IsccNoteDelete</code> is a signed request to delete a previously committed declaration:</p>
+<table>
+<thead>
+<tr>
+<th><strong>Field</strong></th>
+<th><strong>Presence</strong></th>
+<th><strong>Type</strong></th>
+<th><strong>Definition</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>$schema</code></td>
+<td>mandatory</td>
+<td>URI</td>
+<td>Shall equal the published IsccNoteDelete schema URI</td>
+</tr>
+<tr>
+<td><code>iscc_id</code></td>
+<td>mandatory</td>
+<td><abbr title="owned identifier issued by an ISCC-HUB, globally unique within its realm, whose 64-bit ISCC-BODY combines a 52-bit microsecond timestamp with a 12-bit HUB-ID">ISCC-ID</abbr></td>
+<td>The <abbr title="owned identifier issued by an ISCC-HUB, globally unique within its realm, whose 64-bit ISCC-BODY combines a 52-bit microsecond timestamp with a 12-bit HUB-ID">ISCC-ID</abbr> being deleted</td>
+</tr>
+<tr>
+<td><code>nonce</code></td>
+<td>mandatory</td>
+<td>nonce</td>
+<td>Replay-protection value bound to the target hub</td>
+</tr>
+<tr>
+<td><code>signature</code></td>
+<td>mandatory</td>
+<td>IsccSignature</td>
+<td>Declarer signature over the canonical IsccNoteDelete</td>
+</tr>
+<tr>
+<td><code>timestamp</code></td>
+<td>optional</td>
+<td>timestamp</td>
+<td>Declarer-supplied UTC timestamp</td>
+</tr>
+</tbody>
+</table>
+<p>An <code>IsccNoteDelete</code> shall satisfy the following constraints:</p>
+<ol>
+<li><code>$schema</code> shall equal the URI of a published IsccNoteDelete schema.</li>
+<li><code>signature.pubkey</code> shall equal the <code>signature.pubkey</code> of the original <code>IsccNote</code> that produced
+    the <code>iscc_id</code>.</li>
+<li>Fields not listed above shall not be present.</li>
+</ol>
+<div class="admonition example">
+<p class="admonition-title">IsccNoteDelete example</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="p">{</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span><span class="nt">"$schema"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://purl.org/iscc/schema/iscc-note-delete-0.8.0.json"</span><span class="p">,</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">  </span><span class="nt">"iscc_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ISCC:MAIGKJIY75NUVAAB"</span><span class="p">,</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">  </span><span class="nt">"nonce"</span><span class="p">:</span><span class="w"> </span><span class="s2">"001d17437f53f6899ed01ecb8659118b"</span><span class="p">,</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">  </span><span class="nt">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2026-05-22T08:15:00.000Z"</span><span class="p">,</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">  </span><span class="nt">"signature"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">    </span><span class="nt">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ISCC-SIG v1.0"</span><span class="p">,</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">    </span><span class="nt">"controller"</span><span class="p">:</span><span class="w"> </span><span class="s2">"did:web:example.com"</span><span class="p">,</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">    </span><span class="nt">"pubkey"</span><span class="p">:</span><span class="w"> </span><span class="s2">"z6MkmeDbeC5BecFmVnTHA5PWEBaVUrGLdB3weGE2KYnXfHso"</span><span class="p">,</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">    </span><span class="nt">"proof"</span><span class="p">:</span><span class="w"> </span><span class="s2">"z5j9nrpPw3oYSAN4XbCvk2sUtkwrueTD6V2Y35gS1KFTode2ED2YQWokPmoXw6QBYtYEFxtAQfzBhdNyr8PMwP79G"</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="p">}</span>
+</code></pre></div>
+</div>
+<h3 id="45-canonicalization-and-signing">4.5 Canonicalization and Signing<a class="headerlink" href="#45-canonicalization-and-signing" title="Permanent link">#</a></h3>
+<p>All signed objects shall be canonicalized with JCS (RFC 8785) and encoded as UTF-8.</p>
+<p>An <code>IsccNote</code> or <code>IsccNoteDelete</code> shall be signed and verified in accordance with
+<a href="../iep-0019/">IEP-0019</a>.</p>
+<hr>
+<h2 id="5-hub-interface">5. Hub Interface<a class="headerlink" href="#5-hub-interface" title="Permanent link">#</a></h2>
+<p>A conforming <abbr title="independently operated server that runs the ISCC Discovery Protocol, accepting signed declarations, issuing ISCC-IDs, and publishing a transparency log">ISCC-HUB</abbr> shall expose the following HTTP endpoints:</p>
+<table>
+<thead>
+<tr>
+<th><strong>Endpoint</strong></th>
+<th><strong>Function</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>POST /declaration</code></td>
+<td>Submit an <code>IsccNote</code></td>
+</tr>
+<tr>
+<td><code>GET /declaration/{iscc_id}/receipt</code></td>
+<td>Retrieve the signed <code>IsccReceipt</code> for a declaration</td>
+</tr>
+<tr>
+<td><code>DELETE /declaration/{iscc_id}</code></td>
+<td>Submit an <code>IsccNoteDelete</code></td>
+</tr>
+<tr>
+<td><code>GET /{iscc_id}</code></td>
+<td>Resolve an <abbr title="owned identifier issued by an ISCC-HUB, globally unique within its realm, whose 64-bit ISCC-BODY combines a 52-bit microsecond timestamp with a 12-bit HUB-ID">ISCC-ID</abbr> to its declaration record</td>
+</tr>
+</tbody>
+</table>
+<h3 id="51-declaration">5.1 Declaration<a class="headerlink" href="#51-declaration" title="Permanent link">#</a></h3>
+<p>Upon receiving an <code>IsccNote</code>, an <abbr title="independently operated server that runs the ISCC Discovery Protocol, accepting signed declarations, issuing ISCC-IDs, and publishing a transparency log">ISCC-HUB</abbr> shall:</p>
+<ol>
+<li>Validate the structure of the <code>IsccNote</code> against the schema referenced by its <code>$schema</code> field and
+    the constraints of this document.</li>
+<li>Verify that the first 12 bits of the <code>nonce</code> equal its own HUB-ID.</li>
+<li>Verify the declarer signature.</li>
+<li>Verify that the <code>nonce</code> has not been used in a previously accepted message.</li>
+<li>Within a single atomic transaction: assign a microsecond timestamp strictly greater than the most
+    recent prior timestamp, compose the <abbr title="owned identifier issued by an ISCC-HUB, globally unique within its realm, whose 64-bit ISCC-BODY combines a 52-bit microsecond timestamp with a 12-bit HUB-ID">ISCC-ID</abbr> from the timestamp and its HUB-ID in accordance
+    with <a href="../iep-0011/">IEP-0011</a>, and append the declaration to its transparency log with a gapless
+    zero-based sequence number.</li>
+<li>Return the assigned <abbr title="owned identifier issued by an ISCC-HUB, globally unique within its realm, whose 64-bit ISCC-BODY combines a 52-bit microsecond timestamp with a 12-bit HUB-ID">ISCC-ID</abbr> and sequence number.</li>
+</ol>
+<p>If any verification step fails, the <abbr title="independently operated server that runs the ISCC Discovery Protocol, accepting signed declarations, issuing ISCC-IDs, and publishing a transparency log">ISCC-HUB</abbr> shall reject the submission and shall report an error.</p>
+<p>An <abbr title="independently operated server that runs the ISCC Discovery Protocol, accepting signed declarations, issuing ISCC-IDs, and publishing a transparency log">ISCC-HUB</abbr> may enforce additional acceptance policies (for example declarer identity verification).
+Such policies shall only narrow what the published schemas permit.</p>
+<h3 id="52-receipt">5.2 Receipt<a class="headerlink" href="#52-receipt" title="Permanent link">#</a></h3>
+<p>An <abbr title="independently operated server that runs the ISCC Discovery Protocol, accepting signed declarations, issuing ISCC-IDs, and publishing a transparency log">ISCC-HUB</abbr> shall make a signed <code>IsccReceipt</code> retrievable for every accepted declaration. The
+<code>IsccReceipt</code> is a <abbr title="World Wide Web Consortium">W3C</abbr> Verifiable Credential issued by the <abbr title="independently operated server that runs the ISCC Discovery Protocol, accepting signed declarations, issuing ISCC-IDs, and publishing a transparency log">ISCC-HUB</abbr> that contains the sequence
+number, the assigned <abbr title="owned identifier issued by an ISCC-HUB, globally unique within its realm, whose 64-bit ISCC-BODY combines a 52-bit microsecond timestamp with a 12-bit HUB-ID">ISCC-ID</abbr>, and the verbatim <code>IsccNote</code>. Any party holding the receipt and the
+<abbr title="independently operated server that runs the ISCC Discovery Protocol, accepting signed declarations, issuing ISCC-IDs, and publishing a transparency log">ISCC-HUB</abbr> public key from the <abbr title="independently operated server that runs the ISCC Discovery Protocol, accepting signed declarations, issuing ISCC-IDs, and publishing a transparency log">ISCC-HUB</abbr>'s DID document can verify the declaration without contacting
+the <abbr title="independently operated server that runs the ISCC Discovery Protocol, accepting signed declarations, issuing ISCC-IDs, and publishing a transparency log">ISCC-HUB</abbr>.</p>
+<h3 id="53-deletion">5.3 Deletion<a class="headerlink" href="#53-deletion" title="Permanent link">#</a></h3>
+<p>Upon receiving an <code>IsccNoteDelete</code>, an <abbr title="independently operated server that runs the ISCC Discovery Protocol, accepting signed declarations, issuing ISCC-IDs, and publishing a transparency log">ISCC-HUB</abbr> shall validate it in accordance with this document,
+verify that its <code>signature.pubkey</code> equals the <code>signature.pubkey</code> of the original declaration, and
+append a deletion entry to its transparency log. The original declaration entry shall remain in the
+log. Subsequent resolution of the deleted <abbr title="owned identifier issued by an ISCC-HUB, globally unique within its realm, whose 64-bit ISCC-BODY combines a 52-bit microsecond timestamp with a 12-bit HUB-ID">ISCC-ID</abbr> shall reflect the deletion.</p>
+<hr>
+<h2 id="6-replay-protection">6. Replay Protection<a class="headerlink" href="#6-replay-protection" title="Permanent link">#</a></h2>
+<p>The <code>nonce</code> provides replay protection in two dimensions:</p>
+<ol>
+<li><strong>Cross-hub</strong>: The first 12 bits of the <code>nonce</code> shall equal the HUB-ID of the target <abbr title="independently operated server that runs the ISCC Discovery Protocol, accepting signed declarations, issuing ISCC-IDs, and publishing a transparency log">ISCC-HUB</abbr>. A
+    message signed for one <abbr title="independently operated server that runs the ISCC Discovery Protocol, accepting signed declarations, issuing ISCC-IDs, and publishing a transparency log">ISCC-HUB</abbr> is therefore not acceptable to any other.</li>
+<li><strong>Per-hub</strong>: An <abbr title="independently operated server that runs the ISCC Discovery Protocol, accepting signed declarations, issuing ISCC-IDs, and publishing a transparency log">ISCC-HUB</abbr> shall reject any message whose <code>nonce</code> was used in a previously accepted
+    message.</li>
+</ol>
+<p>Declarers shall generate the remaining 116 bits of the <code>nonce</code> from a cryptographically secure
+random source.</p>
+<hr>
+<h2 id="7-security-considerations">7. Security Considerations<a class="headerlink" href="#7-security-considerations" title="Permanent link">#</a></h2>
+<p>Implementations shall use a well-reviewed Ed25519 library and shall reject signatures with malleable
+encodings (RFC 8032). JCS-canonicalized bytes are the integrity anchor of every signed object;
+implementations should verify their JCS implementation against the test vectors of RFC 8785. A
+compromised declarer key permits declaration and deletion on the declarer's behalf; mitigation is
+key rotation in the declarer's controller document. A compromised <abbr title="independently operated server that runs the ISCC Discovery Protocol, accepting signed declarations, issuing ISCC-IDs, and publishing a transparency log">ISCC-HUB</abbr> key permits forged
+receipts; the transparency log (<a href="../iep-0014/">IEP-0014</a>) and key rotation in the <abbr title="independently operated server that runs the ISCC Discovery Protocol, accepting signed declarations, issuing ISCC-IDs, and publishing a transparency log">ISCC-HUB</abbr>'s DID
+document limit the impact.</p>
+<hr>
+<h2 id="8-references">8. References<a class="headerlink" href="#8-references" title="Permanent link">#</a></h2>
+<h3 id="81-normative">8.1 Normative<a class="headerlink" href="#81-normative" title="Permanent link">#</a></h3>
+<ul>
+<li><a href="../iep-0001/">IEP-0001</a> - <abbr title="International Standard Content Code">ISCC</abbr> Structure and Format</li>
+<li><a href="../iep-0002/">IEP-0002</a> - <abbr title="International Standard Content Code">ISCC</abbr> Meta-Code</li>
+<li><a href="../iep-0011/">IEP-0011</a> - <abbr title="owned identifier issued by an ISCC-HUB, globally unique within its realm, whose 64-bit ISCC-BODY combines a 52-bit microsecond timestamp with a 12-bit HUB-ID">ISCC-ID</abbr></li>
+<li><a href="../iep-0014/">IEP-0014</a> - <abbr title="International Standard Content Code">ISCC</abbr> Transparency Log</li>
+<li><a href="../iep-0019/">IEP-0019</a> - <abbr title="International Standard Content Code">ISCC</abbr> Signature</li>
+<li><a href="https://www.rfc-editor.org/rfc/rfc3339">RFC 3339</a> - Date and Time on the Internet: Timestamps</li>
+<li><a href="https://www.rfc-editor.org/rfc/rfc6570">RFC 6570</a> - URI Template</li>
+<li><a href="https://www.rfc-editor.org/rfc/rfc8032">RFC 8032</a> - Edwards-Curve Digital Signature Algorithm
+    (EdDSA)</li>
+<li><a href="https://www.rfc-editor.org/rfc/rfc8785">RFC 8785</a> - JSON Canonicalization Scheme (JCS)</li>
+<li><a href="https://www.w3.org/TR/cid-1.0/">CID 1.0</a> - Controlled Identifiers v1.0</li>
+<li><a href="https://w3c-ccg.github.io/did-method-web/">did:web</a> - did:web Method Specification</li>
+</ul>
+<h3 id="82-informative">8.2 Informative<a class="headerlink" href="#82-informative" title="Permanent link">#</a></h3>
+<ul>
+<li><a href="https://www.iso.org/standard/77899.html"><abbr title="International Organization for Standardization">ISO</abbr> 24138:2024</a> - International Standard Content Code</li>
+<li>Reference implementation: <a href="https://github.com/iscc/iscc-hub">https://github.com/iscc/iscc-hub</a></li>
 </ul>
 
 
@@ -1176,7 +1801,7 @@ declaration protocol.</p>
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"></path></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="January 19, 2026 10:18:32 UTC">2026-01-19</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="July 3, 2026 18:59:34 UTC">2026-07-03</span>
   </span>
 
     

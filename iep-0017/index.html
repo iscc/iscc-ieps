@@ -15,6 +15,8 @@
         <link rel="prev" href="../iep-0016/">
       
       
+        <link rel="next" href="../iep-0018/">
+      
       
         
       
@@ -653,7 +655,7 @@
   <span class="md-ellipsis">
     
   
-    IEP-0013 - Registry
+    IEP-0013 - Discovery Protocol
   
 
     
@@ -680,7 +682,7 @@
   <span class="md-ellipsis">
     
   
-    IEP-0014 - EVM Registries
+    IEP-0014 - Transparency Log
   
 
     
@@ -1221,6 +1223,60 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../iep-0018/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    IEP-0018 - Imagewalk
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../iep-0019/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    IEP-0019 - ISCC Signature
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -1710,7 +1766,7 @@
 </tr>
 <tr>
 <td>Updated:</td>
-<td><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="January 19, 2026 10:48:56 UTC">2026-01-19</span></td>
+<td><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="July 3, 2026 18:59:34 UTC">2026-07-03</span></td>
 </tr>
 </tbody>
 </table>
@@ -1811,9 +1867,8 @@ encoded <abbr title="sequence of 8 bits">byte</abbr> sequences as a tie-breaker.
 allow multiple entries with equivalent names.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Some storage systems (e.g., case-insensitive filesystems) may prevent creation of entries with
-names that differ only in case or normalization. In such cases, only the accessible entry will be
-yielded.</p>
+<p>Some storage systems (e.g., case-insensitive filesystems) may prevent creation of entries with names
+that differ only in case or normalization. In such cases, only the accessible entry will be yielded.</p>
 </div>
 <h4 id="511-example">5.1.1 Example<a class="headerlink" href="#511-example" title="Permanent link">#</a></h4>
 <p>Given entries: ["café", "caffe", "Café"]</p>
@@ -1846,8 +1901,8 @@ on their original <abbr title="sequence of 8 bits">byte</abbr> sequences to ensu
 </ol>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>This ordering ensures ignore files are discovered and yielded before the regular files they
-might filter, enabling extensions to process filtering rules early.</p>
+<p>This ordering ensures ignore files are discovered and yielded before the regular files they might
+filter, enabling extensions to process filtering rules early.</p>
 </div>
 <p>The base <abbr title="set of instructions">algorithm</abbr> itself shall not process ignore <abbr title="stored data with a known number of bits and a filename">file</abbr> contents or apply filtering. It only ensures
 deterministic ordering with ignore <abbr title="stored data with a known number of bits and a filename">file</abbr> prioritization.</p>
@@ -1885,8 +1940,8 @@ implementation shall apply directory filtering as follows:</p>
 </ol>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>A pattern like <code>temp/</code> prevents traversal into any directory named "temp", effectively
-excluding all files within it from the output.</p>
+<p>A pattern like <code>temp/</code> prevents traversal into any directory named "temp", effectively excluding all
+files within it from the output.</p>
 </div>
 <h4 id="622-pattern-matching-rules">6.2.2 Pattern Matching Rules<a class="headerlink" href="#622-pattern-matching-rules" title="Permanent link">#</a></h4>
 <p>An implementation shall apply the following pattern matching rules:</p>
@@ -1934,9 +1989,9 @@ automatically filters <abbr title="data that defines and describes other data">m
 <p>This layered approach ensures consistent behavior while adding domain-specific rules.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The automatic exclusion of <code>.iscc.json</code> files cannot be overridden by <code>.isccignore</code> patterns.
-These files are always excluded, even if <code>.isccignore</code> contains patterns that would otherwise
-include them.</p>
+<p>The automatic exclusion of <code>.iscc.json</code> files cannot be overridden by <code>.isccignore</code> patterns. These
+files are always excluded, even if <code>.isccignore</code> contains patterns that would otherwise include
+them.</p>
 </div>
 <hr>
 <h2 id="8-implementation-guidance">8. Implementation Guidance<a class="headerlink" href="#8-implementation-guidance" title="Permanent link">#</a></h2>
@@ -2000,15 +2055,14 @@ specify which ignore <abbr title="stored data with a known number of bits and a 
 </ol>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Each traversal processes only one type of ignore <abbr title="stored data with a known number of bits and a filename">file</abbr> as specified by the implementation or
-caller.</p>
+<p>Each traversal processes only one type of ignore <abbr title="stored data with a known number of bits and a filename">file</abbr> as specified by the implementation or caller.</p>
 </div>
 <div class="admonition warning">
 <p class="admonition-title">Git Compatibility</p>
 <p>Git implicitly excludes <code>.git/</code> directories from all operations, even when not specified in
 <code>.gitignore</code>. Treewalk-IGNORE processes all directories unless explicitly ignored. To replicate
-Git's behavior when using <code>.isccignore</code> files, explicitly add <code>.git/</code> to your ignore patterns.
-This design keeps Treewalk generic and avoids hardcoding VCS-specific assumptions.</p>
+Git's behavior when using <code>.isccignore</code> files, explicitly add <code>.git/</code> to your ignore patterns. This
+design keeps Treewalk generic and avoids hardcoding VCS-specific assumptions.</p>
 </div>
 <hr>
 <h2 id="10-test-vectors">10. Test Vectors<a class="headerlink" href="#10-test-vectors" title="Permanent link">#</a></h2>
@@ -2029,8 +2083,8 @@ This design keeps Treewalk generic and avoids hardcoding VCS-specific assumption
 </code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>On case-insensitive filesystems, only one of "Café.txt" or "café.txt" may be created,
-resulting in fewer entries in the output.</p>
+<p>On case-insensitive filesystems, only one of "Café.txt" or "café.txt" may be created, resulting in
+fewer entries in the output.</p>
 </div>
 <h4 id="1012-test-case-2-duplicate-normalized-names">10.1.2 Test Case 2: Duplicate Normalized Names<a class="headerlink" href="#1012-test-case-2-duplicate-normalized-names" title="Permanent link">#</a></h4>
 <p><strong>Structure:</strong></p>
@@ -2045,8 +2099,8 @@ resulting in fewer entries in the output.</p>
 </code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Storage systems typically prevent creation of both forms, so usually only one entry will exist
-and be yielded. The key guarantee is that whatever entries exist will be yielded deterministically.</p>
+<p>Storage systems typically prevent creation of both forms, so usually only one entry will exist and
+be yielded. The key guarantee is that whatever entries exist will be yielded deterministically.</p>
 </div>
 <h4 id="1013-test-case-3-ignore-file-priority">10.1.3 Test Case 3: Ignore File Priority<a class="headerlink" href="#1013-test-case-3-ignore-file-priority" title="Permanent link">#</a></h4>
 <p><strong>Structure:</strong></p>
@@ -2089,8 +2143,8 @@ and be yielded. The key guarantee is that whatever entries exist will be yielded
 </code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The <code>temp/</code> pattern prevents traversal into the temp directory, so <code>temp/cache.dat</code> is
-excluded. The <abbr title="stored data with a known number of bits and a filename">file</abbr> <code>data.txt.iscc.json</code> is automatically filtered by the <abbr title="International Standard Content Code">ISCC</abbr> extension.</p>
+<p>The <code>temp/</code> pattern prevents traversal into the temp directory, so <code>temp/cache.dat</code> is excluded. The
+<abbr title="stored data with a known number of bits and a filename">file</abbr> <code>data.txt.iscc.json</code> is automatically filtered by the <abbr title="International Standard Content Code">ISCC</abbr> extension.</p>
 </div>
 <hr>
 <h2 id="11-references">11. References<a class="headerlink" href="#11-references" title="Permanent link">#</a></h2>
@@ -2128,7 +2182,7 @@ excluded. The <abbr title="stored data with a known number of bits and a filenam
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"></path></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="January 19, 2026 10:48:56 UTC">2026-01-19</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="July 3, 2026 18:59:34 UTC">2026-07-03</span>
   </span>
 
     

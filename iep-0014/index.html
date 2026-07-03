@@ -26,7 +26,7 @@
     
     
       
-        <title>IEP-0014 - EVM Registries - ISCC Enhancement Proposals</title>
+        <title>IEP-0014 - Transparency Log - ISCC Enhancement Proposals</title>
       
     
     
@@ -90,7 +90,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#evm-based-iscc-registries" class="md-skip">
+        <a href="#iscc-transparency-log" class="md-skip">
           Skip to content
         </a>
       
@@ -125,7 +125,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              IEP-0014 - EVM Registries
+              IEP-0014 - Transparency Log
             
           </span>
         </div>
@@ -655,7 +655,7 @@
   <span class="md-ellipsis">
     
   
-    IEP-0013 - Registry
+    IEP-0013 - Discovery Protocol
   
 
     
@@ -684,6 +684,24 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    IEP-0014 - Transparency Log
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -691,7 +709,7 @@
   <span class="md-ellipsis">
     
   
-    IEP-0014 - EVM Registries
+    IEP-0014 - Transparency Log
   
 
     
@@ -700,6 +718,191 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-introduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Introduction
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-log-records" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Log Records
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-merkle-tree" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Merkle Tree
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-tiles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Tiles
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-checkpoint" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Checkpoint
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-http-interface" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. HTTP Interface
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-verification" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Verification
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Verification">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#71-inclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.1 Inclusion
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#72-consistency" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.2 Consistency
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-hub-operations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Hub Operations
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-security-considerations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Security Considerations
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-references" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. References
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="10. References">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#101-normative" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10.1 Normative
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#102-informative" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10.2 Informative
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -786,6 +989,60 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../iep-0018/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    IEP-0018 - Imagewalk
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../iep-0019/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    IEP-0019 - ISCC Signature
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -806,6 +1063,180 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-introduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Introduction
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-log-records" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Log Records
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-merkle-tree" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Merkle Tree
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-tiles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Tiles
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-checkpoint" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Checkpoint
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-http-interface" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. HTTP Interface
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-verification" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Verification
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Verification">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#71-inclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.1 Inclusion
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#72-consistency" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.2 Consistency
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-hub-operations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Hub Operations
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-security-considerations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Security Considerations
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-references" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. References
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="10. References">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#101-normative" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10.1 Normative
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#102-informative" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10.2 Informative
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -824,7 +1255,7 @@
   
 
 
-<h1 id="evm-based-iscc-registries">EVM Based <abbr title="International Standard Content Code">ISCC</abbr> Registries<a class="headerlink" href="#evm-based-iscc-registries" title="Permanent link">#</a></h1>
+<h1 id="iscc-transparency-log"><abbr title="International Standard Content Code">ISCC</abbr> Transparency Log<a class="headerlink" href="#iscc-transparency-log" title="Permanent link">#</a></h1>
 <table>
 <thead>
 <tr>
@@ -835,7 +1266,7 @@
 <tbody>
 <tr>
 <td>Title:</td>
-<td>EVM Based <abbr title="International Standard Content Code">ISCC</abbr> Registries</td>
+<td><abbr title="International Standard Content Code">ISCC</abbr> Transparency Log</td>
 </tr>
 <tr>
 <td>Author:</td>
@@ -867,10 +1298,214 @@
 </tr>
 <tr>
 <td>Updated:</td>
-<td><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="January 19, 2026 10:18:32 UTC">2026-01-19</span></td>
+<td><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="July 3, 2026 18:59:34 UTC">2026-07-03</span></td>
 </tr>
 </tbody>
 </table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This document is a <strong>DRAFT</strong> intended as input to
+<a href="https://www.iso.org/committee/48836.html"><abbr title="International Organization for Standardization">ISO</abbr> TC 46/SC 9/WG 18</a> for a future revision of <abbr title="International Organization for Standardization">ISO</abbr> 24138.</p>
+</div>
+<h2 id="1-introduction">1. Introduction<a class="headerlink" href="#1-introduction" title="Permanent link">#</a></h2>
+<p>This proposal defines the transparency log maintained by an <abbr title="independently operated server that runs the ISCC Discovery Protocol, accepting signed declarations, issuing ISCC-IDs, and publishing a transparency log">ISCC-HUB</abbr>. The log records the
+declaration and deletion messages of the <abbr title="International Standard Content Code">ISCC</abbr> Discovery Protocol (<a href="../iep-0013/">IEP-0013</a>) and
+commits to them with a cryptographic structure that any party can verify independently of the
+<abbr title="independently operated server that runs the ISCC Discovery Protocol, accepting signed declarations, issuing ISCC-IDs, and publishing a transparency log">ISCC-HUB</abbr>.</p>
+<p>The log exists so that the existence and ordering of a declaration can be proven after the fact -
+for audits or disputes - without trusting the <abbr title="independently operated server that runs the ISCC Discovery Protocol, accepting signed declarations, issuing ISCC-IDs, and publishing a transparency log">ISCC-HUB</abbr>'s continued good behavior or existence. The
+design therefore reuses standard transparency-log primitives: a single append-only RFC 6962 Merkle
+tree per <abbr title="independently operated server that runs the ISCC Discovery Protocol, accepting signed declarations, issuing ISCC-IDs, and publishing a transparency log">ISCC-HUB</abbr>, hashed with SHA-256, published as static tiles over HTTP in accordance with the
+<a href="https://c2sp.org/tlog-tiles">tlog-tiles</a> specification, and committed by a signed <abbr title="signed, compact commitment to the entire state of an ISCC-HUB's transparency log at a point in time, letting anyone verify the log without downloading it in full">checkpoint</abbr>.
+Existing transparency-log clients can verify the log with little or no modification.</p>
+<hr>
+<h2 id="2-log-records">2. Log Records<a class="headerlink" href="#2-log-records" title="Permanent link">#</a></h2>
+<p>A log record is the unit committed as one leaf of the Merkle tree. A log record shall be the
+JCS-canonicalized (RFC 8785), UTF-8 encoded form of a log entry with the following fields:</p>
+<table>
+<thead>
+<tr>
+<th><strong>Field</strong></th>
+<th><strong>Presence</strong></th>
+<th><strong>Type</strong></th>
+<th><strong>Definition</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>$schema</code></td>
+<td>mandatory</td>
+<td>URI</td>
+<td>Shall equal the published entry schema</td>
+</tr>
+<tr>
+<td><code>iscc_id</code></td>
+<td>mandatory</td>
+<td><abbr title="owned identifier issued by an ISCC-HUB, globally unique within its realm, whose 64-bit ISCC-BODY combines a 52-bit microsecond timestamp with a 12-bit HUB-ID">ISCC-ID</abbr></td>
+<td>The <abbr title="owned identifier issued by an ISCC-HUB, globally unique within its realm, whose 64-bit ISCC-BODY combines a 52-bit microsecond timestamp with a 12-bit HUB-ID">ISCC-ID</abbr> this entry refers to</td>
+</tr>
+<tr>
+<td><code>note</code></td>
+<td>mandatory</td>
+<td><abbr title="digitally signed JSON message a declarer submits to an ISCC-HUB to declare an ISCC-CODE">IsccNote</abbr> or IsccNoteDelete</td>
+<td>The signed message</td>
+</tr>
+</tbody>
+</table>
+<p>JSON schemas for log entries are published under the <code>http://purl.org/iscc/schema/</code> namespace. A log
+entry identifies the schema version it conforms to in its <code>$schema</code> field.</p>
+<p>A log entry shall satisfy the following constraints:</p>
+<ol>
+<li><code>$schema</code> shall equal the URI of a published log entry schema.</li>
+<li><code>note</code> shall contain the signed <code>IsccNote</code> or <code>IsccNoteDelete</code> (<a href="../iep-0013/">IEP-0013</a>) with all
+    members unaltered. Whether an entry is a declaration or a deletion is derived from
+    <code>note.$schema</code>.</li>
+<li>An <abbr title="independently operated server that runs the ISCC Discovery Protocol, accepting signed declarations, issuing ISCC-IDs, and publishing a transparency log">ISCC-HUB</abbr> shall not alter or remove a record after it has been committed. A deletion is
+    expressed as a new record whose <code>note</code> is an <code>IsccNoteDelete</code>.</li>
+<li>Records shall be assigned dense, gapless, zero-based sequence numbers: the record committed when
+    the tree has size N receives sequence number N.</li>
+</ol>
+<p>NOTE: Signatures are computed over the JCS-canonical bytes of the signed message
+(<a href="../iep-0019/">IEP-0019</a>), and JCS serialization is deterministic. The canonical record bytes
+therefore embed the exact bytes signed by the declarer, and a verifier can re-verify the declarer's
+signature from the log entry alone.</p>
+<hr>
+<h2 id="3-merkle-tree">3. Merkle Tree<a class="headerlink" href="#3-merkle-tree" title="Permanent link">#</a></h2>
+<p>The log shall use the Merkle tree defined in RFC 6962 section 2 with SHA-256 as the <abbr title="result of processing data with a hash algorithm">hash</abbr> function:</p>
+<ol>
+<li>The <abbr title="result of processing data with a hash algorithm">hash</abbr> of a leaf holding record bytes <code>r</code> shall be <code>SHA-256(0x00 || r)</code>.</li>
+<li>The <abbr title="result of processing data with a hash algorithm">hash</abbr> of an interior node with children <code>l</code> and <code>r</code> shall be <code>SHA-256(0x01 || l || r)</code>.</li>
+<li>The <abbr title="result of processing data with a hash algorithm">hash</abbr> of the empty tree shall be <code>SHA-256("")</code>.</li>
+</ol>
+<p>The tree is never split into shards and never reset; a record's sequence number is its permanent
+index.</p>
+<hr>
+<h2 id="4-tiles">4. Tiles<a class="headerlink" href="#4-tiles" title="Permanent link">#</a></h2>
+<p>The tree and its records shall be published as tiles in accordance with the
+<a href="https://c2sp.org/tlog-tiles">tlog-tiles</a> specification with the tile height fixed at 8 (256 entries
+per tile):</p>
+<ol>
+<li>A <abbr title="result of processing data with a hash algorithm">hash</abbr> tile at level L and index K shall hold the 32-<abbr title="sequence of 8 bits">byte</abbr> SHA-256 node hashes at the
+    corresponding tree positions. A full <abbr title="result of processing data with a hash algorithm">hash</abbr> tile is 8192 bytes.</li>
+<li>An entry bundle at index K shall hold the 256 length-prefixed records whose leaf hashes occupy
+    the level-0 <abbr title="result of processing data with a hash algorithm">hash</abbr> tile at index K.</li>
+<li>Partial tiles and bundles shall be addressed with the <code>.p/&lt;W&gt;</code> suffix defined by tlog-tiles.</li>
+<li>Full tiles and bundles are immutable; an <abbr title="independently operated server that runs the ISCC Discovery Protocol, accepting signed declarations, issuing ISCC-IDs, and publishing a transparency log">ISCC-HUB</abbr> shall serve them as immutable resources.</li>
+</ol>
+<hr>
+<h2 id="5-checkpoint">5. Checkpoint<a class="headerlink" href="#5-checkpoint" title="Permanent link">#</a></h2>
+<p>A <abbr title="signed, compact commitment to the entire state of an ISCC-HUB's transparency log at a point in time, letting anyone verify the log without downloading it in full">checkpoint</abbr> commits to the tree at a specific size. It shall use the C2SP
+<a href="https://c2sp.org/tlog-checkpoint"><abbr title="signed, compact commitment to the entire state of an ISCC-HUB's transparency log at a point in time, letting anyone verify the log without downloading it in full">checkpoint</abbr></a> and <a href="https://c2sp.org/signed-note">signed-note</a>
+formats. The <abbr title="signed, compact commitment to the entire state of an ISCC-HUB's transparency log at a point in time, letting anyone verify the log without downloading it in full">checkpoint</abbr> body shall consist of exactly three lines:</p>
+<ol>
+<li>the origin — the <abbr title="independently operated server that runs the ISCC Discovery Protocol, accepting signed declarations, issuing ISCC-IDs, and publishing a transparency log">ISCC-HUB</abbr>'s stable identity string derived from its domain;</li>
+<li>the decimal tree size N;</li>
+<li>the base64-encoded SHA-256 Merkle tree <abbr title="result of processing data with a hash algorithm">hash</abbr> over the first N records.</li>
+</ol>
+<div class="admonition example">
+<p class="admonition-title">Checkpoint example (<abbr title="independently operated server that runs the ISCC Discovery Protocol, accepting signed declarations, issuing ISCC-IDs, and publishing a transparency log">ISCC-HUB</abbr> iscc.id at tree size 1)</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>iscc.id/log
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>1
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>lRQg0Ieuf/GsgUCRASrGiolzbw8Tf3TGLc51A92uu4A=
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>— iscc.id/log aMO4mgVFw503i9hLY/N+R/C2IROspOdr37AVDY5mxUGIMS4bXWpbc0mLCUi+S+h2JuIZph/eMGoQmEBHo3N3ImCFtQg=
+</code></pre></div>
+</div>
+<p>A <abbr title="signed, compact commitment to the entire state of an ISCC-HUB's transparency log at a point in time, letting anyone verify the log without downloading it in full">checkpoint</abbr> shall carry the <abbr title="independently operated server that runs the ISCC Discovery Protocol, accepting signed declarations, issuing ISCC-IDs, and publishing a transparency log">ISCC-HUB</abbr>'s Ed25519 signature as a signed-note signature line and may
+carry additional witness signatures. A verifier shall reject a <abbr title="signed, compact commitment to the entire state of an ISCC-HUB's transparency log at a point in time, letting anyone verify the log without downloading it in full">checkpoint</abbr> whose <abbr title="independently operated server that runs the ISCC Discovery Protocol, accepting signed declarations, issuing ISCC-IDs, and publishing a transparency log">ISCC-HUB</abbr> signature
+does not verify against the Ed25519 public key published in the <abbr title="independently operated server that runs the ISCC Discovery Protocol, accepting signed declarations, issuing ISCC-IDs, and publishing a transparency log">ISCC-HUB</abbr>'s DID document
+(<a href="../iep-0013/">IEP-0013</a>).</p>
+<p>An <abbr title="independently operated server that runs the ISCC Discovery Protocol, accepting signed declarations, issuing ISCC-IDs, and publishing a transparency log">ISCC-HUB</abbr> shall publish checkpoints with monotonically non-decreasing tree sizes and shall not
+publish two inconsistent checkpoints. An <abbr title="independently operated server that runs the ISCC Discovery Protocol, accepting signed declarations, issuing ISCC-IDs, and publishing a transparency log">ISCC-HUB</abbr> should republish its <abbr title="signed, compact commitment to the entire state of an ISCC-HUB's transparency log at a point in time, letting anyone verify the log without downloading it in full">checkpoint</abbr> at a fixed cadence
+(recommended: 10 seconds).</p>
+<hr>
+<h2 id="6-http-interface">6. HTTP Interface<a class="headerlink" href="#6-http-interface" title="Permanent link">#</a></h2>
+<p>An <abbr title="independently operated server that runs the ISCC Discovery Protocol, accepting signed declarations, issuing ISCC-IDs, and publishing a transparency log">ISCC-HUB</abbr> shall expose the following read endpoints. All endpoints return static, cacheable
+<abbr title="information organized to provide value to a user">content</abbr>; a verifier computes proofs locally from tiles.</p>
+<table>
+<thead>
+<tr>
+<th><strong>Endpoint</strong></th>
+<th><strong>Returns</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>GET /log/checkpoint</code></td>
+<td>The latest signed <abbr title="signed, compact commitment to the entire state of an ISCC-HUB's transparency log at a point in time, letting anyone verify the log without downloading it in full">checkpoint</abbr></td>
+</tr>
+<tr>
+<td><code>GET /log/tile/{L}/{K}</code></td>
+<td>The <abbr title="result of processing data with a hash algorithm">hash</abbr> tile at level L, index K</td>
+</tr>
+<tr>
+<td><code>GET /log/tile/entries/{K}</code></td>
+<td>The entry bundle at index K</td>
+</tr>
+</tbody>
+</table>
+<p>Path encodings for indices and partial tiles shall follow the tlog-tiles specification. An <abbr title="independently operated server that runs the ISCC Discovery Protocol, accepting signed declarations, issuing ISCC-IDs, and publishing a transparency log">ISCC-HUB</abbr>
+shall return <code>404</code> for a tile that is not yet published and may return <code>410</code> for tile <abbr title="ordered sequence of bits">data</abbr> pruned
+under a retention policy, provided the checkpoints required to verify retained records remain
+available.</p>
+<hr>
+<h2 id="7-verification">7. Verification<a class="headerlink" href="#7-verification" title="Permanent link">#</a></h2>
+<h3 id="71-inclusion">7.1 Inclusion<a class="headerlink" href="#71-inclusion" title="Permanent link">#</a></h3>
+<p>To verify inclusion of record <code>i</code> against a trusted <abbr title="signed, compact commitment to the entire state of an ISCC-HUB's transparency log at a point in time, letting anyone verify the log without downloading it in full">checkpoint</abbr> with size N and root R (i &lt; N), a
+verifier shall:</p>
+<ol>
+<li>Fetch the entry bundle at the index given by <code>i</code> divided by 256, discarding the remainder, and
+    extract the record at offset <code>i mod 256</code>.</li>
+<li>Confirm the record bytes match the expected canonical bytes, if a record value is being checked.</li>
+<li>Compute the leaf <abbr title="result of processing data with a hash algorithm">hash</abbr> and combine it with the sibling hashes from the covering <abbr title="result of processing data with a hash algorithm">hash</abbr> tiles in
+    accordance with RFC 6962 section 2.1.1.</li>
+<li>Accept if and only if the computed root equals R.</li>
+</ol>
+<h3 id="72-consistency">7.2 Consistency<a class="headerlink" href="#72-consistency" title="Permanent link">#</a></h3>
+<p>To verify consistency between checkpoints of sizes M and N (M ≤ N), a verifier shall compute the RFC
+6962 consistency proof (section 2.1.2) from the covering <abbr title="result of processing data with a hash algorithm">hash</abbr> tiles and confirm that it relates the
+two roots. Checkpoints that fail consistency verification are evidence of a split view.</p>
+<hr>
+<h2 id="8-hub-operations">8. Hub Operations<a class="headerlink" href="#8-hub-operations" title="Permanent link">#</a></h2>
+<ol>
+<li>When an <abbr title="independently operated server that runs the ISCC Discovery Protocol, accepting signed declarations, issuing ISCC-IDs, and publishing a transparency log">ISCC-HUB</abbr> accepts a declaration or deletion, it shall — within a single atomic transaction
+    — assign the next sequence number, form the canonical record bytes, and persist the record
+    durably.</li>
+<li>Hash tiles, entry bundles, and the <abbr title="signed, compact commitment to the entire state of an ISCC-HUB's transparency log at a point in time, letting anyone verify the log without downloading it in full">checkpoint</abbr> are a deterministic function of the committed
+    records and may be materialized lazily. The record store, not the tile cache, is the source of
+    truth.</li>
+<li>An <abbr title="independently operated server that runs the ISCC Discovery Protocol, accepting signed declarations, issuing ISCC-IDs, and publishing a transparency log">ISCC-HUB</abbr> shall not assert that a declaration is logged before the record is committed by a
+    published <abbr title="signed, compact commitment to the entire state of an ISCC-HUB's transparency log at a point in time, letting anyone verify the log without downloading it in full">checkpoint</abbr>.</li>
+</ol>
+<hr>
+<h2 id="9-security-considerations">9. Security Considerations<a class="headerlink" href="#9-security-considerations" title="Permanent link">#</a></h2>
+<p>A malicious <abbr title="independently operated server that runs the ISCC Discovery Protocol, accepting signed declarations, issuing ISCC-IDs, and publishing a transparency log">ISCC-HUB</abbr> could present different histories to different audiences (a split view).
+Detection relies on independent monitors that fetch, verify, and compare checkpoints; the <abbr title="signed, compact commitment to the entire state of an ISCC-HUB's transparency log at a point in time, letting anyone verify the log without downloading it in full">checkpoint</abbr>
+format reserves space for witness cosignatures to strengthen detection. All evidentiary value flows
+from the <abbr title="independently operated server that runs the ISCC Discovery Protocol, accepting signed declarations, issuing ISCC-IDs, and publishing a transparency log">ISCC-HUB</abbr>'s signing key: the key should be held in an isolated signer, and the <abbr title="independently operated server that runs the ISCC Discovery Protocol, accepting signed declarations, issuing ISCC-IDs, and publishing a transparency log">ISCC-HUB</abbr>'s
+DID document supports key rotation. Because key resolution depends on the availability of the
+<abbr title="independently operated server that runs the ISCC Discovery Protocol, accepting signed declarations, issuing ISCC-IDs, and publishing a transparency log">ISCC-HUB</abbr>'s domain, monitors should archive observed DID documents so that records remain verifiable
+after an <abbr title="independently operated server that runs the ISCC Discovery Protocol, accepting signed declarations, issuing ISCC-IDs, and publishing a transparency log">ISCC-HUB</abbr> ceases operation. Suppressing a declaration from an <abbr title="independently operated server that runs the ISCC Discovery Protocol, accepting signed declarations, issuing ISCC-IDs, and publishing a transparency log">ISCC-HUB</abbr>'s own resolution
+responses is a local policy control; it writes no log record and does not propagate to log
+consumers. Removing a declaration from the verifiable log is only possible via a signed deletion
+record.</p>
+<hr>
+<h2 id="10-references">10. References<a class="headerlink" href="#10-references" title="Permanent link">#</a></h2>
+<h3 id="101-normative">10.1 Normative<a class="headerlink" href="#101-normative" title="Permanent link">#</a></h3>
+<ul>
+<li><a href="../iep-0013/">IEP-0013</a> - <abbr title="International Standard Content Code">ISCC</abbr> Discovery Protocol</li>
+<li><a href="https://www.rfc-editor.org/rfc/rfc6962">RFC 6962</a> - Certificate Transparency</li>
+<li><a href="https://www.rfc-editor.org/rfc/rfc8785">RFC 8785</a> - JSON Canonicalization Scheme (JCS)</li>
+<li><a href="https://c2sp.org/tlog-tiles">tlog-tiles</a> - C2SP Tiled Transparency Logs</li>
+<li><a href="https://c2sp.org/tlog-checkpoint">tlog-<abbr title="signed, compact commitment to the entire state of an ISCC-HUB's transparency log at a point in time, letting anyone verify the log without downloading it in full">checkpoint</abbr></a> - C2SP Transparency Log Checkpoints</li>
+<li><a href="https://c2sp.org/signed-note">signed-note</a> - C2SP Signed Note Format</li>
+</ul>
+<h3 id="102-informative">10.2 Informative<a class="headerlink" href="#102-informative" title="Permanent link">#</a></h3>
+<ul>
+<li><a href="https://www.iso.org/standard/77899.html"><abbr title="International Organization for Standardization">ISO</abbr> 24138:2024</a> - International Standard Content Code</li>
+<li>Monitor implementation: <a href="https://github.com/iscc/iscc-monitor">https://github.com/iscc/iscc-monitor</a></li>
+<li>Reference implementation: <a href="https://github.com/iscc/iscc-hub">https://github.com/iscc/iscc-hub</a></li>
+</ul>
 
 
 
@@ -893,7 +1528,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"></path></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="January 19, 2026 10:18:32 UTC">2026-01-19</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="July 3, 2026 18:59:34 UTC">2026-07-03</span>
   </span>
 
     
