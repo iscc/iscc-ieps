@@ -16,8 +16,8 @@ the historical record of the feature proposal.
 
 ## List of IEPs
 
-| ID                           | Title                               | Type    | Status    | Standard       |
-| ---------------------------- | ----------------------------------- | ------- | --------- | -------------- |
+| ID                      | Title                               | Type    | Status    | Standard       |
+| ----------------------- | ----------------------------------- | ------- | --------- | -------------- |
 | [IEP-0000](iep-0000.md) | IEP Purpose and Guidelines          | Process | Draft     | IEP            |
 | [IEP-0001](iep-0001.md) | ISCC Structure and Format           | Core    | Normative | ISO 24138:2024 |
 | [IEP-0002](iep-0002.md) | ISCC-UNIT Meta-Code                 | Core    | Normative | ISO 24138:2024 |
