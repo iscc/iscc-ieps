@@ -40,7 +40,10 @@ Repository = "https://github.com/iscc/iscc-ieps"
 
 [tool.poe.tasks]
 format-code = { cmd = "uv run black .", help = "Code style formating with black" }
-format-md = { cmd = "uv run mdformat --wrap 100 --end-of-line lf --number .", help = "Markdown formating with mdformat" }
+format-md = { sequence = [
+    { cmd = "uv run mdformat --wrap 100 --end-of-line lf --number ." },
+    { cmd = "uv run python -m tools.fix_attr_lists" },
+], help = "Markdown formating with mdformat" }
 build-ieps = { cmd = "uv run python -m tools.build_ieps", help = "Copy README.md to /ieps" }
 all = ["format-code", "build-ieps",]
 

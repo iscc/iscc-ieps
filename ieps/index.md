@@ -1,5 +1,7 @@
 # ISCC - Enhancement Proposals (IEPs)
 
+[![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/iscc/iscc-ieps)
+
 ## What is an IEP?
 
 IEP stands for ISCC Enhancement Proposal. An IEP is a design document providing information to the
@@ -14,8 +16,8 @@ the historical record of the feature proposal.
 
 ## List of IEPs
 
-| ID                      | Title                               | Type    | Status    | Standard       |
-| ----------------------- | ----------------------------------- | ------- | --------- | -------------- |
+| ID                           | Title                               | Type    | Status    | Standard       |
+| ---------------------------- | ----------------------------------- | ------- | --------- | -------------- |
 | [IEP-0000](iep-0000.md) | IEP Purpose and Guidelines          | Process | Draft     | IEP            |
 | [IEP-0001](iep-0001.md) | ISCC Structure and Format           | Core    | Normative | ISO 24138:2024 |
 | [IEP-0002](iep-0002.md) | ISCC-UNIT Meta-Code                 | Core    | Normative | ISO 24138:2024 |
@@ -29,8 +31,10 @@ the historical record of the feature proposal.
 | [IEP-0010](iep-0010.md) | ISCC-CODE                           | Core    | Normative | ISO 24138:2024 |
 | [IEP-0011](iep-0011.md) | ISCC-ID                             | Core    | Draft     | IEP            |
 | [IEP-0012](iep-0012.md) | ISCC Metadata                       | Core    | Normative | ISO 24138:2024 |
-| [IEP-0013](iep-0013.md) | ISCC Decentralized Content Registry | Core    | Draft     | IEP            |
-| [IEP-0014](iep-0014.md) | EVM Based ISCC Registries           | Core    | Draft     | IEP            |
+| [IEP-0013](iep-0013.md) | ISCC Discovery Protocol             | Core    | Draft     | IEP            |
+| [IEP-0014](iep-0014.md) | ISCC Transparency Log               | Core    | Draft     | IEP            |
 | [IEP-0015](iep-0015.md) | ISCC DID Method                     | Core    | Draft     | IEP            |
 | [IEP-0016](iep-0016.md) | ISCC SubType WIDE                   | Core    | Draft     | IEP            |
 | [IEP-0017](iep-0017.md) | Treewalk - Deterministic Traversal  | Core    | Draft     | IEP            |
+| [IEP-0018](iep-0018.md) | Imagewalk - Deterministic Traversal | Core    | Draft     | IEP            |
+| [IEP-0019](iep-0019.md) | ISCC Signature                      | Core    | Draft     | IEP            |

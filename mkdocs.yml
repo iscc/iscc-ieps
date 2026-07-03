@@ -99,8 +99,10 @@ nav:
   - IEP-0010 - ISCC-CODE: iep-0010.md
   - IEP-0011 - ISCC-ID: iep-0011.md
   - IEP-0012 - Metadata: iep-0012.md
-  - IEP-0013 - Registry: iep-0013.md
-  - IEP-0014 - EVM Registries: iep-0014.md
+  - IEP-0013 - Discovery Protocol: iep-0013.md
+  - IEP-0014 - Transparency Log: iep-0014.md
   - IEP-0015 - DID Method: iep-0015.md
   - IEP-0016 - SubType WIDE: iep-0016.md
   - IEP-0017 - Treewalk: iep-0017.md
+  - IEP-0018 - Imagewalk: iep-0018.md
+  - IEP-0019 - ISCC Signature: iep-0019.md
