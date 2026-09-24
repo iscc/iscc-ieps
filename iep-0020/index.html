@@ -1,0 +1,1685 @@
+<!DOCTYPE html><html lang="en" class="no-js"><head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="International Standard Content Code - Enhancement Proposals (IEPs).">
+      
+      
+        <meta name="author" content="Titusz Pan">
+      
+      
+        <link rel="canonical" href="https://ieps.iscc.codes/iep-0020/">
+      
+      
+        <link rel="prev" href="../iep-0019/">
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../images/iscc-logo-icon-black.svg">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>IEP-0020 - C2PA Conformance - ISCC Enhancement Proposals</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  <script defer data-domain="ieps.iscc.codes" src="https://stats.iscc.codes/js/plausible.js"></script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+  <link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#iscc-c2pa-conformance" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="ISCC Enhancement Proposals" class="md-header__button md-logo" aria-label="ISCC Enhancement Proposals" data-md-component="logo">
+      
+  <img src="../images/iscc-logo-icon-white.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            ISCC Enhancement Proposals
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              IEP-0020 - C2PA Conformance
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo" aria-label="Switch to light mode" type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"></path></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo" aria-label="Switch to dark mode" type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"></path></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/iscc/iscc-ieps" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"></path></svg>
+  </div>
+  <div class="md-source__repository">
+    iscc/iscc-ieps
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="ISCC Enhancement Proposals" class="md-nav__button md-logo" aria-label="ISCC Enhancement Proposals" data-md-component="logo">
+      
+  <img src="../images/iscc-logo-icon-white.svg" alt="logo">
+
+    </a>
+    ISCC Enhancement Proposals
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/iscc/iscc-ieps" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"></path></svg>
+  </div>
+  <div class="md-source__repository">
+    iscc/iscc-ieps
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../iep-0000/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    IEP-0000 - IEP Purpose
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../iep-0001/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    IEP-0001 - ISCC Structure
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../iep-0002/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    IEP-0002 - Meta-Code
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../iep-0003/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    IEP-0003 - Text-Code
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../iep-0004/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    IEP-0004 - Image-Code
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../iep-0005/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    IEP-0005 - Audio-Code
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../iep-0006/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    IEP-0006 - Video-Code
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../iep-0007/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    IEP-0007 - Mixed-Code
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../iep-0008/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    IEP-0008 - Data-Code
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../iep-0009/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    IEP-0009 - Instance-Code
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../iep-0010/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    IEP-0010 - ISCC-CODE
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../iep-0011/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    IEP-0011 - ISCC-ID
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../iep-0012/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    IEP-0012 - Metadata
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../iep-0013/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    IEP-0013 - Discovery Protocol
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../iep-0014/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    IEP-0014 - Transparency Log
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../iep-0015/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    IEP-0015 - DID Method
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../iep-0016/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    IEP-0016 - SubType WIDE
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../iep-0017/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    IEP-0017 - Treewalk
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../iep-0018/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    IEP-0018 - Imagewalk
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../iep-0019/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    IEP-0019 - ISCC Signature
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    IEP-0020 - C2PA Conformance
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    IEP-0020 - C2PA Conformance
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-introduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Introduction
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-scope" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Scope
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-terminology" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Terminology
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-soft-binding-value" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Soft Binding Value
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Soft Binding Value">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-iscc-seq-format" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 ISCC-SEQ Format
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-decoding" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 Decoding
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-assertion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3 Assertion
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-soft-binding-resolution-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Soft Binding Resolution API
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-security-considerations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Security Considerations
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-rationale" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Rationale
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-reference-implementation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Reference Implementation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-test-vectors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Test Vectors
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-references" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. References
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="10. References">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#101-normative" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10.1 Normative
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#102-informative" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10.2 Informative
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-introduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Introduction
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-scope" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Scope
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-terminology" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Terminology
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-soft-binding-value" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Soft Binding Value
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Soft Binding Value">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-iscc-seq-format" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 ISCC-SEQ Format
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-decoding" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 Decoding
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-assertion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3 Assertion
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-soft-binding-resolution-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Soft Binding Resolution API
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-security-considerations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Security Considerations
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-rationale" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Rationale
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-reference-implementation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Reference Implementation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-test-vectors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Test Vectors
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-references" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. References
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="10. References">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#101-normative" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10.1 Normative
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#102-informative" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10.2 Informative
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="iscc-c2pa-conformance"><abbr title="International Standard Content Code">ISCC</abbr> <abbr title="Coalition for Content Provenance and Authenticity">C2PA</abbr> Conformance<a class="headerlink" href="#iscc-c2pa-conformance" title="Permanent link">#</a></h1>
+<table>
+<thead>
+<tr>
+<th>IEP:</th>
+<th>0020</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Title:</td>
+<td><abbr title="International Standard Content Code">ISCC</abbr> <abbr title="Coalition for Content Provenance and Authenticity">C2PA</abbr> Conformance</td>
+</tr>
+<tr>
+<td>Author:</td>
+<td>Titusz Pan <a href="mailto:tp@iscc.io">tp@iscc.io</a></td>
+</tr>
+<tr>
+<td>Comments:</td>
+<td><a href="https://github.com/iscc/iscc-ieps/issues/28">https://github.com/iscc/iscc-ieps/issues/28</a></td>
+</tr>
+<tr>
+<td>Status:</td>
+<td>Draft</td>
+</tr>
+<tr>
+<td>Type:</td>
+<td>Core</td>
+</tr>
+<tr>
+<td>Standard:</td>
+<td>IEP</td>
+</tr>
+<tr>
+<td>License:</td>
+<td>CC-BY-4.0</td>
+</tr>
+<tr>
+<td>Created:</td>
+<td><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="September 24, 2026 16:49:06 UTC">2026-09-24</span></td>
+</tr>
+<tr>
+<td>Updated:</td>
+<td><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="September 24, 2026 16:49:06 UTC">2026-09-24</span></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This document is a <strong>DRAFT</strong>. It specifies how the <abbr title="International Standard Content Code">ISCC</abbr> is used within the <abbr title="Coalition for Content Provenance and Authenticity">C2PA</abbr> framework. This
+revision covers the value format of the <abbr title="Coalition for Content Provenance and Authenticity">C2PA</abbr> <abbr title="C2PA assertion value that binds a manifest to digital content through a fingerprint or watermark rather than a cryptographic hash">soft binding</abbr> <abbr title="set of instructions">algorithm</abbr> <code>io.iscc.v0</code> (entry 3 of the
+<a href="https://github.com/c2pa-org/softbinding-algorithm-list"><abbr title="Coalition for Content Provenance and Authenticity">C2PA</abbr> Soft Binding Algorithm List</a>). Later
+revisions will add further requirements, for example for resolution services.</p>
+</div>
+<h2 id="1-introduction">1. Introduction<a class="headerlink" href="#1-introduction" title="Permanent link">#</a></h2>
+<p>A <abbr title="Coalition for Content Provenance and Authenticity">C2PA</abbr> <abbr title="C2PA assertion value that binds a manifest to digital content through a fingerprint or watermark rather than a cryptographic hash">soft binding</abbr> is a fingerprint that identifies <abbr title="information organized to provide value to a user">content</abbr> after its manifest has been removed or
+the <abbr title="information organized to provide value to a user">content</abbr> has been re-encoded. The <abbr title="Coalition for Content Provenance and Authenticity">C2PA</abbr> Technical Specification delegates the value format of each
+<abbr title="C2PA assertion value that binds a manifest to digital content through a fingerprint or watermark rather than a cryptographic hash">soft binding</abbr> <abbr title="set of instructions">algorithm</abbr> to its registry entry, and the entry for <code>io.iscc.v0</code> defines none.</p>
+<p>This document defines that format. The value is an <abbr title="byte string formed by concatenating one or more ISCC-UNITs, each encoded as ISCC-HEADER followed by ISCC-BODY, without separators">ISCC-SEQ</abbr>, a <abbr title="sequence of 8 bits">byte</abbr> string that concatenates one or
+more 256-<abbr title="atomic unit of information in a computer system">bit</abbr> <abbr title="International Standard Content Code">ISCC</abbr>-UNITs of one asset. The <abbr title="Coalition for Content Provenance and Authenticity">C2PA</abbr> Soft Binding Resolution API carries the same bytes in
+base64.</p>
+<hr>
+<h2 id="2-scope">2. Scope<a class="headerlink" href="#2-scope" title="Permanent link">#</a></h2>
+<p>This document specifies:</p>
+<ol>
+<li>the <abbr title="byte string formed by concatenating one or more ISCC-UNITs, each encoded as ISCC-HEADER followed by ISCC-BODY, without separators">ISCC-SEQ</abbr> <abbr title="sequence of 8 bits">byte</abbr> format and its decoding;</li>
+<li>the value format of <code>c2pa.soft-binding</code> assertions with <code>alg</code> equal to <code>io.iscc.v0</code>;</li>
+<li>the value format of <code>io.iscc.v0</code> queries to the <abbr title="Coalition for Content Provenance and Authenticity">C2PA</abbr> Soft Binding Resolution API.</li>
+</ol>
+<p>The requirements apply to claim generators that write <abbr title="International Standard Content Code">ISCC</abbr> soft bindings and to validators and
+resolvers that read them. The selection of <abbr title="International Standard Content Code">ISCC</abbr>-UNITs, the inputs from which they are generated,
+comparison rules and matching thresholds are out of scope.</p>
+<hr>
+<h2 id="3-terminology">3. Terminology<a class="headerlink" href="#3-terminology" title="Permanent link">#</a></h2>
+<p>The terms <abbr title="ISCC composed of an ISCC-HEADER and an ISCC-BODY generated by a single algorithm">ISCC-UNIT</abbr>, <abbr title="self-describing header of every ISCC, composed of MainType, SubType, Version, and Length">ISCC-HEADER</abbr>, <abbr title="payload of an ISCC that follows the ISCC-HEADER; a similarity-preserving code, a cryptographic hash, or a timestamp depending on the ISCC type">ISCC-BODY</abbr>, <abbr title="ISCC composed of an ISCC-HEADER followed by an ISCC-BODY that concatenates the bodies of two or more headerless ISCC-UNITs, each generated by a different algorithm">ISCC-CODE</abbr>, MainType, SubType, Version and Length apply
+as defined in <abbr title="International Organization for Standardization">ISO</abbr> 24138:2024 and <a href="../iep-0001/">IEP-0001</a>. The terms <abbr title="C2PA assertion value that binds a manifest to digital content through a fingerprint or watermark rather than a cryptographic hash">soft binding</abbr>, block, claim
+generator, validator and resolver apply as defined in the <abbr title="Coalition for Content Provenance and Authenticity">C2PA</abbr> Technical Specification.</p>
+<p><strong><abbr title="byte string formed by concatenating one or more ISCC-UNITs, each encoded as ISCC-HEADER followed by ISCC-BODY, without separators">ISCC-SEQ</abbr></strong> : Byte string formed by concatenating one or more <abbr title="International Standard Content Code">ISCC</abbr>-UNITs, each encoded as its
+<abbr title="self-describing header of every ISCC, composed of MainType, SubType, Version, and Length">ISCC-HEADER</abbr> followed by its <abbr title="payload of an ISCC that follows the ISCC-HEADER; a similarity-preserving code, a cryptographic hash, or a timestamp depending on the ISCC type">ISCC-BODY</abbr>, without separators.</p>
+<hr>
+<h2 id="4-soft-binding-value">4. Soft Binding Value<a class="headerlink" href="#4-soft-binding-value" title="Permanent link">#</a></h2>
+<h3 id="41-iscc-seq-format">4.1 <abbr title="byte string formed by concatenating one or more ISCC-UNITs, each encoded as ISCC-HEADER followed by ISCC-BODY, without separators">ISCC-SEQ</abbr> Format<a class="headerlink" href="#41-iscc-seq-format" title="Permanent link">#</a></h3>
+<p>An <abbr title="byte string formed by concatenating one or more ISCC-UNITs, each encoded as ISCC-HEADER followed by ISCC-BODY, without separators">ISCC-SEQ</abbr> shall satisfy all of the following:</p>
+<ol>
+<li>It shall consist of one or more <abbr title="International Standard Content Code">ISCC</abbr>-UNITs of MainType META (0), SEMANTIC (1), CONTENT (2), DATA
+    (3) or INSTANCE (4).</li>
+<li>Each <abbr title="ISCC composed of an ISCC-HEADER and an ISCC-BODY generated by a single algorithm">ISCC-UNIT</abbr> shall be encoded as its <abbr title="self-describing header of every ISCC, composed of MainType, SubType, Version, and Length">ISCC-HEADER</abbr> immediately followed by its <abbr title="payload of an ISCC that follows the ISCC-HEADER; a similarity-preserving code, a cryptographic hash, or a timestamp depending on the ISCC type">ISCC-BODY</abbr>.</li>
+<li>Each <abbr title="self-describing header of every ISCC, composed of MainType, SubType, Version, and Length">ISCC-HEADER</abbr> shall use the variable-length <abbr title="half a byte, which can be represented by a single hexadecimal digit">nibble</abbr> encoding of <abbr title="International Organization for Standardization">ISO</abbr> 24138:2024, padded with one
+    zero <abbr title="half a byte, which can be represented by a single hexadecimal digit">nibble</abbr> where the number of nibbles is odd.</li>
+<li>Each Length field shall have a value from 0 to 7, denoting an <abbr title="payload of an ISCC that follows the ISCC-HEADER; a similarity-preserving code, a cryptographic hash, or a timestamp depending on the ISCC type">ISCC-BODY</abbr> of 32 × (Length + 1)
+    bits.</li>
+<li>The <abbr title="International Standard Content Code">ISCC</abbr>-UNITs shall be concatenated without separators, length prefixes or trailing bytes.</li>
+</ol>
+<p>The order of <abbr title="International Standard Content Code">ISCC</abbr>-UNITs is not significant. An <abbr title="byte string formed by concatenating one or more ISCC-UNITs, each encoded as ISCC-HEADER followed by ISCC-BODY, without separators">ISCC-SEQ</abbr> may contain several <abbr title="International Standard Content Code">ISCC</abbr>-UNITs with the same
+MainType, SubType and Version.</p>
+<p>NOTE 1: For the permitted MainTypes the <abbr title="payload of an ISCC that follows the ISCC-HEADER; a similarity-preserving code, a cryptographic hash, or a timestamp depending on the ISCC type">ISCC-BODY</abbr> length depends on the Length field only, so a
+decoder can delimit an <abbr title="ISCC composed of an ISCC-HEADER and an ISCC-BODY generated by a single algorithm">ISCC-UNIT</abbr> whose SubType or Version it does not know.</p>
+<p>NOTE 2: An <abbr title="byte string formed by concatenating one or more ISCC-UNITs, each encoded as ISCC-HEADER followed by ISCC-BODY, without separators">ISCC-SEQ</abbr> with a single <abbr title="ISCC composed of an ISCC-HEADER and an ISCC-BODY generated by a single algorithm">ISCC-UNIT</abbr> is the <abbr title="sequence of 8 bits">byte</abbr> encoding of that <abbr title="ISCC composed of an ISCC-HEADER and an ISCC-BODY generated by a single algorithm">ISCC-UNIT</abbr> as defined in <abbr title="International Organization for Standardization">ISO</abbr>
+24138:2024. For display, an <abbr title="byte string formed by concatenating one or more ISCC-UNITs, each encoded as ISCC-HEADER followed by ISCC-BODY, without separators">ISCC-SEQ</abbr> can be shown as <code>ISCC:</code> followed by the base32 encoding of the
+<abbr title="sequence of 8 bits">byte</abbr> string, in the same way as a single <abbr title="ISCC composed of an ISCC-HEADER and an ISCC-BODY generated by a single algorithm">ISCC-UNIT</abbr>.</p>
+<h3 id="42-decoding">4.2 Decoding<a class="headerlink" href="#42-decoding" title="Permanent link">#</a></h3>
+<p>A decoder shall process an <abbr title="byte string formed by concatenating one or more ISCC-UNITs, each encoded as ISCC-HEADER followed by ISCC-BODY, without separators">ISCC-SEQ</abbr> from offset 0 as follows:</p>
+<ol>
+<li>Decode the <abbr title="self-describing header of every ISCC, composed of MainType, SubType, Version, and Length">ISCC-HEADER</abbr> at the current offset. Reject the <abbr title="byte string formed by concatenating one or more ISCC-UNITs, each encoded as ISCC-HEADER followed by ISCC-BODY, without separators">ISCC-SEQ</abbr> if the bytes end before the
+    <abbr title="self-describing header of every ISCC, composed of MainType, SubType, Version, and Length">ISCC-HEADER</abbr> is complete, or if the <abbr title="self-describing header of every ISCC, composed of MainType, SubType, Version, and Length">ISCC-HEADER</abbr> bytes differ from the encoding of the decoded
+    fields according to <abbr title="byte string formed by concatenating one or more ISCC-UNITs, each encoded as ISCC-HEADER followed by ISCC-BODY, without separators">ISCC-SEQ</abbr> Format, item 3.</li>
+<li>Reject the <abbr title="byte string formed by concatenating one or more ISCC-UNITs, each encoded as ISCC-HEADER followed by ISCC-BODY, without separators">ISCC-SEQ</abbr> if the MainType is not permitted by <abbr title="byte string formed by concatenating one or more ISCC-UNITs, each encoded as ISCC-HEADER followed by ISCC-BODY, without separators">ISCC-SEQ</abbr> Format, item 1, or if the Length
+    field is greater than 7.</li>
+<li>Reject the <abbr title="byte string formed by concatenating one or more ISCC-UNITs, each encoded as ISCC-HEADER followed by ISCC-BODY, without separators">ISCC-SEQ</abbr> if fewer bytes remain than the <abbr title="payload of an ISCC that follows the ISCC-HEADER; a similarity-preserving code, a cryptographic hash, or a timestamp depending on the ISCC type">ISCC-BODY</abbr> requires.</li>
+<li>Emit the <abbr title="ISCC composed of an ISCC-HEADER and an ISCC-BODY generated by a single algorithm">ISCC-UNIT</abbr>, advance the offset past its <abbr title="payload of an ISCC that follows the ISCC-HEADER; a similarity-preserving code, a cryptographic hash, or a timestamp depending on the ISCC type">ISCC-BODY</abbr> and repeat while bytes remain.</li>
+</ol>
+<p>A decoder shall not reject an <abbr title="ISCC composed of an ISCC-HEADER and an ISCC-BODY generated by a single algorithm">ISCC-UNIT</abbr> solely because its SubType or Version is unknown to it. A
+decoder shall not alter, reorder or drop <abbr title="International Standard Content Code">ISCC</abbr>-UNITs.</p>
+<h3 id="43-assertion">4.3 Assertion<a class="headerlink" href="#43-assertion" title="Permanent link">#</a></h3>
+<p>A <code>c2pa.soft-binding</code> assertion that carries <abbr title="International Standard Content Code">ISCC</abbr> soft bindings shall satisfy Table 1.</p>
+<p style="text-align:center; font-size:smaller"><strong>Table 1 – <code>c2pa.soft-binding</code> fields for <code>io.iscc.v0</code></strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Field</strong></th>
+<th><strong>Requirement</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>alg</code></td>
+<td>shall be <code>io.iscc.v0</code></td>
+</tr>
+<tr>
+<td><code>blocks[].value</code></td>
+<td>shall be a <abbr title="Concise Binary Object Representation (RFC 8949), the binary serialization of C2PA manifests">CBOR</abbr> <abbr title="sequence of 8 bits">byte</abbr> string (major type 2) whose <abbr title="information organized to provide value to a user">content</abbr> is an <abbr title="byte string formed by concatenating one or more ISCC-UNITs, each encoded as ISCC-HEADER followed by ISCC-BODY, without separators">ISCC-SEQ</abbr></td>
+</tr>
+<tr>
+<td><code>alg-params</code></td>
+<td>shall be absent</td>
+</tr>
+</tbody>
+</table>
+<p>Every <abbr title="ISCC composed of an ISCC-HEADER and an ISCC-BODY generated by a single algorithm">ISCC-UNIT</abbr> in an <code>io.iscc.v0</code> value shall have Version 0 and a 256-<abbr title="atomic unit of information in a computer system">bit</abbr> <abbr title="payload of an ISCC that follows the ISCC-HEADER; a similarity-preserving code, a cryptographic hash, or a timestamp depending on the ISCC type">ISCC-BODY</abbr> (Length field
+7). A validator or resolver shall ignore, for matching, any <abbr title="ISCC composed of an ISCC-HEADER and an ISCC-BODY generated by a single algorithm">ISCC-UNIT</abbr> whose SubType it does not
+support or whose <abbr title="payload of an ISCC that follows the ISCC-HEADER; a similarity-preserving code, a cryptographic hash, or a timestamp depending on the ISCC type">ISCC-BODY</abbr> is shorter than 256 bits.</p>
+<p>NOTE: <code>io.iscc.v0</code> identifies the Version 0 algorithms of <abbr title="International Organization for Standardization">ISO</abbr> 24138:2024. <abbr title="International Standard Content Code">ISCC</abbr>-UNITs of another
+Version require a new registry entry.</p>
+<div class="admonition example">
+<p class="admonition-title">Whole-asset value with Meta-, Content-, Data- and Instance-Code (256 bits each)</p>
+<p><code>blocks[].value</code> is the 136-<abbr title="sequence of 8 bits">byte</abbr> <abbr title="byte string formed by concatenating one or more ISCC-UNITs, each encoded as ISCC-HEADER followed by ISCC-BODY, without separators">ISCC-SEQ</abbr> of Test Vector 1; its <abbr title="Concise Binary Object Representation (RFC 8949), the binary serialization of C2PA manifests">CBOR</abbr> encoding starts with <code>58 88</code>
+(<abbr title="sequence of 8 bits">byte</abbr> string, length 136). With the reference implementation:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">base64</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">iscc_core</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">ic</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="n">units</span> <span class="o">=</span> <span class="p">[</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>    <span class="s2">"ISCC:AADVPDD4R6733NMPFH3D57VTQ4KVH6VHL74XIWGUT37V5ZG56NV3NSI"</span><span class="p">,</span>  <span class="c1"># Meta-Code</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>    <span class="s2">"ISCC:EAD2RASIYU5IKLENP2OFI4CHZGRWYQCSW2WKX3Y6FJGOCXSYNYGLGBI"</span><span class="p">,</span>  <span class="c1"># Content-Code Text</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>    <span class="s2">"ISCC:GADQLNA7GRZESMRF2J7NZPNWGI3II2ST5YUN5SS6GVQ2ZQGJXPPYDNI"</span><span class="p">,</span>  <span class="c1"># Data-Code</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>    <span class="s2">"ISCC:IAD2KIVPJIWJZP3KQCESJL6SVT5APEZUPOJWM6HVTAXCF7OT3VFA4NY"</span><span class="p">,</span>  <span class="c1"># Instance-Code</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="p">]</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="c1"># Claim generator: content of blocks[].value (CBOR byte string)</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="n">value</span> <span class="o">=</span> <span class="n">ic</span><span class="o">.</span><span class="n">encode_seq</span><span class="p">(</span><span class="n">units</span><span class="p">)</span>  <span class="c1"># 136 bytes</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="c1"># Soft Binding Resolution API: value parameter or body member</span>
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="n">query</span> <span class="o">=</span> <span class="n">base64</span><span class="o">.</span><span class="n">b64encode</span><span class="p">(</span><span class="n">value</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">"ascii"</span><span class="p">)</span>  <span class="c1"># RFC 4648 section 4, padded</span>
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="c1"># Validator or resolver: back to ISCC-UNITs</span>
+<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="k">assert</span> <span class="n">ic</span><span class="o">.</span><span class="n">decode_seq</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="o">==</span> <span class="n">units</span>
+<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="k">assert</span> <span class="n">ic</span><span class="o">.</span><span class="n">decode_seq</span><span class="p">(</span><span class="n">base64</span><span class="o">.</span><span class="n">b64decode</span><span class="p">(</span><span class="n">query</span><span class="p">))</span> <span class="o">==</span> <span class="n">units</span>
+<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>
+<a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a><span class="c1"># Display</span>
+<a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a><span class="n">text</span> <span class="o">=</span> <span class="s2">"ISCC:"</span> <span class="o">+</span> <span class="n">ic</span><span class="o">.</span><span class="n">encode_base32</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<hr>
+<h2 id="5-soft-binding-resolution-api">5. Soft Binding Resolution API<a class="headerlink" href="#5-soft-binding-resolution-api" title="Permanent link">#</a></h2>
+<ol>
+<li>The <code>alg</code> parameter or member shall be <code>io.iscc.v0</code>.</li>
+<li>The <code>value</code> parameter of <code>GET /matches/byBinding</code> and the <code>value</code> member of the
+    <code>POST /matches/byBinding</code> request body shall be the RFC 4648 section 4 (base64) encoding of the
+    <abbr title="byte string formed by concatenating one or more ISCC-UNITs, each encoded as ISCC-HEADER followed by ISCC-BODY, without separators">ISCC-SEQ</abbr> <abbr title="sequence of 8 bits">byte</abbr> string, with padding characters.</li>
+<li>In a <code>GET</code> request the base64 string shall be percent-encoded.</li>
+<li>A query <abbr title="byte string formed by concatenating one or more ISCC-UNITs, each encoded as ISCC-HEADER followed by ISCC-BODY, without separators">ISCC-SEQ</abbr> may contain any non-empty subset of the <abbr title="International Standard Content Code">ISCC</abbr>-UNITs stored for an asset.</li>
+</ol>
+<p>NOTE: The <abbr title="Coalition for Content Provenance and Authenticity">C2PA</abbr> specification requires "a base64-encoded string" without naming an alphabet or
+padding. All other base64 uses in the <abbr title="Coalition for Content Provenance and Authenticity">C2PA</abbr> specification and its reference implementation are RFC
+4648 section 4 with padding.</p>
+<hr>
+<h2 id="6-security-considerations">6. Security Considerations<a class="headerlink" href="#6-security-considerations" title="Permanent link">#</a></h2>
+<p>An <abbr title="byte string formed by concatenating one or more ISCC-UNITs, each encoded as ISCC-HEADER followed by ISCC-BODY, without separators">ISCC-SEQ</abbr> is a fingerprint, not a proof of integrity. The Decoding rules reject malformed framing
+without attempting recovery. They do not detect changes that preserve structural validity. Integrity
+protection within a <abbr title="Coalition for Content Provenance and Authenticity">C2PA</abbr> manifest depends on claim signature validation. Unsigned Resolution API
+queries lack this protection.</p>
+<hr>
+<h2 id="7-rationale">7. Rationale<a class="headerlink" href="#7-rationale" title="Permanent link">#</a></h2>
+<ul>
+<li><strong>Byte string, not text.</strong> The <abbr title="Coalition for Content Provenance and Authenticity">C2PA</abbr> CDDL declares <code>value</code> as a <abbr title="sequence of 8 bits">byte</abbr> string and the Resolution API
+    base64-encodes it. Text inside the <abbr title="sequence of 8 bits">byte</abbr> string would add a second encoding layer and enlarge the
+    value by two thirds.</li>
+<li><strong>Plain concatenation.</strong> The <abbr title="self-describing header of every ISCC, composed of MainType, SubType, Version, and Length">ISCC-HEADER</abbr> makes each <abbr title="ISCC composed of an ISCC-HEADER and an ISCC-BODY generated by a single algorithm">ISCC-UNIT</abbr> self-delimiting, so no envelope,
+    count, separator or version field is needed, and a single <abbr title="ISCC composed of an ISCC-HEADER and an ISCC-BODY generated by a single algorithm">ISCC-UNIT</abbr> is a valid <abbr title="byte string formed by concatenating one or more ISCC-UNITs, each encoded as ISCC-HEADER followed by ISCC-BODY, without separators">ISCC-SEQ</abbr>. A
+    format change requires a new registry entry.</li>
+<li><strong>256-<abbr title="atomic unit of information in a computer system">bit</abbr> <abbr title="International Standard Content Code">ISCC</abbr>-UNITs.</strong> Soft binding resolution is a lookup in a catalog of unbounded size, where
+    shorter <abbr title="International Standard Content Code">ISCC</abbr>-UNITs collide at random. <a href="../iep-0013/">IEP-0013</a> relies on 256-<abbr title="atomic unit of information in a computer system">bit</abbr> <abbr title="International Standard Content Code">ISCC</abbr>-UNITs for
+    matching declarations across <abbr title="International Standard Content Code">ISCC</abbr>-HUBs for the same reason.</li>
+<li><strong>Standard base64 with padding.</strong> It is the only base64 form used by the <abbr title="Coalition for Content Provenance and Authenticity">C2PA</abbr> specification and
+    its reference implementation.</li>
+</ul>
+<hr>
+<h2 id="8-reference-implementation">8. Reference Implementation<a class="headerlink" href="#8-reference-implementation" title="Permanent link">#</a></h2>
+<p>iscc-core 1.4.0 provides <code>encode_seq</code> (<abbr title="ISCC composed of an ISCC-HEADER and an ISCC-BODY generated by a single algorithm">ISCC-UNIT</abbr> strings to <abbr title="byte string formed by concatenating one or more ISCC-UNITs, each encoded as ISCC-HEADER followed by ISCC-BODY, without separators">ISCC-SEQ</abbr> bytes) and <code>decode_seq</code>
+(<abbr title="byte string formed by concatenating one or more ISCC-UNITs, each encoded as ISCC-HEADER followed by ISCC-BODY, without separators">ISCC-SEQ</abbr> bytes to <abbr title="ISCC composed of an ISCC-HEADER and an ISCC-BODY generated by a single algorithm">ISCC-UNIT</abbr> strings) together with conformance test vectors. Entry 3 of the <abbr title="Coalition for Content Provenance and Authenticity">C2PA</abbr>
+Soft Binding Algorithm List should reference this document as its <code>informationalUrl</code>.</p>
+<hr>
+<h2 id="9-test-vectors">9. Test Vectors<a class="headerlink" href="#9-test-vectors" title="Permanent link">#</a></h2>
+<p>Conforming encoders shall produce, and conforming decoders shall accept, the following <abbr title="sequence of 8 bits">byte</abbr> strings.</p>
+<p><strong>Vector 1</strong> – the four <abbr title="International Standard Content Code">ISCC</abbr>-UNITs of the example above, in the given order:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>bytes (hex):
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>0007578c7c8fbfbdb58f29f63efeb3871553faa75ff97458d49eff5ee4ddf36bb6c92007a88248c53a852c8d7e9c547047c9a36c4052b6acabef1e2a4ce15e586e0cb305300705b41f3472493225d27edcbdb63236846a53ee28deca5e3561acc0c9bbdf81b54007a522af4a2c9cbf6a808924afd2acfa0793347b936678f5982e22fdd3dd4a0e37
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>Resolution API value:
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>AAdXjHyPv721jyn2Pv6zhxVT+qdf+XRY1J7/XuTd82u2ySAHqIJIxTqFLI1+nFRwR8mjbEBStqyr7x4qTOFeWG4MswUwBwW0HzRySTIl0n7cvbYyNoRqU+4o3speNWGswMm734G1QAelIq9KLJy/aoCJJK/SrPoHkzR7k2Z49ZguIv3T3UoONw==
+</code></pre></div>
+<p><strong>Vector 2</strong> – mixed lengths with two CONTENT SubTypes, <code>ISCC:EEAYYNMFG5XOELK2</code> (Image, 64 bits),
+<code>ISCC:EIBZ6B7T76PAAYP7H334X77754376</code> (Audio, 128 bits) and
+<code>ISCC:GADQLNA7GRZESMRF2J7NZPNWGI3II2ST5YUN5SS6GVQ2ZQGJXPPYDNI</code> (Data, 256 bits):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>21018c3585376ee22d5a22039f07f3ff9e0061ff3ef7cbffffef37ff300705b41f3472493225d27edcbdb63236846a53ee28deca5e3561acc0c9bbdf81b5
+</code></pre></div>
+<p>Conforming decoders shall reject the <abbr title="sequence of 8 bits">byte</abbr> strings in Table 2.</p>
+<p style="text-align:center; font-size:smaller"><strong>Table 2 – Byte strings that decoders shall reject</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Bytes (hex)</strong></th>
+<th><strong>Reason</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>(empty)</td>
+<td>no <abbr title="ISCC composed of an ISCC-HEADER and an ISCC-BODY generated by a single algorithm">ISCC-UNIT</abbr></td>
+</tr>
+<tr>
+<td><code>28000100000000</code></td>
+<td>nonzero header padding <abbr title="half a byte, which can be represented by a single hexadecimal digit">nibble</abbr> (valid form <code>28000000000000</code>)</td>
+</tr>
+<tr>
+<td><code>200800</code> followed by 36 zero bytes</td>
+<td>Length field 8</td>
+</tr>
+<tr>
+<td><code>3000000000</code></td>
+<td><abbr title="payload of an ISCC that follows the ISCC-HEADER; a similarity-preserving code, a cryptographic hash, or a timestamp depending on the ISCC type">ISCC-BODY</abbr> truncated (32-<abbr title="atomic unit of information in a computer system">bit</abbr> Data-Code with 3 body bytes)</td>
+</tr>
+<tr>
+<td><code>30000000000000</code></td>
+<td>trailing <abbr title="sequence of 8 bits">byte</abbr> after a complete <abbr title="ISCC composed of an ISCC-HEADER and an ISCC-BODY generated by a single algorithm">ISCC-UNIT</abbr></td>
+</tr>
+<tr>
+<td><code>5005578c7c8fbfbdb58fa88248c53a852c8d05b41f3472493225a522af4a2c9cbf6a</code></td>
+<td><abbr title="ISCC composed of an ISCC-HEADER followed by an ISCC-BODY that concatenates the bodies of two or more headerless ISCC-UNITs, each generated by a different algorithm">ISCC-CODE</abbr> (MainType 5)</td>
+</tr>
+<tr>
+<td><code>60100000000000000000</code></td>
+<td><abbr title="owned identifier issued by an ISCC-HUB, globally unique within its realm, whose 64-bit ISCC-BODY combines a 52-bit microsecond timestamp with a 12-bit HUB-ID">ISCC-ID</abbr> (MainType 6)</td>
+</tr>
+</tbody>
+</table>
+<p>Conforming decoders shall accept <code>270000000000</code> (CONTENT, SubType 7, Version 0, 32 bits) and return
+<code>ISCC:E4AAAAAAAA</code>, although SubType 7 is not defined by <abbr title="International Organization for Standardization">ISO</abbr> 24138:2024.</p>
+<p>NOTE: Vector 2 and the 32-<abbr title="atomic unit of information in a computer system">bit</abbr> acceptance test exercise the <abbr title="byte string formed by concatenating one or more ISCC-UNITs, each encoded as ISCC-HEADER followed by ISCC-BODY, without separators">ISCC-SEQ</abbr> codec only. Neither is a
+conforming <code>io.iscc.v0</code> value, which requires 256-<abbr title="atomic unit of information in a computer system">bit</abbr> <abbr title="International Standard Content Code">ISCC</abbr>-UNITs.</p>
+<hr>
+<h2 id="10-references">10. References<a class="headerlink" href="#10-references" title="Permanent link">#</a></h2>
+<h3 id="101-normative">10.1 Normative<a class="headerlink" href="#101-normative" title="Permanent link">#</a></h3>
+<ul>
+<li><abbr title="International Organization for Standardization">ISO</abbr> 24138:2024 - International Standard Content Code</li>
+<li><a href="../iep-0001/">IEP-0001</a> - <abbr title="International Standard Content Code">ISCC</abbr> Structure and Format</li>
+<li><abbr title="Coalition for Content Provenance and Authenticity">C2PA</abbr> Technical Specification 2.4, Soft Binding assertion:
+    <a href="https://spec.c2pa.org/specifications/specifications/2.4/specs/C2PA_Specification.html#soft_binding_assertion">https://spec.c2pa.org/specifications/specifications/2.4/specs/C2PA_Specification.html#soft_binding_assertion</a></li>
+<li><abbr title="Coalition for Content Provenance and Authenticity">C2PA</abbr> Soft Binding Resolution API 2.4:
+    <a href="https://spec.c2pa.org/specifications/specifications/2.4/softbinding/Decoupled.html">https://spec.c2pa.org/specifications/specifications/2.4/softbinding/Decoupled.html</a></li>
+<li>RFC 4648 - The Base16, Base32, and Base64 Data Encodings</li>
+<li>RFC 8949 - Concise Binary Object Representation (<abbr title="Concise Binary Object Representation (RFC 8949), the binary serialization of C2PA manifests">CBOR</abbr>)</li>
+</ul>
+<h3 id="102-informative">10.2 Informative<a class="headerlink" href="#102-informative" title="Permanent link">#</a></h3>
+<ul>
+<li><a href="../iep-0013/">IEP-0013</a> - <abbr title="International Standard Content Code">ISCC</abbr> Discovery Protocol</li>
+<li><abbr title="Coalition for Content Provenance and Authenticity">C2PA</abbr> Soft Binding Algorithm List: <a href="https://github.com/c2pa-org/softbinding-algorithm-list">https://github.com/c2pa-org/softbinding-algorithm-list</a></li>
+<li>Reference implementation: <a href="https://github.com/iscc/iscc-core">https://github.com/iscc/iscc-core</a></li>
+</ul>
+
+
+
+
+
+
+
+  
+    
+  
+  
+    
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Last update">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"></path></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="September 24, 2026 16:49:06 UTC">2026-09-24</span>
+  </span>
+
+    
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Created">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"></path></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="September 24, 2026 16:49:06 UTC">2026-09-24</span>
+  </span>
+
+    
+    
+    
+  </aside>
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": [], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>
