@@ -38,3 +38,4 @@ the historical record of the feature proposal.
 | [IEP-0017](ieps/iep-0017.md) | Treewalk - Deterministic Traversal  | Core    | Draft     | IEP            |
 | [IEP-0018](ieps/iep-0018.md) | Imagewalk - Deterministic Traversal | Core    | Draft     | IEP            |
 | [IEP-0019](ieps/iep-0019.md) | ISCC Signature                      | Core    | Draft     | IEP            |
+| [IEP-0020](ieps/iep-0020.md) | ISCC C2PA Conformance               | Core    | Draft     | IEP            |
