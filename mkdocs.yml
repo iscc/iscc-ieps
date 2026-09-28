@@ -4,6 +4,10 @@ site_author: 'Titusz Pan'
 site_url: 'https://ieps.iscc.codes'
 docs_dir: ieps
 
+# Snippet sources auto-appended via pymdownx.snippets, not standalone pages
+exclude_docs: |
+  includes/
+
 watch:
   - ieps
   - mkdocs.yml
