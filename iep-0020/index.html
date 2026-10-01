@@ -1050,10 +1050,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#9-rationale" class="md-nav__link">
+  <a href="#9-reference-implementation" class="md-nav__link">
     <span class="md-ellipsis">
       
-        9. Rationale
+        9. Reference Implementation
       
     </span>
   </a>
@@ -1061,10 +1061,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#10-reference-implementation" class="md-nav__link">
+  <a href="#10-test-vectors" class="md-nav__link">
     <span class="md-ellipsis">
       
-        10. Reference Implementation
+        10. Test Vectors
       
     </span>
   </a>
@@ -1072,33 +1072,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#11-test-vectors" class="md-nav__link">
+  <a href="#11-references" class="md-nav__link">
     <span class="md-ellipsis">
       
-        11. Test Vectors
+        11. References
       
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#12-references" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        12. References
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="12. References">
+    <nav class="md-nav" aria-label="11. References">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#121-normative" class="md-nav__link">
+  <a href="#111-normative" class="md-nav__link">
     <span class="md-ellipsis">
       
-        12.1 Normative
+        11.1 Normative
       
     </span>
   </a>
@@ -1106,10 +1095,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#122-informative" class="md-nav__link">
+  <a href="#112-informative" class="md-nav__link">
     <span class="md-ellipsis">
       
-        12.2 Informative
+        11.2 Informative
       
     </span>
   </a>
@@ -1311,10 +1300,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#9-rationale" class="md-nav__link">
+  <a href="#9-reference-implementation" class="md-nav__link">
     <span class="md-ellipsis">
       
-        9. Rationale
+        9. Reference Implementation
       
     </span>
   </a>
@@ -1322,10 +1311,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#10-reference-implementation" class="md-nav__link">
+  <a href="#10-test-vectors" class="md-nav__link">
     <span class="md-ellipsis">
       
-        10. Reference Implementation
+        10. Test Vectors
       
     </span>
   </a>
@@ -1333,33 +1322,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#11-test-vectors" class="md-nav__link">
+  <a href="#11-references" class="md-nav__link">
     <span class="md-ellipsis">
       
-        11. Test Vectors
+        11. References
       
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#12-references" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        12. References
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="12. References">
+    <nav class="md-nav" aria-label="11. References">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#121-normative" class="md-nav__link">
+  <a href="#111-normative" class="md-nav__link">
     <span class="md-ellipsis">
       
-        12.1 Normative
+        11.1 Normative
       
     </span>
   </a>
@@ -1367,10 +1345,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#122-informative" class="md-nav__link">
+  <a href="#112-informative" class="md-nav__link">
     <span class="md-ellipsis">
       
-        12.2 Informative
+        11.2 Informative
       
     </span>
   </a>
@@ -1445,7 +1423,7 @@
 </tr>
 <tr>
 <td>Updated:</td>
-<td><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="September 28, 2026 09:35:45 UTC">2026-09-28</span></td>
+<td><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="October 1, 2026 09:18:54 UTC">2026-10-01</span></td>
 </tr>
 </tbody>
 </table>
@@ -1458,12 +1436,13 @@ input from which its <abbr title="International Standard Content Code">ISCC</abb
 revisions will add further requirements, for example for resolution services.</p>
 </div>
 <h2 id="1-introduction">1. Introduction<a class="headerlink" href="#1-introduction" title="Permanent link">#</a></h2>
-<p>A <abbr title="Coalition for Content Provenance and Authenticity">C2PA</abbr> <abbr title="C2PA assertion value that binds a manifest to digital content through a fingerprint or watermark rather than a cryptographic hash">soft binding</abbr> is a fingerprint that identifies <abbr title="information organized to provide value to a user">content</abbr> after its manifest has been removed or
-the <abbr title="information organized to provide value to a user">content</abbr> has been re-encoded. The <abbr title="Coalition for Content Provenance and Authenticity">C2PA</abbr> Technical Specification delegates the value format of each
-<abbr title="C2PA assertion value that binds a manifest to digital content through a fingerprint or watermark rather than a cryptographic hash">soft binding</abbr> <abbr title="set of instructions">algorithm</abbr> to its registry entry.</p>
-<p>This document defines the format for the <code>io.iscc.v0</code> <abbr title="Coalition for Content Provenance and Authenticity">C2PA</abbr> Soft Binding registry entry. The value is
-an <abbr title="byte string formed by concatenating one or more ISCC-UNITs, each encoded as ISCC-HEADER followed by ISCC-BODY, without separators">ISCC-SEQ</abbr>, a <abbr title="sequence of 8 bits">byte</abbr> string that concatenates one or more 256-<abbr title="atomic unit of information in a computer system">bit</abbr> <abbr title="International Standard Content Code">ISCC</abbr>-UNITs of one asset. The <abbr title="Coalition for Content Provenance and Authenticity">C2PA</abbr>
-Soft Binding Resolution API carries the same bytes in base64.</p>
+<p>A <abbr title="Coalition for Content Provenance and Authenticity">C2PA</abbr> <abbr title="C2PA assertion value that binds a manifest to digital content through a fingerprint or watermark rather than a cryptographic hash">soft binding</abbr> identifies <abbr title="information organized to provide value to a user">content</abbr> after its <abbr title="Coalition for Content Provenance and Authenticity">C2PA</abbr> Manifest has been removed or the <abbr title="information organized to provide value to a user">content</abbr> has
+been re-encoded. The <abbr title="Coalition for Content Provenance and Authenticity">C2PA</abbr> Technical Specification leaves the value format of each <abbr title="C2PA assertion value that binds a manifest to digital content through a fingerprint or watermark rather than a cryptographic hash">soft binding</abbr>
+<abbr title="set of instructions">algorithm</abbr> to the registry entry of that <abbr title="set of instructions">algorithm</abbr>.</p>
+<p>This document defines the value format of the registry entry <code>io.iscc.v0</code>. The value is an <abbr title="byte string formed by concatenating one or more ISCC-UNITs, each encoded as ISCC-HEADER followed by ISCC-BODY, without separators">ISCC-SEQ</abbr>,
+a <abbr title="sequence of 8 bits">byte</abbr> string of concatenated <abbr title="International Standard Content Code">ISCC</abbr>-UNITs. In a <abbr title="Coalition for Content Provenance and Authenticity">C2PA</abbr> Manifest, the <abbr title="International Standard Content Code">ISCC</abbr>-UNITs are 256 bits long and
+include at least a Data-Code and an Instance-Code. The <abbr title="Coalition for Content Provenance and Authenticity">C2PA</abbr> Soft Binding Resolution API carries an
+<abbr title="byte string formed by concatenating one or more ISCC-UNITs, each encoded as ISCC-HEADER followed by ISCC-BODY, without separators">ISCC-SEQ</abbr> in base64.</p>
 <hr>
 <h2 id="2-scope">2. Scope<a class="headerlink" href="#2-scope" title="Permanent link">#</a></h2>
 <p>This document specifies:</p>
@@ -1480,12 +1459,14 @@ resolvers that read them.</p>
 <hr>
 <h2 id="3-terminology">3. Terminology<a class="headerlink" href="#3-terminology" title="Permanent link">#</a></h2>
 <p>The terms <abbr title="ISCC composed of an ISCC-HEADER and an ISCC-BODY generated by a single algorithm">ISCC-UNIT</abbr>, <abbr title="self-describing header of every ISCC, composed of MainType, SubType, Version, and Length">ISCC-HEADER</abbr>, <abbr title="payload of an ISCC that follows the ISCC-HEADER; a similarity-preserving code, a cryptographic hash, or a timestamp depending on the ISCC type">ISCC-BODY</abbr>, <abbr title="ISCC composed of an ISCC-HEADER followed by an ISCC-BODY that concatenates the bodies of two or more headerless ISCC-UNITs, each generated by a different algorithm">ISCC-CODE</abbr>, MainType, SubType, Version and Length apply
-as defined in <abbr title="International Organization for Standardization">ISO</abbr> 24138:2024 and <a href="../iep-0001/">IEP-0001</a>. The terms <abbr title="C2PA assertion value that binds a manifest to digital content through a fingerprint or watermark rather than a cryptographic hash">soft binding</abbr>, block, claim
-generator, validator, resolver, active manifest, <abbr title="Coalition for Content Provenance and Authenticity">C2PA</abbr> Manifest Store, claim signature, hashed URI,
-hard binding, <abbr title="ordered sequence of bits">data</abbr> <abbr title="result of processing data with a hash algorithm">hash</abbr> assertion, exclusion range and ingredient apply as defined in the <abbr title="Coalition for Content Provenance and Authenticity">C2PA</abbr>
-Technical Specification.</p>
+as defined in <abbr title="International Organization for Standardization">ISO</abbr> 24138:2024 and <a href="../iep-0001/">IEP-0001</a>. The terms <abbr title="C2PA assertion value that binds a manifest to digital content through a fingerprint or watermark rather than a cryptographic hash">soft binding</abbr>, claim generator,
+validator, resolver, <abbr title="Coalition for Content Provenance and Authenticity">C2PA</abbr> Manifest, active manifest, <abbr title="Coalition for Content Provenance and Authenticity">C2PA</abbr> Manifest Store, claim signature, hashed
+URI, hard binding, <abbr title="ordered sequence of bits">data</abbr> <abbr title="result of processing data with a hash algorithm">hash</abbr> assertion and exclusion range apply as defined in the <abbr title="Coalition for Content Provenance and Authenticity">C2PA</abbr> Technical
+Specification.</p>
 <p><strong><abbr title="byte string formed by concatenating one or more ISCC-UNITs, each encoded as ISCC-HEADER followed by ISCC-BODY, without separators">ISCC-SEQ</abbr></strong> : <abbr title="sequence of 8 bits">byte</abbr> string formed by concatenating one or more <abbr title="International Standard Content Code">ISCC</abbr>-UNITs, each encoded as its
 <abbr title="self-describing header of every ISCC, composed of MainType, SubType, Version, and Length">ISCC-HEADER</abbr> followed by its <abbr title="payload of an ISCC that follows the ISCC-HEADER; a similarity-preserving code, a cryptographic hash, or a timestamp depending on the ISCC type">ISCC-BODY</abbr>, without separators</p>
+<p><strong><abbr title="International Standard Content Code">ISCC</abbr> <abbr title="C2PA assertion value that binds a manifest to digital content through a fingerprint or watermark rather than a cryptographic hash">soft binding</abbr></strong> : <abbr title="byte string formed by concatenating one or more ISCC-UNITs, each encoded as ISCC-HEADER followed by ISCC-BODY, without separators">ISCC-SEQ</abbr> that is a <code>blocks[].value</code> of a <code>c2pa.soft-binding</code> assertion with
+<code>alg</code> equal to <code>io.iscc.v0</code></p>
 <p><strong>source</strong> : complete <abbr title="sequence of 8 bits">byte</abbr> <abbr title="data in transit with a known or unknown number of bits">stream</abbr> into which a claim generator embeds a <abbr title="Coalition for Content Provenance and Authenticity">C2PA</abbr> Manifest Store,
 including any <abbr title="Coalition for Content Provenance and Authenticity">C2PA</abbr> Manifest Store that the <abbr title="sequence of 8 bits">byte</abbr> <abbr title="data in transit with a known or unknown number of bits">stream</abbr> already contains</p>
 <p><strong>source view</strong> : <abbr title="sequence of 8 bits">byte</abbr> <abbr title="data in transit with a known or unknown number of bits">stream</abbr> formed by the bytes of a signed asset outside the exclusion ranges of
@@ -1501,32 +1482,35 @@ the <abbr title="ordered sequence of bits">data</abbr> <abbr title="result of pr
 <li>Each <abbr title="ISCC composed of an ISCC-HEADER and an ISCC-BODY generated by a single algorithm">ISCC-UNIT</abbr> shall be encoded as its <abbr title="self-describing header of every ISCC, composed of MainType, SubType, Version, and Length">ISCC-HEADER</abbr> immediately followed by its <abbr title="payload of an ISCC that follows the ISCC-HEADER; a similarity-preserving code, a cryptographic hash, or a timestamp depending on the ISCC type">ISCC-BODY</abbr>.</li>
 <li>Each <abbr title="self-describing header of every ISCC, composed of MainType, SubType, Version, and Length">ISCC-HEADER</abbr> shall use the variable-length <abbr title="half a byte, which can be represented by a single hexadecimal digit">nibble</abbr> encoding of <abbr title="International Organization for Standardization">ISO</abbr> 24138:2024, padded with one
     zero <abbr title="half a byte, which can be represented by a single hexadecimal digit">nibble</abbr> where the number of nibbles is odd.</li>
-<li>Each Length field shall have a value from 0 to 7, denoting an <abbr title="payload of an ISCC that follows the ISCC-HEADER; a similarity-preserving code, a cryptographic hash, or a timestamp depending on the ISCC type">ISCC-BODY</abbr> of 32 × (Length + 1)
-    bits.</li>
+<li>Each Length field shall have a value from 0 to 7. The <abbr title="payload of an ISCC that follows the ISCC-HEADER; a similarity-preserving code, a cryptographic hash, or a timestamp depending on the ISCC type">ISCC-BODY</abbr> then has 32 × (Length + 1) bits.</li>
 <li>The <abbr title="International Standard Content Code">ISCC</abbr>-UNITs shall be concatenated without separators, length prefixes or trailing bytes.</li>
 </ol>
 <p>The order of <abbr title="International Standard Content Code">ISCC</abbr>-UNITs is not significant. An <abbr title="byte string formed by concatenating one or more ISCC-UNITs, each encoded as ISCC-HEADER followed by ISCC-BODY, without separators">ISCC-SEQ</abbr> may contain several <abbr title="International Standard Content Code">ISCC</abbr>-UNITs with the same
 MainType, SubType and Version.</p>
-<p>NOTE 1: For the permitted MainTypes the <abbr title="payload of an ISCC that follows the ISCC-HEADER; a similarity-preserving code, a cryptographic hash, or a timestamp depending on the ISCC type">ISCC-BODY</abbr> length depends on the Length field only, so a
-decoder can delimit an <abbr title="ISCC composed of an ISCC-HEADER and an ISCC-BODY generated by a single algorithm">ISCC-UNIT</abbr> whose SubType or Version it does not know.</p>
-<p>NOTE 2: An <abbr title="byte string formed by concatenating one or more ISCC-UNITs, each encoded as ISCC-HEADER followed by ISCC-BODY, without separators">ISCC-SEQ</abbr> with a single <abbr title="ISCC composed of an ISCC-HEADER and an ISCC-BODY generated by a single algorithm">ISCC-UNIT</abbr> is the <abbr title="sequence of 8 bits">byte</abbr> encoding of that <abbr title="ISCC composed of an ISCC-HEADER and an ISCC-BODY generated by a single algorithm">ISCC-UNIT</abbr> as defined in <abbr title="International Organization for Standardization">ISO</abbr>
-24138:2024. For display, an <abbr title="byte string formed by concatenating one or more ISCC-UNITs, each encoded as ISCC-HEADER followed by ISCC-BODY, without separators">ISCC-SEQ</abbr> can be shown as <code>ISCC:</code> followed by the base32 encoding of the
-<abbr title="sequence of 8 bits">byte</abbr> string, in the same way as a single <abbr title="ISCC composed of an ISCC-HEADER and an ISCC-BODY generated by a single algorithm">ISCC-UNIT</abbr>.</p>
+<p>For these MainTypes, the length of the <abbr title="payload of an ISCC that follows the ISCC-HEADER; a similarity-preserving code, a cryptographic hash, or a timestamp depending on the ISCC type">ISCC-BODY</abbr> depends on the Length field only. A decoder can
+thus find the end of an <abbr title="ISCC composed of an ISCC-HEADER and an ISCC-BODY generated by a single algorithm">ISCC-UNIT</abbr> whose SubType or Version it does not know.</p>
+<div class="admonition note">
+<p class="admonition-title">NOTE</p>
+<p>An <abbr title="byte string formed by concatenating one or more ISCC-UNITs, each encoded as ISCC-HEADER followed by ISCC-BODY, without separators">ISCC-SEQ</abbr> with one <abbr title="ISCC composed of an ISCC-HEADER and an ISCC-BODY generated by a single algorithm">ISCC-UNIT</abbr> is the <abbr title="sequence of 8 bits">byte</abbr> encoding of that <abbr title="ISCC composed of an ISCC-HEADER and an ISCC-BODY generated by a single algorithm">ISCC-UNIT</abbr> as defined in <abbr title="International Organization for Standardization">ISO</abbr> 24138:2024.
+For display, an <abbr title="byte string formed by concatenating one or more ISCC-UNITs, each encoded as ISCC-HEADER followed by ISCC-BODY, without separators">ISCC-SEQ</abbr> can be written as <code>ISCC:</code> followed by the base32 encoding of its bytes, in
+the same way as an <abbr title="ISCC composed of an ISCC-HEADER and an ISCC-BODY generated by a single algorithm">ISCC-UNIT</abbr>.</p>
+</div>
 <h3 id="42-decoding">4.2 Decoding<a class="headerlink" href="#42-decoding" title="Permanent link">#</a></h3>
 <p>A decoder shall process an <abbr title="byte string formed by concatenating one or more ISCC-UNITs, each encoded as ISCC-HEADER followed by ISCC-BODY, without separators">ISCC-SEQ</abbr> from offset 0 as follows:</p>
 <ol>
 <li>Decode the <abbr title="self-describing header of every ISCC, composed of MainType, SubType, Version, and Length">ISCC-HEADER</abbr> at the current offset. Reject the <abbr title="byte string formed by concatenating one or more ISCC-UNITs, each encoded as ISCC-HEADER followed by ISCC-BODY, without separators">ISCC-SEQ</abbr> if the bytes end before the
-    <abbr title="self-describing header of every ISCC, composed of MainType, SubType, Version, and Length">ISCC-HEADER</abbr> is complete, or if the <abbr title="self-describing header of every ISCC, composed of MainType, SubType, Version, and Length">ISCC-HEADER</abbr> bytes differ from the encoding of the decoded
-    fields according to <abbr title="byte string formed by concatenating one or more ISCC-UNITs, each encoded as ISCC-HEADER followed by ISCC-BODY, without separators">ISCC-SEQ</abbr> Format, item 3.</li>
-<li>Reject the <abbr title="byte string formed by concatenating one or more ISCC-UNITs, each encoded as ISCC-HEADER followed by ISCC-BODY, without separators">ISCC-SEQ</abbr> if the MainType is not permitted by <abbr title="byte string formed by concatenating one or more ISCC-UNITs, each encoded as ISCC-HEADER followed by ISCC-BODY, without separators">ISCC-SEQ</abbr> Format, item 1, or if the Length
+    <abbr title="self-describing header of every ISCC, composed of MainType, SubType, Version, and Length">ISCC-HEADER</abbr> is complete. Reject it also if the <abbr title="self-describing header of every ISCC, composed of MainType, SubType, Version, and Length">ISCC-HEADER</abbr> bytes are not the encoding of the
+    decoded fields as specified in <abbr title="byte string formed by concatenating one or more ISCC-UNITs, each encoded as ISCC-HEADER followed by ISCC-BODY, without separators">ISCC-SEQ</abbr> Format, item C.</li>
+<li>Reject the <abbr title="byte string formed by concatenating one or more ISCC-UNITs, each encoded as ISCC-HEADER followed by ISCC-BODY, without separators">ISCC-SEQ</abbr> if <abbr title="byte string formed by concatenating one or more ISCC-UNITs, each encoded as ISCC-HEADER followed by ISCC-BODY, without separators">ISCC-SEQ</abbr> Format, item A does not permit the MainType, or if the Length
     field is greater than 7.</li>
 <li>Reject the <abbr title="byte string formed by concatenating one or more ISCC-UNITs, each encoded as ISCC-HEADER followed by ISCC-BODY, without separators">ISCC-SEQ</abbr> if fewer bytes remain than the <abbr title="payload of an ISCC that follows the ISCC-HEADER; a similarity-preserving code, a cryptographic hash, or a timestamp depending on the ISCC type">ISCC-BODY</abbr> requires.</li>
-<li>Emit the <abbr title="ISCC composed of an ISCC-HEADER and an ISCC-BODY generated by a single algorithm">ISCC-UNIT</abbr>, advance the offset past its <abbr title="payload of an ISCC that follows the ISCC-HEADER; a similarity-preserving code, a cryptographic hash, or a timestamp depending on the ISCC type">ISCC-BODY</abbr> and repeat while bytes remain.</li>
+<li>Output the <abbr title="ISCC composed of an ISCC-HEADER and an ISCC-BODY generated by a single algorithm">ISCC-UNIT</abbr> and move the offset to the end of its <abbr title="payload of an ISCC that follows the ISCC-HEADER; a similarity-preserving code, a cryptographic hash, or a timestamp depending on the ISCC type">ISCC-BODY</abbr>. If bytes remain, continue
+    with step A.</li>
 </ol>
 <p>A decoder shall not reject an <abbr title="ISCC composed of an ISCC-HEADER and an ISCC-BODY generated by a single algorithm">ISCC-UNIT</abbr> solely because its SubType or Version is unknown to it. A
 decoder shall not alter, reorder or drop <abbr title="International Standard Content Code">ISCC</abbr>-UNITs.</p>
 <h3 id="43-assertion">4.3 Assertion<a class="headerlink" href="#43-assertion" title="Permanent link">#</a></h3>
-<p>A <code>c2pa.soft-binding</code> assertion that carries <abbr title="International Standard Content Code">ISCC</abbr> soft bindings shall satisfy Table 1.</p>
+<p>A <code>c2pa.soft-binding</code> assertion that contains <abbr title="International Standard Content Code">ISCC</abbr> soft bindings shall satisfy Table 1.</p>
 <p style="text-align:center; font-size:smaller"><strong>Table 1 – <code>c2pa.soft-binding</code> fields for <code>io.iscc.v0</code></strong></p>
 <table>
 <thead>
@@ -1550,17 +1534,36 @@ decoder shall not alter, reorder or drop <abbr title="International Standard Con
 </tr>
 </tbody>
 </table>
-<p>Every <abbr title="ISCC composed of an ISCC-HEADER and an ISCC-BODY generated by a single algorithm">ISCC-UNIT</abbr> in an <code>io.iscc.v0</code> value shall have Version 0 and a 256-<abbr title="atomic unit of information in a computer system">bit</abbr> <abbr title="payload of an ISCC that follows the ISCC-HEADER; a similarity-preserving code, a cryptographic hash, or a timestamp depending on the ISCC type">ISCC-BODY</abbr> (Length field
-7). A validator or resolver shall ignore, for matching, any <abbr title="ISCC composed of an ISCC-HEADER and an ISCC-BODY generated by a single algorithm">ISCC-UNIT</abbr> whose SubType it does not
+<p>Each <abbr title="ISCC composed of an ISCC-HEADER and an ISCC-BODY generated by a single algorithm">ISCC-UNIT</abbr> of an <abbr title="International Standard Content Code">ISCC</abbr> <abbr title="C2PA assertion value that binds a manifest to digital content through a fingerprint or watermark rather than a cryptographic hash">soft binding</abbr> shall have Version 0 and a 256-<abbr title="atomic unit of information in a computer system">bit</abbr> <abbr title="payload of an ISCC that follows the ISCC-HEADER; a similarity-preserving code, a cryptographic hash, or a timestamp depending on the ISCC type">ISCC-BODY</abbr> (Length field
+equal to 7). A validator or resolver shall ignore, for matching, each <abbr title="ISCC composed of an ISCC-HEADER and an ISCC-BODY generated by a single algorithm">ISCC-UNIT</abbr> that it does not
 support or whose <abbr title="payload of an ISCC that follows the ISCC-HEADER; a similarity-preserving code, a cryptographic hash, or a timestamp depending on the ISCC type">ISCC-BODY</abbr> is shorter than 256 bits.</p>
-<p>A claim generator should include the Instance-Code of the source.</p>
-<p>NOTE 1: <code>io.iscc.v0</code> identifies the Version 0 algorithms of <abbr title="International Organization for Standardization">ISO</abbr> 24138:2024. <abbr title="International Standard Content Code">ISCC</abbr>-UNITs of another
-Version require a new registry entry.</p>
-<p>NOTE 2: The Instance-Code identifies the source exactly. It is the <abbr title="ISCC composed of an ISCC-HEADER and an ISCC-BODY generated by a single algorithm">ISCC-UNIT</abbr> that determines whether
-a signed asset is source-preserving (see Source Preservation).</p>
+<div class="admonition note">
+<p class="admonition-title">NOTE 1</p>
+<p>Soft binding resolution is a lookup in a catalog of unlimited size. In such a catalog, shorter
+<abbr title="International Standard Content Code">ISCC</abbr>-UNITs of different <abbr title="information organized to provide value to a user">content</abbr> collide at random. <a href="../iep-0013/">IEP-0013</a> uses 256-<abbr title="atomic unit of information in a computer system">bit</abbr> <abbr title="International Standard Content Code">ISCC</abbr>-UNITs
+for the same reason.</p>
+</div>
+<p>A claim generator shall include the Data-Code and the Instance-Code of the source in each <abbr title="International Standard Content Code">ISCC</abbr> soft
+binding. It should also include one or more Content-Codes if the source contains text, image, audio
+or video <abbr title="information organized to provide value to a user">content</abbr>. It may include a Semantic-Code and a Meta-Code.</p>
+<div class="admonition note">
+<p class="admonition-title">NOTE 2</p>
+<p>The Data-Code and the Instance-Code can be generated for every <abbr title="stored data with a known number of bits and a filename">file</abbr> format. They identify the source
+at <abbr title="sequence of 8 bits">byte</abbr> level. A re-encoded copy of the source has a different Data-Code and Instance-Code, but a
+similar Content-Code. This difference alone does not show that the <abbr title="International Standard Content Code">ISCC</abbr> <abbr title="C2PA assertion value that binds a manifest to digital content through a fingerprint or watermark rather than a cryptographic hash">soft binding</abbr> does not match
+the copy.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">NOTE 3</p>
+<p><abbr title="International Organization for Standardization">ISO</abbr> 24138:2024 does not define a Semantic-Code <abbr title="set of instructions">algorithm</abbr>. The Version 0 Semantic-Codes for text and
+image are those of the reference implementations <a href="https://github.com/iscc/iscc-sct">iscc-sct</a> and
+<a href="https://github.com/iscc/iscc-sci">iscc-sci</a>. They are generated with neural network models.
+Semantic-Codes that different implementations generate from the same <abbr title="information organized to provide value to a user">content</abbr> can thus differ in some
+<abbr title="atomic unit of information in a computer system">bit</abbr> positions.</p>
+</div>
 <div class="admonition example">
 <p class="admonition-title">Whole-asset value with Meta-, Content-, Data- and Instance-Code (256 bits each)</p>
-<p><code>blocks[].value</code> is the 136-<abbr title="sequence of 8 bits">byte</abbr> <abbr title="byte string formed by concatenating one or more ISCC-UNITs, each encoded as ISCC-HEADER followed by ISCC-BODY, without separators">ISCC-SEQ</abbr> of Test Vector 1; its <abbr title="Concise Binary Object Representation (RFC 8949), the binary serialization of C2PA manifests">CBOR</abbr> encoding starts with <code>58 88</code>
+<p><code>blocks[].value</code> is the 136-<abbr title="sequence of 8 bits">byte</abbr> <abbr title="byte string formed by concatenating one or more ISCC-UNITs, each encoded as ISCC-HEADER followed by ISCC-BODY, without separators">ISCC-SEQ</abbr> of Test Vector 1. Its <abbr title="Concise Binary Object Representation (RFC 8949), the binary serialization of C2PA manifests">CBOR</abbr> encoding starts with <code>58 88</code>
 (<abbr title="sequence of 8 bits">byte</abbr> string, length 136). With the reference implementation:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">base64</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">iscc_core</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">ic</span>
@@ -1588,118 +1591,130 @@ a signed asset is source-preserving (see Source Preservation).</p>
 </div>
 <hr>
 <h2 id="5-soft-binding-input">5. Soft Binding Input<a class="headerlink" href="#5-soft-binding-input" title="Permanent link">#</a></h2>
-<p>A claim generator shall generate every <abbr title="ISCC composed of an ISCC-HEADER and an ISCC-BODY generated by a single algorithm">ISCC-UNIT</abbr> of an <code>io.iscc.v0</code> <abbr title="C2PA assertion value that binds a manifest to digital content through a fingerprint or watermark rather than a cryptographic hash">soft binding</abbr> from the source. It
-shall process the source as a whole. It shall not remove, skip or normalize any part of the source
-before generation, including a <abbr title="Coalition for Content Provenance and Authenticity">C2PA</abbr> Manifest Store that the source already contains.</p>
-<p>NOTE 1: <abbr title="International Standard Content Code">ISCC</abbr>-UNITs of a source are generated as for any other <abbr title="stored data with a known number of bits and a filename">file</abbr>. A conforming <abbr title="International Standard Content Code">ISCC</abbr> implementation
-needs no knowledge of <abbr title="Coalition for Content Provenance and Authenticity">C2PA</abbr>.</p>
-<p>NOTE 2: When <abbr title="information organized to provide value to a user">content</abbr> is edited before the <abbr title="Coalition for Content Provenance and Authenticity">C2PA</abbr> Manifest is embedded, the source is the edited
-rendition handed to the embedding step, not the asset opened for editing. When a claim generator
-adds a <abbr title="Coalition for Content Provenance and Authenticity">C2PA</abbr> Manifest to an existing asset without editing it, the <abbr title="Coalition for Content Provenance and Authenticity">C2PA</abbr> specification requires a
-<code>c2pa.opened</code> action with a <code>parentOf</code> ingredient and <code>allActionsIncluded</code> set to true. The source
-is then the asset described by that ingredient.</p>
+<p>A claim generator shall generate each <abbr title="ISCC composed of an ISCC-HEADER and an ISCC-BODY generated by a single algorithm">ISCC-UNIT</abbr> of an <abbr title="International Standard Content Code">ISCC</abbr> <abbr title="C2PA assertion value that binds a manifest to digital content through a fingerprint or watermark rather than a cryptographic hash">soft binding</abbr>, except a Meta-Code, from
+the source. It shall process the source as a whole. It shall not remove, skip or normalize any part
+of the source before generation. This includes a <abbr title="Coalition for Content Provenance and Authenticity">C2PA</abbr> Manifest Store that the source already
+contains.</p>
+<p>A Meta-Code is generated from <abbr title="data that defines and describes other data">metadata</abbr>. This document does not specify that <abbr title="data that defines and describes other data">metadata</abbr> or its
+verification.</p>
+<div class="admonition note">
+<p class="admonition-title">NOTE</p>
+<p>If <abbr title="information organized to provide value to a user">content</abbr> is edited before it is signed, the source is the edited rendition that the claim
+generator signs. It is not the asset that was opened for editing.</p>
+</div>
 <hr>
 <h2 id="6-verification">6. Verification<a class="headerlink" href="#6-verification" title="Permanent link">#</a></h2>
 <h3 id="61-source-preservation">6.1 Source Preservation<a class="headerlink" href="#61-source-preservation" title="Permanent link">#</a></h3>
-<p>A validator that reports whether a signed asset is source-preserving shall determine it as follows:</p>
+<p>Figure 1 shows the relation between the source, the signed asset and the source view.</p>
+<figure>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/iscc-iep-0020-f01-source-view.png" data-desc-position="bottom"><img alt="Figure 1 – Source, signed asset and source view" src="../images/iscc-iep-0020-f01-source-view.png"></a>
+  </p>
+<figcaption>Figure 1 – Source, signed asset and source view</figcaption>
+</figure>
+<p>A validator that reports whether a signed asset is source-preserving shall apply the following steps
+to the active manifest in the given order. It shall report the first result that applies.</p>
 <ol>
-<li>If the claim signature of the active manifest does not validate, if an assertion of the active
-    manifest does not match its hashed URI in the claim, if the hard binding of the active manifest
-    is not a <abbr title="ordered sequence of bits">data</abbr> <abbr title="result of processing data with a hash algorithm">hash</abbr> assertion (<code>c2pa.hash.data</code>), or if the <abbr title="C2PA assertion value that binds a manifest to digital content through a fingerprint or watermark rather than a cryptographic hash">soft binding</abbr> has no Instance-Code,
-    report <em>not verifiable</em>.</li>
-<li>If the Instance-Code generated from the source view equals the Instance-Code of the <abbr title="C2PA assertion value that binds a manifest to digital content through a fingerprint or watermark rather than a cryptographic hash">soft binding</abbr>,
-    report <em>source-preserving</em>.</li>
-<li>If the hard binding matches the asset, report <em>not source-preserving</em>. Otherwise report <em>not
-    verifiable</em>.</li>
+<li>Report <em>not verifiable</em> if one or more of these conditions apply:<ul>
+<li>the claim signature does not validate;</li>
+<li>an assertion does not match its hashed URI in the claim;</li>
+<li>the hard binding is not a <abbr title="ordered sequence of bits">data</abbr> <abbr title="result of processing data with a hash algorithm">hash</abbr> assertion (<code>c2pa.hash.data</code>);</li>
+<li>no <abbr title="International Standard Content Code">ISCC</abbr> <abbr title="C2PA assertion value that binds a manifest to digital content through a fingerprint or watermark rather than a cryptographic hash">soft binding</abbr> has an Instance-Code.</li>
+</ul>
+</li>
+<li>Report <em>source-preserving</em> if the Instance-Code generated from the source view equals the
+    Instance-Code of an <abbr title="International Standard Content Code">ISCC</abbr> <abbr title="C2PA assertion value that binds a manifest to digital content through a fingerprint or watermark rather than a cryptographic hash">soft binding</abbr>.</li>
+<li>Report <em>not source-preserving</em> if the hard binding matches the asset.</li>
+<li>Report <em>not verifiable</em>.</li>
 </ol>
-<p>Step 2 is conclusive because the Instance-Code is a cryptographic <abbr title="result of processing data with a hash algorithm">hash</abbr> of the source, and step 1
-ensures that the claim signature covers both the Instance-Code of the <abbr title="C2PA assertion value that binds a manifest to digital content through a fingerprint or watermark rather than a cryptographic hash">soft binding</abbr> and the exclusion
+<p>Step B is conclusive. The Instance-Code is a cryptographic <abbr title="result of processing data with a hash algorithm">hash</abbr> of the source. Step A makes sure
+that the claim signature protects the Instance-Code of the <abbr title="International Standard Content Code">ISCC</abbr> <abbr title="C2PA assertion value that binds a manifest to digital content through a fingerprint or watermark rather than a cryptographic hash">soft binding</abbr> and the exclusion
 ranges of the <abbr title="ordered sequence of bits">data</abbr> <abbr title="result of processing data with a hash algorithm">hash</abbr> assertion.</p>
-<p>NOTE 1: The exclusion ranges that define the source view are recorded in the manifest and evaluated
-by every <abbr title="Coalition for Content Provenance and Authenticity">C2PA</abbr> validator. The source view therefore does not depend on how any implementation removes
-a <abbr title="Coalition for Content Provenance and Authenticity">C2PA</abbr> Manifest Store.</p>
-<p>NOTE 2: <em>Not source-preserving</em> does not indicate a change after signing, because the hard binding
-matches. It indicates that the embedding changed bytes outside the <abbr title="Coalition for Content Provenance and Authenticity">C2PA</abbr> Manifest Store, or that the
-source already contained a <abbr title="Coalition for Content Provenance and Authenticity">C2PA</abbr> Manifest Store. Embedding replaces such a store, so a signed asset
-whose source contained one is never source-preserving.</p>
-<p>NOTE 3: Whether a signed asset is source-preserving depends on its <abbr title="stored data with a known number of bits and a filename">file</abbr> format and on the claim
-generator. It requires a <abbr title="ordered sequence of bits">data</abbr> <abbr title="result of processing data with a hash algorithm">hash</abbr> assertion and an embedding that inserts the <abbr title="Coalition for Content Provenance and Authenticity">C2PA</abbr> Manifest Store
-without changing any other <abbr title="sequence of 8 bits">byte</abbr>. BMFF-based and ZIP-based assets have no source view, because their
-hard bindings are not <abbr title="ordered sequence of bits">data</abbr> <abbr title="result of processing data with a hash algorithm">hash</abbr> assertions.</p>
+<p>Figure 2 shows the steps as a flowchart.</p>
+<figure>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/iscc-iep-0020-f02-source-preservation.png" data-desc-position="bottom"><img alt="Figure 2 – Source preservation check" src="../images/iscc-iep-0020-f02-source-preservation.png" width="700"></a>
+  </p>
+<figcaption>Figure 2 – Source preservation check</figcaption>
+</figure>
+<div class="admonition note">
+<p class="admonition-title">NOTE</p>
+<p><em>Not source-preserving</em> does not show a change after signing, because the hard binding matches. It
+shows that the embedding changed bytes outside the <abbr title="Coalition for Content Provenance and Authenticity">C2PA</abbr> Manifest Store, or that the source already
+contained a <abbr title="Coalition for Content Provenance and Authenticity">C2PA</abbr> Manifest Store, which the embedding replaces. BMFF-based and ZIP-based assets are
+always <em>not verifiable</em>, because their hard bindings are not <abbr title="ordered sequence of bits">data</abbr> <abbr title="result of processing data with a hash algorithm">hash</abbr> assertions.</p>
+</div>
 <h3 id="62-soft-binding-verification">6.2 Soft Binding Verification<a class="headerlink" href="#62-soft-binding-verification" title="Permanent link">#</a></h3>
-<p>A validator that verifies an <code>io.iscc.v0</code> <abbr title="C2PA assertion value that binds a manifest to digital content through a fingerprint or watermark rather than a cryptographic hash">soft binding</abbr> against an asset shall generate, for each
-<abbr title="ISCC composed of an ISCC-HEADER and an ISCC-BODY generated by a single algorithm">ISCC-UNIT</abbr> of the <abbr title="C2PA assertion value that binds a manifest to digital content through a fingerprint or watermark rather than a cryptographic hash">soft binding</abbr> that it supports, an <abbr title="ISCC composed of an ISCC-HEADER and an ISCC-BODY generated by a single algorithm">ISCC-UNIT</abbr> with the same MainType, SubType,
-Version and Length, as follows:</p>
-<ol>
-<li>If the asset is source-preserving, it shall generate every <abbr title="ISCC composed of an ISCC-HEADER and an ISCC-BODY generated by a single algorithm">ISCC-UNIT</abbr> from the source view.</li>
-<li>Otherwise it shall generate the Data-Code and Instance-Code from the source view if the hard
-    binding of the active manifest is a <abbr title="ordered sequence of bits">data</abbr> <abbr title="result of processing data with a hash algorithm">hash</abbr> assertion, and from the asset itself if it is
-    not. It shall generate every other <abbr title="ISCC composed of an ISCC-HEADER and an ISCC-BODY generated by a single algorithm">ISCC-UNIT</abbr> from the asset itself.</li>
-</ol>
-<p>The validator shall compare each Instance-Code of the <abbr title="C2PA assertion value that binds a manifest to digital content through a fingerprint or watermark rather than a cryptographic hash">soft binding</abbr> with the generated Instance-Code
-for equality. It shall compare each other <abbr title="ISCC composed of an ISCC-HEADER and an ISCC-BODY generated by a single algorithm">ISCC-UNIT</abbr> of the <abbr title="C2PA assertion value that binds a manifest to digital content through a fingerprint or watermark rather than a cryptographic hash">soft binding</abbr> with its generated
-counterpart by the number of <abbr title="atomic unit of information in a computer system">bit</abbr> positions in which their <abbr title="International Standard Content Code">ISCC</abbr>-BODYs differ.</p>
-<p>If a signed asset is not source-preserving but its hard binding matches, the Data-Code and
-Instance-Code of the <abbr title="C2PA assertion value that binds a manifest to digital content through a fingerprint or watermark rather than a cryptographic hash">soft binding</abbr> identify the source, not the signed asset. A validator should
-present them as describing the source and should not report their difference as a failed match.</p>
-<p>NOTE 1: The Data-Code and Instance-Code are generated from all bytes. The source view keeps the <abbr title="Coalition for Content Provenance and Authenticity">C2PA</abbr>
-Manifest Store from counting as a change. The other <abbr title="International Standard Content Code">ISCC</abbr>-UNITs are generated from decoded <abbr title="information organized to provide value to a user">content</abbr>,
-which in most formats does not include the <abbr title="Coalition for Content Provenance and Authenticity">C2PA</abbr> Manifest Store. The source view of an asset that is
-not source-preserving need not decode correctly, whereas the asset itself does. A source-preserving
-source view is the source, so it also covers formats that embed the <abbr title="Coalition for Content Provenance and Authenticity">C2PA</abbr> Manifest Store as text.</p>
-<p>NOTE 2: This document sets no similarity threshold. The <abbr title="International Standard Content Code">ISCC</abbr>-BODYs of unrelated <abbr title="information organized to provide value to a user">content</abbr> differ in
-about half of their <abbr title="atomic unit of information in a computer system">bit</abbr> positions.</p>
+<p>A validator that verifies an <abbr title="International Standard Content Code">ISCC</abbr> <abbr title="C2PA assertion value that binds a manifest to digital content through a fingerprint or watermark rather than a cryptographic hash">soft binding</abbr> against an asset shall generate an <abbr title="ISCC composed of an ISCC-HEADER and an ISCC-BODY generated by a single algorithm">ISCC-UNIT</abbr> for each
+<abbr title="ISCC composed of an ISCC-HEADER and an ISCC-BODY generated by a single algorithm">ISCC-UNIT</abbr> of the <abbr title="International Standard Content Code">ISCC</abbr> <abbr title="C2PA assertion value that binds a manifest to digital content through a fingerprint or watermark rather than a cryptographic hash">soft binding</abbr> that it supports. The generated <abbr title="ISCC composed of an ISCC-HEADER and an ISCC-BODY generated by a single algorithm">ISCC-UNIT</abbr> shall have the same
+MainType, SubType, Version and Length. The validator shall generate it from the input given in the
+first row of Table 2 that applies to the asset.</p>
+<p style="text-align:center; font-size:smaller"><strong>Table 2 – Input for the generation of <abbr title="International Standard Content Code">ISCC</abbr>-UNITs</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Asset</strong></th>
+<th><strong>Data-Code, Instance-Code</strong></th>
+<th><strong>Content-Code, Semantic-Code</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>source-preserving signed asset</td>
+<td>source view</td>
+<td>source view</td>
+</tr>
+<tr>
+<td>other signed asset whose hard binding is a <abbr title="ordered sequence of bits">data</abbr> <abbr title="result of processing data with a hash algorithm">hash</abbr> assertion</td>
+<td>source view</td>
+<td>asset</td>
+</tr>
+<tr>
+<td>any other asset</td>
+<td>asset</td>
+<td>asset</td>
+</tr>
+</tbody>
+</table>
+<p>The validator shall compare each Instance-Code of the <abbr title="International Standard Content Code">ISCC</abbr> <abbr title="C2PA assertion value that binds a manifest to digital content through a fingerprint or watermark rather than a cryptographic hash">soft binding</abbr> with the generated
+Instance-Code for equality. It shall compare each other <abbr title="ISCC composed of an ISCC-HEADER and an ISCC-BODY generated by a single algorithm">ISCC-UNIT</abbr> with its generated counterpart by
+the number of <abbr title="atomic unit of information in a computer system">bit</abbr> positions in which their <abbr title="International Standard Content Code">ISCC</abbr>-BODYs differ. This document does not specify a
+similarity threshold.</p>
+<p>If the result for a signed asset is <em>not source-preserving</em>, the Data-Code and the Instance-Code of
+the <abbr title="International Standard Content Code">ISCC</abbr> <abbr title="C2PA assertion value that binds a manifest to digital content through a fingerprint or watermark rather than a cryptographic hash">soft binding</abbr> identify the source, not the signed asset. A validator should then show them
+as codes of the source. It should not report their difference as a failed match.</p>
+<div class="admonition note">
+<p class="admonition-title">NOTE</p>
+<p>The Data-Code and the Instance-Code are generated from all bytes of their input. The source view
+keeps the <abbr title="Coalition for Content Provenance and Authenticity">C2PA</abbr> Manifest Store out of that input. The Content-Code and the Semantic-Code are
+generated from decoded <abbr title="information organized to provide value to a user">content</abbr>. A source view that differs from the source is not necessarily
+decodable, but the asset is. A source view that equals the source gives the <abbr title="International Standard Content Code">ISCC</abbr>-UNITs of the source
+exactly, also for formats in which the decoded <abbr title="information organized to provide value to a user">content</abbr> includes the <abbr title="Coalition for Content Provenance and Authenticity">C2PA</abbr> Manifest Store.</p>
+</div>
 <hr>
 <h2 id="7-soft-binding-resolution-api">7. Soft Binding Resolution API<a class="headerlink" href="#7-soft-binding-resolution-api" title="Permanent link">#</a></h2>
+<p>An <code>io.iscc.v0</code> query to the <abbr title="Coalition for Content Provenance and Authenticity">C2PA</abbr> Soft Binding Resolution API shall satisfy all of the following:</p>
 <ol>
 <li>The <code>alg</code> parameter or member shall be <code>io.iscc.v0</code>.</li>
 <li>The <code>value</code> parameter of <code>GET /matches/byBinding</code> and the <code>value</code> member of the
-    <code>POST /matches/byBinding</code> request body shall be the RFC 4648 section 4 (base64) encoding of the
-    <abbr title="byte string formed by concatenating one or more ISCC-UNITs, each encoded as ISCC-HEADER followed by ISCC-BODY, without separators">ISCC-SEQ</abbr> <abbr title="sequence of 8 bits">byte</abbr> string, with padding characters.</li>
+    <code>POST /matches/byBinding</code> request body shall be the base64 encoding of an <abbr title="byte string formed by concatenating one or more ISCC-UNITs, each encoded as ISCC-HEADER followed by ISCC-BODY, without separators">ISCC-SEQ</abbr> as specified
+    in RFC 4648 section 4, with padding characters.</li>
 <li>In a <code>GET</code> request the base64 string shall be percent-encoded.</li>
-<li>A query <abbr title="byte string formed by concatenating one or more ISCC-UNITs, each encoded as ISCC-HEADER followed by ISCC-BODY, without separators">ISCC-SEQ</abbr> may contain any non-empty subset of the <abbr title="International Standard Content Code">ISCC</abbr>-UNITs stored for an asset.</li>
 </ol>
-<p>NOTE: The <abbr title="Coalition for Content Provenance and Authenticity">C2PA</abbr> specification requires "a base64-encoded string" without naming an alphabet or
-padding. All other base64 uses in the <abbr title="Coalition for Content Provenance and Authenticity">C2PA</abbr> specification and its reference implementation are RFC
-4648 section 4 with padding.</p>
+<p>The <abbr title="byte string formed by concatenating one or more ISCC-UNITs, each encoded as ISCC-HEADER followed by ISCC-BODY, without separators">ISCC-SEQ</abbr> of a query should include a Data-Code and an Instance-Code.</p>
 <hr>
 <h2 id="8-security-considerations">8. Security Considerations<a class="headerlink" href="#8-security-considerations" title="Permanent link">#</a></h2>
-<p>An <abbr title="byte string formed by concatenating one or more ISCC-UNITs, each encoded as ISCC-HEADER followed by ISCC-BODY, without separators">ISCC-SEQ</abbr> is a fingerprint, not a proof of integrity. The Decoding rules reject malformed framing
-without attempting recovery. They do not detect changes that preserve structural validity. Integrity
-protection within a <abbr title="Coalition for Content Provenance and Authenticity">C2PA</abbr> manifest depends on claim signature validation. Unsigned Resolution API
-queries lack this protection.</p>
-<p>The <abbr title="International Standard Content Code">ISCC</abbr>-UNITs of a <abbr title="C2PA assertion value that binds a manifest to digital content through a fingerprint or watermark rather than a cryptographic hash">soft binding</abbr> are statements by the signer. They are protected by the claim
-signature through the hashed URI of the <abbr title="C2PA assertion value that binds a manifest to digital content through a fingerprint or watermark rather than a cryptographic hash">soft binding</abbr> assertion, not by the hard binding. A result of
-<em>source-preserving</em> shows that the source view equals the source described by the Instance-Code. It
-does not show that the signer generated the other <abbr title="International Standard Content Code">ISCC</abbr>-UNITs correctly. Soft Binding Verification
-does.</p>
+<p>In a <abbr title="Coalition for Content Provenance and Authenticity">C2PA</abbr> Manifest, the claim signature protects the <abbr title="International Standard Content Code">ISCC</abbr> <abbr title="C2PA assertion value that binds a manifest to digital content through a fingerprint or watermark rather than a cryptographic hash">soft binding</abbr>. An <abbr title="byte string formed by concatenating one or more ISCC-UNITs, each encoded as ISCC-HEADER followed by ISCC-BODY, without separators">ISCC-SEQ</abbr> has no integrity
+protection of its own. The Decoding procedure rejects malformed <abbr title="sequence of 8 bits">byte</abbr> strings and does not try to
+repair them. It does not detect changes that keep the <abbr title="sequence of 8 bits">byte</abbr> string well-formed.</p>
+<p>Only the Instance-Code is a cryptographic <abbr title="result of processing data with a hash algorithm">hash</abbr>. Equal 256-<abbr title="atomic unit of information in a computer system">bit</abbr> Instance-Codes show that two inputs
+are identical. A match of any other <abbr title="ISCC composed of an ISCC-HEADER and an ISCC-BODY generated by a single algorithm">ISCC-UNIT</abbr> shows that two inputs are similar. It does not show
+that they are identical.</p>
+<p>The <abbr title="International Standard Content Code">ISCC</abbr>-UNITs of an <abbr title="International Standard Content Code">ISCC</abbr> <abbr title="C2PA assertion value that binds a manifest to digital content through a fingerprint or watermark rather than a cryptographic hash">soft binding</abbr> are statements of the signer. The claim signature protects
+them through the hashed URI of the <abbr title="C2PA assertion value that binds a manifest to digital content through a fingerprint or watermark rather than a cryptographic hash">soft binding</abbr> assertion. The hard binding does not protect them.
+The result <em>source-preserving</em> shows that the source view equals the source that the Instance-Code
+identifies. It does not show that the signer generated the other <abbr title="International Standard Content Code">ISCC</abbr>-UNITs correctly. Soft Binding
+Verification shows that.</p>
 <hr>
-<h2 id="9-rationale">9. Rationale<a class="headerlink" href="#9-rationale" title="Permanent link">#</a></h2>
-<ul>
-<li><strong>Byte string, not text.</strong> The <abbr title="Coalition for Content Provenance and Authenticity">C2PA</abbr> CDDL declares <code>value</code> as a <abbr title="sequence of 8 bits">byte</abbr> string and the Resolution API
-    base64-encodes it. Text inside the <abbr title="sequence of 8 bits">byte</abbr> string would add a second encoding layer and enlarge the
-    value by two thirds.</li>
-<li><strong>Plain concatenation.</strong> The <abbr title="self-describing header of every ISCC, composed of MainType, SubType, Version, and Length">ISCC-HEADER</abbr> makes each <abbr title="ISCC composed of an ISCC-HEADER and an ISCC-BODY generated by a single algorithm">ISCC-UNIT</abbr> self-delimiting, so no envelope,
-    count, separator or version field is needed, and a single <abbr title="ISCC composed of an ISCC-HEADER and an ISCC-BODY generated by a single algorithm">ISCC-UNIT</abbr> is a valid <abbr title="byte string formed by concatenating one or more ISCC-UNITs, each encoded as ISCC-HEADER followed by ISCC-BODY, without separators">ISCC-SEQ</abbr>. A
-    format change requires a new registry entry.</li>
-<li><strong>256-<abbr title="atomic unit of information in a computer system">bit</abbr> <abbr title="International Standard Content Code">ISCC</abbr>-UNITs.</strong> Soft binding resolution is a lookup in a catalog of unbounded size, where
-    shorter <abbr title="International Standard Content Code">ISCC</abbr>-UNITs collide at random. <a href="../iep-0013/">IEP-0013</a> relies on 256-<abbr title="atomic unit of information in a computer system">bit</abbr> <abbr title="International Standard Content Code">ISCC</abbr>-UNITs for
-    matching declarations across <abbr title="International Standard Content Code">ISCC</abbr>-HUBs for the same reason.</li>
-<li><strong>Standard base64 with padding.</strong> It is the only base64 form used by the <abbr title="Coalition for Content Provenance and Authenticity">C2PA</abbr> specification and
-    its reference implementation.</li>
-<li><strong>Complete source, no removal.</strong> Everywhere else in the <abbr title="International Standard Content Code">ISCC</abbr> system, <abbr title="International Standard Content Code">ISCC</abbr>-UNITs are generated from
-    complete <abbr title="sequence of 8 bits">byte</abbr> streams. A <abbr title="Coalition for Content Provenance and Authenticity">C2PA</abbr>-specific removal step would make every conforming implementation
-    aware of <abbr title="stored data with a known number of bits and a filename">file</abbr> formats and SDK behaviour, and results would differ between implementations.</li>
-<li><strong>Source view from exclusion ranges.</strong> The manifest itself defines which bytes the <abbr title="ordered sequence of bits">data</abbr> <abbr title="result of processing data with a hash algorithm">hash</abbr>
-    covers, so every validator derives the same source view without format-specific removal code.</li>
-<li><strong>Decoded <abbr title="International Standard Content Code">ISCC</abbr>-UNITs from the asset unless source-preserving.</strong> Only a source-preserving source
-    view is certain to decode like the source.</li>
-<li><strong>Instance-Code as proof of source preservation.</strong> The Instance-Code already is a 256-<abbr title="atomic unit of information in a computer system">bit</abbr>
-    cryptographic <abbr title="result of processing data with a hash algorithm">hash</abbr> of the source. A second <abbr title="result of processing data with a hash algorithm">hash</abbr> of the same bytes would add a field without
-    adding information.</li>
-</ul>
-<hr>
-<h2 id="10-reference-implementation">10. Reference Implementation<a class="headerlink" href="#10-reference-implementation" title="Permanent link">#</a></h2>
+<h2 id="9-reference-implementation">9. Reference Implementation<a class="headerlink" href="#9-reference-implementation" title="Permanent link">#</a></h2>
 <p>iscc-core, the reference implementation published with <abbr title="International Organization for Standardization">ISO</abbr> 24138:2024, already decomposes the base32
 form of concatenated <abbr title="ISCC composed of an ISCC-HEADER and an ISCC-BODY generated by a single algorithm">ISCC-UNIT</abbr> bytes into its <abbr title="International Standard Content Code">ISCC</abbr>-UNITs (<code>iscc_decompose</code>). Version 1.4.0 adds
 <code>encode_seq</code> (<abbr title="ISCC composed of an ISCC-HEADER and an ISCC-BODY generated by a single algorithm">ISCC-UNIT</abbr> strings to <abbr title="byte string formed by concatenating one or more ISCC-UNITs, each encoded as ISCC-HEADER followed by ISCC-BODY, without separators">ISCC-SEQ</abbr> bytes) and <code>decode_seq</code> (<abbr title="byte string formed by concatenating one or more ISCC-UNITs, each encoded as ISCC-HEADER followed by ISCC-BODY, without separators">ISCC-SEQ</abbr> bytes to <abbr title="ISCC composed of an ISCC-HEADER and an ISCC-BODY generated by a single algorithm">ISCC-UNIT</abbr>
@@ -1707,25 +1722,23 @@ strings) as strict <abbr title="sequence of 8 bits">byte</abbr>-level helpers, t
 Soft Binding Algorithm List shall reference this document as its <code>informationalUrl</code>.</p>
 <p>The <a href="https://github.com/iscc/iscc-c2pa-demo"><abbr title="International Standard Content Code">ISCC</abbr> <abbr title="Coalition for Content Provenance and Authenticity">C2PA</abbr> Demo</a> is an open-source desktop application
 and command line tool built on c2pa-rs, the <abbr title="Coalition for Content Provenance and Authenticity">C2PA</abbr> SDK of the Content Authenticity Initiative. It
-signs assets with <code>io.iscc.v0</code> soft bindings as specified in this document and performs Soft Binding
-Verification and the Source Preservation check.</p>
+signs assets with <abbr title="International Standard Content Code">ISCC</abbr> soft bindings as specified in this document and performs the Source
+Preservation check and Soft Binding Verification.</p>
 <hr>
-<h2 id="11-test-vectors">11. Test Vectors<a class="headerlink" href="#11-test-vectors" title="Permanent link">#</a></h2>
+<h2 id="10-test-vectors">10. Test Vectors<a class="headerlink" href="#10-test-vectors" title="Permanent link">#</a></h2>
 <p>Conforming encoders shall produce, and conforming decoders shall accept, the following <abbr title="sequence of 8 bits">byte</abbr> strings.</p>
-<p><strong>Vector 1</strong> – the four <abbr title="International Standard Content Code">ISCC</abbr>-UNITs of the example above, in the given order:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>bytes (hex):
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>0007578c7c8fbfbdb58f29f63efeb3871553faa75ff97458d49eff5ee4ddf36bb6c92007a88248c53a852c8d7e9c547047c9a36c4052b6acabef1e2a4ce15e586e0cb305300705b41f3472493225d27edcbdb63236846a53ee28deca5e3561acc0c9bbdf81b54007a522af4a2c9cbf6a808924afd2acfa0793347b936678f5982e22fdd3dd4a0e37
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>Resolution API value:
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>AAdXjHyPv721jyn2Pv6zhxVT+qdf+XRY1J7/XuTd82u2ySAHqIJIxTqFLI1+nFRwR8mjbEBStqyr7x4qTOFeWG4MswUwBwW0HzRySTIl0n7cvbYyNoRqU+4o3speNWGswMm734G1QAelIq9KLJy/aoCJJK/SrPoHkzR7k2Z49ZguIv3T3UoONw==
+<p><strong>Vector 1</strong> – the four <abbr title="International Standard Content Code">ISCC</abbr>-UNITs of the example in Assertion, in the given order:</p>
+<div class="highlight"><span class="filename">ISCC-SEQ bytes (hex)</span><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>0007578c7c8fbfbdb58f29f63efeb3871553faa75ff97458d49eff5ee4ddf36bb6c92007a88248c53a852c8d7e9c547047c9a36c4052b6acabef1e2a4ce15e586e0cb305300705b41f3472493225d27edcbdb63236846a53ee28deca5e3561acc0c9bbdf81b54007a522af4a2c9cbf6a808924afd2acfa0793347b936678f5982e22fdd3dd4a0e37
+</code></pre></div>
+<div class="highlight"><span class="filename">Resolution API value (base64)</span><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>AAdXjHyPv721jyn2Pv6zhxVT+qdf+XRY1J7/XuTd82u2ySAHqIJIxTqFLI1+nFRwR8mjbEBStqyr7x4qTOFeWG4MswUwBwW0HzRySTIl0n7cvbYyNoRqU+4o3speNWGswMm734G1QAelIq9KLJy/aoCJJK/SrPoHkzR7k2Z49ZguIv3T3UoONw==
 </code></pre></div>
 <p><strong>Vector 2</strong> – mixed lengths with two CONTENT SubTypes, <code>ISCC:EEAYYNMFG5XOELK2</code> (Image, 64 bits),
 <code>ISCC:EIBZ6B7T76PAAYP7H334X77754376</code> (Audio, 128 bits) and
 <code>ISCC:GADQLNA7GRZESMRF2J7NZPNWGI3II2ST5YUN5SS6GVQ2ZQGJXPPYDNI</code> (Data, 256 bits):</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>21018c3585376ee22d5a22039f07f3ff9e0061ff3ef7cbffffef37ff300705b41f3472493225d27edcbdb63236846a53ee28deca5e3561acc0c9bbdf81b5
+<div class="highlight"><span class="filename">ISCC-SEQ bytes (hex)</span><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>21018c3585376ee22d5a22039f07f3ff9e0061ff3ef7cbffffef37ff300705b41f3472493225d27edcbdb63236846a53ee28deca5e3561acc0c9bbdf81b5
 </code></pre></div>
-<p>Conforming decoders shall reject the <abbr title="sequence of 8 bits">byte</abbr> strings in Table 2.</p>
-<p style="text-align:center; font-size:smaller"><strong>Table 2 – Byte strings that decoders shall reject</strong></p>
+<p>Conforming decoders shall reject the <abbr title="sequence of 8 bits">byte</abbr> strings in Table 3.</p>
+<p style="text-align:center; font-size:smaller"><strong>Table 3 – Byte strings that decoders shall reject</strong></p>
 <table>
 <thead>
 <tr>
@@ -1766,11 +1779,14 @@ Verification and the Source Preservation check.</p>
 </table>
 <p>Conforming decoders shall accept <code>270000000000</code> (CONTENT, SubType 7, Version 0, 32 bits) and return
 <code>ISCC:E4AAAAAAAA</code>, although SubType 7 is not defined by <abbr title="International Organization for Standardization">ISO</abbr> 24138:2024.</p>
-<p>NOTE: Vector 2 and the 32-<abbr title="atomic unit of information in a computer system">bit</abbr> acceptance test exercise the <abbr title="byte string formed by concatenating one or more ISCC-UNITs, each encoded as ISCC-HEADER followed by ISCC-BODY, without separators">ISCC-SEQ</abbr> codec only. Neither is a
-conforming <code>io.iscc.v0</code> value, which requires 256-<abbr title="atomic unit of information in a computer system">bit</abbr> <abbr title="International Standard Content Code">ISCC</abbr>-UNITs.</p>
+<div class="admonition note">
+<p class="admonition-title">NOTE</p>
+<p>Vector 2 and the 32-<abbr title="atomic unit of information in a computer system">bit</abbr> acceptance test exercise the <abbr title="byte string formed by concatenating one or more ISCC-UNITs, each encoded as ISCC-HEADER followed by ISCC-BODY, without separators">ISCC-SEQ</abbr> codec only. They are not conforming
+<abbr title="International Standard Content Code">ISCC</abbr> soft bindings, which require 256-<abbr title="atomic unit of information in a computer system">bit</abbr> <abbr title="International Standard Content Code">ISCC</abbr>-UNITs that include a Data-Code and an Instance-Code.</p>
+</div>
 <hr>
-<h2 id="12-references">12. References<a class="headerlink" href="#12-references" title="Permanent link">#</a></h2>
-<h3 id="121-normative">12.1 Normative<a class="headerlink" href="#121-normative" title="Permanent link">#</a></h3>
+<h2 id="11-references">11. References<a class="headerlink" href="#11-references" title="Permanent link">#</a></h2>
+<h3 id="111-normative">11.1 Normative<a class="headerlink" href="#111-normative" title="Permanent link">#</a></h3>
 <ul>
 <li><a href="https://www.iso.org/standard/77899.html"><abbr title="International Organization for Standardization">ISO</abbr> 24138:2024</a> - International Standard Content Code</li>
 <li><a href="../iep-0001/">IEP-0001</a> - <abbr title="International Standard Content Code">ISCC</abbr> Structure and Format</li>
@@ -1780,13 +1796,13 @@ conforming <code>io.iscc.v0</code> value, which requires 256-<abbr title="atomic
 <li><a href="https://www.rfc-editor.org/rfc/rfc4648">RFC 4648</a> - The Base16, Base32, and Base64 Data Encodings</li>
 <li><a href="https://www.rfc-editor.org/rfc/rfc8949">RFC 8949</a> - Concise Binary Object Representation (<abbr title="Concise Binary Object Representation (RFC 8949), the binary serialization of C2PA manifests">CBOR</abbr>)</li>
 </ul>
-<h3 id="122-informative">12.2 Informative<a class="headerlink" href="#122-informative" title="Permanent link">#</a></h3>
+<h3 id="112-informative">11.2 Informative<a class="headerlink" href="#112-informative" title="Permanent link">#</a></h3>
 <ul>
 <li><a href="../iep-0013/">IEP-0013</a> - <abbr title="International Standard Content Code">ISCC</abbr> Discovery Protocol</li>
-<li><a href="https://spec.c2pa.org/specifications/specifications/2.4/specs/C2PA_Specification.html#_actions"><abbr title="Coalition for Content Provenance and Authenticity">C2PA</abbr> Technical Specification 2.4, Actions</a></li>
-<li><a href="https://spec.c2pa.org/specifications/specifications/2.4/specs/C2PA_Specification.html#ingredient_assertion"><abbr title="Coalition for Content Provenance and Authenticity">C2PA</abbr> Technical Specification 2.4, Ingredient</a></li>
 <li><a href="https://github.com/c2pa-org/softbinding-algorithm-list"><abbr title="Coalition for Content Provenance and Authenticity">C2PA</abbr> Soft Binding Algorithm List</a></li>
 <li><a href="https://github.com/iscc/iscc-core">iscc-core</a> - Reference implementation</li>
+<li><a href="https://github.com/iscc/iscc-sct">iscc-sct</a> - Semantic-Code Text</li>
+<li><a href="https://github.com/iscc/iscc-sci">iscc-sci</a> - Semantic-Code Image</li>
 <li><a href="https://github.com/iscc/iscc-c2pa-demo"><abbr title="International Standard Content Code">ISCC</abbr> <abbr title="Coalition for Content Provenance and Authenticity">C2PA</abbr> Demo</a> - Signing and verification</li>
 </ul>
 
@@ -1811,7 +1827,7 @@ conforming <code>io.iscc.v0</code> value, which requires 256-<abbr title="atomic
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"></path></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="September 28, 2026 09:35:45 UTC">2026-09-28</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="October 1, 2026 09:18:54 UTC">2026-10-01</span>
   </span>
 
     
