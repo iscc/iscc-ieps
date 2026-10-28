@@ -51,5 +51,5 @@
 *[whitespace]: The nondisplaying formatting characters such as spaces, tabs, etc., that are embedded within a block of free text.
 *[C2PA]: Coalition for Content Provenance and Authenticity
 *[CBOR]: Concise Binary Object Representation (RFC 8949), the binary serialization of C2PA manifests
-*[ISCC-SEQ]: byte string formed by concatenating one or more ISCC-UNITs, each encoded as ISCC-HEADER followed by ISCC-BODY, without separators
+*[ISCC-SEQ]: byte string formed by concatenating the byte representations of one or more ISCC-UNITs
 *[soft binding]: C2PA assertion value that binds a manifest to digital content through a fingerprint or watermark rather than a cryptographic hash
